@@ -1,6 +1,6 @@
 # SCSS 子集编译器
 
-MoonBit 本地候选版 0.2.0。变量、嵌套选择器、父选择器与作用域。
+MoonBit 本地候选版 0.3.0。变量、嵌套选择器、父选择器与作用域。
 
 ## 快速试用
 
@@ -26,11 +26,11 @@ MoonBit 工具链与 Node.js 安装好后，在此目录运行：
 
 ## 已实现范围
 
-变量、嵌套选择器、父选择器与作用域。示例输入与调用逻辑见 `cmd/main/main.mbt`；网页允许修改输入并执行实际编译代码。
+词法变量与 !default/!global、嵌套选择器、独立父选择器组合、伪类和属性选择器、mixin 默认/关键字/可变参数、调用方作用域的 @content、变量/字符串插值、嵌套属性、media/supports/layer/font-face。
 
 ## 当前边界
 
-支持简单选择器、嵌套、&、词法变量和 CSS 声明；不含 @use/@import、mixin、函数、运算、插值；含 [] 或 () 的复杂选择器明确拒绝，不是 dart-sass 全兼容实现。
+尚未实现模块和文件导入、完整表达式与算术、内置/用户函数、流程控制、@extend、完整 at-rule 与选择器语义、注释及自定义属性空白的完整保留；不是 Dart Sass 全兼容实现。
 
 ## 来源与许可证
 
@@ -57,10 +57,13 @@ node tools/cli.mjs --file sample.txt --json
 
 需要安装 MoonBit 后传 `-MoonPath` 或将 moon 加入 PATH；不依赖工作区之外的私有脚本。详见 [TESTING.md](TESTING.md) 和 [CONTRIBUTING.md](CONTRIBUTING.md)。
 
-## 本轮功能升级
+## 独立对照验证
 
-增加保留父选择器上下文的嵌套 @media 编译。
+固定 Dart Sass 1.104.0，对 124 个本地原创场景比较成功/错误结果与规范化 CSS。
 
-无 mixin、函数、模块、运算、插值和完整复杂选择器；不是 Sass 全兼容。
+```powershell
+npm ci --ignore-scripts
+./verify.ps1 -WithOracle
+```
 
-[可执行 API 示例](README.mbt.md)会随测试运行；[功能边界](FEATURES.md)和[测试说明](TESTING.md)用于独立审查。网页与 CLI 展示示例入口，新 API 的完整使用见可执行示例。
+对照覆盖不等于全 Sass 兼容。结果见 evidence，完整边界见 [FEATURES.md](FEATURES.md)。

@@ -1,0 +1,8 @@
+{
+  "name": "localreview-scss",
+  "private": true,
+  "type": "module",
+  "devDependencies": {
+    "sass": "1.104.0"
+  }
+}

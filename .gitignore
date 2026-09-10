@@ -7,3 +7,5 @@ evidence/robustness.json
 evidence/coverage*
 evidence/current-validation.json
 evidence/validation-console.txt
+node_modules/
+evidence/sass-oracle.json
