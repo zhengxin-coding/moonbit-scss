@@ -1,0 +1,8 @@
+$accent: #4ca98f;
+.card, .panel {
+  color: $accent;
+  padding: 12px;
+  &:hover { color: white; }
+  .title { font-weight: bold; }
+}
+.card { @media screen { color: blue; &:hover { color: red; } } }
