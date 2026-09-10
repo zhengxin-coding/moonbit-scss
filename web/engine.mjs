@@ -3784,32 +3784,55 @@ function _M0FP211localreview4scss14compile__block(src, parents, inherited, depth
         output.val = `${_tmp}${_M0MPC15array5Array4joinGsE(parents, new _M0TPC16string10StringView(_bind, 0, _bind.length))} {\n${declarations.val}}\n`;
         declarations.val = "";
       }
-      const _tmp = output.val;
-      const _bind = _M0FP211localreview4scss6expand(part, vars);
-      let _tmp$2;
-      if (_bind.$tag === 1) {
-        const _ok = _bind;
-        _tmp$2 = _ok._0;
+      const _bind = "@media ";
+      if (_M0MPC16string6String11has__prefix(part, new _M0TPC16string10StringView(_bind, 0, _bind.length))) {
+        const _tmp = output.val;
+        const _bind$2 = _M0FP211localreview4scss6expand(part, vars);
+        let _tmp$2;
+        if (_bind$2.$tag === 1) {
+          const _ok = _bind$2;
+          _tmp$2 = _ok._0;
+        } else {
+          return _bind$2;
+        }
+        const _tmp$3 = _tmp$2;
+        const _bind$3 = _M0FP211localreview4scss14compile__block(src, parents, vars, depth + 1 | 0, true);
+        let _tmp$4;
+        if (_bind$3.$tag === 1) {
+          const _ok = _bind$3;
+          _tmp$4 = _ok._0;
+        } else {
+          return _bind$3;
+        }
+        output.val = `${_tmp}${_tmp$3} {\n${_tmp$4}}\n`;
       } else {
-        return _bind;
+        const _tmp = output.val;
+        const _bind$2 = _M0FP211localreview4scss6expand(part, vars);
+        let _tmp$2;
+        if (_bind$2.$tag === 1) {
+          const _ok = _bind$2;
+          _tmp$2 = _ok._0;
+        } else {
+          return _bind$2;
+        }
+        const _bind$3 = _M0FP211localreview4scss9selectors(parents, _tmp$2);
+        let _tmp$3;
+        if (_bind$3.$tag === 1) {
+          const _ok = _bind$3;
+          _tmp$3 = _ok._0;
+        } else {
+          return _bind$3;
+        }
+        const _bind$4 = _M0FP211localreview4scss14compile__block(src, _tmp$3, vars, depth + 1 | 0, true);
+        let _tmp$4;
+        if (_bind$4.$tag === 1) {
+          const _ok = _bind$4;
+          _tmp$4 = _ok._0;
+        } else {
+          return _bind$4;
+        }
+        output.val = `${_tmp}${_tmp$4}`;
       }
-      const _bind$2 = _M0FP211localreview4scss9selectors(parents, _tmp$2);
-      let _tmp$3;
-      if (_bind$2.$tag === 1) {
-        const _ok = _bind$2;
-        _tmp$3 = _ok._0;
-      } else {
-        return _bind$2;
-      }
-      const _bind$3 = _M0FP211localreview4scss14compile__block(src, _tmp$3, vars, depth + 1 | 0, true);
-      let _tmp$4;
-      if (_bind$3.$tag === 1) {
-        const _ok = _bind$3;
-        _tmp$4 = _ok._0;
-      } else {
-        return _bind$3;
-      }
-      output.val = `${_tmp}${_tmp$4}`;
     } else {
       if (!_M0MPC16string6String9is__empty(part)) {
         const _bind = ":";

@@ -44,7 +44,7 @@ test "later declarations preserve source order" {
 test "unsupported and invalid fail" {
   for
     s in [
-      "a{color:$missing}", "a{color:red", "a{color: url(x}", "&:hover{x:1}", "@media screen {a{x:1}}",
+      "a{color:$missing}", "a{color:red", "a{color: url(x}", "&:hover{x:1}", "@supports screen {a{x:1}}",
       "/* unfinished",
     ] {
     assert_true(

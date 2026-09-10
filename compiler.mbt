@@ -167,13 +167,20 @@ fn compile_block(
         output += parents.join(", ") + " {\n" + declarations + "}\n"
         declarations = ""
       }
-      output += compile_block(
-        src,
-        selectors(parents, expand(part, vars)),
-        vars,
-        depth + 1,
-        true,
-      )
+      if part.has_prefix("@media ") {
+        output += expand(part, vars) +
+          " {\n" +
+          compile_block(src, parents, vars, depth + 1, true) +
+          "}\n"
+      } else {
+        output += compile_block(
+          src,
+          selectors(parents, expand(part, vars)),
+          vars,
+          depth + 1,
+          true,
+        )
+      }
     } else if !part.is_empty() {
       let pieces = part.split(":").collect()
       if pieces.length() < 2 {
