@@ -1,0 +1,5 @@
+import {
+  "localreview/scss" @lib,
+}
+
+pkgtype(kind: "executable")

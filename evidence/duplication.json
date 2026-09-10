@@ -1,0 +1,22 @@
+{
+  "date": "2026-09-10",
+  "registry": {
+    "topic": "scss",
+    "url": "https://mooncakes.io/api/v0/search?kw=scss&limit=30",
+    "results": [
+      {
+        "name": "lkdrt/palette_forge",
+        "description": "面向设计系统的高级调色与调和工具 - Advanced Color Palette & Harmony Engine for Design Systems in MoonBit",
+        "repository": "https://github.com/lkdrt/moonbit-palette-forge"
+      }
+    ]
+  },
+  "github": {
+    "topic": "scss",
+    "query": "scss language:MoonBit",
+    "url": "https://api.github.com/search/repositories?q=scss+language%3AMoonBit&per_page=30",
+    "total_count": 0,
+    "results": []
+  },
+  "scope": "keyword package metadata + public repository search; not full code, private repos, or contest registration list"
+}

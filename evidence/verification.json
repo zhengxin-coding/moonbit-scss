@@ -1,0 +1,49 @@
+{
+  "project": "scss",
+  "checks": [
+    {
+      "command": "moon fmt",
+      "exit_code": 0,
+      "output": "Finished. moon: ran 5 tasks, now up to date\n",
+      "utc": "2026-09-10T06:05:20.465996+00:00"
+    },
+    {
+      "command": "moon info",
+      "exit_code": 0,
+      "output": "Finished. moon: ran 2 tasks, now up to date\n",
+      "utc": "2026-09-10T06:05:20.668659+00:00"
+    },
+    {
+      "command": "moon check --deny-warn",
+      "exit_code": 0,
+      "output": "Finished. moon: ran 4 tasks, now up to date\n",
+      "utc": "2026-09-10T06:05:21.074789+00:00"
+    },
+    {
+      "command": "moon test --target wasm-gc --deny-warn",
+      "exit_code": 0,
+      "output": "Total tests: 8, passed: 8, failed: 0.\n",
+      "utc": "2026-09-10T06:05:21.603252+00:00"
+    },
+    {
+      "command": "moon test --target js --deny-warn",
+      "exit_code": 0,
+      "output": "Total tests: 8, passed: 8, failed: 0.\n",
+      "utc": "2026-09-10T06:05:22.592617+00:00"
+    },
+    {
+      "command": "moon build --target js --deny-warn",
+      "exit_code": 0,
+      "output": "Finished. moon: ran 5 tasks, now up to date\n",
+      "utc": "2026-09-10T06:05:23.922884+00:00"
+    },
+    {
+      "command": "moon run cmd/main",
+      "exit_code": 0,
+      "output": ".card, .panel {\n  color: #4ca98f;\n  padding: 12px;\n}\n.card:hover, .panel:hover {\n  color: white;\n}\n.card .title, .panel .title {\n  font-weight: bold;\n}\n\n",
+      "utc": "2026-09-10T06:05:24.566165+00:00"
+    }
+  ],
+  "demo": ".card, .panel {\n  color: #4ca98f;\n  padding: 12px;\n}\n.card:hover, .panel:hover {\n  color: white;\n}\n.card .title, .panel .title {\n  font-weight: bold;\n}",
+  "source_lines": 268
+}
