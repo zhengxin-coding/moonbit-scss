@@ -1,0 +1,877 @@
+{
+  "utc": "2026-09-17T20:17:48.198Z",
+  "oracle": "dart-sass\t1.104.0\t(Sass Compiler)\t[Dart]\ndart2js\t3.13.3\t(Dart Compiler)\t[Dart]",
+  "cases": 124,
+  "passed": 124,
+  "normalization": "Both outputs parsed as plain CSS and serialized by Dart Sass in compressed mode; no source selector/variable substitution is performed on MoonBit output",
+  "results": [
+    {
+      "name": "selector .a / .x, .y",
+      "source": ".a { .x, .y { color: red; padding: 1px; } }",
+      "ok": true,
+      "expectedError": false,
+      "detail": "same canonical CSS"
+    },
+    {
+      "name": "selector .a / &:hover",
+      "source": ".a { &:hover { color: red; padding: 1px; } }",
+      "ok": true,
+      "expectedError": false,
+      "detail": "same canonical CSS"
+    },
+    {
+      "name": "selector .a / & + &",
+      "source": ".a { & + & { color: red; padding: 1px; } }",
+      "ok": true,
+      "expectedError": false,
+      "detail": "same canonical CSS"
+    },
+    {
+      "name": "selector .a / [dir=\"rtl\"] &",
+      "source": ".a { [dir=\"rtl\"] & { color: red; padding: 1px; } }",
+      "ok": true,
+      "expectedError": false,
+      "detail": "same canonical CSS"
+    },
+    {
+      "name": "selector .a / :not(&)",
+      "source": ".a { :not(&) { color: red; padding: 1px; } }",
+      "ok": true,
+      "expectedError": false,
+      "detail": "same canonical CSS"
+    },
+    {
+      "name": "selector .a / &:not(&)",
+      "source": ".a { &:not(&) { color: red; padding: 1px; } }",
+      "ok": true,
+      "expectedError": false,
+      "detail": "same canonical CSS"
+    },
+    {
+      "name": "selector .a / :is(&, .fallback)",
+      "source": ".a { :is(&, .fallback) { color: red; padding: 1px; } }",
+      "ok": true,
+      "expectedError": false,
+      "detail": "same canonical CSS"
+    },
+    {
+      "name": "selector .a / [data-value=\"a,b&\"]",
+      "source": ".a { [data-value=\"a,b&\"] { color: red; padding: 1px; } }",
+      "ok": true,
+      "expectedError": false,
+      "detail": "same canonical CSS"
+    },
+    {
+      "name": "selector .a / :is(.x, .y)",
+      "source": ".a { :is(.x, .y) { color: red; padding: 1px; } }",
+      "ok": true,
+      "expectedError": false,
+      "detail": "same canonical CSS"
+    },
+    {
+      "name": "selector .a / &--active",
+      "source": ".a { &--active { color: red; padding: 1px; } }",
+      "ok": true,
+      "expectedError": false,
+      "detail": "same canonical CSS"
+    },
+    {
+      "name": "selector .a, .b / .x, .y",
+      "source": ".a, .b { .x, .y { color: red; padding: 1px; } }",
+      "ok": true,
+      "expectedError": false,
+      "detail": "same canonical CSS"
+    },
+    {
+      "name": "selector .a, .b / &:hover",
+      "source": ".a, .b { &:hover { color: red; padding: 1px; } }",
+      "ok": true,
+      "expectedError": false,
+      "detail": "same canonical CSS"
+    },
+    {
+      "name": "selector .a, .b / & + &",
+      "source": ".a, .b { & + & { color: red; padding: 1px; } }",
+      "ok": true,
+      "expectedError": false,
+      "detail": "same canonical CSS"
+    },
+    {
+      "name": "selector .a, .b / [dir=\"rtl\"] &",
+      "source": ".a, .b { [dir=\"rtl\"] & { color: red; padding: 1px; } }",
+      "ok": true,
+      "expectedError": false,
+      "detail": "same canonical CSS"
+    },
+    {
+      "name": "selector .a, .b / :not(&)",
+      "source": ".a, .b { :not(&) { color: red; padding: 1px; } }",
+      "ok": true,
+      "expectedError": false,
+      "detail": "same canonical CSS"
+    },
+    {
+      "name": "selector .a, .b / &:not(&)",
+      "source": ".a, .b { &:not(&) { color: red; padding: 1px; } }",
+      "ok": true,
+      "expectedError": false,
+      "detail": "same canonical CSS"
+    },
+    {
+      "name": "selector .a, .b / :is(&, .fallback)",
+      "source": ".a, .b { :is(&, .fallback) { color: red; padding: 1px; } }",
+      "ok": true,
+      "expectedError": false,
+      "detail": "same canonical CSS"
+    },
+    {
+      "name": "selector .a, .b / [data-value=\"a,b&\"]",
+      "source": ".a, .b { [data-value=\"a,b&\"] { color: red; padding: 1px; } }",
+      "ok": true,
+      "expectedError": false,
+      "detail": "same canonical CSS"
+    },
+    {
+      "name": "selector .a, .b / :is(.x, .y)",
+      "source": ".a, .b { :is(.x, .y) { color: red; padding: 1px; } }",
+      "ok": true,
+      "expectedError": false,
+      "detail": "same canonical CSS"
+    },
+    {
+      "name": "selector .a, .b / &--active",
+      "source": ".a, .b { &--active { color: red; padding: 1px; } }",
+      "ok": true,
+      "expectedError": false,
+      "detail": "same canonical CSS"
+    },
+    {
+      "name": "selector nav > .item / .x, .y",
+      "source": "nav > .item { .x, .y { color: red; padding: 1px; } }",
+      "ok": true,
+      "expectedError": false,
+      "detail": "same canonical CSS"
+    },
+    {
+      "name": "selector nav > .item / &:hover",
+      "source": "nav > .item { &:hover { color: red; padding: 1px; } }",
+      "ok": true,
+      "expectedError": false,
+      "detail": "same canonical CSS"
+    },
+    {
+      "name": "selector nav > .item / & + &",
+      "source": "nav > .item { & + & { color: red; padding: 1px; } }",
+      "ok": true,
+      "expectedError": false,
+      "detail": "same canonical CSS"
+    },
+    {
+      "name": "selector nav > .item / [dir=\"rtl\"] &",
+      "source": "nav > .item { [dir=\"rtl\"] & { color: red; padding: 1px; } }",
+      "ok": true,
+      "expectedError": false,
+      "detail": "same canonical CSS"
+    },
+    {
+      "name": "selector nav > .item / :not(&)",
+      "source": "nav > .item { :not(&) { color: red; padding: 1px; } }",
+      "ok": true,
+      "expectedError": false,
+      "detail": "same canonical CSS"
+    },
+    {
+      "name": "selector nav > .item / &:not(&)",
+      "source": "nav > .item { &:not(&) { color: red; padding: 1px; } }",
+      "ok": true,
+      "expectedError": false,
+      "detail": "same canonical CSS"
+    },
+    {
+      "name": "selector nav > .item / :is(&, .fallback)",
+      "source": "nav > .item { :is(&, .fallback) { color: red; padding: 1px; } }",
+      "ok": true,
+      "expectedError": false,
+      "detail": "same canonical CSS"
+    },
+    {
+      "name": "selector nav > .item / [data-value=\"a,b&\"]",
+      "source": "nav > .item { [data-value=\"a,b&\"] { color: red; padding: 1px; } }",
+      "ok": true,
+      "expectedError": false,
+      "detail": "same canonical CSS"
+    },
+    {
+      "name": "selector nav > .item / :is(.x, .y)",
+      "source": "nav > .item { :is(.x, .y) { color: red; padding: 1px; } }",
+      "ok": true,
+      "expectedError": false,
+      "detail": "same canonical CSS"
+    },
+    {
+      "name": "selector nav > .item / &--active",
+      "source": "nav > .item { &--active { color: red; padding: 1px; } }",
+      "ok": true,
+      "expectedError": false,
+      "detail": "same canonical CSS"
+    },
+    {
+      "name": "selector #main .card / .x, .y",
+      "source": "#main .card { .x, .y { color: red; padding: 1px; } }",
+      "ok": true,
+      "expectedError": false,
+      "detail": "same canonical CSS"
+    },
+    {
+      "name": "selector #main .card / &:hover",
+      "source": "#main .card { &:hover { color: red; padding: 1px; } }",
+      "ok": true,
+      "expectedError": false,
+      "detail": "same canonical CSS"
+    },
+    {
+      "name": "selector #main .card / & + &",
+      "source": "#main .card { & + & { color: red; padding: 1px; } }",
+      "ok": true,
+      "expectedError": false,
+      "detail": "same canonical CSS"
+    },
+    {
+      "name": "selector #main .card / [dir=\"rtl\"] &",
+      "source": "#main .card { [dir=\"rtl\"] & { color: red; padding: 1px; } }",
+      "ok": true,
+      "expectedError": false,
+      "detail": "same canonical CSS"
+    },
+    {
+      "name": "selector #main .card / :not(&)",
+      "source": "#main .card { :not(&) { color: red; padding: 1px; } }",
+      "ok": true,
+      "expectedError": false,
+      "detail": "same canonical CSS"
+    },
+    {
+      "name": "selector #main .card / &:not(&)",
+      "source": "#main .card { &:not(&) { color: red; padding: 1px; } }",
+      "ok": true,
+      "expectedError": false,
+      "detail": "same canonical CSS"
+    },
+    {
+      "name": "selector #main .card / :is(&, .fallback)",
+      "source": "#main .card { :is(&, .fallback) { color: red; padding: 1px; } }",
+      "ok": true,
+      "expectedError": false,
+      "detail": "same canonical CSS"
+    },
+    {
+      "name": "selector #main .card / [data-value=\"a,b&\"]",
+      "source": "#main .card { [data-value=\"a,b&\"] { color: red; padding: 1px; } }",
+      "ok": true,
+      "expectedError": false,
+      "detail": "same canonical CSS"
+    },
+    {
+      "name": "selector #main .card / :is(.x, .y)",
+      "source": "#main .card { :is(.x, .y) { color: red; padding: 1px; } }",
+      "ok": true,
+      "expectedError": false,
+      "detail": "same canonical CSS"
+    },
+    {
+      "name": "selector #main .card / &--active",
+      "source": "#main .card { &--active { color: red; padding: 1px; } }",
+      "ok": true,
+      "expectedError": false,
+      "detail": "same canonical CSS"
+    },
+    {
+      "name": "variable scope red",
+      "source": "$value:red; .a {$value:blue; x:$value} .b{x:$value}",
+      "ok": true,
+      "expectedError": false,
+      "detail": "same canonical CSS"
+    },
+    {
+      "name": "default variable red",
+      "source": "$value:red; $value:blue !default; .a{x:$value}",
+      "ok": true,
+      "expectedError": false,
+      "detail": "same canonical CSS"
+    },
+    {
+      "name": "null default red",
+      "source": "$value:null; $value:red !default; .a{x:$value}",
+      "ok": true,
+      "expectedError": false,
+      "detail": "same canonical CSS"
+    },
+    {
+      "name": "global write red",
+      "source": "$value:red; .a{$value:blue !global; x:$value} .b{x:$value}",
+      "ok": true,
+      "expectedError": false,
+      "detail": "same canonical CSS"
+    },
+    {
+      "name": "lexical mixin scope red",
+      "source": "$value:red; @mixin m{x:$value} $value:blue; .a{$value:red; @include m}",
+      "ok": true,
+      "expectedError": false,
+      "detail": "same canonical CSS"
+    },
+    {
+      "name": "variable scope 10px",
+      "source": "$value:10px; .a {$value:20px; x:$value} .b{x:$value}",
+      "ok": true,
+      "expectedError": false,
+      "detail": "same canonical CSS"
+    },
+    {
+      "name": "default variable 10px",
+      "source": "$value:10px; $value:20px !default; .a{x:$value}",
+      "ok": true,
+      "expectedError": false,
+      "detail": "same canonical CSS"
+    },
+    {
+      "name": "null default 10px",
+      "source": "$value:null; $value:10px !default; .a{x:$value}",
+      "ok": true,
+      "expectedError": false,
+      "detail": "same canonical CSS"
+    },
+    {
+      "name": "global write 10px",
+      "source": "$value:10px; .a{$value:20px !global; x:$value} .b{x:$value}",
+      "ok": true,
+      "expectedError": false,
+      "detail": "same canonical CSS"
+    },
+    {
+      "name": "lexical mixin scope 10px",
+      "source": "$value:10px; @mixin m{x:$value} $value:20px; .a{$value:10px; @include m}",
+      "ok": true,
+      "expectedError": false,
+      "detail": "same canonical CSS"
+    },
+    {
+      "name": "variable scope \"hello\"",
+      "source": "$value:\"hello\"; .a {$value:\"world\"; x:$value} .b{x:$value}",
+      "ok": true,
+      "expectedError": false,
+      "detail": "same canonical CSS"
+    },
+    {
+      "name": "default variable \"hello\"",
+      "source": "$value:\"hello\"; $value:\"world\" !default; .a{x:$value}",
+      "ok": true,
+      "expectedError": false,
+      "detail": "same canonical CSS"
+    },
+    {
+      "name": "null default \"hello\"",
+      "source": "$value:null; $value:\"hello\" !default; .a{x:$value}",
+      "ok": true,
+      "expectedError": false,
+      "detail": "same canonical CSS"
+    },
+    {
+      "name": "global write \"hello\"",
+      "source": "$value:\"hello\"; .a{$value:\"world\" !global; x:$value} .b{x:$value}",
+      "ok": true,
+      "expectedError": false,
+      "detail": "same canonical CSS"
+    },
+    {
+      "name": "lexical mixin scope \"hello\"",
+      "source": "$value:\"hello\"; @mixin m{x:$value} $value:\"world\"; .a{$value:\"hello\"; @include m}",
+      "ok": true,
+      "expectedError": false,
+      "detail": "same canonical CSS"
+    },
+    {
+      "name": "mixin positional red1px",
+      "source": "@mixin border($color,$width:1px){border:$width solid $color} .a{display:block;@include border(red,1px);margin:0}",
+      "ok": true,
+      "expectedError": false,
+      "detail": "same canonical CSS"
+    },
+    {
+      "name": "mixin keyword red1px",
+      "source": "@mixin border($color:red,$width:1px){border:$width solid $color} .a{@include border($width:1px,$color:red)}",
+      "ok": true,
+      "expectedError": false,
+      "detail": "same canonical CSS"
+    },
+    {
+      "name": "mixin default red1px",
+      "source": "@mixin border($color:red,$width:1px){border:$width solid $color;&:hover{color:$color}} .a,.b{@include border}",
+      "ok": true,
+      "expectedError": false,
+      "detail": "same canonical CSS"
+    },
+    {
+      "name": "mixin positional red2rem",
+      "source": "@mixin border($color,$width:1px){border:$width solid $color} .a{display:block;@include border(red,2rem);margin:0}",
+      "ok": true,
+      "expectedError": false,
+      "detail": "same canonical CSS"
+    },
+    {
+      "name": "mixin keyword red2rem",
+      "source": "@mixin border($color:red,$width:1px){border:$width solid $color} .a{@include border($width:2rem,$color:red)}",
+      "ok": true,
+      "expectedError": false,
+      "detail": "same canonical CSS"
+    },
+    {
+      "name": "mixin default red2rem",
+      "source": "@mixin border($color:red,$width:2rem){border:$width solid $color;&:hover{color:$color}} .a,.b{@include border}",
+      "ok": true,
+      "expectedError": false,
+      "detail": "same canonical CSS"
+    },
+    {
+      "name": "mixin positional red0",
+      "source": "@mixin border($color,$width:1px){border:$width solid $color} .a{display:block;@include border(red,0);margin:0}",
+      "ok": true,
+      "expectedError": false,
+      "detail": "same canonical CSS"
+    },
+    {
+      "name": "mixin keyword red0",
+      "source": "@mixin border($color:red,$width:1px){border:$width solid $color} .a{@include border($width:0,$color:red)}",
+      "ok": true,
+      "expectedError": false,
+      "detail": "same canonical CSS"
+    },
+    {
+      "name": "mixin default red0",
+      "source": "@mixin border($color:red,$width:0){border:$width solid $color;&:hover{color:$color}} .a,.b{@include border}",
+      "ok": true,
+      "expectedError": false,
+      "detail": "same canonical CSS"
+    },
+    {
+      "name": "mixin positional blue1px",
+      "source": "@mixin border($color,$width:1px){border:$width solid $color} .a{display:block;@include border(blue,1px);margin:0}",
+      "ok": true,
+      "expectedError": false,
+      "detail": "same canonical CSS"
+    },
+    {
+      "name": "mixin keyword blue1px",
+      "source": "@mixin border($color:red,$width:1px){border:$width solid $color} .a{@include border($width:1px,$color:blue)}",
+      "ok": true,
+      "expectedError": false,
+      "detail": "same canonical CSS"
+    },
+    {
+      "name": "mixin default blue1px",
+      "source": "@mixin border($color:blue,$width:1px){border:$width solid $color;&:hover{color:$color}} .a,.b{@include border}",
+      "ok": true,
+      "expectedError": false,
+      "detail": "same canonical CSS"
+    },
+    {
+      "name": "mixin positional blue2rem",
+      "source": "@mixin border($color,$width:1px){border:$width solid $color} .a{display:block;@include border(blue,2rem);margin:0}",
+      "ok": true,
+      "expectedError": false,
+      "detail": "same canonical CSS"
+    },
+    {
+      "name": "mixin keyword blue2rem",
+      "source": "@mixin border($color:red,$width:1px){border:$width solid $color} .a{@include border($width:2rem,$color:blue)}",
+      "ok": true,
+      "expectedError": false,
+      "detail": "same canonical CSS"
+    },
+    {
+      "name": "mixin default blue2rem",
+      "source": "@mixin border($color:blue,$width:2rem){border:$width solid $color;&:hover{color:$color}} .a,.b{@include border}",
+      "ok": true,
+      "expectedError": false,
+      "detail": "same canonical CSS"
+    },
+    {
+      "name": "mixin positional blue0",
+      "source": "@mixin border($color,$width:1px){border:$width solid $color} .a{display:block;@include border(blue,0);margin:0}",
+      "ok": true,
+      "expectedError": false,
+      "detail": "same canonical CSS"
+    },
+    {
+      "name": "mixin keyword blue0",
+      "source": "@mixin border($color:red,$width:1px){border:$width solid $color} .a{@include border($width:0,$color:blue)}",
+      "ok": true,
+      "expectedError": false,
+      "detail": "same canonical CSS"
+    },
+    {
+      "name": "mixin default blue0",
+      "source": "@mixin border($color:blue,$width:0){border:$width solid $color;&:hover{color:$color}} .a,.b{@include border}",
+      "ok": true,
+      "expectedError": false,
+      "detail": "same canonical CSS"
+    },
+    {
+      "name": "mixin positional #1234561px",
+      "source": "@mixin border($color,$width:1px){border:$width solid $color} .a{display:block;@include border(#123456,1px);margin:0}",
+      "ok": true,
+      "expectedError": false,
+      "detail": "same canonical CSS"
+    },
+    {
+      "name": "mixin keyword #1234561px",
+      "source": "@mixin border($color:red,$width:1px){border:$width solid $color} .a{@include border($width:1px,$color:#123456)}",
+      "ok": true,
+      "expectedError": false,
+      "detail": "same canonical CSS"
+    },
+    {
+      "name": "mixin default #1234561px",
+      "source": "@mixin border($color:#123456,$width:1px){border:$width solid $color;&:hover{color:$color}} .a,.b{@include border}",
+      "ok": true,
+      "expectedError": false,
+      "detail": "same canonical CSS"
+    },
+    {
+      "name": "mixin positional #1234562rem",
+      "source": "@mixin border($color,$width:1px){border:$width solid $color} .a{display:block;@include border(#123456,2rem);margin:0}",
+      "ok": true,
+      "expectedError": false,
+      "detail": "same canonical CSS"
+    },
+    {
+      "name": "mixin keyword #1234562rem",
+      "source": "@mixin border($color:red,$width:1px){border:$width solid $color} .a{@include border($width:2rem,$color:#123456)}",
+      "ok": true,
+      "expectedError": false,
+      "detail": "same canonical CSS"
+    },
+    {
+      "name": "mixin default #1234562rem",
+      "source": "@mixin border($color:#123456,$width:2rem){border:$width solid $color;&:hover{color:$color}} .a,.b{@include border}",
+      "ok": true,
+      "expectedError": false,
+      "detail": "same canonical CSS"
+    },
+    {
+      "name": "mixin positional #1234560",
+      "source": "@mixin border($color,$width:1px){border:$width solid $color} .a{display:block;@include border(#123456,0);margin:0}",
+      "ok": true,
+      "expectedError": false,
+      "detail": "same canonical CSS"
+    },
+    {
+      "name": "mixin keyword #1234560",
+      "source": "@mixin border($color:red,$width:1px){border:$width solid $color} .a{@include border($width:0,$color:#123456)}",
+      "ok": true,
+      "expectedError": false,
+      "detail": "same canonical CSS"
+    },
+    {
+      "name": "mixin default #1234560",
+      "source": "@mixin border($color:#123456,$width:0){border:$width solid $color;&:hover{color:$color}} .a,.b{@include border}",
+      "ok": true,
+      "expectedError": false,
+      "detail": "same canonical CSS"
+    },
+    {
+      "name": "dependent parameter default",
+      "source": "@mixin m($a,$b:$a){x:$a;y:$b}.a{@include m(red)}",
+      "ok": true,
+      "expectedError": false,
+      "detail": "same canonical CSS"
+    },
+    {
+      "name": "variadic arguments",
+      "source": "@mixin m($a,$rest...){x:$a;box-shadow:$rest}.a{@include m(red,0 0 1px black,1px 2px blue)}",
+      "ok": true,
+      "expectedError": false,
+      "detail": "same canonical CSS"
+    },
+    {
+      "name": "empty variadic",
+      "source": "@mixin m($rest...){x:$rest}.a{@include m}",
+      "ok": true,
+      "expectedError": true,
+      "detail": "both reject"
+    },
+    {
+      "name": "mixin identifier normalization",
+      "source": "@mixin card_style($main_color:red){color:$main-color}.a{@include card-style($main-color:blue)}",
+      "ok": true,
+      "expectedError": false,
+      "detail": "same canonical CSS"
+    },
+    {
+      "name": "variable identifier normalization",
+      "source": "$main_color:red;.a{color:$main-color}",
+      "ok": true,
+      "expectedError": false,
+      "detail": "same canonical CSS"
+    },
+    {
+      "name": "content body",
+      "source": "@mixin wrapper{before:yes;@content;after:yes}.a{@include wrapper{color:red;&:hover{color:blue}}}",
+      "ok": true,
+      "expectedError": false,
+      "detail": "same canonical CSS"
+    },
+    {
+      "name": "content caller scope",
+      "source": "$color:red;@mixin wrapper($color:blue){x:$color;@content}.a{$color:green;@include wrapper{y:$color}}",
+      "ok": true,
+      "expectedError": false,
+      "detail": "same canonical CSS"
+    },
+    {
+      "name": "content under selector",
+      "source": "@mixin hover{&:hover{@content}}.a,.b{@include hover{color:red}}",
+      "ok": true,
+      "expectedError": false,
+      "detail": "same canonical CSS"
+    },
+    {
+      "name": "content optional",
+      "source": "@mixin wrapper{x:1;@content;y:2}.a{@include wrapper}",
+      "ok": true,
+      "expectedError": false,
+      "detail": "same canonical CSS"
+    },
+    {
+      "name": "nested content forwarding",
+      "source": "@mixin inner{.inner{@content}} @mixin outer{@include inner{@content}} .a{@include outer{x:1}}",
+      "ok": true,
+      "expectedError": false,
+      "detail": "same canonical CSS"
+    },
+    {
+      "name": "mixin nested definition",
+      "source": "@mixin outer($c){@mixin inner{color:$c}@include inner}.a{@include outer(red)}",
+      "ok": true,
+      "expectedError": true,
+      "detail": "both reject"
+    },
+    {
+      "name": "basic interpolation",
+      "source": "$name:card;$color:red;.#{$name}{#{$name}-color:$color;content:\"name=#{$name}\"}",
+      "ok": true,
+      "expectedError": false,
+      "detail": "same canonical CSS"
+    },
+    {
+      "name": "quoted interpolation",
+      "source": "$name:\"card\";.#{$name}{content:\"#{$name}\"}",
+      "ok": true,
+      "expectedError": false,
+      "detail": "same canonical CSS"
+    },
+    {
+      "name": "mixin interpolation",
+      "source": "@mixin item($name,$value){.#{$name}{color:$value}}@include item(card,red)",
+      "ok": true,
+      "expectedError": false,
+      "detail": "same canonical CSS"
+    },
+    {
+      "name": "interpolated nested parent",
+      "source": "$state:hover;.a{&:#{$state}{color:red}}",
+      "ok": true,
+      "expectedError": false,
+      "detail": "same canonical CSS"
+    },
+    {
+      "name": "supports group",
+      "source": "@supports (display: grid){.a{display:grid}}",
+      "ok": true,
+      "expectedError": false,
+      "detail": "same canonical CSS"
+    },
+    {
+      "name": "supports nested",
+      "source": ".a{@supports (display: grid){display:grid}}",
+      "ok": true,
+      "expectedError": false,
+      "detail": "same canonical CSS"
+    },
+    {
+      "name": "media nested selector",
+      "source": ".a,.b{@media screen and (min-width: 20px){x:1;&:hover{x:2}}}",
+      "ok": true,
+      "expectedError": false,
+      "detail": "same canonical CSS"
+    },
+    {
+      "name": "media content",
+      "source": "@mixin media{@media screen{@content}}.a{@include media{x:1}}",
+      "ok": true,
+      "expectedError": false,
+      "detail": "same canonical CSS"
+    },
+    {
+      "name": "layer group",
+      "source": "@layer components {.a{x:1}}",
+      "ok": true,
+      "expectedError": false,
+      "detail": "same canonical CSS"
+    },
+    {
+      "name": "font face",
+      "source": "@font-face{font-family:demo;src:url(https://example.test/font.woff2)}",
+      "ok": true,
+      "expectedError": false,
+      "detail": "same canonical CSS"
+    },
+    {
+      "name": "nested properties",
+      "source": ".a{font:{family:serif;size:12px}border:{color:red;style:solid}}",
+      "ok": true,
+      "expectedError": false,
+      "detail": "same canonical CSS"
+    },
+    {
+      "name": "silent comments",
+      "source": "// top\n.a{// inner\ncolor:red; // tail\nmargin:0}",
+      "ok": true,
+      "expectedError": false,
+      "detail": "same canonical CSS"
+    },
+    {
+      "name": "quote commas in arguments",
+      "source": "@mixin m($a,$b){content:$a;background:$b}.a{@include m(\"a,b\",url(\"x,y\"))}",
+      "ok": true,
+      "expectedError": false,
+      "detail": "same canonical CSS"
+    },
+    {
+      "name": "parent reference remains attribute data",
+      "source": ".a{[title=\"&\"]{content:\"&\"}}",
+      "ok": true,
+      "expectedError": false,
+      "detail": "same canonical CSS"
+    },
+    {
+      "name": "empty mixin does not split rule",
+      "source": "@mixin empty{}.a{x:1;@include empty;y:2}",
+      "ok": true,
+      "expectedError": false,
+      "detail": "same canonical CSS"
+    },
+    {
+      "name": "mixin overwriting",
+      "source": "@mixin m{x:1}@mixin m{x:2}.a{@include m}",
+      "ok": true,
+      "expectedError": false,
+      "detail": "same canonical CSS"
+    },
+    {
+      "name": "unused default does not evaluate",
+      "source": "$x:red;$x:$missing !default;.a{x:$x}",
+      "ok": true,
+      "expectedError": false,
+      "detail": "same canonical CSS"
+    },
+    {
+      "name": "custom property variable remains literal",
+      "source": "$c:red;.a{--literal:$c;--expanded:#{$c}}",
+      "ok": true,
+      "expectedError": false,
+      "detail": "same canonical CSS"
+    },
+    {
+      "name": "font face bubbles out of selector",
+      "source": ".a{@font-face{font-family:demo;src:url(x.woff)}color:red}",
+      "ok": true,
+      "expectedError": false,
+      "detail": "same canonical CSS"
+    },
+    {
+      "name": "error content outside mixin",
+      "source": "@content;",
+      "ok": true,
+      "expectedError": true,
+      "detail": "both reject"
+    },
+    {
+      "name": "error unknown mixin",
+      "source": ".a{@include missing}",
+      "ok": true,
+      "expectedError": true,
+      "detail": "both reject"
+    },
+    {
+      "name": "error missing argument",
+      "source": "@mixin m($a){x:$a}.a{@include m}",
+      "ok": true,
+      "expectedError": true,
+      "detail": "both reject"
+    },
+    {
+      "name": "error too many arguments",
+      "source": "@mixin m($a){x:$a}.a{@include m(1,2)}",
+      "ok": true,
+      "expectedError": true,
+      "detail": "both reject"
+    },
+    {
+      "name": "error unknown keyword",
+      "source": "@mixin m($a:1){x:$a}.a{@include m($b:2)}",
+      "ok": true,
+      "expectedError": true,
+      "detail": "both reject"
+    },
+    {
+      "name": "error duplicate keyword",
+      "source": "@mixin m($a:1){x:$a}.a{@include m($a:2,$a:3)}",
+      "ok": true,
+      "expectedError": true,
+      "detail": "both reject"
+    },
+    {
+      "name": "error duplicate positional",
+      "source": "@mixin m($a){x:$a}.a{@include m(1,$a:2)}",
+      "ok": true,
+      "expectedError": true,
+      "detail": "both reject"
+    },
+    {
+      "name": "error duplicate parameter",
+      "source": "@mixin m($a,$a){x:$a}.a{@include m(1,2)}",
+      "ok": true,
+      "expectedError": true,
+      "detail": "both reject"
+    },
+    {
+      "name": "error invalid suffix",
+      "source": "[a]{&-x{x:1}}",
+      "ok": true,
+      "expectedError": true,
+      "detail": "both reject"
+    },
+    {
+      "name": "error invalid parent position",
+      "source": ".a{span&{x:1}}",
+      "ok": true,
+      "expectedError": true,
+      "detail": "both reject"
+    },
+    {
+      "name": "error mismatched brackets",
+      "source": ".a{[x=(]){x:1}}",
+      "ok": true,
+      "expectedError": true,
+      "detail": "both reject"
+    },
+    {
+      "name": "error unknown interpolation variable",
+      "source": ".#{$missing}{x:1}",
+      "ok": true,
+      "expectedError": true,
+      "detail": "both reject"
+    }
+  ]
+}

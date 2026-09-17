@@ -6,13 +6,27 @@ priv enum Statement {
 
 ///|
 priv struct Scope {
-  vars : Map[String, String]
+  vars : Map[String, SassValue]
   mixins : Map[String, Mixin]
+  functions : Map[String, Mixin]
+  standard_modules : Map[String, String]
+  module_scopes : Map[String, Scope]
+  star_scopes : Array[Scope]
+  forwarded_vars : Map[String, (Scope, String)]
+  forwarded_mixins : Map[String, Mixin]
+  forwarded_functions : Map[String, Mixin]
+  configured : Map[String, Bool]
+  configuration : Map[String, SassValue]
+  path : String
+  evaluation : Evaluation
+  returned : Ref[SassValue?]?
+  flow : Bool
   parent : Scope?
 }
 
 ///|
 priv struct Mixin {
+  name : String
   params : Array[(String, String?)]
   rest : String?
   body : Array[Statement]
@@ -28,7 +42,33 @@ priv struct Content {
 
 ///|
 fn Scope::new(parent : Scope?) -> Scope {
-  { vars: Map([]), mixins: Map([]), parent, }
+  {
+    vars: Map([]),
+    mixins: Map([]),
+    functions: Map([]),
+    standard_modules: Map([]),
+    module_scopes: Map([]),
+    star_scopes: [],
+    forwarded_vars: Map([]),
+    forwarded_mixins: Map([]),
+    forwarded_functions: Map([]),
+    configured: Map([]),
+    configuration: Map([]),
+    path: match parent {
+      Some(p) => p.path
+      None => ""
+    },
+    evaluation: match parent {
+      Some(p) => p.evaluation
+      None => Evaluation::new()
+    },
+    returned: match parent {
+      Some(p) => p.returned
+      None => None
+    },
+    flow: false,
+    parent,
+  }
 }
 
 ///|
@@ -37,25 +77,46 @@ fn identifier(name : String) -> String {
 }
 
 ///|
-fn Scope::get(self : Scope, name : String) -> String? {
+/// Module namespaces are case-sensitive and keep underscores distinct.
+fn reference_name(name : String) -> String {
+  let parts = name.split(".").to_array()
+  if parts.length() == 2 {
+    parts[0].to_owned() + "." + identifier(parts[1].to_owned())
+  } else {
+    identifier(name)
+  }
+}
+
+///|
+fn Scope::get(self : Scope, name : String) -> SassValue? raise ParseError {
+  if name.contains(".") {
+    return self.qualified_variable(name)
+  }
   match self.vars.get(identifier(name)) {
     Some(v) => Some(v)
     None =>
       match self.parent {
         Some(p) => p.get(name)
-        None => None
+        None =>
+          match self.star_variable(identifier(name)) {
+            Some((owner, key)) => owner.vars.get(key)
+            None => None
+          }
       }
   }
 }
 
 ///|
-fn Scope::lookup_mixin(self : Scope, name : String) -> Mixin? {
+fn Scope::lookup_mixin(self : Scope, name : String) -> Mixin? raise ParseError {
+  if name.contains(".") {
+    return self.qualified_callable(name, false)
+  }
   match self.mixins.get(identifier(name)) {
     Some(v) => Some(v)
     None =>
       match self.parent {
         Some(p) => p.lookup_mixin(name)
-        None => None
+        None => self.star_callable(identifier(name), false)
       }
   }
 }
@@ -93,37 +154,15 @@ fn Scope::expand(
       continue
     }
     if c == '#' && i + 1 < cs.length() && cs[i + 1] == '{' {
-      i += 2
-      let start = i
-      while i < cs.length() && cs[i] != '}' {
-        i += 1
-      }
-      if i == cs.length() {
-        raise Invalid("unterminated interpolation")
-      }
-      let expression = String::from_array(cs[start:i]).trim().to_owned()
-      i += 1
-      let value = if expression.has_prefix("$") {
-        match self.get(expression[1:].to_owned()) {
-          Some(v) => v
-          None => raise Invalid("undefined interpolation variable")
-        }
-      } else if (expression.has_prefix("\"") && expression.has_suffix("\"")) ||
-        (expression.has_prefix("'") && expression.has_suffix("'")) {
-        expression
+      let parser = ExpressionParser::{ chars: cs, pos: i, depth: 0, }
+      let expression = parser.interpolation()
+      i = parser.pos
+      let computed = self.eval_ast(expression, true, 0)
+      let value = if computed is List([], _, _) || computed is Null {
+        ""
       } else {
-        raise Invalid("interpolation expression not implemented")
+        computed.css(unquote=true)
       }
-      let value = if value.length() >= 2 &&
-        (
-          (value.has_prefix("\"") && value.has_suffix("\"")) ||
-          (value.has_prefix("'") && value.has_suffix("'"))
-        ) {
-        value[1:value.length() - 1].to_owned()
-      } else {
-        value
-      }
-      let value = if value == "()" { "" } else { value }
       out.write_string(value)
       size += value.length()
     } else if variables && c == '$' && quote == '\u0000' {
@@ -134,7 +173,7 @@ fn Scope::expand(
       }
       let key = String::from_array(cs[start:i])
       let value = match self.get(key) {
-        Some(v) => v
+        Some(v) => v.css()
         None => raise Invalid("undefined variable " + key)
       }
       out.write_string(value)
@@ -200,17 +239,25 @@ fn invocation(text : String) -> (String, Array[String]) raise ParseError {
     at += 1
   }
   let name = String::from_array(cs[:at]).trim().to_owned()
-  if name.is_empty() || !name.to_array().iter().all(c => word(c) || c == '-') {
+  if name.is_empty() ||
+    !name.to_array().iter().all(c => name_char(c) || c == '.') {
     raise Invalid("invalid mixin name")
   }
   if at == cs.length() {
-    return (identifier(name), [])
+    return (reference_name(name), [])
   }
   if cs.last() != Some(')') {
     raise Invalid("invalid mixin arguments")
   }
   let inner = String::from_array(cs[at + 1:cs.length() - 1]).trim().to_owned()
-  (identifier(name), if inner.is_empty() { [] } else { split_top(inner, ',') })
+  (
+    reference_name(name),
+    if inner.is_empty() {
+      []
+    } else {
+      split_top(inner, ',')
+    },
+  )
 }
 
 ///|
@@ -291,7 +338,7 @@ fn include_mixin(
     None => raise Invalid("undefined mixin " + name)
   }
   let scope = Scope::new(Some(definition.scope))
-  let keywords : Map[String, String] = Map([])
+  let keywords : Map[String, SassValue] = Map([])
   let positional = []
   let mut named = false
   for arg in args {
@@ -302,12 +349,12 @@ fn include_mixin(
       if keywords.contains(key) {
         raise Invalid("duplicate keyword argument")
       }
-      keywords[key] = caller.expand(parts[1:].to_owned().join(":"))
+      keywords[key] = caller.evaluate(parts[1:].to_owned().join(":"))
     } else {
       if named {
         raise Invalid("positional argument after keyword")
       }
-      positional.push(caller.expand(arg))
+      positional.push(caller.evaluate(arg))
     }
   }
   for i in 0..<definition.params.length() {
@@ -325,7 +372,7 @@ fn include_mixin(
         }
         None =>
           match default {
-            Some(v) => scope.expand(v)
+            Some(v) => scope.evaluate(v)
             None => raise Invalid("missing mixin argument " + key)
           }
       }
@@ -338,9 +385,9 @@ fn include_mixin(
   match definition.rest {
     Some(key) =>
       scope.vars[key] = if positional.length() > definition.params.length() {
-        positional[definition.params.length():].to_owned().join(", ")
+        List(positional[definition.params.length():].to_owned(), ",", false)
       } else {
-        "()"
+        List([], ",", false)
       }
     None =>
       if positional.length() > definition.params.length() {
@@ -364,16 +411,79 @@ fn render(
   if depth > 64 {
     raise Invalid("evaluation nesting limit")
   }
+  let mut conditional : Bool? = None
   for node in nodes {
+    if scope.returned is Some(cell) && cell.val is Some(_) {
+      return
+    }
+    scope.charge()
     emitter.budget -= 1
     if emitter.budget < 0 {
       raise Invalid("evaluation budget")
     }
+    if node is Block(header, body) {
+      if header.has_prefix("@if ") {
+        let selected = scope.evaluate(header[4:].to_owned()).truth()
+        conditional = Some(selected)
+        if selected {
+          render(
+            body,
+            parents,
+            scope.flow_scope(),
+            emitter,
+            depth + 1,
+            content,
+            raw,
+            prefix,
+          )
+        }
+        continue
+      }
+      if header == "@else" || header.has_prefix("@else if ") {
+        guard conditional is Some(previous) else {
+          raise Invalid("else without adjacent if")
+        }
+        let selected = !previous &&
+          (header == "@else" || scope.evaluate(header[9:].to_owned()).truth())
+        conditional = if header == "@else" {
+          None
+        } else {
+          Some(previous || selected)
+        }
+        if selected {
+          render(
+            body,
+            parents,
+            scope.flow_scope(),
+            emitter,
+            depth + 1,
+            content,
+            raw,
+            prefix,
+          )
+        }
+        continue
+      }
+      if render_loop(
+          header, body, parents, scope, emitter, depth, content, raw, prefix,
+        ) {
+        conditional = None
+        continue
+      }
+    }
+    conditional = None
     match node {
       Block(header, body) =>
-        if header.has_prefix("@mixin ") {
-          validate_mixin_body(body)
-          let (name, args) = invocation(header[7:].to_owned())
+        if header.has_prefix("@mixin ") || header.has_prefix("@function ") {
+          let function = header.has_prefix("@function ")
+          if function {
+            validate_function(body)
+          } else {
+            validate_mixin_body(body)
+          }
+          let (name, args) = invocation(
+            header[if function { 10 } else { 7 }:].to_owned(),
+          )
           let params = []
           let mut rest : String? = None
           let seen : Map[String, Bool] = Map([])
@@ -411,7 +521,11 @@ fn render(
               )
             }
           }
-          scope.mixins[name] = { params, rest, body, scope, }
+          if function {
+            scope.functions[name] = { name, params, rest, body, scope, }
+          } else {
+            scope.mixins[name] = { name, params, rest, body, scope, }
+          }
         } else if header.has_prefix("@include ") {
           include_mixin(
             header[9:].to_owned(),
@@ -471,7 +585,29 @@ fn render(
           emitter.flush()
         }
       Leaf(part) =>
-        if part.has_prefix("@include ") {
+        if part.has_prefix("@return ") {
+          guard scope.returned is Some(cell) else {
+            raise Invalid("return outside function")
+          }
+          cell.val = Some(scope.evaluate(part[8:].to_owned()))
+          return
+        } else if part.has_prefix("@error ") {
+          raise Invalid(
+            scope.evaluate(part[7:].to_owned()).css(unquote=true, inspect=true),
+          )
+        } else if part.has_prefix("@use ") {
+          scope.load_directive(part[5:].to_owned(), false)
+        } else if part.has_prefix("@forward ") {
+          scope.load_directive(part[9:].to_owned(), true)
+        } else if part.has_prefix("@warn ") || part.has_prefix("@debug ") {
+          let debug = part.has_prefix("@debug ")
+          scope.evaluation.diagnostics.push(
+            (if debug { "debug: " } else { "warn: " }) +
+            scope
+            .evaluate(part[if debug { 7 } else { 6 }:].to_owned())
+            .css(unquote=true, inspect=true),
+          )
+        } else if part.has_prefix("@include ") {
           include_mixin(
             part[9:].to_owned(),
             None,
@@ -504,7 +640,7 @@ fn render(
           }
           let key = pieces[0]
           let mut value = pieces[1:].to_owned().join(":")
-          if key.has_prefix("$") {
+          if key.has_prefix("$") || key.contains(".$") {
             let mut global = false
             let mut default = false
             while true {
@@ -518,15 +654,29 @@ fn render(
                 break
               }
             }
-            let name = identifier(key[1:].to_owned())
+            let name = reference_name(
+              if key.has_prefix("$") {
+                key[1:].to_owned()
+              } else {
+                key.replace_all(old=".$", new=".")
+              },
+            )
+            if default &&
+              scope.configured.contains(name) &&
+              scope.configuration.get(name) is Some(supplied) {
+              scope.configured.remove(name)
+              if !(supplied is Null) {
+                scope.assign(name, supplied)
+              }
+            }
             if !default ||
               scope.get(name) is None ||
-              scope.get(name) == Some("null") {
-              value = scope.expand(value)
+              scope.get(name) is Some(Null) {
+              let computed = scope.evaluate(value)
               if global {
-                scope.global().vars[name] = value
+                scope.global().assign(name, computed)
               } else {
-                scope.vars[name] = value
+                scope.assign(name, computed)
               }
             }
           } else {
@@ -545,7 +695,8 @@ fn render(
                 variables=false,
               )
             } else {
-              value = scope.expand(value)
+              let computed = scope.evaluate(value, division=false)
+              value = if computed is Null { "" } else { computed.css() }
             }
             if key.has_prefix("@") || key.contains(" ") {
               raise Invalid("unsupported declaration")
@@ -553,7 +704,7 @@ fn render(
             if value == "()" {
               raise Invalid("empty list is not a CSS value")
             }
-            if value != "null" && !value.is_empty() {
+            if !value.is_empty() {
               emitter.property(parents, key, value)
             }
           }
@@ -564,23 +715,7 @@ fn render(
 
 ///|
 pub fn compile(source : String) -> String raise ParseError {
-  if source.length() > 100000 {
-    raise Invalid("source limit")
-  }
-  let src = Source::{ chars: source.to_array(), pos: 0, }
-  let nodes = src.statements(false, 0)
-  validate_content(nodes, false)
-  let emitter = Emitter::{
-    output: StringBuilder(),
-    size: 0,
-    budget: 10000,
-    pending: [],
-    pending_size: 0,
-    parents: [],
-  }
-  render(nodes, [], Scope::new(None), emitter, 0, None, false, "")
-  emitter.flush()
-  emitter.output.to_string()
+  compile_files("input.scss", Map([("input.scss", source)])).css
 }
 
 ///|

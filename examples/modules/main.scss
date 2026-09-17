@@ -1,0 +1,7 @@
+@use "theme" with ($accent: teal);
+
+@for $i from 1 through 3 {
+  .card-#{$i} {
+    @include theme.card(theme.spacing($i));
+  }
+}

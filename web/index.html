@@ -1,3 +1,33 @@
-<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>MoonBit 独立项目审查</title><style>
-:root{color-scheme:dark}body{background:#10151c;color:#e9eff4;font:15px/1.7 system-ui,"Microsoft YaHei";max-width:1000px;margin:40px auto;padding:0 24px}h1{font-weight:550;font-size:30px}header{color:#d2ed8b;font-size:12px;letter-spacing:2px}p{color:#a8b6c5}section{background:#171e27;border:1px solid #303d4b;border-radius:12px;padding:24px;margin:24px 0}textarea,pre{width:100%;box-sizing:border-box;background:#0d131b;color:#e2eadb;border:1px solid #33424f;border-radius:7px;padding:16px;font:14px/1.6 Consolas,monospace;white-space:pre-wrap;overflow-wrap:anywhere}textarea{min-height:150px;resize:vertical}pre{min-height:100px}button{background:#d2ed8b;color:#142017;border:0;border-radius:6px;padding:10px 20px;cursor:pointer;margin:12px 10px 0 0}a{color:#8fc7b7;margin-right:20px}small{color:#9dacbd}.error{color:#ffa59e}#tiles{display:grid;grid-template-columns:repeat(16,1fr);gap:3px;max-width:600px;margin:18px 0}#tiles[hidden]{display:none}#tiles span{height:18px;border-radius:2px}
-</style><header>MOONBIT · 独立分装 · 仅本地</header><h1 id="title"></h1><p id="scope"></p><small id="limits"></small><section><label for="input">输入</label><textarea id="input" spellcheck="false"></textarea><button id="run">运行实际 MoonBit 代码</button><button id="reset">恢复示例</button><p id="status"></p><div id="tiles" hidden></div><pre id="output"></pre></section><a href="../README.md">使用说明</a><a href="../pkg.generated.mbti">公共 API</a><a href="../DUPLICATION.md">查重记录</a><script type="module" src="app.mjs"></script></html>
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SCSS 工作台 · MoonBit</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header><span class="mark">M</span><span>MOONBIT / LOCAL TOOLS</span><span id="version"></span></header>
+<main>
+<div class="intro"><div><p class="eyebrow">样式，从一个项目开始</p><h1 id="title">SCSS 工作台</h1><p>编辑模块、配置变量，把样式编译成 CSS。文件在本地浏览器中处理。</p></div><span class="badge">本地运行</span></div>
+<div class="project-bar">
+  <label>编译入口 <select id="entry" aria-label="编译入口"></select></label>
+  <div class="actions"><button id="import-open" class="secondary">导入项目</button><input id="import" type="file" accept=".json,application/json" hidden><button id="export" class="secondary">导出项目</button><button id="reset" class="secondary">恢复示例</button></div>
+</div>
+<div class="workspace">
+  <section class="editor">
+    <div class="pane-head"><label for="files">项目文件</label><select id="files" aria-label="当前文件"></select><button id="remove" class="quiet" title="移除当前文件">移除</button></div>
+    <div class="file-create"><input id="new-file" aria-label="新文件名" placeholder="theme/_colors.scss"><button id="add" class="secondary">添加</button></div>
+    <label id="filename" for="input"></label><textarea id="input" aria-label="SCSS 源码" spellcheck="false"></textarea>
+    <div class="editor-footer"><span>Ctrl + Enter 编译</span><div><button id="cancel" class="secondary" disabled>取消</button><button id="run">编译项目 →</button></div></div>
+  </section>
+  <section class="result">
+    <div class="pane-head"><h2>生成的 CSS</h2><button id="download" class="secondary" disabled>下载 CSS</button></div>
+    <pre id="output" aria-label="CSS 输出"></pre>
+    <div class="result-footer"><p id="status" role="status" aria-live="polite"></p><pre id="metadata"></pre></div>
+  </section>
+</div>
+<details><summary>兼容范围与运行限制</summary><p id="limits"></p><p>每个文件最多 100,000 个 UTF-16 码元，项目最多 256 个文件 / 2,000,000 个码元。浏览器单次编译超过 5 秒会停止。</p></details>
+<footer><span>MoonBit 编译核心 · 文件不离开此页面</span><nav><a href="../README.md">使用说明</a><a href="../FEATURES.md">兼容范围</a><a href="../pkg.generated.mbti">公共 API</a></nav></footer>
+</main>
+<script type="module" src="app.mjs"></script>
+</body></html>

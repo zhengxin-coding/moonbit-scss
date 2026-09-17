@@ -1,0 +1,9 @@
+{
+  "seed": 20260918,
+  "cases": 814,
+  "rejected": 539,
+  "uncaught": 0,
+  "hardRejectionCases": 6,
+  "engineSHA256": "963da699202e3a5d247eed481aacc79f0c5b0a016f55f0e777404a176475114e",
+  "scope": "Seeded bounded expression stress, extreme loops/recursion, and module path rejection. No full-language conformance or fuzzing completeness claim."
+}

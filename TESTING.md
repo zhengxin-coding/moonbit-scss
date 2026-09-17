@@ -1,10 +1,26 @@
-# Validation contract
+# Validation and reproduction
 
-- Explicit Wasm-GC and JS targets: no inference from the toolchain default.
-- Public API tests plus compiled browser engine, CLI stdin/file/argument and failure exit-code checks.
-- 307 seeded bounded malformed inputs including UTF-16 surrogates. The worker has a 20-second limit.
-- Local code coverage: `moon coverage analyze -p localreview/scss -- -f summary`. No coverage upload is configured. Coverage is evidence about current code, not upstream feature coverage.
-- Benchmark: 5 warmups and 30 measured documented-example executions; median and p95 recorded locally.
-- Generated API and browser artifact must match the same source revision.
+The full local command is `./verify.ps1 -MoonPath C:/path/to/moon/bin/moon.exe -WithOracle` after `npm ci --ignore-scripts`. Sass is exactly 1.104.0, MoonBit 0.1.20260904 / moonc 0.10.12, Node 24.11.0 on Windows. Remote CI has not run.
 
-CI files are prepared locally; remote CI has not run because this repository has not been uploaded. Compatibility beyond README scope remains unverified.
+## Current evidence
+
+- 589 public API tests per JS / Wasm-GC target; 567 generated cases use official expected CSS or rejection flags. They cover 124 previous selector/mixin cases, 345 values/functions/control cases, and 98 virtual-file module cases.
+- `test-values.mjs` and `test-modules.mjs` compare emitted CSS using the official CSS parser/compressor; invalid CSS produced by inspect is compared as trimmed expanded text in the value suite. Rejected inputs compare rejection only. Module references use real separate files and the official resolver.
+- `generate-semantic-goldens.mjs` imports only official Sass and original inputs, never the MoonBit engine. Cross-backend tests compare CSS lexical tokens, retaining word boundaries and quoted content, except optional quotes around simple attribute identifiers. This is less complete than a CSS parser; Node differential tests provide the separate parser-based check.
+- `test-project-host.mjs`: 13 file/CLI/JSON/diagnostic/limit/junction checks. `test-evaluation-limits.mjs`: 814 cases, including extreme loops, recursion and exponential string growth, with a 20-second worker watchdog. `robustness.mjs` retains 307 seeded malformed inputs. These are bounded robustness exercises, not exhaustive fuzzing.
+- `semantic-verification.txt` retains final full verification output. `browser-validation.json` records actual editor actions, mobile layout and downloaded file checks.
+- `reference-provenance.json`: npm tarball SHA-512 matches package-lock, and all 36 installed Sass distribution files equal the tarball. Runtime dependency packages are pinned but were not separately byte-audited.
+- `semantic-benchmark.json`: three warmups, seven interleaved samples for three small same-machine JS workloads; canonical outputs match. Module comparison includes JSON bridge for MoonBit and filesystem reads for Sass. It does not establish complete performance parity or peak memory.
+- `semantic-upgrade.json` binds final staged Git blobs to SHA-256. `python tools/check-proof.py` verifies committed blobs offline. Historical evidence is retained for identity only and is not represented as rerun.
+
+## Refresh generated expectations
+
+```powershell
+node tools/generate-semantic-goldens.mjs
+moon fmt
+moon info
+moon test --target js --deny-warn
+moon test --target wasm-gc --deny-warn
+```
+
+Never derive expected values from the implementation under test. Rebuild web/engine.mjs after changing MoonBit. Generator/fmt/info/build idempotence is recorded separately. The browser page must be reloaded to test the final built engine.

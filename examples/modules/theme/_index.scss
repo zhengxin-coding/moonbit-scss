@@ -1,0 +1,12 @@
+@forward "tokens";
+@use "tokens";
+
+@function spacing($step) {
+  @return tokens.$unit * $step;
+}
+
+@mixin card($gap) {
+  padding: $gap;
+  color: tokens.$accent;
+  border-radius: tokens.$unit;
+}

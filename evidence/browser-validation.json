@@ -1,0 +1,88 @@
+{
+  "project": "scss",
+  "version": "0.4.0",
+  "date": "2026-09-18",
+  "browser": "Codex In-app Browser",
+  "engineSHA256": "963da699202e3a5d247eed481aacc79f0c5b0a016f55f0e777404a176475114e",
+  "cases": 14,
+  "checks": [
+    {
+      "name": "initial-project",
+      "observed": "Three files, dependency order, 4/8/12px padding and teal configuration",
+      "passed": true
+    },
+    {
+      "name": "module-edit",
+      "observed": "Changed token unit to 6px and observed 6/12/18px output",
+      "passed": true
+    },
+    {
+      "name": "file-create-and-entry",
+      "observed": "Added extra.scss, selected entry, square(7) emitted 49",
+      "passed": true
+    },
+    {
+      "name": "missing-module",
+      "observed": "Compiler error shown and CSS download disabled",
+      "passed": true
+    },
+    {
+      "name": "growth-rejection",
+      "observed": "Recursive string growth yielded serialized value limit without uncaught exception",
+      "passed": true
+    },
+    {
+      "name": "cancel",
+      "observed": "Dense map loop stopped with visible cancellation status",
+      "passed": true
+    },
+    {
+      "name": "remove-and-reset",
+      "observed": "Removed temporary file, reset restored three-file example",
+      "passed": true
+    },
+    {
+      "name": "css-download",
+      "observed": "Actual compiled.css file independently compared byte-for-byte with final engine output",
+      "passed": true
+    },
+    {
+      "name": "project-export",
+      "observed": "Actual project JSON parsed and compared to source sample",
+      "passed": true
+    },
+    {
+      "name": "project-import-and-recovery",
+      "observed": "Imported actual exported JSON after timeout; three-file CSS restored",
+      "passed": true
+    },
+    {
+      "name": "mobile-layout",
+      "observed": "390px viewport; document scrollWidth=390; editor and output controls visually inspected",
+      "passed": true
+    },
+    {
+      "name": "final-namespace-fix",
+      "observed": "Reloaded final engine; my_math.div produced 4px and pi 3.1415926536",
+      "passed": true
+    },
+    {
+      "name": "timeout",
+      "observed": "Dense 1024-entry map loop reached visible five-second timeout and worker stop",
+      "passed": true
+    },
+    {
+      "name": "console",
+      "observed": "Final captured warning/error log empty",
+      "passed": true
+    }
+  ],
+  "downloads": {
+    "css": "browser-downloads/compiled.css",
+    "project": "browser-downloads/scss-project.json"
+  },
+  "toolNotes": "The timeout-specific locator wait hit the browser-tool deadline before the five-second app timer; a subsequent direct status read confirmed the app timeout. Import completion then verified from visible CSS.",
+  "viewportReset": true,
+  "temporaryTabClosed": true,
+  "temporaryServerStopped": true
+}

@@ -14,4 +14,4 @@ test "nested media preserves parent selector" {
 }
 ```
 
-限制：无 mixin、函数、模块、运算、插值和完整复杂选择器；不是 Sass 全兼容。
+限制：示例只是已实现范围的一部分；完整颜色、标准库、选择器、导入器及源码映射等缺项见 FEATURES.md。

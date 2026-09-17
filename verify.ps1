@@ -30,6 +30,10 @@ try {
   if ($LASTEXITCODE -ne 0) {throw 'browser engine test failed'}
   node tools/test-cli.mjs
   if ($LASTEXITCODE -ne 0) {throw 'CLI test failed'}
+  node tools/test-project-host.mjs
+  if ($LASTEXITCODE -ne 0) {throw 'project host test failed'}
+  node tools/test-evaluation-limits.mjs
+  if ($LASTEXITCODE -ne 0) {throw 'evaluation limits failed'}
   node tools/robustness.mjs
   if ($LASTEXITCODE -ne 0) {throw 'robustness failed'}
   node tools/benchmark.mjs
@@ -37,5 +41,9 @@ try {
   if ($WithOracle) {
     node tools/test-sass-oracle.mjs
     if ($LASTEXITCODE -ne 0) {throw 'Sass oracle failed'}
+    node tools/test-values.mjs
+    if ($LASTEXITCODE -ne 0) {throw 'value comparison failed'}
+    node tools/test-modules.mjs
+    if ($LASTEXITCODE -ne 0) {throw 'module comparison failed'}
   }
 } finally {Pop-Location}

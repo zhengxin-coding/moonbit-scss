@@ -1,69 +1,46 @@
-# SCSS 子集编译器
+# SCSS 工作台
 
-MoonBit 本地候选版 0.3.0。变量、嵌套选择器、父选择器与作用域。
+MoonBit 本地版 0.4.0：类型化值与单位运算、用户函数、流程控制、SCSS 文件模块，以及可取消的浏览器项目编辑器。固定 Dart Sass 1.104.0 的 567 个原创场景全部匹配；这是一项兼容性增量，尚未达到完整 Sass 成熟度。
 
-## 快速试用
-
-已附真实 MoonBit 编译的浏览器引擎。需要 Python 3：
+## 使用
 
 ```powershell
 ./start-review.ps1
+# 打开 http://127.0.0.1:8799/web/
+node tools/cli.mjs --project examples/modules --entry main.scss --json
+node tools/cli.mjs --input '.a { width: (2px * 3); }'
+node tools/cli.mjs --project-json --file project.json --json
 ```
 
-浏览器打开 http://127.0.0.1:8799/web/ 。也可以从第二批合集审查页直接运行。
+浏览器可编辑多个文件、切换入口、添加/移除文件、导入/导出项目 JSON、下载 CSS。编译在独立 Worker 中执行，可取消，5 秒超时后终止。页面不向远端发送源码。重新载入会恢复示例，需保留的修改请导出。
 
-## 构建与测试
+`--project DIRECTORY` 明确指定扫描根目录。CLI 只读取其中的 SCSS，跳过 .git、node_modules、_build、target，拒绝符号链接/目录联接。单文件模式保留原有参数、文件与标准输入行为；文件模块需使用项目模式。退出码：0 成功、2 编译拒绝、1 宿主/参数错误。
 
-MoonBit 工具链与 Node.js 安装好后，在此目录运行：
+## MoonBit API
 
-```powershell
-./verify.ps1
-# 或指定编译器
-./verify.ps1 -MoonPath C:/path/to/moon/bin/moon.exe
+```moonbit
+let result = @scss.compile_files("main.scss", Map([
+  ("main.scss", "@use 'tokens';.card{padding:tokens.$gap}"),
+  ("_tokens.scss", "$gap:4px !default;"),
+]))
+println(result.css)
 ```
 
-脚本检查源码、在 Wasm-GC 和 JS 跑测试、构建浏览器引擎并运行示例。直接执行命令行示例：`moon run cmd/main`。`pkg.generated.mbti` 是生成的公共 API。
+`compile(source)` 返回 CSS；`compile_files(entry, files)` 返回 CSS、依赖先于入口的 `loaded_files` 和独立 `diagnostics`。核心只读取传入的虚拟文件映射，不访问磁盘或网络。路径区分大小写，私有成员不能跨模块访问。
 
-## 已实现范围
-
-词法变量与 !default/!global、嵌套选择器、独立父选择器组合、伪类和属性选择器、mixin 默认/关键字/可变参数、调用方作用域的 @content、变量/字符串插值、嵌套属性、media/supports/layer/font-face。
-
-## 当前边界
-
-尚未实现模块和文件导入、完整表达式与算术、内置/用户函数、流程控制、@extend、完整 at-rule 与选择器语义、注释及自定义属性空白的完整保留；不是 Dart Sass 全兼容实现。
-
-## 来源与许可证
-
-按[公开规格/参考项目](https://sass-lang.com/documentation/style-rules/)重新实现，没有复制上游代码或大规模词库。源码采用 MIT；原始测试输入为本地新编写。
-
-[查重](DUPLICATION.md)只描述本轮检索证据。`localreview` 是本地命名空间，正式发布前需替换为申请人的命名空间。
-
-## 下一步
-
-保留候选：先补边界和上游兼容范围，再决定是否申报。
-
-所有文件仅在本地，未创建远程仓库、上传、发布包或提交比赛。
-
-## 独立仓库工作流
-
-本目录是该项目后续开发的唯一主仓库，旧批次目录及 ZIP 为历史审查快照。没有 Git remote，没有共享构建目录，没有上级 moon.work。
-
-真实 CLI 支持输入参数、文件和标准输入：
-
-```powershell
-node tools/cli.mjs --help
-node tools/cli.mjs --file sample.txt --json
-```
-
-需要安装 MoonBit 后传 `-MoonPath` 或将 moon 加入 PATH；不依赖工作区之外的私有脚本。详见 [TESTING.md](TESTING.md) 和 [CONTRIBUTING.md](CONTRIBUTING.md)。
-
-## 独立对照验证
-
-固定 Dart Sass 1.104.0，对 124 个本地原创场景比较成功/错误结果与规范化 CSS。
+## 构建与核验
 
 ```powershell
 npm ci --ignore-scripts
-./verify.ps1 -WithOracle
+./verify.ps1 -MoonPath C:/path/to/moon/bin/moon.exe -WithOracle
+node tools/benchmark-semantics.mjs
+python tools/check-proof.py
 ```
 
-对照覆盖不等于全 Sass 兼容。结果见 evidence，完整边界见 [FEATURES.md](FEATURES.md)。
+589 项公开 API 回归在 JS 和 Wasm-GC 均通过，其中 567 项期望来自固定官方编译器；13 项真实文件/CLI/协议检查、814 项求值边界输入和原有 307 项异常输入通过。浏览器人工交互记录、下载结果和同机小型性能对照见 evidence。具体口径见 [TESTING.md](TESTING.md)，缺项见 [FEATURES.md](FEATURES.md)。
+
+## 来源与本地边界
+
+按 [Sass 官方文档](https://sass-lang.com/documentation/)独立实现，未复制编译器源码。实现与原创场景采用 MIT；Dart Sass 仅为开发对照依赖。下载发行包的完整性匹配 lockfile，36 个安装文件逐一匹配原包，见 [参考指纹](evidence/reference-provenance.json)。
+
+这是独立主仓库，旧批次目录和 ZIP 是历史快照。本轮未配置 remote、上传、发布、提交比赛或刷新旧归档；其余 19 个项目未重跑。远端 CI 仍未执行。

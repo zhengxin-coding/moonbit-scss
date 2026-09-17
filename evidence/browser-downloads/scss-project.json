@@ -1,0 +1,8 @@
+{
+  "entry": "main.scss",
+  "files": {
+    "main.scss": "@use \"theme\" with ($accent: teal);\n\n@for $i from 1 through 3 {\n  .card-#{$i} {\n    @include theme.card(theme.spacing($i));\n  }\n}\n",
+    "theme/_index.scss": "@forward \"tokens\";\n@use \"tokens\";\n\n@function spacing($step) {\n  @return tokens.$unit * $step;\n}\n\n@mixin card($gap) {\n  padding: $gap;\n  color: tokens.$accent;\n  border-radius: tokens.$unit;\n}\n",
+    "theme/_tokens.scss": "$unit: 4px !default;\n$accent: indigo !default;\n"
+  }
+}

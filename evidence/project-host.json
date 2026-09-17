@@ -1,0 +1,60 @@
+{
+  "cases": 13,
+  "passed": 13,
+  "node": "v24.11.0",
+  "engineSHA256": "963da699202e3a5d247eed481aacc79f0c5b0a016f55f0e777404a176475114e",
+  "rows": [
+    {
+      "name": "real directory matches browser project sample",
+      "passed": true
+    },
+    {
+      "name": "CLI directory JSON output and status",
+      "passed": true
+    },
+    {
+      "name": "CLI project stdin",
+      "passed": true
+    },
+    {
+      "name": "CLI rejects conflicting sources",
+      "passed": true
+    },
+    {
+      "name": "CLI missing dependency exit 2",
+      "passed": true
+    },
+    {
+      "name": "CLI diagnostics separate stderr",
+      "passed": true
+    },
+    {
+      "name": "CLI disallows entry escape",
+      "passed": true
+    },
+    {
+      "name": "project protocol validates file values",
+      "passed": true
+    },
+    {
+      "name": "project protocol rejects malformed JSON",
+      "passed": true
+    },
+    {
+      "name": "project file count limit",
+      "passed": true
+    },
+    {
+      "name": "source limit",
+      "passed": true
+    },
+    {
+      "name": "case-sensitive virtual paths",
+      "passed": true
+    },
+    {
+      "name": "filesystem loader rejects junctions",
+      "passed": true
+    }
+  ]
+}

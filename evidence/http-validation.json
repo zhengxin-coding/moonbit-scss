@@ -1,0 +1,35 @@
+{
+  "cases": 6,
+  "checks": [
+    {
+      "route": "/web/",
+      "status": 200,
+      "contentType": "text/html"
+    },
+    {
+      "route": "/web/worker.mjs",
+      "status": 200,
+      "contentType": "text/javascript"
+    },
+    {
+      "route": "/web/engine.mjs",
+      "status": 200,
+      "contentType": "text/javascript"
+    },
+    {
+      "route": "/web/style.css",
+      "status": 200,
+      "contentType": "text/css"
+    },
+    {
+      "route": "/.git/config",
+      "status": 404,
+      "contentType": "text/html;charset=utf-8"
+    },
+    {
+      "route": "/_build/",
+      "status": 404,
+      "contentType": "text/html;charset=utf-8"
+    }
+  ]
+}

@@ -1,0 +1,1821 @@
+{
+  "reference": "dart-sass\t1.104.0\t(Sass Compiler)\t[Dart]\ndart2js\t3.13.3\t(Dart Compiler)\t[Dart]",
+  "cases": 98,
+  "matched": 98,
+  "engineSHA256": "963da699202e3a5d247eed481aacc79f0c5b0a016f55f0e777404a176475114e",
+  "normalization": "Official Sass reads separate on-disk fixtures with its own resolver. Successful CSS compared after official CSS compression; errors compare rejection only. Loaded files retained for inspection.",
+  "rows": [
+    {
+      "name": "namespace-variable-function-mixin",
+      "entry": "main.scss",
+      "files": {
+        "main.scss": "@use \"tokens\";.a{x:tokens.$size;y:tokens.twice();@include tokens.card(9px)}",
+        "_tokens.scss": "$size: 4px !default; $color: red !default; $_secret: 8; @function twice($x: $size){@return $x * 2} @mixin card($x: $size){width:$x;color:$color} .tokens{x:$size}"
+      },
+      "reference": ".tokens {\n  x: 4px;\n}\n\n.a {\n  x: 4px;\n  y: 8px;\n  width: 9px;\n  color: red;\n}",
+      "referenceFiles": [
+        "main.scss",
+        "_tokens.scss"
+      ],
+      "actual": {
+        "css": ".tokens {\n  x: 4px;\n}\n.a {\n  x: 4px;\n  y: 8px;\n  width: 9px;\n  color: red;\n}\n",
+        "loadedFiles": [
+          "_tokens.scss",
+          "main.scss"
+        ],
+        "diagnostics": []
+      },
+      "matched": true
+    },
+    {
+      "name": "alias",
+      "entry": "main.scss",
+      "files": {
+        "main.scss": "@use \"tokens\" as t;.a{x:t.$size;y:t.twice();@include t.card}",
+        "tokens.scss": "$size: 4px !default; $color: red !default; $_secret: 8; @function twice($x: $size){@return $x * 2} @mixin card($x: $size){width:$x;color:$color} .tokens{x:$size}"
+      },
+      "reference": ".tokens {\n  x: 4px;\n}\n\n.a {\n  x: 4px;\n  y: 8px;\n  width: 4px;\n  color: red;\n}",
+      "referenceFiles": [
+        "main.scss",
+        "tokens.scss"
+      ],
+      "actual": {
+        "css": ".tokens {\n  x: 4px;\n}\n.a {\n  x: 4px;\n  y: 8px;\n  width: 4px;\n  color: red;\n}\n",
+        "loadedFiles": [
+          "tokens.scss",
+          "main.scss"
+        ],
+        "diagnostics": []
+      },
+      "matched": true
+    },
+    {
+      "name": "star",
+      "entry": "main.scss",
+      "files": {
+        "main.scss": "@use \"tokens\" as *;.a{x:$size;y:twice();@include card}",
+        "_tokens.scss": "$size: 4px !default; $color: red !default; $_secret: 8; @function twice($x: $size){@return $x * 2} @mixin card($x: $size){width:$x;color:$color} .tokens{x:$size}"
+      },
+      "reference": ".tokens {\n  x: 4px;\n}\n\n.a {\n  x: 4px;\n  y: 8px;\n  width: 4px;\n  color: red;\n}",
+      "referenceFiles": [
+        "main.scss",
+        "_tokens.scss"
+      ],
+      "actual": {
+        "css": ".tokens {\n  x: 4px;\n}\n.a {\n  x: 4px;\n  y: 8px;\n  width: 4px;\n  color: red;\n}\n",
+        "loadedFiles": [
+          "_tokens.scss",
+          "main.scss"
+        ],
+        "diagnostics": []
+      },
+      "matched": true
+    },
+    {
+      "name": "module-lexical-scope",
+      "entry": "main.scss",
+      "files": {
+        "main.scss": "$size:99px;@use \"tokens\";.a{y:tokens.twice()}",
+        "_tokens.scss": "$size: 4px !default; $color: red !default; $_secret: 8; @function twice($x: $size){@return $x * 2} @mixin card($x: $size){width:$x;color:$color} .tokens{x:$size}"
+      },
+      "reference": ".tokens {\n  x: 4px;\n}\n\n.a {\n  y: 8px;\n}",
+      "referenceFiles": [
+        "main.scss",
+        "_tokens.scss"
+      ],
+      "actual": {
+        "css": ".tokens {\n  x: 4px;\n}\n.a {\n  y: 8px;\n}\n",
+        "loadedFiles": [
+          "_tokens.scss",
+          "main.scss"
+        ],
+        "diagnostics": []
+      },
+      "matched": true
+    },
+    {
+      "name": "module-cannot-see-caller",
+      "entry": "main.scss",
+      "files": {
+        "main.scss": "$size:99px;@use \"tokens\";",
+        "_tokens.scss": ".x{v:$size}"
+      },
+      "referenceError": "Undefined variable.\n  ╷\n1 │ .x{v:$size}\n  │      ^^^^^\n  ╵\n  <fixture>\\_tokens.scss 1:6  @use\n  <fixture>\\main.scss 1:12    root stylesheet",
+      "actualError": "ERROR: Invalid(\"undefined variable size\")",
+      "matched": true
+    },
+    {
+      "name": "nested-relative",
+      "entry": "main.scss",
+      "files": {
+        "main.scss": "@use \"styles/theme\";.a{x:theme.$n}",
+        "styles/_theme.scss": "@use \"../common\";$n:common.$n * 2;",
+        "_common.scss": "$n:3px;.base{x:1}"
+      },
+      "reference": ".base {\n  x: 1;\n}\n\n.a {\n  x: 6px;\n}",
+      "referenceFiles": [
+        "main.scss",
+        "styles/_theme.scss",
+        "_common.scss"
+      ],
+      "actual": {
+        "css": ".base {\n  x: 1;\n}\n.a {\n  x: 6px;\n}\n",
+        "loadedFiles": [
+          "_common.scss",
+          "styles/_theme.scss",
+          "main.scss"
+        ],
+        "diagnostics": []
+      },
+      "matched": true
+    },
+    {
+      "name": "index",
+      "entry": "main.scss",
+      "files": {
+        "main.scss": "@use \"theme\";.a{x:theme.$n}",
+        "theme/_index.scss": "$n:6"
+      },
+      "reference": ".a {\n  x: 6;\n}",
+      "referenceFiles": [
+        "main.scss",
+        "theme/_index.scss"
+      ],
+      "actual": {
+        "css": ".a {\n  x: 6;\n}\n",
+        "loadedFiles": [
+          "theme/_index.scss",
+          "main.scss"
+        ],
+        "diagnostics": []
+      },
+      "matched": true
+    },
+    {
+      "name": "index-explicit",
+      "entry": "main.scss",
+      "files": {
+        "main.scss": "@use \"theme/index\";.a{x:index.$n}",
+        "theme/_index.scss": "$n:6"
+      },
+      "reference": ".a {\n  x: 6;\n}",
+      "referenceFiles": [
+        "main.scss",
+        "theme/_index.scss"
+      ],
+      "actual": {
+        "css": ".a {\n  x: 6;\n}\n",
+        "loadedFiles": [
+          "theme/_index.scss",
+          "main.scss"
+        ],
+        "diagnostics": []
+      },
+      "matched": true
+    },
+    {
+      "name": "normalization",
+      "entry": "main.scss",
+      "files": {
+        "main.scss": "@use \"./theme/../tokens.scss\";.a{x:tokens.$size}",
+        "tokens.scss": "$size: 4px !default; $color: red !default; $_secret: 8; @function twice($x: $size){@return $x * 2} @mixin card($x: $size){width:$x;color:$color} .tokens{x:$size}"
+      },
+      "reference": ".tokens {\n  x: 4px;\n}\n\n.a {\n  x: 4px;\n}",
+      "referenceFiles": [
+        "main.scss",
+        "tokens.scss"
+      ],
+      "actual": {
+        "css": ".tokens {\n  x: 4px;\n}\n.a {\n  x: 4px;\n}\n",
+        "loadedFiles": [
+          "tokens.scss",
+          "main.scss"
+        ],
+        "diagnostics": []
+      },
+      "matched": true
+    },
+    {
+      "name": "underscore-url",
+      "entry": "main.scss",
+      "files": {
+        "main.scss": "@use \"_tokens\";.a{x:tokens.$size}",
+        "_tokens.scss": "$size: 4px !default; $color: red !default; $_secret: 8; @function twice($x: $size){@return $x * 2} @mixin card($x: $size){width:$x;color:$color} .tokens{x:$size}"
+      },
+      "reference": ".tokens {\n  x: 4px;\n}\n\n.a {\n  x: 4px;\n}",
+      "referenceFiles": [
+        "main.scss",
+        "_tokens.scss"
+      ],
+      "actual": {
+        "css": ".tokens {\n  x: 4px;\n}\n.a {\n  x: 4px;\n}\n",
+        "loadedFiles": [
+          "_tokens.scss",
+          "main.scss"
+        ],
+        "diagnostics": []
+      },
+      "matched": true
+    },
+    {
+      "name": "extension-alias",
+      "entry": "main.scss",
+      "files": {
+        "main.scss": "@use \"tokens.scss\" as t;.a{x:t.$size}",
+        "tokens.scss": "$size: 4px !default; $color: red !default; $_secret: 8; @function twice($x: $size){@return $x * 2} @mixin card($x: $size){width:$x;color:$color} .tokens{x:$size}"
+      },
+      "reference": ".tokens {\n  x: 4px;\n}\n\n.a {\n  x: 4px;\n}",
+      "referenceFiles": [
+        "main.scss",
+        "tokens.scss"
+      ],
+      "actual": {
+        "css": ".tokens {\n  x: 4px;\n}\n.a {\n  x: 4px;\n}\n",
+        "loadedFiles": [
+          "tokens.scss",
+          "main.scss"
+        ],
+        "diagnostics": []
+      },
+      "matched": true
+    },
+    {
+      "name": "configure",
+      "entry": "main.scss",
+      "files": {
+        "main.scss": "@use \"tokens\" with ($size:7px,$color:blue);.a{y:tokens.twice();@include tokens.card}",
+        "_tokens.scss": "$size: 4px !default; $color: red !default; $_secret: 8; @function twice($x: $size){@return $x * 2} @mixin card($x: $size){width:$x;color:$color} .tokens{x:$size}"
+      },
+      "reference": ".tokens {\n  x: 7px;\n}\n\n.a {\n  y: 14px;\n  width: 7px;\n  color: blue;\n}",
+      "referenceFiles": [
+        "main.scss",
+        "_tokens.scss"
+      ],
+      "actual": {
+        "css": ".tokens {\n  x: 7px;\n}\n.a {\n  y: 14px;\n  width: 7px;\n  color: blue;\n}\n",
+        "loadedFiles": [
+          "_tokens.scss",
+          "main.scss"
+        ],
+        "diagnostics": []
+      },
+      "matched": true
+    },
+    {
+      "name": "configure-expression",
+      "entry": "main.scss",
+      "files": {
+        "main.scss": "$base:2;@use \"tokens\" with ($size:$base * 3px);.a{x:tokens.$size}",
+        "_tokens.scss": "$size: 4px !default; $color: red !default; $_secret: 8; @function twice($x: $size){@return $x * 2} @mixin card($x: $size){width:$x;color:$color} .tokens{x:$size}"
+      },
+      "reference": ".tokens {\n  x: 6px;\n}\n\n.a {\n  x: 6px;\n}",
+      "referenceFiles": [
+        "main.scss",
+        "_tokens.scss"
+      ],
+      "actual": {
+        "css": ".tokens {\n  x: 6px;\n}\n.a {\n  x: 6px;\n}\n",
+        "loadedFiles": [
+          "_tokens.scss",
+          "main.scss"
+        ],
+        "diagnostics": []
+      },
+      "matched": true
+    },
+    {
+      "name": "configure-null",
+      "entry": "main.scss",
+      "files": {
+        "main.scss": "@use \"tokens\" with ($size:null);.a{x:tokens.$size}",
+        "_tokens.scss": "$size: 4px !default; $color: red !default; $_secret: 8; @function twice($x: $size){@return $x * 2} @mixin card($x: $size){width:$x;color:$color} .tokens{x:$size}"
+      },
+      "reference": ".tokens {\n  x: 4px;\n}\n\n.a {\n  x: 4px;\n}",
+      "referenceFiles": [
+        "main.scss",
+        "_tokens.scss"
+      ],
+      "actual": {
+        "css": ".tokens {\n  x: 4px;\n}\n.a {\n  x: 4px;\n}\n",
+        "loadedFiles": [
+          "_tokens.scss",
+          "main.scss"
+        ],
+        "diagnostics": []
+      },
+      "matched": true
+    },
+    {
+      "name": "configure-missing",
+      "entry": "main.scss",
+      "files": {
+        "main.scss": "@use \"tokens\" with ($missing:2);",
+        "_tokens.scss": "$size: 4px !default; $color: red !default; $_secret: 8; @function twice($x: $size){@return $x * 2} @mixin card($x: $size){width:$x;color:$color} .tokens{x:$size}"
+      },
+      "referenceError": "This variable was not declared with !default in the @used module.\n  ╷\n1 │ @use \"tokens\" with ($missing:2);\n  │                     ^^^^^^^^^^\n  ╵\n  <fixture>\\main.scss 1:21  root stylesheet",
+      "actualError": "ERROR: Invalid(\"configured variable was not declared with !default\")",
+      "matched": true
+    },
+    {
+      "name": "configure-nondefault",
+      "entry": "main.scss",
+      "files": {
+        "main.scss": "@use \"tokens\" with ($n:2);",
+        "_tokens.scss": "$n:1"
+      },
+      "referenceError": "This variable was not declared with !default in the @used module.\n  ╷\n1 │ @use \"tokens\" with ($n:2);\n  │                     ^^^^\n  ╵\n  <fixture>\\main.scss 1:21  root stylesheet",
+      "actualError": "ERROR: Invalid(\"configured variable was not declared with !default\")",
+      "matched": true
+    },
+    {
+      "name": "configure-private",
+      "entry": "main.scss",
+      "files": {
+        "main.scss": "@use \"tokens\" with ($_secret:2);",
+        "_tokens.scss": "$size: 4px !default; $color: red !default; $_secret: 8; @function twice($x: $size){@return $x * 2} @mixin card($x: $size){width:$x;color:$color} .tokens{x:$size}"
+      },
+      "referenceError": "This variable was not declared with !default in the @used module.\n  ╷\n1 │ @use \"tokens\" with ($_secret:2);\n  │                     ^^^^^^^^^^\n  ╵\n  <fixture>\\main.scss 1:21  root stylesheet",
+      "actualError": "ERROR: Invalid(\"cannot configure private variable\")",
+      "matched": true
+    },
+    {
+      "name": "configure-twice",
+      "entry": "main.scss",
+      "files": {
+        "main.scss": "@use \"tokens\" as a with ($size:2px);@use \"tokens\" as b with ($size:3px);",
+        "_tokens.scss": "$size: 4px !default; $color: red !default; $_secret: 8; @function twice($x: $size){@return $x * 2} @mixin card($x: $size){width:$x;color:$color} .tokens{x:$size}"
+      },
+      "referenceError": "This module was already loaded, so it can't be configured using \"with\".\n  ╷\n1 │ @use \"tokens\" as a with ($size:2px);@use \"tokens\" as b with ($size:3px);\n  │                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ new load\n  │ ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ original load\n  ╵\n  <fixture>\\main.scss 1:37  root stylesheet",
+      "actualError": "ERROR: Invalid(\"module already loaded; cannot configure _tokens.scss\")",
+      "matched": true
+    },
+    {
+      "name": "duplicate-load-alias",
+      "entry": "main.scss",
+      "files": {
+        "main.scss": "@use \"tokens\" as a;@use \"./_tokens.scss\" as b;.x{a:a.$size;b:b.$size}",
+        "_tokens.scss": "$size: 4px !default; $color: red !default; $_secret: 8; @function twice($x: $size){@return $x * 2} @mixin card($x: $size){width:$x;color:$color} .tokens{x:$size}"
+      },
+      "reference": ".tokens {\n  x: 4px;\n}\n\n.x {\n  a: 4px;\n  b: 4px;\n}",
+      "referenceFiles": [
+        "main.scss",
+        "_tokens.scss"
+      ],
+      "actual": {
+        "css": ".tokens {\n  x: 4px;\n}\n.x {\n  a: 4px;\n  b: 4px;\n}\n",
+        "loadedFiles": [
+          "_tokens.scss",
+          "main.scss"
+        ],
+        "diagnostics": []
+      },
+      "matched": true
+    },
+    {
+      "name": "diamond-load-once",
+      "entry": "main.scss",
+      "files": {
+        "main.scss": "@use \"a\";@use \"b\";.x{a:a.$n;b:b.$n}",
+        "a.scss": "@use \"shared\";$n:shared.$n;.a{x:1}",
+        "b.scss": "@use \"shared\";$n:shared.$n;.b{x:1}",
+        "_shared.scss": "$n:7;.shared{x:1}"
+      },
+      "reference": ".shared {\n  x: 1;\n}\n\n.a {\n  x: 1;\n}\n\n.b {\n  x: 1;\n}\n\n.x {\n  a: 7;\n  b: 7;\n}",
+      "referenceFiles": [
+        "main.scss",
+        "a.scss",
+        "_shared.scss",
+        "b.scss"
+      ],
+      "actual": {
+        "css": ".shared {\n  x: 1;\n}\n.a {\n  x: 1;\n}\n.b {\n  x: 1;\n}\n.x {\n  a: 7;\n  b: 7;\n}\n",
+        "loadedFiles": [
+          "_shared.scss",
+          "a.scss",
+          "b.scss",
+          "main.scss"
+        ],
+        "diagnostics": []
+      },
+      "matched": true
+    },
+    {
+      "name": "mutation-shared",
+      "entry": "main.scss",
+      "files": {
+        "main.scss": "@use \"tokens\" as a;@use \"tokens\" as b;a.$size:10px;.x{x:b.$size;y:b.twice()}",
+        "_tokens.scss": "$size: 4px !default; $color: red !default; $_secret: 8; @function twice($x: $size){@return $x * 2} @mixin card($x: $size){width:$x;color:$color} .tokens{x:$size}"
+      },
+      "reference": ".tokens {\n  x: 4px;\n}\n\n.x {\n  x: 10px;\n  y: 20px;\n}",
+      "referenceFiles": [
+        "main.scss",
+        "_tokens.scss"
+      ],
+      "actual": {
+        "css": ".tokens {\n  x: 4px;\n}\n.x {\n  x: 10px;\n  y: 20px;\n}\n",
+        "loadedFiles": [
+          "_tokens.scss",
+          "main.scss"
+        ],
+        "diagnostics": []
+      },
+      "matched": true
+    },
+    {
+      "name": "mutation-nested",
+      "entry": "main.scss",
+      "files": {
+        "main.scss": "@use \"tokens\" as a;.x{a.$size:10px;y:a.twice()}.y{x:a.$size}",
+        "_tokens.scss": "$size: 4px !default; $color: red !default; $_secret: 8; @function twice($x: $size){@return $x * 2} @mixin card($x: $size){width:$x;color:$color} .tokens{x:$size}"
+      },
+      "reference": ".tokens {\n  x: 4px;\n}\n\n.x {\n  y: 20px;\n}\n\n.y {\n  x: 10px;\n}",
+      "referenceFiles": [
+        "main.scss",
+        "_tokens.scss"
+      ],
+      "actual": {
+        "css": ".tokens {\n  x: 4px;\n}\n.x {\n  y: 20px;\n}\n.y {\n  x: 10px;\n}\n",
+        "loadedFiles": [
+          "_tokens.scss",
+          "main.scss"
+        ],
+        "diagnostics": []
+      },
+      "matched": true
+    },
+    {
+      "name": "mutation-star",
+      "entry": "main.scss",
+      "files": {
+        "main.scss": "@use \"tokens\" as *;$size:12px;.x{x:twice()}",
+        "_tokens.scss": "$size: 4px !default; $color: red !default; $_secret: 8; @function twice($x: $size){@return $x * 2} @mixin card($x: $size){width:$x;color:$color} .tokens{x:$size}"
+      },
+      "reference": ".tokens {\n  x: 4px;\n}\n\n.x {\n  x: 24px;\n}",
+      "referenceFiles": [
+        "main.scss",
+        "_tokens.scss"
+      ],
+      "actual": {
+        "css": ".tokens {\n  x: 4px;\n}\n.x {\n  x: 24px;\n}\n",
+        "loadedFiles": [
+          "_tokens.scss",
+          "main.scss"
+        ],
+        "diagnostics": []
+      },
+      "matched": true
+    },
+    {
+      "name": "private-variable",
+      "entry": "main.scss",
+      "files": {
+        "main.scss": "@use \"tokens\";.a{x:tokens.$_secret}",
+        "_tokens.scss": "$size: 4px !default; $color: red !default; $_secret: 8; @function twice($x: $size){@return $x * 2} @mixin card($x: $size){width:$x;color:$color} .tokens{x:$size}"
+      },
+      "referenceError": "expected \"{\".\n  ╷\n1 │ @use \"tokens\";.a{x:tokens.$_secret}\n  │                                   ^\n  ╵\n  <fixture>\\main.scss 1:35  root stylesheet",
+      "actualError": "ERROR: Invalid(\"undefined or private module variable\")",
+      "matched": true
+    },
+    {
+      "name": "private-function",
+      "entry": "main.scss",
+      "files": {
+        "main.scss": "@use \"lib\";.a{x:lib.-f()}",
+        "lib.scss": "@function -f(){@return 1}"
+      },
+      "referenceError": "expected \"{\".\n  ╷\n1 │ @use \"lib\";.a{x:lib.-f()}\n  │                         ^\n  ╵\n  <fixture>\\main.scss 1:25  root stylesheet",
+      "actualError": "ERROR: Invalid(\"undefined namespaced function\")",
+      "matched": true
+    },
+    {
+      "name": "private-mixin",
+      "entry": "main.scss",
+      "files": {
+        "main.scss": "@use \"lib\";.a{@include lib._m}",
+        "lib.scss": "@mixin _m(){x:1}"
+      },
+      "referenceError": "Private members can't be accessed from outside their modules.\n  ╷\n1 │ @use \"lib\";.a{@include lib._m}\n  │                            ^^\n  ╵\n  <fixture>\\main.scss 1:28  root stylesheet",
+      "actualError": "ERROR: Invalid(\"undefined mixin lib.-m\")",
+      "matched": true
+    },
+    {
+      "name": "undefined-variable",
+      "entry": "main.scss",
+      "files": {
+        "main.scss": "@use \"tokens\";.a{x:tokens.$missing}",
+        "_tokens.scss": "$size: 4px !default; $color: red !default; $_secret: 8; @function twice($x: $size){@return $x * 2} @mixin card($x: $size){width:$x;color:$color} .tokens{x:$size}"
+      },
+      "referenceError": "Undefined variable.\n  ╷\n1 │ @use \"tokens\";.a{x:tokens.$missing}\n  │                    ^^^^^^^^^^^^^^^\n  ╵\n  <fixture>\\main.scss 1:20  root stylesheet",
+      "actualError": "ERROR: Invalid(\"undefined or private module variable\")",
+      "matched": true
+    },
+    {
+      "name": "undefined-namespace",
+      "entry": "main.scss",
+      "files": {
+        "main.scss": ".a{x:missing.$n}"
+      },
+      "referenceError": "There is no module with the namespace \"missing\".\n  ╷\n1 │ .a{x:missing.$n}\n  │      ^^^^^^^^^^\n  ╵\n  <fixture>\\main.scss 1:6  root stylesheet",
+      "actualError": "ERROR: Invalid(\"undefined module missing\")",
+      "matched": true
+    },
+    {
+      "name": "undefined-mixin",
+      "entry": "main.scss",
+      "files": {
+        "main.scss": "@use \"tokens\";.a{@include tokens.missing}",
+        "_tokens.scss": "$size: 4px !default; $color: red !default; $_secret: 8; @function twice($x: $size){@return $x * 2} @mixin card($x: $size){width:$x;color:$color} .tokens{x:$size}"
+      },
+      "referenceError": "Undefined mixin.\n  ╷\n1 │ @use \"tokens\";.a{@include tokens.missing}\n  │                  ^^^^^^^^^^^^^^^^^^^^^^^\n  ╵\n  <fixture>\\main.scss 1:18  root stylesheet",
+      "actualError": "ERROR: Invalid(\"undefined mixin tokens.missing\")",
+      "matched": true
+    },
+    {
+      "name": "undefined-function",
+      "entry": "main.scss",
+      "files": {
+        "main.scss": "@use \"tokens\";.a{x:tokens.missing()}",
+        "_tokens.scss": "$size: 4px !default; $color: red !default; $_secret: 8; @function twice($x: $size){@return $x * 2} @mixin card($x: $size){width:$x;color:$color} .tokens{x:$size}"
+      },
+      "referenceError": "Undefined function.\n  ╷\n1 │ @use \"tokens\";.a{x:tokens.missing()}\n  │                    ^^^^^^^^^^^^^^^^\n  ╵\n  <fixture>\\main.scss 1:20  root stylesheet",
+      "actualError": "ERROR: Invalid(\"undefined namespaced function\")",
+      "matched": true
+    },
+    {
+      "name": "undefined-mutation",
+      "entry": "main.scss",
+      "files": {
+        "main.scss": "@use \"tokens\";tokens.$missing:2;",
+        "_tokens.scss": "$size: 4px !default; $color: red !default; $_secret: 8; @function twice($x: $size){@return $x * 2} @mixin card($x: $size){width:$x;color:$color} .tokens{x:$size}"
+      },
+      "referenceError": "Undefined variable.\n  ╷\n1 │ @use \"tokens\";tokens.$missing:2;\n  │               ^^^^^^^^^^^^^^^^^\n  ╵\n  <fixture>\\main.scss 1:15  root stylesheet",
+      "actualError": "ERROR: Invalid(\"undefined or private module variable\")",
+      "matched": true
+    },
+    {
+      "name": "std-constants",
+      "entry": "main.scss",
+      "files": {
+        "main.scss": "@use \"sass:math\";.a{pi:math.$pi;e:math.$e;eps:math.$epsilon;max:math.$max-safe-integer}"
+      },
+      "reference": ".a {\n  pi: 3.1415926536;\n  e: 2.7182818285;\n  eps: 0;\n  max: 9007199254740991;\n}",
+      "referenceFiles": [
+        "main.scss"
+      ],
+      "actual": {
+        "css": ".a {\n  pi: 3.1415926536;\n  e: 2.7182818285;\n  eps: 0;\n  max: 9007199254740991;\n}\n",
+        "loadedFiles": [
+          "main.scss"
+        ],
+        "diagnostics": []
+      },
+      "matched": true
+    },
+    {
+      "name": "std-constant-alias",
+      "entry": "main.scss",
+      "files": {
+        "main.scss": "@use \"sass:math\" as m;.a{x:m.$pi}"
+      },
+      "reference": ".a {\n  x: 3.1415926536;\n}",
+      "referenceFiles": [
+        "main.scss"
+      ],
+      "actual": {
+        "css": ".a {\n  x: 3.1415926536;\n}\n",
+        "loadedFiles": [
+          "main.scss"
+        ],
+        "diagnostics": []
+      },
+      "matched": true
+    },
+    {
+      "name": "std-readonly",
+      "entry": "main.scss",
+      "files": {
+        "main.scss": "@use \"sass:math\";math.$pi:3;"
+      },
+      "referenceError": "Cannot modify built-in variable.\n  ╷\n1 │ @use \"sass:math\";math.$pi:3;\n  │                  ^^^^^^^^^^\n  ╵\n  <fixture>\\main.scss 1:18  root stylesheet",
+      "actualError": "ERROR: Invalid(\"standard module variables are read-only\")",
+      "matched": true
+    },
+    {
+      "name": "same-namespace",
+      "entry": "main.scss",
+      "files": {
+        "main.scss": "@use \"a\";@use \"dir/a\";",
+        "a.scss": "",
+        "dir/a.scss": ""
+      },
+      "referenceError": "There's already a module with namespace \"a\".\n  ╷\n1 │ @use \"a\";@use \"dir/a\";\n  │          ^^^^^^^^^^^^ new @use\n  │ ━━━━━━━━ original @use\n  ╵\n  <fixture>\\main.scss 1:10  root stylesheet",
+      "actualError": "ERROR: Invalid(\"module namespace already used\")",
+      "matched": true
+    },
+    {
+      "name": "std-namespace-collision",
+      "entry": "main.scss",
+      "files": {
+        "main.scss": "@use \"sass:math\";@use \"math\";",
+        "math.scss": ""
+      },
+      "referenceError": "There's already a module with namespace \"math\".\n  ╷\n1 │ @use \"sass:math\";@use \"math\";\n  │                  ^^^^^^^^^^^ new @use\n  │ ━━━━━━━━━━━━━━━━ original @use\n  ╵\n  <fixture>\\main.scss 1:18  root stylesheet",
+      "actualError": "ERROR: Invalid(\"module namespace already used\")",
+      "matched": true
+    },
+    {
+      "name": "use-after-css",
+      "entry": "main.scss",
+      "files": {
+        "main.scss": ".x{x:1}@use \"a\";",
+        "a.scss": ""
+      },
+      "referenceError": "@use rules must be written before any other rules.\n  ╷\n1 │ .x{x:1}@use \"a\";\n  │        ^^^^^^^^\n  ╵\n  <fixture>\\main.scss 1:8  root stylesheet",
+      "actualError": "ERROR: Invalid(\"module directives must precede rules\")",
+      "matched": true
+    },
+    {
+      "name": "use-after-function",
+      "entry": "main.scss",
+      "files": {
+        "main.scss": "@function f(){@return 1}@use \"a\";",
+        "a.scss": ""
+      },
+      "referenceError": "@use rules must be written before any other rules.\n  ╷\n1 │ @function f(){@return 1}@use \"a\";\n  │                         ^^^^^^^^\n  ╵\n  <fixture>\\main.scss 1:25  root stylesheet",
+      "actualError": "ERROR: Invalid(\"module directives must precede rules\")",
+      "matched": true
+    },
+    {
+      "name": "nested-use",
+      "entry": "main.scss",
+      "files": {
+        "main.scss": ".x{@use \"a\";}",
+        "a.scss": ""
+      },
+      "referenceError": "This at-rule is not allowed here.\n  ╷\n1 │ .x{@use \"a\";}\n  │    ^^^^^^^^\n  ╵\n  <fixture>\\main.scss 1:4  root stylesheet",
+      "actualError": "ERROR: Invalid(\"module directives must precede rules\")",
+      "matched": true
+    },
+    {
+      "name": "missing-file",
+      "entry": "main.scss",
+      "files": {
+        "main.scss": "@use \"missing\";"
+      },
+      "referenceError": "Can't find stylesheet to import.\n  ╷\n1 │ @use \"missing\";\n  │ ^^^^^^^^^^^^^^\n  ╵\n  <fixture>\\main.scss 1:1  root stylesheet",
+      "actualError": "ERROR: Invalid(\"module not found missing\")",
+      "matched": true
+    },
+    {
+      "name": "ambiguous-partial",
+      "entry": "main.scss",
+      "files": {
+        "main.scss": "@use \"a\";",
+        "a.scss": "$n:1",
+        "_a.scss": "$n:2"
+      },
+      "referenceError": "It's not clear which file to import. Found:\n  <fixture>\\_a.scss\n  <fixture>\\a.scss\n  ╷\n1 │ @use \"a\";\n  │ ^^^^^^^^\n  ╵\n  <fixture>\\main.scss 1:1  root stylesheet",
+      "actualError": "ERROR: Invalid(\"ambiguous module a\")",
+      "matched": true
+    },
+    {
+      "name": "ambiguous-index",
+      "entry": "main.scss",
+      "files": {
+        "main.scss": "@use \"a\";",
+        "a/index.scss": "$n:1",
+        "a/_index.scss": "$n:2"
+      },
+      "referenceError": "It's not clear which file to import. Found:\n  <fixture>\\a\\_index.scss\n  <fixture>\\a\\index.scss\n  ╷\n1 │ @use \"a\";\n  │ ^^^^^^^^\n  ╵\n  <fixture>\\main.scss 1:1  root stylesheet",
+      "actualError": "ERROR: Invalid(\"ambiguous index module a\")",
+      "matched": true
+    },
+    {
+      "name": "file-before-index",
+      "entry": "main.scss",
+      "files": {
+        "main.scss": "@use \"a\";.x{x:a.$n}",
+        "a.scss": "$n:1",
+        "a/_index.scss": "$n:2"
+      },
+      "reference": ".x {\n  x: 1;\n}",
+      "referenceFiles": [
+        "main.scss",
+        "a.scss"
+      ],
+      "actual": {
+        "css": ".x {\n  x: 1;\n}\n",
+        "loadedFiles": [
+          "a.scss",
+          "main.scss"
+        ],
+        "diagnostics": []
+      },
+      "matched": true
+    },
+    {
+      "name": "direct-cycle",
+      "entry": "main.scss",
+      "files": {
+        "main.scss": "@use \"a\";",
+        "a.scss": "@use \"a\";"
+      },
+      "referenceError": "Module loop: this module is already being loaded.\n  ┌──> <fixture>\\a.scss\n1 │ @use \"a\";\n  │ ^^^^^^^^ new load\n  ╵\n  ┌──> <fixture>\\main.scss\n1 │ @use \"a\";\n  │ ━━━━━━━━ original load\n  ╵\n  <fixture>\\a.scss 1:1     @use\n  <fixture>\\main.scss 1:1  root stylesheet",
+      "actualError": "ERROR: Invalid(\"module load cycle a.scss\")",
+      "matched": true
+    },
+    {
+      "name": "indirect-cycle",
+      "entry": "main.scss",
+      "files": {
+        "main.scss": "@use \"a\";",
+        "a.scss": "@use \"b\";",
+        "b.scss": "@use \"a\";"
+      },
+      "referenceError": "Module loop: this module is already being loaded.\n  ┌──> <fixture>\\b.scss\n1 │ @use \"a\";\n  │ ^^^^^^^^ new load\n  ╵\n  ┌──> <fixture>\\main.scss\n1 │ @use \"a\";\n  │ ━━━━━━━━ original load\n  ╵\n  <fixture>\\b.scss 1:1     @use\n  <fixture>\\a.scss 1:1     @use\n  <fixture>\\main.scss 1:1  root stylesheet",
+      "actualError": "ERROR: Invalid(\"module load cycle a.scss\")",
+      "matched": true
+    },
+    {
+      "name": "forward-all",
+      "entry": "main.scss",
+      "files": {
+        "main.scss": "@use \"api\";.a{x:api.$size;y:api.twice();@include api.card}",
+        "api.scss": "@forward \"tokens\";",
+        "_tokens.scss": "$size: 4px !default; $color: red !default; $_secret: 8; @function twice($x: $size){@return $x * 2} @mixin card($x: $size){width:$x;color:$color} .tokens{x:$size}"
+      },
+      "reference": ".tokens {\n  x: 4px;\n}\n\n.a {\n  x: 4px;\n  y: 8px;\n  width: 4px;\n  color: red;\n}",
+      "referenceFiles": [
+        "main.scss",
+        "api.scss",
+        "_tokens.scss"
+      ],
+      "actual": {
+        "css": ".tokens {\n  x: 4px;\n}\n.a {\n  x: 4px;\n  y: 8px;\n  width: 4px;\n  color: red;\n}\n",
+        "loadedFiles": [
+          "_tokens.scss",
+          "api.scss",
+          "main.scss"
+        ],
+        "diagnostics": []
+      },
+      "matched": true
+    },
+    {
+      "name": "forward-not-visible-locally",
+      "entry": "main.scss",
+      "files": {
+        "main.scss": "@use \"api\";",
+        "api.scss": "@forward \"tokens\";.a{x:$size}",
+        "_tokens.scss": "$size: 4px !default; $color: red !default; $_secret: 8; @function twice($x: $size){@return $x * 2} @mixin card($x: $size){width:$x;color:$color} .tokens{x:$size}"
+      },
+      "referenceError": "Undefined variable.\n  ╷\n1 │ @forward \"tokens\";.a{x:$size}\n  │                        ^^^^^\n  ╵\n  <fixture>\\api.scss 1:24  @use\n  <fixture>\\main.scss 1:1  root stylesheet",
+      "actualError": "ERROR: Invalid(\"undefined variable size\")",
+      "matched": true
+    },
+    {
+      "name": "forward-plus-use",
+      "entry": "main.scss",
+      "files": {
+        "main.scss": "@use \"api\";.a{x:api.$n}",
+        "api.scss": "@forward \"tokens\";@use \"tokens\";$n:tokens.$size;",
+        "_tokens.scss": "$size: 4px !default; $color: red !default; $_secret: 8; @function twice($x: $size){@return $x * 2} @mixin card($x: $size){width:$x;color:$color} .tokens{x:$size}"
+      },
+      "reference": ".tokens {\n  x: 4px;\n}\n\n.a {\n  x: 4px;\n}",
+      "referenceFiles": [
+        "main.scss",
+        "api.scss",
+        "_tokens.scss"
+      ],
+      "actual": {
+        "css": ".tokens {\n  x: 4px;\n}\n.a {\n  x: 4px;\n}\n",
+        "loadedFiles": [
+          "_tokens.scss",
+          "api.scss",
+          "main.scss"
+        ],
+        "diagnostics": []
+      },
+      "matched": true
+    },
+    {
+      "name": "forward-prefix",
+      "entry": "main.scss",
+      "files": {
+        "main.scss": "@use \"api\";.a{x:api.$ui-size;y:api.ui-twice();@include api.ui-card}",
+        "api.scss": "@forward \"tokens\" as ui-*;",
+        "_tokens.scss": "$size: 4px !default; $color: red !default; $_secret: 8; @function twice($x: $size){@return $x * 2} @mixin card($x: $size){width:$x;color:$color} .tokens{x:$size}"
+      },
+      "reference": ".tokens {\n  x: 4px;\n}\n\n.a {\n  x: 4px;\n  y: 8px;\n  width: 4px;\n  color: red;\n}",
+      "referenceFiles": [
+        "main.scss",
+        "api.scss",
+        "_tokens.scss"
+      ],
+      "actual": {
+        "css": ".tokens {\n  x: 4px;\n}\n.a {\n  x: 4px;\n  y: 8px;\n  width: 4px;\n  color: red;\n}\n",
+        "loadedFiles": [
+          "_tokens.scss",
+          "api.scss",
+          "main.scss"
+        ],
+        "diagnostics": []
+      },
+      "matched": true
+    },
+    {
+      "name": "forward-show",
+      "entry": "main.scss",
+      "files": {
+        "main.scss": "@use \"api\";.a{x:api.$size;y:api.twice()}",
+        "api.scss": "@forward \"tokens\" show $size, twice;",
+        "_tokens.scss": "$size: 4px !default; $color: red !default; $_secret: 8; @function twice($x: $size){@return $x * 2} @mixin card($x: $size){width:$x;color:$color} .tokens{x:$size}"
+      },
+      "reference": ".tokens {\n  x: 4px;\n}\n\n.a {\n  x: 4px;\n  y: 8px;\n}",
+      "referenceFiles": [
+        "main.scss",
+        "api.scss",
+        "_tokens.scss"
+      ],
+      "actual": {
+        "css": ".tokens {\n  x: 4px;\n}\n.a {\n  x: 4px;\n  y: 8px;\n}\n",
+        "loadedFiles": [
+          "_tokens.scss",
+          "api.scss",
+          "main.scss"
+        ],
+        "diagnostics": []
+      },
+      "matched": true
+    },
+    {
+      "name": "forward-show-excluded",
+      "entry": "main.scss",
+      "files": {
+        "main.scss": "@use \"api\";.a{@include api.card}",
+        "api.scss": "@forward \"tokens\" show $size, twice;",
+        "_tokens.scss": "$size: 4px !default; $color: red !default; $_secret: 8; @function twice($x: $size){@return $x * 2} @mixin card($x: $size){width:$x;color:$color} .tokens{x:$size}"
+      },
+      "referenceError": "Undefined mixin.\n  ╷\n1 │ @use \"api\";.a{@include api.card}\n  │               ^^^^^^^^^^^^^^^^^\n  ╵\n  <fixture>\\main.scss 1:15  root stylesheet",
+      "actualError": "ERROR: Invalid(\"undefined mixin api.card\")",
+      "matched": true
+    },
+    {
+      "name": "forward-hide",
+      "entry": "main.scss",
+      "files": {
+        "main.scss": "@use \"api\";.a{x:api.$size;@include api.card}",
+        "api.scss": "@forward \"tokens\" hide $color, twice;",
+        "_tokens.scss": "$size: 4px !default; $color: red !default; $_secret: 8; @function twice($x: $size){@return $x * 2} @mixin card($x: $size){width:$x;color:$color} .tokens{x:$size}"
+      },
+      "reference": ".tokens {\n  x: 4px;\n}\n\n.a {\n  x: 4px;\n  width: 4px;\n  color: red;\n}",
+      "referenceFiles": [
+        "main.scss",
+        "api.scss",
+        "_tokens.scss"
+      ],
+      "actual": {
+        "css": ".tokens {\n  x: 4px;\n}\n.a {\n  x: 4px;\n  width: 4px;\n  color: red;\n}\n",
+        "loadedFiles": [
+          "_tokens.scss",
+          "api.scss",
+          "main.scss"
+        ],
+        "diagnostics": []
+      },
+      "matched": true
+    },
+    {
+      "name": "forward-hide-excluded",
+      "entry": "main.scss",
+      "files": {
+        "main.scss": "@use \"api\";.a{x:api.twice()}",
+        "api.scss": "@forward \"tokens\" hide $color, twice;",
+        "_tokens.scss": "$size: 4px !default; $color: red !default; $_secret: 8; @function twice($x: $size){@return $x * 2} @mixin card($x: $size){width:$x;color:$color} .tokens{x:$size}"
+      },
+      "referenceError": "Undefined function.\n  ╷\n1 │ @use \"api\";.a{x:api.twice()}\n  │                 ^^^^^^^^^^^\n  ╵\n  <fixture>\\main.scss 1:17  root stylesheet",
+      "actualError": "ERROR: Invalid(\"undefined namespaced function\")",
+      "matched": true
+    },
+    {
+      "name": "forward-prefix-show-original",
+      "entry": "main.scss",
+      "files": {
+        "main.scss": "@use \"api\";.a{x:api.$ui-size}",
+        "api.scss": "@forward \"tokens\" as ui-* show $size;",
+        "_tokens.scss": "$size: 4px !default; $color: red !default; $_secret: 8; @function twice($x: $size){@return $x * 2} @mixin card($x: $size){width:$x;color:$color} .tokens{x:$size}"
+      },
+      "referenceError": "Undefined variable.\n  ╷\n1 │ @use \"api\";.a{x:api.$ui-size}\n  │                 ^^^^^^^^^^^^\n  ╵\n  <fixture>\\main.scss 1:17  root stylesheet",
+      "actualError": "ERROR: Invalid(\"undefined or private module variable\")",
+      "matched": true
+    },
+    {
+      "name": "forward-prefix-show-prefixed",
+      "entry": "main.scss",
+      "files": {
+        "main.scss": "@use \"api\";.a{x:api.$ui-size}",
+        "api.scss": "@forward \"tokens\" as ui-* show $ui-size;",
+        "_tokens.scss": "$size: 4px !default; $color: red !default; $_secret: 8; @function twice($x: $size){@return $x * 2} @mixin card($x: $size){width:$x;color:$color} .tokens{x:$size}"
+      },
+      "reference": ".tokens {\n  x: 4px;\n}\n\n.a {\n  x: 4px;\n}",
+      "referenceFiles": [
+        "main.scss",
+        "api.scss",
+        "_tokens.scss"
+      ],
+      "actual": {
+        "css": ".tokens {\n  x: 4px;\n}\n.a {\n  x: 4px;\n}\n",
+        "loadedFiles": [
+          "_tokens.scss",
+          "api.scss",
+          "main.scss"
+        ],
+        "diagnostics": []
+      },
+      "matched": true
+    },
+    {
+      "name": "forward-mutation",
+      "entry": "main.scss",
+      "files": {
+        "main.scss": "@use \"api\";@use \"tokens\";api.$size:20px;.a{x:tokens.$size;y:api.twice()}",
+        "api.scss": "@forward \"tokens\";",
+        "_tokens.scss": "$size: 4px !default; $color: red !default; $_secret: 8; @function twice($x: $size){@return $x * 2} @mixin card($x: $size){width:$x;color:$color} .tokens{x:$size}"
+      },
+      "reference": ".tokens {\n  x: 4px;\n}\n\n.a {\n  x: 20px;\n  y: 40px;\n}",
+      "referenceFiles": [
+        "main.scss",
+        "api.scss",
+        "_tokens.scss"
+      ],
+      "actual": {
+        "css": ".tokens {\n  x: 4px;\n}\n.a {\n  x: 20px;\n  y: 40px;\n}\n",
+        "loadedFiles": [
+          "_tokens.scss",
+          "api.scss",
+          "main.scss"
+        ],
+        "diagnostics": []
+      },
+      "matched": true
+    },
+    {
+      "name": "forward-chain",
+      "entry": "main.scss",
+      "files": {
+        "main.scss": "@use \"api\";.a{x:api.$size}",
+        "api.scss": "@forward \"middle\";",
+        "middle.scss": "@forward \"tokens\";",
+        "_tokens.scss": "$size: 4px !default; $color: red !default; $_secret: 8; @function twice($x: $size){@return $x * 2} @mixin card($x: $size){width:$x;color:$color} .tokens{x:$size}"
+      },
+      "reference": ".tokens {\n  x: 4px;\n}\n\n.a {\n  x: 4px;\n}",
+      "referenceFiles": [
+        "main.scss",
+        "api.scss",
+        "middle.scss",
+        "_tokens.scss"
+      ],
+      "actual": {
+        "css": ".tokens {\n  x: 4px;\n}\n.a {\n  x: 4px;\n}\n",
+        "loadedFiles": [
+          "_tokens.scss",
+          "middle.scss",
+          "api.scss",
+          "main.scss"
+        ],
+        "diagnostics": []
+      },
+      "matched": true
+    },
+    {
+      "name": "forward-duplicate-same-origin",
+      "entry": "main.scss",
+      "files": {
+        "main.scss": "@use \"api\";.a{x:api.$size}",
+        "api.scss": "@forward \"tokens\";@forward \"middle\";",
+        "middle.scss": "@forward \"tokens\";",
+        "_tokens.scss": "$size: 4px !default; $color: red !default; $_secret: 8; @function twice($x: $size){@return $x * 2} @mixin card($x: $size){width:$x;color:$color} .tokens{x:$size}"
+      },
+      "reference": ".tokens {\n  x: 4px;\n}\n\n.a {\n  x: 4px;\n}",
+      "referenceFiles": [
+        "main.scss",
+        "api.scss",
+        "_tokens.scss",
+        "middle.scss"
+      ],
+      "actual": {
+        "css": ".tokens {\n  x: 4px;\n}\n.a {\n  x: 4px;\n}\n",
+        "loadedFiles": [
+          "_tokens.scss",
+          "middle.scss",
+          "api.scss",
+          "main.scss"
+        ],
+        "diagnostics": []
+      },
+      "matched": true
+    },
+    {
+      "name": "forward-conflict-variable",
+      "entry": "main.scss",
+      "files": {
+        "main.scss": "@use \"api\";",
+        "api.scss": "@forward \"a\";@forward \"b\";",
+        "a.scss": "$n:1",
+        "b.scss": "$n:2"
+      },
+      "referenceError": "Two forwarded modules both define a variable named $n.\n  ╷\n1 │ @forward \"a\";@forward \"b\";\n  │              ^^^^^^^^^^^^ new @forward\n  │ ━━━━━━━━━━━━ original @forward\n  ╵\n  <fixture>\\api.scss 1:14  @use\n  <fixture>\\main.scss 1:1  root stylesheet",
+      "actualError": "ERROR: Invalid(\"conflicting forwarded variable\")",
+      "matched": true
+    },
+    {
+      "name": "forward-conflict-function",
+      "entry": "main.scss",
+      "files": {
+        "main.scss": "@use \"api\";",
+        "api.scss": "@forward \"a\";@forward \"b\";",
+        "a.scss": "@function f(){@return 1}",
+        "b.scss": "@function f(){@return 2}"
+      },
+      "referenceError": "Two forwarded modules both define a function named f.\n  ╷\n1 │ @forward \"a\";@forward \"b\";\n  │              ^^^^^^^^^^^^ new @forward\n  │ ━━━━━━━━━━━━ original @forward\n  ╵\n  <fixture>\\api.scss 1:14  @use\n  <fixture>\\main.scss 1:1  root stylesheet",
+      "actualError": "ERROR: Invalid(\"conflicting forwarded function\")",
+      "matched": true
+    },
+    {
+      "name": "forward-explicit-config",
+      "entry": "main.scss",
+      "files": {
+        "main.scss": "@use \"api\";.a{x:api.$size}",
+        "api.scss": "@forward \"tokens\" with ($size:5px);",
+        "_tokens.scss": "$size: 4px !default; $color: red !default; $_secret: 8; @function twice($x: $size){@return $x * 2} @mixin card($x: $size){width:$x;color:$color} .tokens{x:$size}"
+      },
+      "reference": ".tokens {\n  x: 5px;\n}\n\n.a {\n  x: 5px;\n}",
+      "referenceFiles": [
+        "main.scss",
+        "api.scss",
+        "_tokens.scss"
+      ],
+      "actual": {
+        "css": ".tokens {\n  x: 5px;\n}\n.a {\n  x: 5px;\n}\n",
+        "loadedFiles": [
+          "_tokens.scss",
+          "api.scss",
+          "main.scss"
+        ],
+        "diagnostics": []
+      },
+      "matched": true
+    },
+    {
+      "name": "forward-incoming-config",
+      "entry": "main.scss",
+      "files": {
+        "main.scss": "@use \"api\" with ($size:5px);.a{x:api.$size}",
+        "api.scss": "@forward \"tokens\";",
+        "_tokens.scss": "$size: 4px !default; $color: red !default; $_secret: 8; @function twice($x: $size){@return $x * 2} @mixin card($x: $size){width:$x;color:$color} .tokens{x:$size}"
+      },
+      "reference": ".tokens {\n  x: 5px;\n}\n\n.a {\n  x: 5px;\n}",
+      "referenceFiles": [
+        "main.scss",
+        "api.scss",
+        "_tokens.scss"
+      ],
+      "actual": {
+        "css": ".tokens {\n  x: 5px;\n}\n.a {\n  x: 5px;\n}\n",
+        "loadedFiles": [
+          "_tokens.scss",
+          "api.scss",
+          "main.scss"
+        ],
+        "diagnostics": []
+      },
+      "matched": true
+    },
+    {
+      "name": "forward-prefix-config",
+      "entry": "main.scss",
+      "files": {
+        "main.scss": "@use \"api\" with ($ui-size:5px);.a{x:api.$ui-size}",
+        "api.scss": "@forward \"tokens\" as ui-*;",
+        "_tokens.scss": "$size: 4px !default; $color: red !default; $_secret: 8; @function twice($x: $size){@return $x * 2} @mixin card($x: $size){width:$x;color:$color} .tokens{x:$size}"
+      },
+      "reference": ".tokens {\n  x: 5px;\n}\n\n.a {\n  x: 5px;\n}",
+      "referenceFiles": [
+        "main.scss",
+        "api.scss",
+        "_tokens.scss"
+      ],
+      "actual": {
+        "css": ".tokens {\n  x: 5px;\n}\n.a {\n  x: 5px;\n}\n",
+        "loadedFiles": [
+          "_tokens.scss",
+          "api.scss",
+          "main.scss"
+        ],
+        "diagnostics": []
+      },
+      "matched": true
+    },
+    {
+      "name": "forward-default-config",
+      "entry": "main.scss",
+      "files": {
+        "main.scss": "@use \"api\" with ($size:5px);.a{x:api.$size}",
+        "api.scss": "@forward \"tokens\" with ($size:8px !default);",
+        "_tokens.scss": "$size: 4px !default; $color: red !default; $_secret: 8; @function twice($x: $size){@return $x * 2} @mixin card($x: $size){width:$x;color:$color} .tokens{x:$size}"
+      },
+      "reference": ".tokens {\n  x: 5px;\n}\n\n.a {\n  x: 5px;\n}",
+      "referenceFiles": [
+        "main.scss",
+        "api.scss",
+        "_tokens.scss"
+      ],
+      "actual": {
+        "css": ".tokens {\n  x: 5px;\n}\n.a {\n  x: 5px;\n}\n",
+        "loadedFiles": [
+          "_tokens.scss",
+          "api.scss",
+          "main.scss"
+        ],
+        "diagnostics": []
+      },
+      "matched": true
+    },
+    {
+      "name": "forward-default-used",
+      "entry": "main.scss",
+      "files": {
+        "main.scss": "@use \"api\";.a{x:api.$size}",
+        "api.scss": "@forward \"tokens\" with ($size:8px !default);",
+        "_tokens.scss": "$size: 4px !default; $color: red !default; $_secret: 8; @function twice($x: $size){@return $x * 2} @mixin card($x: $size){width:$x;color:$color} .tokens{x:$size}"
+      },
+      "reference": ".tokens {\n  x: 8px;\n}\n\n.a {\n  x: 8px;\n}",
+      "referenceFiles": [
+        "main.scss",
+        "api.scss",
+        "_tokens.scss"
+      ],
+      "actual": {
+        "css": ".tokens {\n  x: 8px;\n}\n.a {\n  x: 8px;\n}\n",
+        "loadedFiles": [
+          "_tokens.scss",
+          "api.scss",
+          "main.scss"
+        ],
+        "diagnostics": []
+      },
+      "matched": true
+    },
+    {
+      "name": "star-conflict-variable",
+      "entry": "main.scss",
+      "files": {
+        "main.scss": "@use \"a\" as *;@use \"b\" as *;.x{x:$n}",
+        "a.scss": "$n:1",
+        "b.scss": "$n:2"
+      },
+      "referenceError": "This variable is available from multiple global modules.\n  ╷\n1 │ @use \"a\" as *;@use \"b\" as *;.x{x:$n}\n  │                                  ^^ variable use\n  │ ━━━━━━━━━━━━━ includes variable\n  │               ━━━━━━━━━━━━━ includes variable\n  ╵\n  <fixture>\\main.scss 1:34  root stylesheet",
+      "actualError": "ERROR: Invalid(\"ambiguous global module variable\")",
+      "matched": true
+    },
+    {
+      "name": "star-conflict-unused",
+      "entry": "main.scss",
+      "files": {
+        "main.scss": "@use \"a\" as *;@use \"b\" as *;.x{x:1}",
+        "a.scss": "$n:1",
+        "b.scss": "$n:2"
+      },
+      "reference": ".x {\n  x: 1;\n}",
+      "referenceFiles": [
+        "main.scss",
+        "a.scss",
+        "b.scss"
+      ],
+      "actual": {
+        "css": ".x {\n  x: 1;\n}\n",
+        "loadedFiles": [
+          "a.scss",
+          "b.scss",
+          "main.scss"
+        ],
+        "diagnostics": []
+      },
+      "matched": true
+    },
+    {
+      "name": "star-conflict-function",
+      "entry": "main.scss",
+      "files": {
+        "main.scss": "@use \"a\" as *;@use \"b\" as *;.x{x:f()}",
+        "a.scss": "@function f(){@return 1}",
+        "b.scss": "@function f(){@return 2}"
+      },
+      "referenceError": "This function is available from multiple global modules.\n  ╷\n1 │ @use \"a\" as *;@use \"b\" as *;.x{x:f()}\n  │                                  ^^^ function use\n  │ ━━━━━━━━━━━━━ includes function\n  │               ━━━━━━━━━━━━━ includes function\n  ╵\n  <fixture>\\main.scss 1:34  root stylesheet",
+      "actualError": "ERROR: Invalid(\"ambiguous global module callable\")",
+      "matched": true
+    },
+    {
+      "name": "star-same-forwarded-origin",
+      "entry": "main.scss",
+      "files": {
+        "main.scss": "@use \"a\" as *;@use \"b\" as *;.x{x:$n;y:f()}",
+        "a.scss": "@forward \"shared\";",
+        "b.scss": "@forward \"shared\";",
+        "shared.scss": "$n:1;@function f(){@return 2}"
+      },
+      "reference": ".x {\n  x: 1;\n  y: 2;\n}",
+      "referenceFiles": [
+        "main.scss",
+        "a.scss",
+        "shared.scss",
+        "b.scss"
+      ],
+      "actual": {
+        "css": ".x {\n  x: 1;\n  y: 2;\n}\n",
+        "loadedFiles": [
+          "shared.scss",
+          "a.scss",
+          "b.scss",
+          "main.scss"
+        ],
+        "diagnostics": []
+      },
+      "matched": true
+    },
+    {
+      "name": "star-local-var-before",
+      "entry": "main.scss",
+      "files": {
+        "main.scss": "$n:9;@use \"a\" as *;.x{x:$n}",
+        "a.scss": "$n:1"
+      },
+      "referenceError": "This module and the new module both define a variable named \"$n\".\n  ╷\n1 │ $n:9;@use \"a\" as *;.x{x:$n}\n  │      ^^^^^^^^^^^^^\n  ╵\n  <fixture>\\main.scss 1:6  root stylesheet",
+      "actualError": "ERROR: Invalid(\"global module variable conflicts with existing variable\")",
+      "matched": true
+    },
+    {
+      "name": "star-local-var-after",
+      "entry": "main.scss",
+      "files": {
+        "main.scss": "@use \"a\" as *;$n:9;.x{x:$n}",
+        "a.scss": "$n:1"
+      },
+      "reference": ".x {\n  x: 9;\n}",
+      "referenceFiles": [
+        "main.scss",
+        "a.scss"
+      ],
+      "actual": {
+        "css": ".x {\n  x: 9;\n}\n",
+        "loadedFiles": [
+          "a.scss",
+          "main.scss"
+        ],
+        "diagnostics": []
+      },
+      "matched": true
+    },
+    {
+      "name": "star-local-function",
+      "entry": "main.scss",
+      "files": {
+        "main.scss": "@use \"a\" as *;@function f(){@return 9}.x{x:f()}",
+        "a.scss": "@function f(){@return 1}"
+      },
+      "reference": ".x {\n  x: 9;\n}",
+      "referenceFiles": [
+        "main.scss",
+        "a.scss"
+      ],
+      "actual": {
+        "css": ".x {\n  x: 9;\n}\n",
+        "loadedFiles": [
+          "a.scss",
+          "main.scss"
+        ],
+        "diagnostics": []
+      },
+      "matched": true
+    },
+    {
+      "name": "diagnostics",
+      "entry": "main.scss",
+      "files": {
+        "main.scss": "@use \"a\";@warn \"entry\";.a{x:1}",
+        "a.scss": "@debug \"library\";"
+      },
+      "reference": ".a {\n  x: 1;\n}",
+      "referenceFiles": [
+        "main.scss",
+        "a.scss"
+      ],
+      "actual": {
+        "css": ".a {\n  x: 1;\n}\n",
+        "loadedFiles": [
+          "a.scss",
+          "main.scss"
+        ],
+        "diagnostics": [
+          "debug: library",
+          "warn: entry"
+        ]
+      },
+      "matched": true
+    },
+    {
+      "name": "configuration-applies-once",
+      "entry": "main.scss",
+      "files": {
+        "main.scss": "@use \"a\" with ($n:2);.x{x:a.$n}",
+        "a.scss": "$n:1 !default;$n:7;$n:3 !default;"
+      },
+      "reference": ".x {\n  x: 7;\n}",
+      "referenceFiles": [
+        "main.scss",
+        "a.scss"
+      ],
+      "actual": {
+        "css": ".x {\n  x: 7;\n}\n",
+        "loadedFiles": [
+          "a.scss",
+          "main.scss"
+        ],
+        "diagnostics": []
+      },
+      "matched": true
+    },
+    {
+      "name": "configuration-after-normal-declaration",
+      "entry": "main.scss",
+      "files": {
+        "main.scss": "@use \"a\" with ($n:2);.x{x:a.$n}",
+        "a.scss": "$n:7;$n:3 !default;"
+      },
+      "reference": ".x {\n  x: 2;\n}",
+      "referenceFiles": [
+        "main.scss",
+        "a.scss"
+      ],
+      "actual": {
+        "css": ".x {\n  x: 2;\n}\n",
+        "loadedFiles": [
+          "a.scss",
+          "main.scss"
+        ],
+        "diagnostics": []
+      },
+      "matched": true
+    },
+    {
+      "name": "forward-config-chain",
+      "entry": "main.scss",
+      "files": {
+        "main.scss": "@use \"a\" with ($n:2);.x{x:a.$n}",
+        "a.scss": "@forward \"b\";",
+        "b.scss": "@forward \"c\";",
+        "c.scss": "$n:1 !default;"
+      },
+      "reference": ".x {\n  x: 2;\n}",
+      "referenceFiles": [
+        "main.scss",
+        "a.scss",
+        "b.scss",
+        "c.scss"
+      ],
+      "actual": {
+        "css": ".x {\n  x: 2;\n}\n",
+        "loadedFiles": [
+          "c.scss",
+          "b.scss",
+          "a.scss",
+          "main.scss"
+        ],
+        "diagnostics": []
+      },
+      "matched": true
+    },
+    {
+      "name": "forward-config-siblings",
+      "entry": "main.scss",
+      "files": {
+        "main.scss": "@use \"a\" with ($x:2,$y:3);.x{x:a.$x;y:a.$y}",
+        "a.scss": "@forward \"b\";@forward \"c\";",
+        "b.scss": "$x:1 !default;",
+        "c.scss": "$y:1 !default;"
+      },
+      "reference": ".x {\n  x: 2;\n  y: 3;\n}",
+      "referenceFiles": [
+        "main.scss",
+        "a.scss",
+        "b.scss",
+        "c.scss"
+      ],
+      "actual": {
+        "css": ".x {\n  x: 2;\n  y: 3;\n}\n",
+        "loadedFiles": [
+          "b.scss",
+          "c.scss",
+          "a.scss",
+          "main.scss"
+        ],
+        "diagnostics": []
+      },
+      "matched": true
+    },
+    {
+      "name": "forward-config-local-default",
+      "entry": "main.scss",
+      "files": {
+        "main.scss": "@use \"a\" with ($x:2,$y:3);.x{x:a.$x;y:a.$y}",
+        "a.scss": "@forward \"b\";$y:1 !default;",
+        "b.scss": "$x:1 !default;"
+      },
+      "reference": ".x {\n  x: 2;\n  y: 3;\n}",
+      "referenceFiles": [
+        "main.scss",
+        "a.scss",
+        "b.scss"
+      ],
+      "actual": {
+        "css": ".x {\n  x: 2;\n  y: 3;\n}\n",
+        "loadedFiles": [
+          "b.scss",
+          "a.scss",
+          "main.scss"
+        ],
+        "diagnostics": []
+      },
+      "matched": true
+    },
+    {
+      "name": "forward-config-hidden",
+      "entry": "main.scss",
+      "files": {
+        "main.scss": "@use \"a\" with ($x:2);.x{x:a.$x}",
+        "a.scss": "@forward \"b\" hide $x;",
+        "b.scss": "$x:1 !default;"
+      },
+      "referenceError": "This variable was not declared with !default in the @used module.\n  ╷\n1 │ @use \"a\" with ($x:2);.x{x:a.$x}\n  │                ^^^^\n  ╵\n  <fixture>\\main.scss 1:16  root stylesheet",
+      "actualError": "ERROR: Invalid(\"configured variable was not declared with !default\")",
+      "matched": true
+    },
+    {
+      "name": "forward-config-show",
+      "entry": "main.scss",
+      "files": {
+        "main.scss": "@use \"a\" with ($x:2);.x{x:a.$x}",
+        "a.scss": "@forward \"b\" show $x;",
+        "b.scss": "$x:1 !default;"
+      },
+      "reference": ".x {\n  x: 2;\n}",
+      "referenceFiles": [
+        "main.scss",
+        "a.scss",
+        "b.scss"
+      ],
+      "actual": {
+        "css": ".x {\n  x: 2;\n}\n",
+        "loadedFiles": [
+          "b.scss",
+          "a.scss",
+          "main.scss"
+        ],
+        "diagnostics": []
+      },
+      "matched": true
+    },
+    {
+      "name": "forward-config-fixed-override",
+      "entry": "main.scss",
+      "files": {
+        "main.scss": "@use \"a\" with ($x:2);",
+        "a.scss": "@forward \"b\" with ($x:1);",
+        "b.scss": "$x:0 !default;"
+      },
+      "referenceError": "This variable was not declared with !default in the @used module.\n  ╷\n1 │ @use \"a\" with ($x:2);\n  │                ^^^^\n  ╵\n  <fixture>\\main.scss 1:16  root stylesheet",
+      "actualError": "ERROR: Invalid(\"forward configuration cannot be overridden\")",
+      "matched": true
+    },
+    {
+      "name": "forward-config-unknown-explicit",
+      "entry": "main.scss",
+      "files": {
+        "main.scss": "@use \"a\";",
+        "a.scss": "@forward \"b\" with ($z:1);",
+        "b.scss": "$x:0 !default;"
+      },
+      "referenceError": "This variable was not declared with !default in the @used module.\n  ╷\n1 │ @forward \"b\" with ($z:1);\n  │                    ^^^^\n  ╵\n  <fixture>\\a.scss 1:20    @use\n  <fixture>\\main.scss 1:1  root stylesheet",
+      "actualError": "ERROR: Invalid(\"forward configured variable was not declared with !default\")",
+      "matched": true
+    },
+    {
+      "name": "forward-own-override",
+      "entry": "main.scss",
+      "files": {
+        "main.scss": "@use \"a\";.x{x:a.$n}",
+        "a.scss": "@forward \"b\";$n:2;",
+        "b.scss": "$n:1;"
+      },
+      "reference": ".x {\n  x: 2;\n}",
+      "referenceFiles": [
+        "main.scss",
+        "a.scss",
+        "b.scss"
+      ],
+      "actual": {
+        "css": ".x {\n  x: 2;\n}\n",
+        "loadedFiles": [
+          "b.scss",
+          "a.scss",
+          "main.scss"
+        ],
+        "diagnostics": []
+      },
+      "matched": true
+    },
+    {
+      "name": "forward-css-before-parent",
+      "entry": "main.scss",
+      "files": {
+        "main.scss": "@use \"a\";.x{x:3}",
+        "a.scss": "@forward \"b\";.a{x:2}",
+        "b.scss": ".b{x:1}"
+      },
+      "reference": ".b {\n  x: 1;\n}\n\n.a {\n  x: 2;\n}\n\n.x {\n  x: 3;\n}",
+      "referenceFiles": [
+        "main.scss",
+        "a.scss",
+        "b.scss"
+      ],
+      "actual": {
+        "css": ".b {\n  x: 1;\n}\n.a {\n  x: 2;\n}\n.x {\n  x: 3;\n}\n",
+        "loadedFiles": [
+          "b.scss",
+          "a.scss",
+          "main.scss"
+        ],
+        "diagnostics": []
+      },
+      "matched": true
+    },
+    {
+      "name": "forward-after-css",
+      "entry": "main.scss",
+      "files": {
+        "main.scss": ".a{x:1}@forward \"b\";",
+        "b.scss": ".b{x:2}"
+      },
+      "referenceError": "@forward rules must be written before any other rules.\n  ╷\n1 │ .a{x:1}@forward \"b\";\n  │        ^^^^^^^^^^^^\n  ╵\n  <fixture>\\main.scss 1:8  root stylesheet",
+      "actualError": "ERROR: Invalid(\"module directives must precede rules\")",
+      "matched": true
+    },
+    {
+      "name": "forward-private-not-exported",
+      "entry": "main.scss",
+      "files": {
+        "main.scss": "@use \"a\";.x{x:a.$-n}",
+        "a.scss": "@forward \"b\";",
+        "b.scss": "$-n:1;"
+      },
+      "referenceError": "expected \"{\".\n  ╷\n1 │ @use \"a\";.x{x:a.$-n}\n  │                    ^\n  ╵\n  <fixture>\\main.scss 1:20  root stylesheet",
+      "actualError": "ERROR: Invalid(\"undefined or private module variable\")",
+      "matched": true
+    },
+    {
+      "name": "standard-name-hyphens",
+      "entry": "main.scss",
+      "files": {
+        "main.scss": "@use \"a\";.x{x:a.$foo_bar;y:a.foo_bar()}",
+        "a.scss": "$foo-bar:1;@function foo-bar(){@return 2}"
+      },
+      "reference": ".x {\n  x: 1;\n  y: 2;\n}",
+      "referenceFiles": [
+        "main.scss",
+        "a.scss"
+      ],
+      "actual": {
+        "css": ".x {\n  x: 1;\n  y: 2;\n}\n",
+        "loadedFiles": [
+          "a.scss",
+          "main.scss"
+        ],
+        "diagnostics": []
+      },
+      "matched": true
+    },
+    {
+      "name": "nested-namespace-function",
+      "entry": "main.scss",
+      "files": {
+        "main.scss": "@use \"a\";.x{x:a.f(3)}",
+        "a.scss": "@use \"b\";@function f($n){@return b.g($n)}",
+        "b.scss": "$n:2;@function g($v){@return $v*$n}"
+      },
+      "reference": ".x {\n  x: 6;\n}",
+      "referenceFiles": [
+        "main.scss",
+        "a.scss",
+        "b.scss"
+      ],
+      "actual": {
+        "css": ".x {\n  x: 6;\n}\n",
+        "loadedFiles": [
+          "b.scss",
+          "a.scss",
+          "main.scss"
+        ],
+        "diagnostics": []
+      },
+      "matched": true
+    },
+    {
+      "name": "star-local-shadow-rule",
+      "entry": "main.scss",
+      "files": {
+        "main.scss": "@use \"a\" as *;.x{$n:8;x:$n}.y{x:$n}",
+        "a.scss": "$n:1;"
+      },
+      "reference": ".x {\n  x: 8;\n}\n\n.y {\n  x: 1;\n}",
+      "referenceFiles": [
+        "main.scss",
+        "a.scss"
+      ],
+      "actual": {
+        "css": ".x {\n  x: 8;\n}\n.y {\n  x: 1;\n}\n",
+        "loadedFiles": [
+          "a.scss",
+          "main.scss"
+        ],
+        "diagnostics": []
+      },
+      "matched": true
+    },
+    {
+      "name": "star-mutation-from-function",
+      "entry": "main.scss",
+      "files": {
+        "main.scss": "@use \"a\" as *;@function f(){$n:8 !global;@return $n}.x{x:f();y:$n}",
+        "a.scss": "$n:1;"
+      },
+      "reference": ".x {\n  x: 8;\n  y: 8;\n}",
+      "referenceFiles": [
+        "main.scss",
+        "a.scss"
+      ],
+      "actual": {
+        "css": ".x {\n  x: 8;\n  y: 8;\n}\n",
+        "loadedFiles": [
+          "a.scss",
+          "main.scss"
+        ],
+        "diagnostics": []
+      },
+      "matched": true
+    },
+    {
+      "name": "index-resolution-local",
+      "entry": "main.scss",
+      "files": {
+        "main.scss": "@use \"a\";.x{x:a.$n}",
+        "a/_index.scss": "@use \"b\";$n:b.$n;",
+        "a/_b.scss": "$n:9;"
+      },
+      "reference": ".x {\n  x: 9;\n}",
+      "referenceFiles": [
+        "main.scss",
+        "a/_index.scss",
+        "a/_b.scss"
+      ],
+      "actual": {
+        "css": ".x {\n  x: 9;\n}\n",
+        "loadedFiles": [
+          "a/_b.scss",
+          "a/_index.scss",
+          "main.scss"
+        ],
+        "diagnostics": []
+      },
+      "matched": true
+    },
+    {
+      "name": "use-configuration-default-flag",
+      "entry": "main.scss",
+      "files": {
+        "main.scss": "@use \"a\" with ($n:2 !default);",
+        "a.scss": "$n:1 !default;"
+      },
+      "referenceError": "expected \")\".\n  ╷\n1 │ @use \"a\" with ($n:2 !default);\n  │                     ^\n  ╵\n  <fixture>\\main.scss 1:21  root stylesheet",
+      "actualError": "ERROR: Invalid(\"default flag is only allowed in forward configuration\")",
+      "matched": true
+    },
+    {
+      "name": "forward-private-prefix",
+      "entry": "main.scss",
+      "files": {
+        "main.scss": "@use \"a\";.x{x:a.$-n}",
+        "a.scss": "@forward \"b\" as -*;",
+        "b.scss": "$n:1;"
+      },
+      "referenceError": "expected \"{\".\n  ╷\n1 │ @use \"a\";.x{x:a.$-n}\n  │                    ^\n  ╵\n  <fixture>\\main.scss 1:20  root stylesheet",
+      "actualError": "ERROR: Invalid(\"undefined or private module variable\")",
+      "matched": true
+    },
+    {
+      "name": "diagnostics-in-function",
+      "entry": "main.scss",
+      "files": {
+        "main.scss": "@function f(){@warn \"f\";@debug 1 + 2;@return 4}.x{x:f()}"
+      },
+      "reference": ".x {\n  x: 4;\n}",
+      "referenceFiles": [
+        "main.scss"
+      ],
+      "actual": {
+        "css": ".x {\n  x: 4;\n}\n",
+        "loadedFiles": [
+          "main.scss"
+        ],
+        "diagnostics": [
+          "warn: f",
+          "debug: 3"
+        ]
+      },
+      "matched": true
+    },
+    {
+      "name": "underscore-namespace",
+      "entry": "main.scss",
+      "files": {
+        "main.scss": "@use \"some_tokens\";.x{x:some_tokens.$foo_bar;y:some_tokens.foo_bar();@include some_tokens.card}",
+        "_some_tokens.scss": "$foo-bar:2;@function foo-bar(){@return 3}@mixin card(){width:4px}"
+      },
+      "reference": ".x {\n  x: 2;\n  y: 3;\n  width: 4px;\n}",
+      "referenceFiles": [
+        "main.scss",
+        "_some_tokens.scss"
+      ],
+      "actual": {
+        "css": ".x {\n  x: 2;\n  y: 3;\n  width: 4px;\n}\n",
+        "loadedFiles": [
+          "_some_tokens.scss",
+          "main.scss"
+        ],
+        "diagnostics": []
+      },
+      "matched": true
+    },
+    {
+      "name": "underscore-alias",
+      "entry": "main.scss",
+      "files": {
+        "main.scss": "@use \"a\" as foo_bar;foo_bar.$n:3;.x{x:foo_bar.$n}",
+        "a.scss": "$n:1"
+      },
+      "reference": ".x {\n  x: 3;\n}",
+      "referenceFiles": [
+        "main.scss",
+        "a.scss"
+      ],
+      "actual": {
+        "css": ".x {\n  x: 3;\n}\n",
+        "loadedFiles": [
+          "a.scss",
+          "main.scss"
+        ],
+        "diagnostics": []
+      },
+      "matched": true
+    },
+    {
+      "name": "namespace-underscore-is-distinct",
+      "entry": "main.scss",
+      "files": {
+        "main.scss": "@use \"a\" as foo_bar;.x{x:foo-bar.$n}",
+        "a.scss": "$n:1"
+      },
+      "referenceError": "There is no module with the namespace \"foo-bar\".\n  ╷\n1 │ @use \"a\" as foo_bar;.x{x:foo-bar.$n}\n  │                          ^^^^^^^^^^\n  ╵\n  <fixture>\\main.scss 1:26  root stylesheet",
+      "actualError": "ERROR: Invalid(\"undefined module foo-bar\")",
+      "matched": true
+    },
+    {
+      "name": "standard-underscore-alias",
+      "entry": "main.scss",
+      "files": {
+        "main.scss": "@use \"sass:math\" as my_math;.x{x:my_math.div(6,2);y:my_math.$pi}"
+      },
+      "reference": ".x {\n  x: 3;\n  y: 3.1415926536;\n}",
+      "referenceFiles": [
+        "main.scss"
+      ],
+      "actual": {
+        "css": ".x {\n  x: 3;\n  y: 3.1415926536;\n}\n",
+        "loadedFiles": [
+          "main.scss"
+        ],
+        "diagnostics": []
+      },
+      "matched": true
+    }
+  ]
+}

@@ -1,0 +1,2467 @@
+{
+  "reference": "dart-sass\t1.104.0\t(Sass Compiler)\t[Dart]\ndart2js\t3.13.3\t(Dart Compiler)\t[Dart]",
+  "cases": 345,
+  "matched": 345,
+  "engineSHA256": "963da699202e3a5d247eed481aacc79f0c5b0a016f55f0e777404a176475114e",
+  "normalization": "Successful outputs parsed as plain CSS and compressed by official Sass. When reference inspect() output is not valid CSS, compare trimmed expanded outputs exactly. Errors compare acceptance only; messages retained.",
+  "rows": [
+    {
+      "name": "operator 1 + 2",
+      "source": ".probe { value: (1 + 2); }",
+      "reference": ".probe {\n  value: 3;\n}",
+      "actual": ".probe {\n  value: 3;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "operator 1 - 2",
+      "source": ".probe { value: (1 - 2); }",
+      "reference": ".probe {\n  value: -1;\n}",
+      "actual": ".probe {\n  value: -1;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "operator 1 * 2",
+      "source": ".probe { value: (1 * 2); }",
+      "reference": ".probe {\n  value: 2;\n}",
+      "actual": ".probe {\n  value: 2;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "operator 1 / 2",
+      "source": ".probe { value: (1 / 2); }",
+      "reference": ".probe {\n  value: 0.5;\n}",
+      "actual": ".probe {\n  value: 0.5;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "operator 1 % 2",
+      "source": ".probe { value: (1 % 2); }",
+      "reference": ".probe {\n  value: 1;\n}",
+      "actual": ".probe {\n  value: 1;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "operator 1 == 2",
+      "source": ".probe { value: (1 == 2); }",
+      "reference": ".probe {\n  value: false;\n}",
+      "actual": ".probe {\n  value: false;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "operator 1 != 2",
+      "source": ".probe { value: (1 != 2); }",
+      "reference": ".probe {\n  value: true;\n}",
+      "actual": ".probe {\n  value: true;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "operator 1 > 2",
+      "source": ".probe { value: (1 > 2); }",
+      "reference": ".probe {\n  value: false;\n}",
+      "actual": ".probe {\n  value: false;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "operator 1 <= 2",
+      "source": ".probe { value: (1 <= 2); }",
+      "reference": ".probe {\n  value: true;\n}",
+      "actual": ".probe {\n  value: true;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "operator 1 + 1px",
+      "source": ".probe { value: (1 + 1px); }",
+      "reference": ".probe {\n  value: 2px;\n}",
+      "actual": ".probe {\n  value: 2px;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "operator 1 - 1px",
+      "source": ".probe { value: (1 - 1px); }",
+      "reference": ".probe {\n  value: 0px;\n}",
+      "actual": ".probe {\n  value: 0px;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "operator 1 * 1px",
+      "source": ".probe { value: (1 * 1px); }",
+      "reference": ".probe {\n  value: 1px;\n}",
+      "actual": ".probe {\n  value: 1px;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "operator 1 / 1px",
+      "source": ".probe { value: (1 / 1px); }",
+      "reference": ".probe {\n  value: calc(1 / 1px);\n}",
+      "actual": ".probe {\n  value: calc(1 / 1px);\n}\n",
+      "matched": true
+    },
+    {
+      "name": "operator 1 % 1px",
+      "source": ".probe { value: (1 % 1px); }",
+      "reference": ".probe {\n  value: 0px;\n}",
+      "actual": ".probe {\n  value: 0px;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "operator 1 == 1px",
+      "source": ".probe { value: (1 == 1px); }",
+      "reference": ".probe {\n  value: false;\n}",
+      "actual": ".probe {\n  value: false;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "operator 1 != 1px",
+      "source": ".probe { value: (1 != 1px); }",
+      "reference": ".probe {\n  value: true;\n}",
+      "actual": ".probe {\n  value: true;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "operator 1 > 1px",
+      "source": ".probe { value: (1 > 1px); }",
+      "reference": ".probe {\n  value: false;\n}",
+      "actual": ".probe {\n  value: false;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "operator 1 <= 1px",
+      "source": ".probe { value: (1 <= 1px); }",
+      "reference": ".probe {\n  value: true;\n}",
+      "actual": ".probe {\n  value: true;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "operator 1 + 1cm",
+      "source": ".probe { value: (1 + 1cm); }",
+      "reference": ".probe {\n  value: 2cm;\n}",
+      "actual": ".probe {\n  value: 2cm;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "operator 1 - 1cm",
+      "source": ".probe { value: (1 - 1cm); }",
+      "reference": ".probe {\n  value: 0cm;\n}",
+      "actual": ".probe {\n  value: 0cm;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "operator 1 * 1cm",
+      "source": ".probe { value: (1 * 1cm); }",
+      "reference": ".probe {\n  value: 1cm;\n}",
+      "actual": ".probe {\n  value: 1cm;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "operator 1 / 1cm",
+      "source": ".probe { value: (1 / 1cm); }",
+      "reference": ".probe {\n  value: calc(1 / 1cm);\n}",
+      "actual": ".probe {\n  value: calc(1 / 1cm);\n}\n",
+      "matched": true
+    },
+    {
+      "name": "operator 1 % 1cm",
+      "source": ".probe { value: (1 % 1cm); }",
+      "reference": ".probe {\n  value: 0cm;\n}",
+      "actual": ".probe {\n  value: 0cm;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "operator 1 == 1cm",
+      "source": ".probe { value: (1 == 1cm); }",
+      "reference": ".probe {\n  value: false;\n}",
+      "actual": ".probe {\n  value: false;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "operator 1 != 1cm",
+      "source": ".probe { value: (1 != 1cm); }",
+      "reference": ".probe {\n  value: true;\n}",
+      "actual": ".probe {\n  value: true;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "operator 1 > 1cm",
+      "source": ".probe { value: (1 > 1cm); }",
+      "reference": ".probe {\n  value: false;\n}",
+      "actual": ".probe {\n  value: false;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "operator 1 <= 1cm",
+      "source": ".probe { value: (1 <= 1cm); }",
+      "reference": ".probe {\n  value: true;\n}",
+      "actual": ".probe {\n  value: true;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "operator 1 + 500ms",
+      "source": ".probe { value: (1 + 500ms); }",
+      "reference": ".probe {\n  value: 501ms;\n}",
+      "actual": ".probe {\n  value: 501ms;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "operator 1 - 500ms",
+      "source": ".probe { value: (1 - 500ms); }",
+      "reference": ".probe {\n  value: -499ms;\n}",
+      "actual": ".probe {\n  value: -499ms;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "operator 1 * 500ms",
+      "source": ".probe { value: (1 * 500ms); }",
+      "reference": ".probe {\n  value: 500ms;\n}",
+      "actual": ".probe {\n  value: 500ms;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "operator 1 / 500ms",
+      "source": ".probe { value: (1 / 500ms); }",
+      "reference": ".probe {\n  value: calc(0.002 / 1ms);\n}",
+      "actual": ".probe {\n  value: calc(0.002 / 1ms);\n}\n",
+      "matched": true
+    },
+    {
+      "name": "operator 1 % 500ms",
+      "source": ".probe { value: (1 % 500ms); }",
+      "reference": ".probe {\n  value: 1ms;\n}",
+      "actual": ".probe {\n  value: 1ms;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "operator 1 == 500ms",
+      "source": ".probe { value: (1 == 500ms); }",
+      "reference": ".probe {\n  value: false;\n}",
+      "actual": ".probe {\n  value: false;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "operator 1 != 500ms",
+      "source": ".probe { value: (1 != 500ms); }",
+      "reference": ".probe {\n  value: true;\n}",
+      "actual": ".probe {\n  value: true;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "operator 1 > 500ms",
+      "source": ".probe { value: (1 > 500ms); }",
+      "reference": ".probe {\n  value: false;\n}",
+      "actual": ".probe {\n  value: false;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "operator 1 <= 500ms",
+      "source": ".probe { value: (1 <= 500ms); }",
+      "reference": ".probe {\n  value: true;\n}",
+      "actual": ".probe {\n  value: true;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "operator -2.5 + 2",
+      "source": ".probe { value: (-2.5 + 2); }",
+      "reference": ".probe {\n  value: -0.5;\n}",
+      "actual": ".probe {\n  value: -0.5;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "operator -2.5 - 2",
+      "source": ".probe { value: (-2.5 - 2); }",
+      "reference": ".probe {\n  value: -4.5;\n}",
+      "actual": ".probe {\n  value: -4.5;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "operator -2.5 * 2",
+      "source": ".probe { value: (-2.5 * 2); }",
+      "reference": ".probe {\n  value: -5;\n}",
+      "actual": ".probe {\n  value: -5;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "operator -2.5 / 2",
+      "source": ".probe { value: (-2.5 / 2); }",
+      "reference": ".probe {\n  value: -1.25;\n}",
+      "actual": ".probe {\n  value: -1.25;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "operator -2.5 % 2",
+      "source": ".probe { value: (-2.5 % 2); }",
+      "reference": ".probe {\n  value: 1.5;\n}",
+      "actual": ".probe {\n  value: 1.5;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "operator -2.5 == 2",
+      "source": ".probe { value: (-2.5 == 2); }",
+      "reference": ".probe {\n  value: false;\n}",
+      "actual": ".probe {\n  value: false;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "operator -2.5 != 2",
+      "source": ".probe { value: (-2.5 != 2); }",
+      "reference": ".probe {\n  value: true;\n}",
+      "actual": ".probe {\n  value: true;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "operator -2.5 > 2",
+      "source": ".probe { value: (-2.5 > 2); }",
+      "reference": ".probe {\n  value: false;\n}",
+      "actual": ".probe {\n  value: false;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "operator -2.5 <= 2",
+      "source": ".probe { value: (-2.5 <= 2); }",
+      "reference": ".probe {\n  value: true;\n}",
+      "actual": ".probe {\n  value: true;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "operator -2.5 + 1px",
+      "source": ".probe { value: (-2.5 + 1px); }",
+      "reference": ".probe {\n  value: -1.5px;\n}",
+      "actual": ".probe {\n  value: -1.5px;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "operator -2.5 - 1px",
+      "source": ".probe { value: (-2.5 - 1px); }",
+      "reference": ".probe {\n  value: -3.5px;\n}",
+      "actual": ".probe {\n  value: -3.5px;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "operator -2.5 * 1px",
+      "source": ".probe { value: (-2.5 * 1px); }",
+      "reference": ".probe {\n  value: -2.5px;\n}",
+      "actual": ".probe {\n  value: -2.5px;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "operator -2.5 / 1px",
+      "source": ".probe { value: (-2.5 / 1px); }",
+      "reference": ".probe {\n  value: calc(-2.5 / 1px);\n}",
+      "actual": ".probe {\n  value: calc(-2.5 / 1px);\n}\n",
+      "matched": true
+    },
+    {
+      "name": "operator -2.5 % 1px",
+      "source": ".probe { value: (-2.5 % 1px); }",
+      "reference": ".probe {\n  value: 0.5px;\n}",
+      "actual": ".probe {\n  value: 0.5px;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "operator -2.5 == 1px",
+      "source": ".probe { value: (-2.5 == 1px); }",
+      "reference": ".probe {\n  value: false;\n}",
+      "actual": ".probe {\n  value: false;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "operator -2.5 != 1px",
+      "source": ".probe { value: (-2.5 != 1px); }",
+      "reference": ".probe {\n  value: true;\n}",
+      "actual": ".probe {\n  value: true;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "operator -2.5 > 1px",
+      "source": ".probe { value: (-2.5 > 1px); }",
+      "reference": ".probe {\n  value: false;\n}",
+      "actual": ".probe {\n  value: false;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "operator -2.5 <= 1px",
+      "source": ".probe { value: (-2.5 <= 1px); }",
+      "reference": ".probe {\n  value: true;\n}",
+      "actual": ".probe {\n  value: true;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "operator -2.5 + 1cm",
+      "source": ".probe { value: (-2.5 + 1cm); }",
+      "reference": ".probe {\n  value: -1.5cm;\n}",
+      "actual": ".probe {\n  value: -1.5cm;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "operator -2.5 - 1cm",
+      "source": ".probe { value: (-2.5 - 1cm); }",
+      "reference": ".probe {\n  value: -3.5cm;\n}",
+      "actual": ".probe {\n  value: -3.5cm;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "operator -2.5 * 1cm",
+      "source": ".probe { value: (-2.5 * 1cm); }",
+      "reference": ".probe {\n  value: -2.5cm;\n}",
+      "actual": ".probe {\n  value: -2.5cm;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "operator -2.5 / 1cm",
+      "source": ".probe { value: (-2.5 / 1cm); }",
+      "reference": ".probe {\n  value: calc(-2.5 / 1cm);\n}",
+      "actual": ".probe {\n  value: calc(-2.5 / 1cm);\n}\n",
+      "matched": true
+    },
+    {
+      "name": "operator -2.5 % 1cm",
+      "source": ".probe { value: (-2.5 % 1cm); }",
+      "reference": ".probe {\n  value: 0.5cm;\n}",
+      "actual": ".probe {\n  value: 0.5cm;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "operator -2.5 == 1cm",
+      "source": ".probe { value: (-2.5 == 1cm); }",
+      "reference": ".probe {\n  value: false;\n}",
+      "actual": ".probe {\n  value: false;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "operator -2.5 != 1cm",
+      "source": ".probe { value: (-2.5 != 1cm); }",
+      "reference": ".probe {\n  value: true;\n}",
+      "actual": ".probe {\n  value: true;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "operator -2.5 > 1cm",
+      "source": ".probe { value: (-2.5 > 1cm); }",
+      "reference": ".probe {\n  value: false;\n}",
+      "actual": ".probe {\n  value: false;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "operator -2.5 <= 1cm",
+      "source": ".probe { value: (-2.5 <= 1cm); }",
+      "reference": ".probe {\n  value: true;\n}",
+      "actual": ".probe {\n  value: true;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "operator -2.5 + 500ms",
+      "source": ".probe { value: (-2.5 + 500ms); }",
+      "reference": ".probe {\n  value: 497.5ms;\n}",
+      "actual": ".probe {\n  value: 497.5ms;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "operator -2.5 - 500ms",
+      "source": ".probe { value: (-2.5 - 500ms); }",
+      "reference": ".probe {\n  value: -502.5ms;\n}",
+      "actual": ".probe {\n  value: -502.5ms;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "operator -2.5 * 500ms",
+      "source": ".probe { value: (-2.5 * 500ms); }",
+      "reference": ".probe {\n  value: -1250ms;\n}",
+      "actual": ".probe {\n  value: -1250ms;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "operator -2.5 / 500ms",
+      "source": ".probe { value: (-2.5 / 500ms); }",
+      "reference": ".probe {\n  value: calc(-0.005 / 1ms);\n}",
+      "actual": ".probe {\n  value: calc(-0.005 / 1ms);\n}\n",
+      "matched": true
+    },
+    {
+      "name": "operator -2.5 % 500ms",
+      "source": ".probe { value: (-2.5 % 500ms); }",
+      "reference": ".probe {\n  value: 497.5ms;\n}",
+      "actual": ".probe {\n  value: 497.5ms;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "operator -2.5 == 500ms",
+      "source": ".probe { value: (-2.5 == 500ms); }",
+      "reference": ".probe {\n  value: false;\n}",
+      "actual": ".probe {\n  value: false;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "operator -2.5 != 500ms",
+      "source": ".probe { value: (-2.5 != 500ms); }",
+      "reference": ".probe {\n  value: true;\n}",
+      "actual": ".probe {\n  value: true;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "operator -2.5 > 500ms",
+      "source": ".probe { value: (-2.5 > 500ms); }",
+      "reference": ".probe {\n  value: false;\n}",
+      "actual": ".probe {\n  value: false;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "operator -2.5 <= 500ms",
+      "source": ".probe { value: (-2.5 <= 500ms); }",
+      "reference": ".probe {\n  value: true;\n}",
+      "actual": ".probe {\n  value: true;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "operator 0 + 2",
+      "source": ".probe { value: (0 + 2); }",
+      "reference": ".probe {\n  value: 2;\n}",
+      "actual": ".probe {\n  value: 2;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "operator 0 - 2",
+      "source": ".probe { value: (0 - 2); }",
+      "reference": ".probe {\n  value: -2;\n}",
+      "actual": ".probe {\n  value: -2;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "operator 0 * 2",
+      "source": ".probe { value: (0 * 2); }",
+      "reference": ".probe {\n  value: 0;\n}",
+      "actual": ".probe {\n  value: 0;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "operator 0 / 2",
+      "source": ".probe { value: (0 / 2); }",
+      "reference": ".probe {\n  value: 0;\n}",
+      "actual": ".probe {\n  value: 0;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "operator 0 % 2",
+      "source": ".probe { value: (0 % 2); }",
+      "reference": ".probe {\n  value: 0;\n}",
+      "actual": ".probe {\n  value: 0;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "operator 0 == 2",
+      "source": ".probe { value: (0 == 2); }",
+      "reference": ".probe {\n  value: false;\n}",
+      "actual": ".probe {\n  value: false;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "operator 0 != 2",
+      "source": ".probe { value: (0 != 2); }",
+      "reference": ".probe {\n  value: true;\n}",
+      "actual": ".probe {\n  value: true;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "operator 0 > 2",
+      "source": ".probe { value: (0 > 2); }",
+      "reference": ".probe {\n  value: false;\n}",
+      "actual": ".probe {\n  value: false;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "operator 0 <= 2",
+      "source": ".probe { value: (0 <= 2); }",
+      "reference": ".probe {\n  value: true;\n}",
+      "actual": ".probe {\n  value: true;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "operator 0 + 1px",
+      "source": ".probe { value: (0 + 1px); }",
+      "reference": ".probe {\n  value: 1px;\n}",
+      "actual": ".probe {\n  value: 1px;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "operator 0 - 1px",
+      "source": ".probe { value: (0 - 1px); }",
+      "reference": ".probe {\n  value: -1px;\n}",
+      "actual": ".probe {\n  value: -1px;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "operator 0 * 1px",
+      "source": ".probe { value: (0 * 1px); }",
+      "reference": ".probe {\n  value: 0px;\n}",
+      "actual": ".probe {\n  value: 0px;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "operator 0 / 1px",
+      "source": ".probe { value: (0 / 1px); }",
+      "reference": ".probe {\n  value: calc(0 / 1px);\n}",
+      "actual": ".probe {\n  value: calc(0 / 1px);\n}\n",
+      "matched": true
+    },
+    {
+      "name": "operator 0 % 1px",
+      "source": ".probe { value: (0 % 1px); }",
+      "reference": ".probe {\n  value: 0px;\n}",
+      "actual": ".probe {\n  value: 0px;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "operator 0 == 1px",
+      "source": ".probe { value: (0 == 1px); }",
+      "reference": ".probe {\n  value: false;\n}",
+      "actual": ".probe {\n  value: false;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "operator 0 != 1px",
+      "source": ".probe { value: (0 != 1px); }",
+      "reference": ".probe {\n  value: true;\n}",
+      "actual": ".probe {\n  value: true;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "operator 0 > 1px",
+      "source": ".probe { value: (0 > 1px); }",
+      "reference": ".probe {\n  value: false;\n}",
+      "actual": ".probe {\n  value: false;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "operator 0 <= 1px",
+      "source": ".probe { value: (0 <= 1px); }",
+      "reference": ".probe {\n  value: true;\n}",
+      "actual": ".probe {\n  value: true;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "operator 0 + 1cm",
+      "source": ".probe { value: (0 + 1cm); }",
+      "reference": ".probe {\n  value: 1cm;\n}",
+      "actual": ".probe {\n  value: 1cm;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "operator 0 - 1cm",
+      "source": ".probe { value: (0 - 1cm); }",
+      "reference": ".probe {\n  value: -1cm;\n}",
+      "actual": ".probe {\n  value: -1cm;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "operator 0 * 1cm",
+      "source": ".probe { value: (0 * 1cm); }",
+      "reference": ".probe {\n  value: 0cm;\n}",
+      "actual": ".probe {\n  value: 0cm;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "operator 0 / 1cm",
+      "source": ".probe { value: (0 / 1cm); }",
+      "reference": ".probe {\n  value: calc(0 / 1cm);\n}",
+      "actual": ".probe {\n  value: calc(0 / 1cm);\n}\n",
+      "matched": true
+    },
+    {
+      "name": "operator 0 % 1cm",
+      "source": ".probe { value: (0 % 1cm); }",
+      "reference": ".probe {\n  value: 0cm;\n}",
+      "actual": ".probe {\n  value: 0cm;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "operator 0 == 1cm",
+      "source": ".probe { value: (0 == 1cm); }",
+      "reference": ".probe {\n  value: false;\n}",
+      "actual": ".probe {\n  value: false;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "operator 0 != 1cm",
+      "source": ".probe { value: (0 != 1cm); }",
+      "reference": ".probe {\n  value: true;\n}",
+      "actual": ".probe {\n  value: true;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "operator 0 > 1cm",
+      "source": ".probe { value: (0 > 1cm); }",
+      "reference": ".probe {\n  value: false;\n}",
+      "actual": ".probe {\n  value: false;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "operator 0 <= 1cm",
+      "source": ".probe { value: (0 <= 1cm); }",
+      "reference": ".probe {\n  value: true;\n}",
+      "actual": ".probe {\n  value: true;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "operator 0 + 500ms",
+      "source": ".probe { value: (0 + 500ms); }",
+      "reference": ".probe {\n  value: 500ms;\n}",
+      "actual": ".probe {\n  value: 500ms;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "operator 0 - 500ms",
+      "source": ".probe { value: (0 - 500ms); }",
+      "reference": ".probe {\n  value: -500ms;\n}",
+      "actual": ".probe {\n  value: -500ms;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "operator 0 * 500ms",
+      "source": ".probe { value: (0 * 500ms); }",
+      "reference": ".probe {\n  value: 0ms;\n}",
+      "actual": ".probe {\n  value: 0ms;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "operator 0 / 500ms",
+      "source": ".probe { value: (0 / 500ms); }",
+      "reference": ".probe {\n  value: calc(0 / 1ms);\n}",
+      "actual": ".probe {\n  value: calc(0 / 1ms);\n}\n",
+      "matched": true
+    },
+    {
+      "name": "operator 0 % 500ms",
+      "source": ".probe { value: (0 % 500ms); }",
+      "reference": ".probe {\n  value: 0ms;\n}",
+      "actual": ".probe {\n  value: 0ms;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "operator 0 == 500ms",
+      "source": ".probe { value: (0 == 500ms); }",
+      "reference": ".probe {\n  value: false;\n}",
+      "actual": ".probe {\n  value: false;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "operator 0 != 500ms",
+      "source": ".probe { value: (0 != 500ms); }",
+      "reference": ".probe {\n  value: true;\n}",
+      "actual": ".probe {\n  value: true;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "operator 0 > 500ms",
+      "source": ".probe { value: (0 > 500ms); }",
+      "reference": ".probe {\n  value: false;\n}",
+      "actual": ".probe {\n  value: false;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "operator 0 <= 500ms",
+      "source": ".probe { value: (0 <= 500ms); }",
+      "reference": ".probe {\n  value: true;\n}",
+      "actual": ".probe {\n  value: true;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "operator 3px + 2",
+      "source": ".probe { value: (3px + 2); }",
+      "reference": ".probe {\n  value: 5px;\n}",
+      "actual": ".probe {\n  value: 5px;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "operator 3px - 2",
+      "source": ".probe { value: (3px - 2); }",
+      "reference": ".probe {\n  value: 1px;\n}",
+      "actual": ".probe {\n  value: 1px;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "operator 3px * 2",
+      "source": ".probe { value: (3px * 2); }",
+      "reference": ".probe {\n  value: 6px;\n}",
+      "actual": ".probe {\n  value: 6px;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "operator 3px / 2",
+      "source": ".probe { value: (3px / 2); }",
+      "reference": ".probe {\n  value: 1.5px;\n}",
+      "actual": ".probe {\n  value: 1.5px;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "operator 3px % 2",
+      "source": ".probe { value: (3px % 2); }",
+      "reference": ".probe {\n  value: 1px;\n}",
+      "actual": ".probe {\n  value: 1px;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "operator 3px == 2",
+      "source": ".probe { value: (3px == 2); }",
+      "reference": ".probe {\n  value: false;\n}",
+      "actual": ".probe {\n  value: false;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "operator 3px != 2",
+      "source": ".probe { value: (3px != 2); }",
+      "reference": ".probe {\n  value: true;\n}",
+      "actual": ".probe {\n  value: true;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "operator 3px > 2",
+      "source": ".probe { value: (3px > 2); }",
+      "reference": ".probe {\n  value: true;\n}",
+      "actual": ".probe {\n  value: true;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "operator 3px <= 2",
+      "source": ".probe { value: (3px <= 2); }",
+      "reference": ".probe {\n  value: false;\n}",
+      "actual": ".probe {\n  value: false;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "operator 3px + 1px",
+      "source": ".probe { value: (3px + 1px); }",
+      "reference": ".probe {\n  value: 4px;\n}",
+      "actual": ".probe {\n  value: 4px;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "operator 3px - 1px",
+      "source": ".probe { value: (3px - 1px); }",
+      "reference": ".probe {\n  value: 2px;\n}",
+      "actual": ".probe {\n  value: 2px;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "operator 3px * 1px",
+      "source": ".probe { value: (3px * 1px); }",
+      "reference": ".probe {\n  value: calc(3px * 1px);\n}",
+      "actual": ".probe {\n  value: calc(3px * 1px);\n}\n",
+      "matched": true
+    },
+    {
+      "name": "operator 3px / 1px",
+      "source": ".probe { value: (3px / 1px); }",
+      "reference": ".probe {\n  value: 3;\n}",
+      "actual": ".probe {\n  value: 3;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "operator 3px % 1px",
+      "source": ".probe { value: (3px % 1px); }",
+      "reference": ".probe {\n  value: 0px;\n}",
+      "actual": ".probe {\n  value: 0px;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "operator 3px == 1px",
+      "source": ".probe { value: (3px == 1px); }",
+      "reference": ".probe {\n  value: false;\n}",
+      "actual": ".probe {\n  value: false;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "operator 3px != 1px",
+      "source": ".probe { value: (3px != 1px); }",
+      "reference": ".probe {\n  value: true;\n}",
+      "actual": ".probe {\n  value: true;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "operator 3px > 1px",
+      "source": ".probe { value: (3px > 1px); }",
+      "reference": ".probe {\n  value: true;\n}",
+      "actual": ".probe {\n  value: true;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "operator 3px <= 1px",
+      "source": ".probe { value: (3px <= 1px); }",
+      "reference": ".probe {\n  value: false;\n}",
+      "actual": ".probe {\n  value: false;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "operator 3px + 1cm",
+      "source": ".probe { value: (3px + 1cm); }",
+      "reference": ".probe {\n  value: 40.7952755906px;\n}",
+      "actual": ".probe {\n  value: 40.7952755906px;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "operator 3px - 1cm",
+      "source": ".probe { value: (3px - 1cm); }",
+      "reference": ".probe {\n  value: -34.7952755906px;\n}",
+      "actual": ".probe {\n  value: -34.7952755906px;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "operator 3px * 1cm",
+      "source": ".probe { value: (3px * 1cm); }",
+      "reference": ".probe {\n  value: calc(3px * 1cm);\n}",
+      "actual": ".probe {\n  value: calc(3px * 1cm);\n}\n",
+      "matched": true
+    },
+    {
+      "name": "operator 3px / 1cm",
+      "source": ".probe { value: (3px / 1cm); }",
+      "reference": ".probe {\n  value: 0.079375;\n}",
+      "actual": ".probe {\n  value: 0.079375;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "operator 3px % 1cm",
+      "source": ".probe { value: (3px % 1cm); }",
+      "reference": ".probe {\n  value: 3px;\n}",
+      "actual": ".probe {\n  value: 3px;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "operator 3px == 1cm",
+      "source": ".probe { value: (3px == 1cm); }",
+      "reference": ".probe {\n  value: false;\n}",
+      "actual": ".probe {\n  value: false;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "operator 3px != 1cm",
+      "source": ".probe { value: (3px != 1cm); }",
+      "reference": ".probe {\n  value: true;\n}",
+      "actual": ".probe {\n  value: true;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "operator 3px > 1cm",
+      "source": ".probe { value: (3px > 1cm); }",
+      "reference": ".probe {\n  value: false;\n}",
+      "actual": ".probe {\n  value: false;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "operator 3px <= 1cm",
+      "source": ".probe { value: (3px <= 1cm); }",
+      "reference": ".probe {\n  value: true;\n}",
+      "actual": ".probe {\n  value: true;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "operator 3px + 500ms",
+      "source": ".probe { value: (3px + 500ms); }",
+      "referenceError": "3px and 500ms have incompatible units.\n  ╷\n1 │ .probe { value: (3px + 500ms); }\n  │                  ^^^^^^^^^^^\n  ╵\n  - 1:18  root stylesheet",
+      "actual": "ERROR: Invalid(\"incompatible units\")",
+      "actualError": "ERROR: Invalid(\"incompatible units\")",
+      "matched": true
+    },
+    {
+      "name": "operator 3px - 500ms",
+      "source": ".probe { value: (3px - 500ms); }",
+      "referenceError": "3px and 500ms have incompatible units.\n  ╷\n1 │ .probe { value: (3px - 500ms); }\n  │                  ^^^^^^^^^^^\n  ╵\n  - 1:18  root stylesheet",
+      "actual": "ERROR: Invalid(\"incompatible units\")",
+      "actualError": "ERROR: Invalid(\"incompatible units\")",
+      "matched": true
+    },
+    {
+      "name": "operator 3px * 500ms",
+      "source": ".probe { value: (3px * 500ms); }",
+      "reference": ".probe {\n  value: calc(1500px * 1ms);\n}",
+      "actual": ".probe {\n  value: calc(1500px * 1ms);\n}\n",
+      "matched": true
+    },
+    {
+      "name": "operator 3px / 500ms",
+      "source": ".probe { value: (3px / 500ms); }",
+      "reference": ".probe {\n  value: calc(0.006px / 1ms);\n}",
+      "actual": ".probe {\n  value: calc(0.006px / 1ms);\n}\n",
+      "matched": true
+    },
+    {
+      "name": "operator 3px % 500ms",
+      "source": ".probe { value: (3px % 500ms); }",
+      "referenceError": "3px and 500ms have incompatible units.\n  ╷\n1 │ .probe { value: (3px % 500ms); }\n  │                  ^^^^^^^^^^^\n  ╵\n  - 1:18  root stylesheet",
+      "actual": "ERROR: Invalid(\"incompatible units\")",
+      "actualError": "ERROR: Invalid(\"incompatible units\")",
+      "matched": true
+    },
+    {
+      "name": "operator 3px == 500ms",
+      "source": ".probe { value: (3px == 500ms); }",
+      "reference": ".probe {\n  value: false;\n}",
+      "actual": ".probe {\n  value: false;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "operator 3px != 500ms",
+      "source": ".probe { value: (3px != 500ms); }",
+      "reference": ".probe {\n  value: true;\n}",
+      "actual": ".probe {\n  value: true;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "operator 3px > 500ms",
+      "source": ".probe { value: (3px > 500ms); }",
+      "referenceError": "3px and 500ms have incompatible units.\n  ╷\n1 │ .probe { value: (3px > 500ms); }\n  │                  ^^^^^^^^^^^\n  ╵\n  - 1:18  root stylesheet",
+      "actual": "ERROR: Invalid(\"incompatible units\")",
+      "actualError": "ERROR: Invalid(\"incompatible units\")",
+      "matched": true
+    },
+    {
+      "name": "operator 3px <= 500ms",
+      "source": ".probe { value: (3px <= 500ms); }",
+      "referenceError": "3px and 500ms have incompatible units.\n  ╷\n1 │ .probe { value: (3px <= 500ms); }\n  │                  ^^^^^^^^^^^^\n  ╵\n  - 1:18  root stylesheet",
+      "actual": "ERROR: Invalid(\"incompatible units\")",
+      "actualError": "ERROR: Invalid(\"incompatible units\")",
+      "matched": true
+    },
+    {
+      "name": "operator 2cm + 2",
+      "source": ".probe { value: (2cm + 2); }",
+      "reference": ".probe {\n  value: 4cm;\n}",
+      "actual": ".probe {\n  value: 4cm;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "operator 2cm - 2",
+      "source": ".probe { value: (2cm - 2); }",
+      "reference": ".probe {\n  value: 0cm;\n}",
+      "actual": ".probe {\n  value: 0cm;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "operator 2cm * 2",
+      "source": ".probe { value: (2cm * 2); }",
+      "reference": ".probe {\n  value: 4cm;\n}",
+      "actual": ".probe {\n  value: 4cm;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "operator 2cm / 2",
+      "source": ".probe { value: (2cm / 2); }",
+      "reference": ".probe {\n  value: 1cm;\n}",
+      "actual": ".probe {\n  value: 1cm;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "operator 2cm % 2",
+      "source": ".probe { value: (2cm % 2); }",
+      "reference": ".probe {\n  value: 0cm;\n}",
+      "actual": ".probe {\n  value: 0cm;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "operator 2cm == 2",
+      "source": ".probe { value: (2cm == 2); }",
+      "reference": ".probe {\n  value: false;\n}",
+      "actual": ".probe {\n  value: false;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "operator 2cm != 2",
+      "source": ".probe { value: (2cm != 2); }",
+      "reference": ".probe {\n  value: true;\n}",
+      "actual": ".probe {\n  value: true;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "operator 2cm > 2",
+      "source": ".probe { value: (2cm > 2); }",
+      "reference": ".probe {\n  value: false;\n}",
+      "actual": ".probe {\n  value: false;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "operator 2cm <= 2",
+      "source": ".probe { value: (2cm <= 2); }",
+      "reference": ".probe {\n  value: true;\n}",
+      "actual": ".probe {\n  value: true;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "operator 2cm + 1px",
+      "source": ".probe { value: (2cm + 1px); }",
+      "reference": ".probe {\n  value: 2.0264583333cm;\n}",
+      "actual": ".probe {\n  value: 2.0264583333cm;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "operator 2cm - 1px",
+      "source": ".probe { value: (2cm - 1px); }",
+      "reference": ".probe {\n  value: 1.9735416667cm;\n}",
+      "actual": ".probe {\n  value: 1.9735416667cm;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "operator 2cm * 1px",
+      "source": ".probe { value: (2cm * 1px); }",
+      "reference": ".probe {\n  value: calc(2cm * 1px);\n}",
+      "actual": ".probe {\n  value: calc(2cm * 1px);\n}\n",
+      "matched": true
+    },
+    {
+      "name": "operator 2cm / 1px",
+      "source": ".probe { value: (2cm / 1px); }",
+      "reference": ".probe {\n  value: 75.5905511811;\n}",
+      "actual": ".probe {\n  value: 75.5905511811;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "operator 2cm % 1px",
+      "source": ".probe { value: (2cm % 1px); }",
+      "reference": ".probe {\n  value: 0.015625cm;\n}",
+      "actual": ".probe {\n  value: 0.015625cm;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "operator 2cm == 1px",
+      "source": ".probe { value: (2cm == 1px); }",
+      "reference": ".probe {\n  value: false;\n}",
+      "actual": ".probe {\n  value: false;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "operator 2cm != 1px",
+      "source": ".probe { value: (2cm != 1px); }",
+      "reference": ".probe {\n  value: true;\n}",
+      "actual": ".probe {\n  value: true;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "operator 2cm > 1px",
+      "source": ".probe { value: (2cm > 1px); }",
+      "reference": ".probe {\n  value: true;\n}",
+      "actual": ".probe {\n  value: true;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "operator 2cm <= 1px",
+      "source": ".probe { value: (2cm <= 1px); }",
+      "reference": ".probe {\n  value: false;\n}",
+      "actual": ".probe {\n  value: false;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "operator 2cm + 1cm",
+      "source": ".probe { value: (2cm + 1cm); }",
+      "reference": ".probe {\n  value: 3cm;\n}",
+      "actual": ".probe {\n  value: 3cm;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "operator 2cm - 1cm",
+      "source": ".probe { value: (2cm - 1cm); }",
+      "reference": ".probe {\n  value: 1cm;\n}",
+      "actual": ".probe {\n  value: 1cm;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "operator 2cm * 1cm",
+      "source": ".probe { value: (2cm * 1cm); }",
+      "reference": ".probe {\n  value: calc(2cm * 1cm);\n}",
+      "actual": ".probe {\n  value: calc(2cm * 1cm);\n}\n",
+      "matched": true
+    },
+    {
+      "name": "operator 2cm / 1cm",
+      "source": ".probe { value: (2cm / 1cm); }",
+      "reference": ".probe {\n  value: 2;\n}",
+      "actual": ".probe {\n  value: 2;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "operator 2cm % 1cm",
+      "source": ".probe { value: (2cm % 1cm); }",
+      "reference": ".probe {\n  value: 0cm;\n}",
+      "actual": ".probe {\n  value: 0cm;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "operator 2cm == 1cm",
+      "source": ".probe { value: (2cm == 1cm); }",
+      "reference": ".probe {\n  value: false;\n}",
+      "actual": ".probe {\n  value: false;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "operator 2cm != 1cm",
+      "source": ".probe { value: (2cm != 1cm); }",
+      "reference": ".probe {\n  value: true;\n}",
+      "actual": ".probe {\n  value: true;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "operator 2cm > 1cm",
+      "source": ".probe { value: (2cm > 1cm); }",
+      "reference": ".probe {\n  value: true;\n}",
+      "actual": ".probe {\n  value: true;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "operator 2cm <= 1cm",
+      "source": ".probe { value: (2cm <= 1cm); }",
+      "reference": ".probe {\n  value: false;\n}",
+      "actual": ".probe {\n  value: false;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "operator 2cm + 500ms",
+      "source": ".probe { value: (2cm + 500ms); }",
+      "referenceError": "2cm and 500ms have incompatible units.\n  ╷\n1 │ .probe { value: (2cm + 500ms); }\n  │                  ^^^^^^^^^^^\n  ╵\n  - 1:18  root stylesheet",
+      "actual": "ERROR: Invalid(\"incompatible units\")",
+      "actualError": "ERROR: Invalid(\"incompatible units\")",
+      "matched": true
+    },
+    {
+      "name": "operator 2cm - 500ms",
+      "source": ".probe { value: (2cm - 500ms); }",
+      "referenceError": "2cm and 500ms have incompatible units.\n  ╷\n1 │ .probe { value: (2cm - 500ms); }\n  │                  ^^^^^^^^^^^\n  ╵\n  - 1:18  root stylesheet",
+      "actual": "ERROR: Invalid(\"incompatible units\")",
+      "actualError": "ERROR: Invalid(\"incompatible units\")",
+      "matched": true
+    },
+    {
+      "name": "operator 2cm * 500ms",
+      "source": ".probe { value: (2cm * 500ms); }",
+      "reference": ".probe {\n  value: calc(1000cm * 1ms);\n}",
+      "actual": ".probe {\n  value: calc(1000cm * 1ms);\n}\n",
+      "matched": true
+    },
+    {
+      "name": "operator 2cm / 500ms",
+      "source": ".probe { value: (2cm / 500ms); }",
+      "reference": ".probe {\n  value: calc(0.004cm / 1ms);\n}",
+      "actual": ".probe {\n  value: calc(0.004cm / 1ms);\n}\n",
+      "matched": true
+    },
+    {
+      "name": "operator 2cm % 500ms",
+      "source": ".probe { value: (2cm % 500ms); }",
+      "referenceError": "2cm and 500ms have incompatible units.\n  ╷\n1 │ .probe { value: (2cm % 500ms); }\n  │                  ^^^^^^^^^^^\n  ╵\n  - 1:18  root stylesheet",
+      "actual": "ERROR: Invalid(\"incompatible units\")",
+      "actualError": "ERROR: Invalid(\"incompatible units\")",
+      "matched": true
+    },
+    {
+      "name": "operator 2cm == 500ms",
+      "source": ".probe { value: (2cm == 500ms); }",
+      "reference": ".probe {\n  value: false;\n}",
+      "actual": ".probe {\n  value: false;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "operator 2cm != 500ms",
+      "source": ".probe { value: (2cm != 500ms); }",
+      "reference": ".probe {\n  value: true;\n}",
+      "actual": ".probe {\n  value: true;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "operator 2cm > 500ms",
+      "source": ".probe { value: (2cm > 500ms); }",
+      "referenceError": "2cm and 500ms have incompatible units.\n  ╷\n1 │ .probe { value: (2cm > 500ms); }\n  │                  ^^^^^^^^^^^\n  ╵\n  - 1:18  root stylesheet",
+      "actual": "ERROR: Invalid(\"incompatible units\")",
+      "actualError": "ERROR: Invalid(\"incompatible units\")",
+      "matched": true
+    },
+    {
+      "name": "operator 2cm <= 500ms",
+      "source": ".probe { value: (2cm <= 500ms); }",
+      "referenceError": "2cm and 500ms have incompatible units.\n  ╷\n1 │ .probe { value: (2cm <= 500ms); }\n  │                  ^^^^^^^^^^^^\n  ╵\n  - 1:18  root stylesheet",
+      "actual": "ERROR: Invalid(\"incompatible units\")",
+      "actualError": "ERROR: Invalid(\"incompatible units\")",
+      "matched": true
+    },
+    {
+      "name": "operator 1s + 2",
+      "source": ".probe { value: (1s + 2); }",
+      "reference": ".probe {\n  value: 3s;\n}",
+      "actual": ".probe {\n  value: 3s;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "operator 1s - 2",
+      "source": ".probe { value: (1s - 2); }",
+      "reference": ".probe {\n  value: -1s;\n}",
+      "actual": ".probe {\n  value: -1s;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "operator 1s * 2",
+      "source": ".probe { value: (1s * 2); }",
+      "reference": ".probe {\n  value: 2s;\n}",
+      "actual": ".probe {\n  value: 2s;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "operator 1s / 2",
+      "source": ".probe { value: (1s / 2); }",
+      "reference": ".probe {\n  value: 0.5s;\n}",
+      "actual": ".probe {\n  value: 0.5s;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "operator 1s % 2",
+      "source": ".probe { value: (1s % 2); }",
+      "reference": ".probe {\n  value: 1s;\n}",
+      "actual": ".probe {\n  value: 1s;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "operator 1s == 2",
+      "source": ".probe { value: (1s == 2); }",
+      "reference": ".probe {\n  value: false;\n}",
+      "actual": ".probe {\n  value: false;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "operator 1s != 2",
+      "source": ".probe { value: (1s != 2); }",
+      "reference": ".probe {\n  value: true;\n}",
+      "actual": ".probe {\n  value: true;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "operator 1s > 2",
+      "source": ".probe { value: (1s > 2); }",
+      "reference": ".probe {\n  value: false;\n}",
+      "actual": ".probe {\n  value: false;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "operator 1s <= 2",
+      "source": ".probe { value: (1s <= 2); }",
+      "reference": ".probe {\n  value: true;\n}",
+      "actual": ".probe {\n  value: true;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "operator 1s + 1px",
+      "source": ".probe { value: (1s + 1px); }",
+      "referenceError": "1s and 1px have incompatible units.\n  ╷\n1 │ .probe { value: (1s + 1px); }\n  │                  ^^^^^^^^\n  ╵\n  - 1:18  root stylesheet",
+      "actual": "ERROR: Invalid(\"incompatible units\")",
+      "actualError": "ERROR: Invalid(\"incompatible units\")",
+      "matched": true
+    },
+    {
+      "name": "operator 1s - 1px",
+      "source": ".probe { value: (1s - 1px); }",
+      "referenceError": "1s and 1px have incompatible units.\n  ╷\n1 │ .probe { value: (1s - 1px); }\n  │                  ^^^^^^^^\n  ╵\n  - 1:18  root stylesheet",
+      "actual": "ERROR: Invalid(\"incompatible units\")",
+      "actualError": "ERROR: Invalid(\"incompatible units\")",
+      "matched": true
+    },
+    {
+      "name": "operator 1s * 1px",
+      "source": ".probe { value: (1s * 1px); }",
+      "reference": ".probe {\n  value: calc(1s * 1px);\n}",
+      "actual": ".probe {\n  value: calc(1s * 1px);\n}\n",
+      "matched": true
+    },
+    {
+      "name": "operator 1s / 1px",
+      "source": ".probe { value: (1s / 1px); }",
+      "reference": ".probe {\n  value: calc(1s / 1px);\n}",
+      "actual": ".probe {\n  value: calc(1s / 1px);\n}\n",
+      "matched": true
+    },
+    {
+      "name": "operator 1s % 1px",
+      "source": ".probe { value: (1s % 1px); }",
+      "referenceError": "1s and 1px have incompatible units.\n  ╷\n1 │ .probe { value: (1s % 1px); }\n  │                  ^^^^^^^^\n  ╵\n  - 1:18  root stylesheet",
+      "actual": "ERROR: Invalid(\"incompatible units\")",
+      "actualError": "ERROR: Invalid(\"incompatible units\")",
+      "matched": true
+    },
+    {
+      "name": "operator 1s == 1px",
+      "source": ".probe { value: (1s == 1px); }",
+      "reference": ".probe {\n  value: false;\n}",
+      "actual": ".probe {\n  value: false;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "operator 1s != 1px",
+      "source": ".probe { value: (1s != 1px); }",
+      "reference": ".probe {\n  value: true;\n}",
+      "actual": ".probe {\n  value: true;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "operator 1s > 1px",
+      "source": ".probe { value: (1s > 1px); }",
+      "referenceError": "1s and 1px have incompatible units.\n  ╷\n1 │ .probe { value: (1s > 1px); }\n  │                  ^^^^^^^^\n  ╵\n  - 1:18  root stylesheet",
+      "actual": "ERROR: Invalid(\"incompatible units\")",
+      "actualError": "ERROR: Invalid(\"incompatible units\")",
+      "matched": true
+    },
+    {
+      "name": "operator 1s <= 1px",
+      "source": ".probe { value: (1s <= 1px); }",
+      "referenceError": "1s and 1px have incompatible units.\n  ╷\n1 │ .probe { value: (1s <= 1px); }\n  │                  ^^^^^^^^^\n  ╵\n  - 1:18  root stylesheet",
+      "actual": "ERROR: Invalid(\"incompatible units\")",
+      "actualError": "ERROR: Invalid(\"incompatible units\")",
+      "matched": true
+    },
+    {
+      "name": "operator 1s + 1cm",
+      "source": ".probe { value: (1s + 1cm); }",
+      "referenceError": "1s and 1cm have incompatible units.\n  ╷\n1 │ .probe { value: (1s + 1cm); }\n  │                  ^^^^^^^^\n  ╵\n  - 1:18  root stylesheet",
+      "actual": "ERROR: Invalid(\"incompatible units\")",
+      "actualError": "ERROR: Invalid(\"incompatible units\")",
+      "matched": true
+    },
+    {
+      "name": "operator 1s - 1cm",
+      "source": ".probe { value: (1s - 1cm); }",
+      "referenceError": "1s and 1cm have incompatible units.\n  ╷\n1 │ .probe { value: (1s - 1cm); }\n  │                  ^^^^^^^^\n  ╵\n  - 1:18  root stylesheet",
+      "actual": "ERROR: Invalid(\"incompatible units\")",
+      "actualError": "ERROR: Invalid(\"incompatible units\")",
+      "matched": true
+    },
+    {
+      "name": "operator 1s * 1cm",
+      "source": ".probe { value: (1s * 1cm); }",
+      "reference": ".probe {\n  value: calc(1s * 1cm);\n}",
+      "actual": ".probe {\n  value: calc(1s * 1cm);\n}\n",
+      "matched": true
+    },
+    {
+      "name": "operator 1s / 1cm",
+      "source": ".probe { value: (1s / 1cm); }",
+      "reference": ".probe {\n  value: calc(1s / 1cm);\n}",
+      "actual": ".probe {\n  value: calc(1s / 1cm);\n}\n",
+      "matched": true
+    },
+    {
+      "name": "operator 1s % 1cm",
+      "source": ".probe { value: (1s % 1cm); }",
+      "referenceError": "1s and 1cm have incompatible units.\n  ╷\n1 │ .probe { value: (1s % 1cm); }\n  │                  ^^^^^^^^\n  ╵\n  - 1:18  root stylesheet",
+      "actual": "ERROR: Invalid(\"incompatible units\")",
+      "actualError": "ERROR: Invalid(\"incompatible units\")",
+      "matched": true
+    },
+    {
+      "name": "operator 1s == 1cm",
+      "source": ".probe { value: (1s == 1cm); }",
+      "reference": ".probe {\n  value: false;\n}",
+      "actual": ".probe {\n  value: false;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "operator 1s != 1cm",
+      "source": ".probe { value: (1s != 1cm); }",
+      "reference": ".probe {\n  value: true;\n}",
+      "actual": ".probe {\n  value: true;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "operator 1s > 1cm",
+      "source": ".probe { value: (1s > 1cm); }",
+      "referenceError": "1s and 1cm have incompatible units.\n  ╷\n1 │ .probe { value: (1s > 1cm); }\n  │                  ^^^^^^^^\n  ╵\n  - 1:18  root stylesheet",
+      "actual": "ERROR: Invalid(\"incompatible units\")",
+      "actualError": "ERROR: Invalid(\"incompatible units\")",
+      "matched": true
+    },
+    {
+      "name": "operator 1s <= 1cm",
+      "source": ".probe { value: (1s <= 1cm); }",
+      "referenceError": "1s and 1cm have incompatible units.\n  ╷\n1 │ .probe { value: (1s <= 1cm); }\n  │                  ^^^^^^^^^\n  ╵\n  - 1:18  root stylesheet",
+      "actual": "ERROR: Invalid(\"incompatible units\")",
+      "actualError": "ERROR: Invalid(\"incompatible units\")",
+      "matched": true
+    },
+    {
+      "name": "operator 1s + 500ms",
+      "source": ".probe { value: (1s + 500ms); }",
+      "reference": ".probe {\n  value: 1.5s;\n}",
+      "actual": ".probe {\n  value: 1.5s;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "operator 1s - 500ms",
+      "source": ".probe { value: (1s - 500ms); }",
+      "reference": ".probe {\n  value: 0.5s;\n}",
+      "actual": ".probe {\n  value: 0.5s;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "operator 1s * 500ms",
+      "source": ".probe { value: (1s * 500ms); }",
+      "reference": ".probe {\n  value: calc(500s * 1ms);\n}",
+      "actual": ".probe {\n  value: calc(500s * 1ms);\n}\n",
+      "matched": true
+    },
+    {
+      "name": "operator 1s / 500ms",
+      "source": ".probe { value: (1s / 500ms); }",
+      "reference": ".probe {\n  value: 2;\n}",
+      "actual": ".probe {\n  value: 2;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "operator 1s % 500ms",
+      "source": ".probe { value: (1s % 500ms); }",
+      "reference": ".probe {\n  value: 0s;\n}",
+      "actual": ".probe {\n  value: 0s;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "operator 1s == 500ms",
+      "source": ".probe { value: (1s == 500ms); }",
+      "reference": ".probe {\n  value: false;\n}",
+      "actual": ".probe {\n  value: false;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "operator 1s != 500ms",
+      "source": ".probe { value: (1s != 500ms); }",
+      "reference": ".probe {\n  value: true;\n}",
+      "actual": ".probe {\n  value: true;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "operator 1s > 500ms",
+      "source": ".probe { value: (1s > 500ms); }",
+      "reference": ".probe {\n  value: true;\n}",
+      "actual": ".probe {\n  value: true;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "operator 1s <= 500ms",
+      "source": ".probe { value: (1s <= 500ms); }",
+      "reference": ".probe {\n  value: false;\n}",
+      "actual": ".probe {\n  value: false;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "expression 1 + 2 * 3",
+      "source": ".probe { value: 1 + 2 * 3; }",
+      "reference": ".probe {\n  value: 7;\n}",
+      "actual": ".probe {\n  value: 7;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "expression (1 + 2) * 3",
+      "source": ".probe { value: (1 + 2) * 3; }",
+      "reference": ".probe {\n  value: 9;\n}",
+      "actual": ".probe {\n  value: 9;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "expression 12/3",
+      "source": ".probe { value: 12/3; }",
+      "reference": ".probe {\n  value: 12/3;\n}",
+      "actual": ".probe {\n  value: 12/3;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "expression (12/3)",
+      "source": ".probe { value: (12/3); }",
+      "reference": ".probe {\n  value: 4;\n}",
+      "actual": ".probe {\n  value: 4;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "expression 12px/3px",
+      "source": ".probe { value: 12px/3px; }",
+      "reference": ".probe {\n  value: 12px/3px;\n}",
+      "actual": ".probe {\n  value: 12px/3px;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "expression true or $missing",
+      "source": ".probe { value: true or $missing; }",
+      "reference": ".probe {\n  value: true;\n}",
+      "actual": ".probe {\n  value: true;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "expression false and $missing",
+      "source": ".probe { value: false and $missing; }",
+      "reference": ".probe {\n  value: false;\n}",
+      "actual": ".probe {\n  value: false;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "expression not null",
+      "source": ".probe { value: not null; }",
+      "reference": ".probe {\n  value: true;\n}",
+      "actual": ".probe {\n  value: true;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "expression not 0",
+      "source": ".probe { value: not 0; }",
+      "reference": ".probe {\n  value: false;\n}",
+      "actual": ".probe {\n  value: false;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "expression true and 12px",
+      "source": ".probe { value: true and 12px; }",
+      "reference": ".probe {\n  value: 12px;\n}",
+      "actual": ".probe {\n  value: 12px;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "expression null or hello",
+      "source": ".probe { value: null or hello; }",
+      "reference": ".probe {\n  value: hello;\n}",
+      "actual": ".probe {\n  value: hello;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "expression if(true, 2px, $missing)",
+      "source": ".probe { value: if(true, 2px, $missing); }",
+      "reference": ".probe {\n  value: 2px;\n}",
+      "actual": ".probe {\n  value: 2px;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "expression if(false, $missing, 3px)",
+      "source": ".probe { value: if(false, $missing, 3px); }",
+      "reference": ".probe {\n  value: 3px;\n}",
+      "actual": ".probe {\n  value: 3px;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "expression \"a\" + \"b\"",
+      "source": ".probe { value: \"a\" + \"b\"; }",
+      "reference": ".probe {\n  value: \"ab\";\n}",
+      "actual": ".probe {\n  value: \"ab\";\n}\n",
+      "matched": true
+    },
+    {
+      "name": "expression a + \"b\"",
+      "source": ".probe { value: a + \"b\"; }",
+      "reference": ".probe {\n  value: ab;\n}",
+      "actual": ".probe {\n  value: ab;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "expression \"a\" + 3",
+      "source": ".probe { value: \"a\" + 3; }",
+      "reference": ".probe {\n  value: \"a3\";\n}",
+      "actual": ".probe {\n  value: \"a3\";\n}\n",
+      "matched": true
+    },
+    {
+      "name": "expression #{1 + 2} + 4",
+      "source": ".probe { value: #{1 + 2} + 4; }",
+      "reference": ".probe {\n  value: 34;\n}",
+      "actual": ".probe {\n  value: 34;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "expression 1 -2",
+      "source": ".probe { value: 1 -2; }",
+      "reference": ".probe {\n  value: 1 -2;\n}",
+      "actual": ".probe {\n  value: 1 -2;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "expression 1 - 2",
+      "source": ".probe { value: 1 - 2; }",
+      "reference": ".probe {\n  value: -1;\n}",
+      "actual": ".probe {\n  value: -1;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "expression 1+2",
+      "source": ".probe { value: 1+2; }",
+      "reference": ".probe {\n  value: 3;\n}",
+      "actual": ".probe {\n  value: 3;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "expression 1 +2",
+      "source": ".probe { value: 1 +2; }",
+      "reference": ".probe {\n  value: 3;\n}",
+      "actual": ".probe {\n  value: 3;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "expression (1/0)",
+      "source": ".probe { value: (1/0); }",
+      "reference": ".probe {\n  value: calc(infinity);\n}",
+      "actual": ".probe {\n  value: calc(infinity);\n}\n",
+      "matched": true
+    },
+    {
+      "name": "expression (-1/0)",
+      "source": ".probe { value: (-1/0); }",
+      "reference": ".probe {\n  value: calc(-infinity);\n}",
+      "actual": ".probe {\n  value: calc(-infinity);\n}\n",
+      "matched": true
+    },
+    {
+      "name": "expression (0/0)",
+      "source": ".probe { value: (0/0); }",
+      "reference": ".probe {\n  value: calc(NaN);\n}",
+      "actual": ".probe {\n  value: calc(NaN);\n}\n",
+      "matched": true
+    },
+    {
+      "name": "expression 1in + 96px",
+      "source": ".probe { value: 1in + 96px; }",
+      "reference": ".probe {\n  value: 2in;\n}",
+      "actual": ".probe {\n  value: 2in;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "math math.div(1in,96px)",
+      "source": "@use \"sass:math\";.probe { value: math.div(1in,96px); }",
+      "reference": ".probe {\n  value: 1;\n}",
+      "actual": ".probe {\n  value: 1;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "math math.div(1,3)",
+      "source": "@use \"sass:math\";.probe { value: math.div(1,3); }",
+      "reference": ".probe {\n  value: 0.3333333333;\n}",
+      "actual": ".probe {\n  value: 0.3333333333;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "math math.pow(2,8)",
+      "source": "@use \"sass:math\";.probe { value: math.pow(2,8); }",
+      "reference": ".probe {\n  value: 256;\n}",
+      "actual": ".probe {\n  value: 256;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "math math.sqrt(9)",
+      "source": "@use \"sass:math\";.probe { value: math.sqrt(9); }",
+      "reference": ".probe {\n  value: 3;\n}",
+      "actual": ".probe {\n  value: 3;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "math math.abs(-2px)",
+      "source": "@use \"sass:math\";.probe { value: math.abs(-2px); }",
+      "reference": ".probe {\n  value: 2px;\n}",
+      "actual": ".probe {\n  value: 2px;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "math math.round(-1.5)",
+      "source": "@use \"sass:math\";.probe { value: math.round(-1.5); }",
+      "reference": ".probe {\n  value: -2;\n}",
+      "actual": ".probe {\n  value: -2;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "math math.ceil(1.2px)",
+      "source": "@use \"sass:math\";.probe { value: math.ceil(1.2px); }",
+      "reference": ".probe {\n  value: 2px;\n}",
+      "actual": ".probe {\n  value: 2px;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "math math.floor(-1.2px)",
+      "source": "@use \"sass:math\";.probe { value: math.floor(-1.2px); }",
+      "reference": ".probe {\n  value: -2px;\n}",
+      "actual": ".probe {\n  value: -2px;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "math math.percentage(.25)",
+      "source": "@use \"sass:math\";.probe { value: math.percentage(.25); }",
+      "reference": ".probe {\n  value: 25%;\n}",
+      "actual": ".probe {\n  value: 25%;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "math math.unit(1px * 1s)",
+      "source": "@use \"sass:math\";.probe { value: math.unit(1px * 1s); }",
+      "reference": ".probe {\n  value: \"px*s\";\n}",
+      "actual": ".probe {\n  value: \"px*s\";\n}\n",
+      "matched": true
+    },
+    {
+      "name": "math math.is-unitless(1px / 1px)",
+      "source": "@use \"sass:math\";.probe { value: math.is-unitless(1px / 1px); }",
+      "reference": ".probe {\n  value: true;\n}",
+      "actual": ".probe {\n  value: true;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "math math.compatible(1in,2cm)",
+      "source": "@use \"sass:math\";.probe { value: math.compatible(1in,2cm); }",
+      "reference": ".probe {\n  value: true;\n}",
+      "actual": ".probe {\n  value: true;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "math math.min(2cm, 1in)",
+      "source": "@use \"sass:math\";.probe { value: math.min(2cm, 1in); }",
+      "reference": ".probe {\n  value: 2cm;\n}",
+      "actual": ".probe {\n  value: 2cm;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "math math.max(2cm, 1in)",
+      "source": "@use \"sass:math\";.probe { value: math.max(2cm, 1in); }",
+      "reference": ".probe {\n  value: 1in;\n}",
+      "actual": ".probe {\n  value: 1in;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "math math.div($number2: 4, $number1: 12)",
+      "source": "@use \"sass:math\";.probe { value: math.div($number2: 4, $number1: 12); }",
+      "reference": ".probe {\n  value: 3;\n}",
+      "actual": ".probe {\n  value: 3;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "math math.div(1px,1s)",
+      "source": "@use \"sass:math\";.probe { value: math.div(1px,1s); }",
+      "reference": ".probe {\n  value: calc(1px / 1s);\n}",
+      "actual": ".probe {\n  value: calc(1px / 1s);\n}\n",
+      "matched": true
+    },
+    {
+      "name": "math math.sqrt(1px)",
+      "source": "@use \"sass:math\";.probe { value: math.sqrt(1px); }",
+      "referenceError": "$number: Expected 1px to have no units.\n  ╷\n1 │ @use \"sass:math\";.probe { value: math.sqrt(1px); }\n  │                                  ^^^^^^^^^^^^^^\n  ╵\n  - 1:34  root stylesheet",
+      "actual": "ERROR: Invalid(\"math function expects unitless number\")",
+      "actualError": "ERROR: Invalid(\"math function expects unitless number\")",
+      "matched": true
+    },
+    {
+      "name": "list list.length(1 2 3)",
+      "source": "@use \"sass:list\";.probe { value: list.length(1 2 3); }",
+      "reference": ".probe {\n  value: 3;\n}",
+      "actual": ".probe {\n  value: 3;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "list list.nth((a,b,c), -1)",
+      "source": "@use \"sass:list\";.probe { value: list.nth((a,b,c), -1); }",
+      "reference": ".probe {\n  value: c;\n}",
+      "actual": ".probe {\n  value: c;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "list list.set-nth((a,b,c),2,x)",
+      "source": "@use \"sass:list\";.probe { value: list.set-nth((a,b,c),2,x); }",
+      "reference": ".probe {\n  value: a, x, c;\n}",
+      "actual": ".probe {\n  value: a, x, c;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "list list.index(1in 96px 3px,96px)",
+      "source": "@use \"sass:list\";.probe { value: list.index(1in 96px 3px,96px); }",
+      "reference": ".probe {\n  value: 1;\n}",
+      "actual": ".probe {\n  value: 1;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "list list.append(1 2,3)",
+      "source": "@use \"sass:list\";.probe { value: list.append(1 2,3); }",
+      "reference": ".probe {\n  value: 1 2 3;\n}",
+      "actual": ".probe {\n  value: 1 2 3;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "list list.append([1,2],3)",
+      "source": "@use \"sass:list\";.probe { value: list.append([1,2],3); }",
+      "reference": ".probe {\n  value: [1, 2, 3];\n}",
+      "actual": ".probe {\n  value: [1, 2, 3];\n}\n",
+      "matched": true
+    },
+    {
+      "name": "list list.append((1,2),3,space)",
+      "source": "@use \"sass:list\";.probe { value: list.append((1,2),3,space); }",
+      "reference": ".probe {\n  value: 1 2 3;\n}",
+      "actual": ".probe {\n  value: 1 2 3;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "list list.join((1,2),3 4)",
+      "source": "@use \"sass:list\";.probe { value: list.join((1,2),3 4); }",
+      "reference": ".probe {\n  value: 1, 2, 3, 4;\n}",
+      "actual": ".probe {\n  value: 1, 2, 3, 4;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "list list.join(1 2,(3,4),comma,true)",
+      "source": "@use \"sass:list\";.probe { value: list.join(1 2,(3,4),comma,true); }",
+      "reference": ".probe {\n  value: [1, 2, 3, 4];\n}",
+      "actual": ".probe {\n  value: [1, 2, 3, 4];\n}\n",
+      "matched": true
+    },
+    {
+      "name": "list list.separator((a,b))",
+      "source": "@use \"sass:list\";.probe { value: list.separator((a,b)); }",
+      "reference": ".probe {\n  value: comma;\n}",
+      "actual": ".probe {\n  value: comma;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "list list.is-bracketed([a b])",
+      "source": "@use \"sass:list\";.probe { value: list.is-bracketed([a b]); }",
+      "reference": ".probe {\n  value: true;\n}",
+      "actual": ".probe {\n  value: true;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "list list.slash(1,2,3)",
+      "source": "@use \"sass:list\";.probe { value: list.slash(1,2,3); }",
+      "reference": ".probe {\n  value: 1 / 2 / 3;\n}",
+      "actual": ".probe {\n  value: 1 / 2 / 3;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "list list.nth((1,2),0)",
+      "source": "@use \"sass:list\";.probe { value: list.nth((1,2),0); }",
+      "referenceError": "$n: List index may not be 0.\n  ╷\n1 │ @use \"sass:list\";.probe { value: list.nth((1,2),0); }\n  │                                  ^^^^^^^^^^^^^^^^^\n  ╵\n  - 1:34  root stylesheet",
+      "actual": "ERROR: Invalid(\"list index out of range\")",
+      "actualError": "ERROR: Invalid(\"list index out of range\")",
+      "matched": true
+    },
+    {
+      "name": "list list.nth((1,2),3)",
+      "source": "@use \"sass:list\";.probe { value: list.nth((1,2),3); }",
+      "referenceError": "$n: Invalid index 3 for a list with 2 elements.\n  ╷\n1 │ @use \"sass:list\";.probe { value: list.nth((1,2),3); }\n  │                                  ^^^^^^^^^^^^^^^^^\n  ╵\n  - 1:34  root stylesheet",
+      "actual": "ERROR: Invalid(\"list index out of range\")",
+      "actualError": "ERROR: Invalid(\"list index out of range\")",
+      "matched": true
+    },
+    {
+      "name": "list list.nth((),1)",
+      "source": "@use \"sass:list\";.probe { value: list.nth((),1); }",
+      "referenceError": "$n: Invalid index 1 for a list with 0 elements.\n  ╷\n1 │ @use \"sass:list\";.probe { value: list.nth((),1); }\n  │                                  ^^^^^^^^^^^^^^\n  ╵\n  - 1:34  root stylesheet",
+      "actual": "ERROR: Invalid(\"list index out of range\")",
+      "actualError": "ERROR: Invalid(\"list index out of range\")",
+      "matched": true
+    },
+    {
+      "name": "map map.get((a:1,b:2), b)",
+      "source": "@use \"sass:map\";.probe { value: map.get((a:1,b:2), b); }",
+      "reference": ".probe {\n  value: 2;\n}",
+      "actual": ".probe {\n  value: 2;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "map map.has-key((a:null),a)",
+      "source": "@use \"sass:map\";.probe { value: map.has-key((a:null),a); }",
+      "reference": ".probe {\n  value: true;\n}",
+      "actual": ".probe {\n  value: true;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "map map.get((a:1),x)",
+      "source": "@use \"sass:map\";.probe { value: map.get((a:1),x); }",
+      "reference": "",
+      "actual": "",
+      "matched": true
+    },
+    {
+      "name": "map map.keys((a:1,b:2))",
+      "source": "@use \"sass:map\";.probe { value: map.keys((a:1,b:2)); }",
+      "reference": ".probe {\n  value: a, b;\n}",
+      "actual": ".probe {\n  value: a, b;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "map map.values((a:1,b:2))",
+      "source": "@use \"sass:map\";.probe { value: map.values((a:1,b:2)); }",
+      "reference": ".probe {\n  value: 1, 2;\n}",
+      "actual": ".probe {\n  value: 1, 2;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "map map.keys(map.merge((a:1,b:2),(b:3,c:4)))",
+      "source": "@use \"sass:map\";.probe { value: map.keys(map.merge((a:1,b:2),(b:3,c:4))); }",
+      "reference": ".probe {\n  value: a, b, c;\n}",
+      "actual": ".probe {\n  value: a, b, c;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "map map.values(map.remove((a:1,b:2,c:3),a,c))",
+      "source": "@use \"sass:map\";.probe { value: map.values(map.remove((a:1,b:2,c:3),a,c)); }",
+      "reference": ".probe {\n  value: 2;\n}",
+      "actual": ".probe {\n  value: 2;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "map map.get((a:(b:2)),a)",
+      "source": "@use \"sass:map\";.probe { value: map.get((a:(b:2)),a); }",
+      "referenceError": "(b: 2) isn't a valid CSS value.\n  ╷\n1 │ @use \"sass:map\";.probe { value: map.get((a:(b:2)),a); }\n  │                                 ^^^^^^^^^^^^^^^^^^^^\n  ╵\n  - 1:33  root stylesheet",
+      "actual": "ERROR: Invalid(\"map is not a CSS value\")",
+      "actualError": "ERROR: Invalid(\"map is not a CSS value\")",
+      "matched": true
+    },
+    {
+      "name": "map map.get((a:1,a:2),a)",
+      "source": "@use \"sass:map\";.probe { value: map.get((a:1,a:2),a); }",
+      "referenceError": "Duplicate key.\n  ╷\n1 │ @use \"sass:map\";.probe { value: map.get((a:1,a:2),a); }\n  │                                              ^ second key\n  ╵\n  ╷\n1 │ @use \"sass:map\";.probe { value: map.get((a:1,a:2),a); }\n  │                                          ━ first key\n  ╵\n  - 1:46  root stylesheet",
+      "actual": "ERROR: Invalid(\"duplicate map key\")",
+      "actualError": "ERROR: Invalid(\"duplicate map key\")",
+      "matched": true
+    },
+    {
+      "name": "string string.quote(abc)",
+      "source": "@use \"sass:string\";.probe { value: string.quote(abc); }",
+      "reference": ".probe {\n  value: \"abc\";\n}",
+      "actual": ".probe {\n  value: \"abc\";\n}\n",
+      "matched": true
+    },
+    {
+      "name": "string string.unquote(\"abc\")",
+      "source": "@use \"sass:string\";.probe { value: string.unquote(\"abc\"); }",
+      "reference": ".probe {\n  value: abc;\n}",
+      "actual": ".probe {\n  value: abc;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "string string.length(\"a😀中\")",
+      "source": "@use \"sass:string\";.probe { value: string.length(\"a😀中\"); }",
+      "reference": ".probe {\n  value: 3;\n}",
+      "actual": ".probe {\n  value: 3;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "string string.slice(\"abcdef\",2,-2)",
+      "source": "@use \"sass:string\";.probe { value: string.slice(\"abcdef\",2,-2); }",
+      "reference": ".probe {\n  value: \"bcde\";\n}",
+      "actual": ".probe {\n  value: \"bcde\";\n}\n",
+      "matched": true
+    },
+    {
+      "name": "string string.slice(\"abc\",5)",
+      "source": "@use \"sass:string\";.probe { value: string.slice(\"abc\",5); }",
+      "reference": ".probe {\n  value: \"\";\n}",
+      "actual": ".probe {\n  value: \"\";\n}\n",
+      "matched": true
+    },
+    {
+      "name": "string string.slice(\"abc\",-10,2)",
+      "source": "@use \"sass:string\";.probe { value: string.slice(\"abc\",-10,2); }",
+      "reference": ".probe {\n  value: \"ab\";\n}",
+      "actual": ".probe {\n  value: \"ab\";\n}\n",
+      "matched": true
+    },
+    {
+      "name": "string string.index(\"a😀b😀\",\"😀\")",
+      "source": "@use \"sass:string\";.probe { value: string.index(\"a😀b😀\",\"😀\"); }",
+      "reference": ".probe {\n  value: 2;\n}",
+      "actual": ".probe {\n  value: 2;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "string string.index(\"abc\",\"\")",
+      "source": "@use \"sass:string\";.probe { value: string.index(\"abc\",\"\"); }",
+      "reference": ".probe {\n  value: 1;\n}",
+      "actual": ".probe {\n  value: 1;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "string string.insert(\"abcd\",\"X\",-1)",
+      "source": "@use \"sass:string\";.probe { value: string.insert(\"abcd\",\"X\",-1); }",
+      "reference": ".probe {\n  value: \"abcdX\";\n}",
+      "actual": ".probe {\n  value: \"abcdX\";\n}\n",
+      "matched": true
+    },
+    {
+      "name": "string string.insert(\"abcd\",\"X\",0)",
+      "source": "@use \"sass:string\";.probe { value: string.insert(\"abcd\",\"X\",0); }",
+      "reference": ".probe {\n  value: \"Xabcd\";\n}",
+      "actual": ".probe {\n  value: \"Xabcd\";\n}\n",
+      "matched": true
+    },
+    {
+      "name": "string string.to-upper-case(\"aZ中\")",
+      "source": "@use \"sass:string\";.probe { value: string.to-upper-case(\"aZ中\"); }",
+      "reference": ".probe {\n  value: \"AZ中\";\n}",
+      "actual": ".probe {\n  value: \"AZ中\";\n}\n",
+      "matched": true
+    },
+    {
+      "name": "string string.to-lower-case(\"AZ中\")",
+      "source": "@use \"sass:string\";.probe { value: string.to-lower-case(\"AZ中\"); }",
+      "reference": ".probe {\n  value: \"az中\";\n}",
+      "actual": ".probe {\n  value: \"az中\";\n}\n",
+      "matched": true
+    },
+    {
+      "name": "meta meta.type-of(1px)",
+      "source": "@use \"sass:meta\";$x:1;.probe { value: meta.type-of(1px); }",
+      "reference": ".probe {\n  value: number;\n}",
+      "actual": ".probe {\n  value: number;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "meta meta.type-of(\"hello\")",
+      "source": "@use \"sass:meta\";$x:1;.probe { value: meta.type-of(\"hello\"); }",
+      "reference": ".probe {\n  value: string;\n}",
+      "actual": ".probe {\n  value: string;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "meta meta.type-of(false)",
+      "source": "@use \"sass:meta\";$x:1;.probe { value: meta.type-of(false); }",
+      "reference": ".probe {\n  value: bool;\n}",
+      "actual": ".probe {\n  value: bool;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "meta meta.type-of(null)",
+      "source": "@use \"sass:meta\";$x:1;.probe { value: meta.type-of(null); }",
+      "reference": ".probe {\n  value: null;\n}",
+      "actual": ".probe {\n  value: null;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "meta meta.type-of(())",
+      "source": "@use \"sass:meta\";$x:1;.probe { value: meta.type-of(()); }",
+      "reference": ".probe {\n  value: list;\n}",
+      "actual": ".probe {\n  value: list;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "meta meta.type-of((a:1))",
+      "source": "@use \"sass:meta\";$x:1;.probe { value: meta.type-of((a:1)); }",
+      "reference": ".probe {\n  value: map;\n}",
+      "actual": ".probe {\n  value: map;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "meta meta.inspect((a: 1, b: (2,3)))",
+      "source": "@use \"sass:meta\";$x:1;.probe { value: meta.inspect((a: 1, b: (2,3))); }",
+      "reference": ".probe {\n  value: (a: 1, b: (2, 3));\n}",
+      "actual": ".probe {\n  value: (a: 1, b: (2, 3));\n}\n",
+      "matched": true
+    },
+    {
+      "name": "meta meta.variable-exists(\"x\")",
+      "source": "@use \"sass:meta\";$x:1;.probe { value: meta.variable-exists(\"x\"); }",
+      "reference": ".probe {\n  value: true;\n}",
+      "actual": ".probe {\n  value: true;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "meta meta.global-variable-exists(\"x\")",
+      "source": "@use \"sass:meta\";$x:1;.probe { value: meta.global-variable-exists(\"x\"); }",
+      "reference": ".probe {\n  value: true;\n}",
+      "actual": ".probe {\n  value: true;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "function optional keyword and lexical scope",
+      "source": "$x:2;@function f($a,$b:$a*2){@return $a+$b+$x}.a{$x:100;x:f(3);y:f($b:7,$a:2)}",
+      "reference": ".a {\n  x: 11;\n  y: 11;\n}",
+      "actual": ".a {\n  x: 11;\n  y: 11;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "recursive factorial",
+      "source": "@function fac($n){@if $n<=1{@return 1}@return $n*fac($n - 1)}.a{x:fac(6)}",
+      "reference": ".a {\n  x: 720;\n}",
+      "actual": ".a {\n  x: 720;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "recursive fibonacci",
+      "source": "@function fib($n){@if $n<2{@return $n}@return fib($n - 1)+fib($n - 2)}.a{x:fib(8)}",
+      "reference": ".a {\n  x: 21;\n}",
+      "actual": ".a {\n  x: 21;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "function variadic loop sum",
+      "source": "@function sum($xs...){$total:0;@each $x in $xs{$total:$total+$x}@return $total}.a{x:sum(1px,2px,3px)}",
+      "reference": ".a {\n  x: 6px;\n}",
+      "actual": ".a {\n  x: 6px;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "function positional spread",
+      "source": "@function f($a,$b,$c:4){@return $a+$b+$c}$v:1,2;.a{x:f($v...)}",
+      "reference": ".a {\n  x: 7;\n}",
+      "actual": ".a {\n  x: 7;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "function keyword spread",
+      "source": "@function f($a,$b){@return $a+$b}$v:(\"b\":2,\"a\":3);.a{x:f($v...)}",
+      "reference": ".a {\n  x: 5;\n}",
+      "actual": ".a {\n  x: 5;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "function side effect",
+      "source": "$global:0;@function f(){$global:3 !global;@return 7}.a{x:f();y:$global}",
+      "reference": ".a {\n  x: 7;\n  y: 3;\n}",
+      "actual": ".a {\n  x: 7;\n  y: 3;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "function early return in for",
+      "source": "@function f(){@for $i from 1 through 10{@if $i==3{@return $i}}@return 0}.a{x:f()}",
+      "reference": ".a {\n  x: 3;\n}",
+      "actual": ".a {\n  x: 3;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "loop variable scope",
+      "source": "$i:99;@for $i from 1 through 3{.item-#{$i}{x:$i*2}}.after{x:$i}",
+      "reference": ".item-1 {\n  x: 2;\n}\n\n.item-2 {\n  x: 4;\n}\n\n.item-3 {\n  x: 6;\n}\n\n.after {\n  x: 99;\n}",
+      "actual": ".item-1 {\n  x: 2;\n}\n.item-2 {\n  x: 4;\n}\n.item-3 {\n  x: 6;\n}\n.after {\n  x: 99;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "descending exclusive for",
+      "source": "@for $i from 3 to 0{.n-#{$i}{x:$i}}",
+      "reference": ".n-3 {\n  x: 3;\n}\n\n.n-2 {\n  x: 2;\n}\n\n.n-1 {\n  x: 1;\n}",
+      "actual": ".n-3 {\n  x: 3;\n}\n.n-2 {\n  x: 2;\n}\n.n-1 {\n  x: 1;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "for no iterations",
+      "source": "@for $i from 1 to 1{.a{x:1}}",
+      "reference": "",
+      "actual": "",
+      "matched": true
+    },
+    {
+      "name": "while outer assignment",
+      "source": "$i:3;@while $i>0{.item-#{$i}{x:$i}$i:$i - 1}.a{x:$i}",
+      "reference": ".item-3 {\n  x: 3;\n}\n\n.item-2 {\n  x: 2;\n}\n\n.item-1 {\n  x: 1;\n}\n\n.a {\n  x: 0;\n}",
+      "actual": ".item-3 {\n  x: 3;\n}\n.item-2 {\n  x: 2;\n}\n.item-1 {\n  x: 1;\n}\n.a {\n  x: 0;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "each destructuring",
+      "source": "@each $name,$size in (small,1px),(large,2px){.#{$name}{x:$size}}",
+      "reference": ".small {\n  x: 1px;\n}\n\n.large {\n  x: 2px;\n}",
+      "actual": ".small {\n  x: 1px;\n}\n.large {\n  x: 2px;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "each map iteration",
+      "source": "$sizes:(small:1px,large:2px);@each $name,$size in $sizes{.#{$name}{x:$size}}",
+      "reference": ".small {\n  x: 1px;\n}\n\n.large {\n  x: 2px;\n}",
+      "actual": ".small {\n  x: 1px;\n}\n.large {\n  x: 2px;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "flow local does not leak",
+      "source": "@if true{$new:2}.a{x:$new}",
+      "referenceError": "Undefined variable.\n  ╷\n1 │ @if true{$new:2}.a{x:$new}\n  │                      ^^^^\n  ╵\n  - 1:22  root stylesheet",
+      "actual": "ERROR: Invalid(\"undefined variable new\")",
+      "actualError": "ERROR: Invalid(\"undefined variable new\")",
+      "matched": true
+    },
+    {
+      "name": "flow existing assignment",
+      "source": "$a:1;@if true{$a:2}.a{x:$a}",
+      "reference": ".a {\n  x: 2;\n}",
+      "actual": ".a {\n  x: 2;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "conditional chains",
+      "source": "@if false{.a{x:1}}@else if 0{.b{x:2}}@else{.c{x:3}}",
+      "reference": ".b {\n  x: 2;\n}",
+      "actual": ".b {\n  x: 2;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "conditional branch lazy",
+      "source": "@if true{.a{x:1}}@else if $missing{.b{x:2}}",
+      "reference": ".a {\n  x: 1;\n}",
+      "actual": ".a {\n  x: 1;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "standard module alias",
+      "source": "@use \"sass:math\" as m;.a{x:m.div(6,2)}",
+      "reference": ".a {\n  x: 3;\n}",
+      "actual": ".a {\n  x: 3;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "interpolation nested call",
+      "source": "$n:2;.n-#{if($n>1,\"yes\",\"no\")}{x:#{$n*3};content:\"sum=#{1+2}\"}",
+      "reference": ".n-yes {\n  x: 6;\n  content: \"sum=3\";\n}",
+      "actual": ".n-yes {\n  x: 6;\n  content: \"sum=3\";\n}\n",
+      "matched": true
+    },
+    {
+      "name": "error no return",
+      "source": "@function f($a){$x:1}.a{x:f(1)}",
+      "referenceError": "Function finished without @return.\n  ╷\n1 │ @function f($a){$x:1}.a{x:f(1)}\n  │ ^^^^^^^^^^^^^^^^^^^^^\n  ╵\n  - 1:1   f()\n  - 1:27  root stylesheet",
+      "actual": "ERROR: Invalid(\"function finished without return\")",
+      "actualError": "ERROR: Invalid(\"function finished without return\")",
+      "matched": true
+    },
+    {
+      "name": "error bad return",
+      "source": "@return 1;",
+      "referenceError": "This at-rule is not allowed here.\n  ╷\n1 │ @return 1;\n  │ ^^^^^^^^^\n  ╵\n  - 1:1  root stylesheet",
+      "actual": "ERROR: Invalid(\"return outside function\")",
+      "actualError": "ERROR: Invalid(\"return outside function\")",
+      "matched": true
+    },
+    {
+      "name": "error CSS in function",
+      "source": "@function f(){.a{x:1}@return 1}",
+      "referenceError": "@function rules may not contain style rules.\n  ╷\n1 │ @function f(){.a{x:1}@return 1}\n  │               ^^^^^^^\n  ╵\n  - 1:15  root stylesheet",
+      "actual": "ERROR: Invalid(\"function cannot emit CSS\")",
+      "actualError": "ERROR: Invalid(\"function cannot emit CSS\")",
+      "matched": true
+    },
+    {
+      "name": "error unknown keyword",
+      "source": "@function f($x){@return $x}.a{x:f($z:1)}",
+      "referenceError": "Missing argument $x.\n  ╷\n1 │ @function f($x){@return $x}.a{x:f($z:1)}\n  │                                 ^^^^^^^ invocation\n  ╵\n  ╷\n1 │ @function f($x){@return $x}.a{x:f($z:1)}\n  │           ━━━━━ declaration\n  ╵\n  - 1:33  f()\n  - 1:33  root stylesheet",
+      "actual": "ERROR: Invalid(\"missing argument x\")",
+      "actualError": "ERROR: Invalid(\"missing argument x\")",
+      "matched": true
+    },
+    {
+      "name": "error duplicate positional",
+      "source": "@function f($x){@return $x}.a{x:f(1,$x:2)}",
+      "referenceError": "Argument $x was passed both by position and by name.\n  ╷\n1 │ @function f($x){@return $x}.a{x:f(1,$x:2)}\n  │                                 ^^^^^^^^^\n  ╵\n  - 1:33  f()\n  - 1:33  root stylesheet",
+      "actual": "ERROR: Invalid(\"argument supplied twice\")",
+      "actualError": "ERROR: Invalid(\"argument supplied twice\")",
+      "matched": true
+    },
+    {
+      "name": "error duplicate parameter",
+      "source": "@function f($x,$x){@return 1}",
+      "referenceError": "Duplicate parameter.\n  ╷\n1 │ @function f($x,$x){@return 1}\n  │                ^^\n  ╵\n  - 1:16  root stylesheet",
+      "actual": "ERROR: Invalid(\"duplicate parameter\")",
+      "actualError": "ERROR: Invalid(\"duplicate parameter\")",
+      "matched": true
+    },
+    {
+      "name": "error orphan else",
+      "source": "@else{.a{x:1}}",
+      "referenceError": "This at-rule is not allowed here.\n  ╷\n1 │ @else{.a{x:1}}\n  │ ^^^^^\n  ╵\n  - 1:1  root stylesheet",
+      "actual": "ERROR: Invalid(\"else without adjacent if\")",
+      "actualError": "ERROR: Invalid(\"else without adjacent if\")",
+      "matched": true
+    },
+    {
+      "name": "error bad bound",
+      "source": "@for $i from 1.5 through 3{.a{x:$i}}",
+      "referenceError": "1.5 is not an int.\n  ╷\n1 │ @for $i from 1.5 through 3{.a{x:$i}}\n  │              ^^^\n  ╵\n  - 1:14  root stylesheet",
+      "actual": "ERROR: Invalid(\"expected bounded integer\")",
+      "actualError": "ERROR: Invalid(\"expected bounded integer\")",
+      "matched": true
+    },
+    {
+      "name": "error module absent",
+      "source": ".a{x:math.div(2,1)}",
+      "referenceError": "There is no module with the namespace \"math\".\n  ╷\n1 │ .a{x:math.div(2,1)}\n  │      ^^^^^^^^^^^^^\n  ╵\n  - 1:6  root stylesheet",
+      "actual": "ERROR: Invalid(\"undefined module math\")",
+      "actualError": "ERROR: Invalid(\"undefined module math\")",
+      "matched": true
+    },
+    {
+      "name": "error duplicate module",
+      "source": "@use \"sass:math\";@use \"sass:math\";",
+      "referenceError": "There's already a module with namespace \"math\".\n  ╷\n1 │ @use \"sass:math\";@use \"sass:math\";\n  │                  ^^^^^^^^^^^^^^^^ new @use\n  ╵\n  ╷\n1 │ @use \"sass:math\";@use \"sass:math\";\n  │ ━━━━━━━━━━━━━━━━ original @use\n  ╵\n  - 1:18  root stylesheet",
+      "actual": "ERROR: Invalid(\"module namespace already used\")",
+      "actualError": "ERROR: Invalid(\"module namespace already used\")",
+      "matched": true
+    },
+    {
+      "name": "binding list.separator(list.slash(1,2))",
+      "source": "@use \"sass:list\";.probe { value: list.separator(list.slash(1,2)); }",
+      "reference": ".probe {\n  value: slash;\n}",
+      "actual": ".probe {\n  value: slash;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "binding list.separator((a:1))",
+      "source": "@use \"sass:list\";.probe { value: list.separator((a:1)); }",
+      "reference": ".probe {\n  value: comma;\n}",
+      "actual": ".probe {\n  value: comma;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "binding list.append($list:1,$separator:comma)",
+      "source": "@use \"sass:list\";.probe { value: list.append($list:1,$separator:comma); }",
+      "referenceError": "Missing argument $val.\n  ╷\n1 │ @use \"sass:list\";.probe { value: list.append($list:1,$separator:comma); }\n  │                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ invocation\n  ╵\n  ┌──> sass:list\n1 │ @function append($list, $val, $separator: auto) {\n  │           ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ declaration\n  ╵\n  - 1:34  root stylesheet",
+      "actual": "ERROR: Invalid(\"missing builtin argument\")",
+      "actualError": "ERROR: Invalid(\"missing builtin argument\")",
+      "matched": true
+    },
+    {
+      "name": "binding list.join($list1:1,$bracketed:true)",
+      "source": "@use \"sass:list\";.probe { value: list.join($list1:1,$bracketed:true); }",
+      "referenceError": "Missing argument $list2.\n  ╷\n1 │ @use \"sass:list\";.probe { value: list.join($list1:1,$bracketed:true); }\n  │                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ invocation\n  ╵\n  ┌──> sass:list\n1 │ @function join($list1, $list2, $separator: auto, $bracketed: auto) {\n  │           ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ declaration\n  ╵\n  - 1:34  root stylesheet",
+      "actual": "ERROR: Invalid(\"missing builtin argument\")",
+      "actualError": "ERROR: Invalid(\"missing builtin argument\")",
+      "matched": true
+    },
+    {
+      "name": "binding list.append(1,null)",
+      "source": "@use \"sass:list\";.probe { value: list.append(1,null); }",
+      "reference": ".probe {\n  value: 1;\n}",
+      "actual": ".probe {\n  value: 1;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "binding list.nth($n:1)",
+      "source": "@use \"sass:list\";.probe { value: list.nth($n:1); }",
+      "referenceError": "Missing argument $list.\n  ╷\n1 │ @use \"sass:list\";.probe { value: list.nth($n:1); }\n  │                                  ^^^^^^^^^^^^^^ invocation\n  ╵\n  ┌──> sass:list\n1 │ @function nth($list, $n) {\n  │           ━━━━━━━━━━━━━━ declaration\n  ╵\n  - 1:34  root stylesheet",
+      "actual": "ERROR: Invalid(\"missing builtin argument\")",
+      "actualError": "ERROR: Invalid(\"missing builtin argument\")",
+      "matched": true
+    },
+    {
+      "name": "existence meta.function-exists(\"abs\")",
+      "source": "@use \"sass:meta\";.probe { value: meta.function-exists(\"abs\"); }",
+      "reference": ".probe {\n  value: true;\n}",
+      "actual": ".probe {\n  value: true;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "existence meta.function-exists(\"missing\")",
+      "source": "@use \"sass:meta\";.probe { value: meta.function-exists(\"missing\"); }",
+      "reference": ".probe {\n  value: false;\n}",
+      "actual": ".probe {\n  value: false;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "quoted close brace interpolation",
+      "source": ".#{if(true,\"}\",a)} {content: \"value #{1 + 2}\"}",
+      "referenceError": "Expected identifier.\n  ╷\n1 │ .#{if(true,\"}\",a)} {content: \"value #{1 + 2}\"}\n  │    ^^^^^^^^^^^^^^ \n  ╵\n  ╷\n1 │ .} \n  │  ━ error in interpolated output\n  ╵\n  - 1:4  root stylesheet",
+      "actual": "ERROR: Invalid(\"invalid selector punctuation\")",
+      "actualError": "ERROR: Invalid(\"invalid selector punctuation\")",
+      "matched": true
+    },
+    {
+      "name": "nested interpolation selector",
+      "source": "$n:2;.x-#{\"a#{$n}\"}{x:1}",
+      "reference": ".x-a2 {\n  x: 1;\n}",
+      "actual": ".x-a2 {\n  x: 1;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "static return in false branch",
+      "source": "@if false{@return 1}",
+      "referenceError": "This at-rule is not allowed here.\n  ╷\n1 │ @if false{@return 1}\n  │           ^^^^^^^^^\n  ╵\n  - 1:11  root stylesheet",
+      "actual": "ERROR: Invalid(\"return outside function\")",
+      "actualError": "ERROR: Invalid(\"return outside function\")",
+      "matched": true
+    },
+    {
+      "name": "static nested function in unused mixin",
+      "source": "@mixin m(){@function f(){@return 1}}",
+      "referenceError": "Mixins may not contain function declarations.\n  ╷\n1 │ @mixin m(){@function f(){@return 1}}\n  │            ^^^^^^^^^^^^^\n  ╵\n  - 1:12  root stylesheet",
+      "actual": "ERROR: Invalid(\"nested callable definition\")",
+      "actualError": "ERROR: Invalid(\"nested callable definition\")",
+      "matched": true
+    }
+  ]
+}

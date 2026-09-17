@@ -1,0 +1,112 @@
+{
+  "node": "v24.11.0",
+  "platform": "win32",
+  "arch": "x64",
+  "cpu": "Intel(R) Core(TM) i7-14700HX",
+  "reference": "dart-sass\t1.104.0\t(Sass Compiler)\t[Dart]\ndart2js\t3.13.3\t(Dart Compiler)\t[Dart]",
+  "engineSHA256": "963da699202e3a5d247eed481aacc79f0c5b0a016f55f0e777404a176475114e",
+  "warmups": 3,
+  "measurements": 7,
+  "rows": [
+    {
+      "name": "200 generated rules with function and unit arithmetic",
+      "cssBytes": 8786,
+      "canonicalSHA256": "9241b4d3138e53cde906477ac29aa0ee98a71619118f73152ccda9459dfb9f03",
+      "moonbit": {
+        "medianMs": 5.156399999999962,
+        "minMs": 4.151700000000005,
+        "maxMs": 6.622700000000009,
+        "samplesMs": [
+          6.622700000000009,
+          4.8472000000000435,
+          5.203199999999981,
+          5.752599999999973,
+          5.156399999999962,
+          4.151700000000005,
+          4.584900000000005
+        ]
+      },
+      "dartSass": {
+        "medianMs": 4.585899999999981,
+        "minMs": 4.080099999999959,
+        "maxMs": 5.292700000000025,
+        "samplesMs": [
+          5.119100000000003,
+          4.340399999999988,
+          4.262499999999989,
+          5.292700000000025,
+          4.6299999999999955,
+          4.585899999999981,
+          4.080099999999959
+        ]
+      }
+    },
+    {
+      "name": "100 map iterations with mixin and selector nesting",
+      "cssBytes": 5815,
+      "canonicalSHA256": "88481d70a42ae100627d3799b5e33be3cbe860f58cadba77977d6b3e80276c8a",
+      "moonbit": {
+        "medianMs": 2.66659999999996,
+        "minMs": 2.0971000000000117,
+        "maxMs": 2.9763000000000375,
+        "samplesMs": [
+          2.761599999999987,
+          2.7151999999999816,
+          2.66659999999996,
+          2.5899,
+          2.9763000000000375,
+          2.0971000000000117,
+          2.265800000000013
+        ]
+      },
+      "dartSass": {
+        "medianMs": 3.5749999999999886,
+        "minMs": 3.1001999999999725,
+        "maxMs": 6.093599999999981,
+        "samplesMs": [
+          4.848900000000015,
+          6.093599999999981,
+          3.872199999999964,
+          3.5749999999999886,
+          3.4068000000000325,
+          3.2228000000000065,
+          3.1001999999999725
+        ]
+      }
+    },
+    {
+      "name": "three-file configured module project",
+      "cssBytes": 196,
+      "canonicalSHA256": "7bc4dc134cdde6bbff9f71cba2d17ff89c8d0b0930fa6f8410de585f657c9f39",
+      "moonbit": {
+        "medianMs": 0.42459999999994125,
+        "minMs": 0.3522000000000389,
+        "maxMs": 0.8252999999999702,
+        "samplesMs": [
+          0.5483000000000402,
+          0.8252999999999702,
+          0.39549999999997,
+          0.42349999999999,
+          0.3522000000000389,
+          0.511199999999917,
+          0.42459999999994125
+        ]
+      },
+      "dartSass": {
+        "medianMs": 3.893799999999942,
+        "minMs": 3.6336000000000013,
+        "maxMs": 4.355600000000095,
+        "samplesMs": [
+          3.893799999999942,
+          3.954599999999914,
+          3.64530000000002,
+          3.6336000000000013,
+          4.355600000000095,
+          3.722599999999943,
+          4.202699999999936
+        ]
+      }
+    }
+  ],
+  "scope": "Single-process synchronous JS API latency; interleaved order. Module MoonBit includes JSON bridge, Sass includes filesystem reads. Different feature sets; these small workloads do not establish full performance parity or peak memory."
+}

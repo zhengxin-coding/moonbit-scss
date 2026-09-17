@@ -107,6 +107,9 @@ fn prepare_selector(
     if c == '"' || c == '\'' {
       quote = c
     }
+    if c == '{' || c == '}' || c == ';' {
+      raise Invalid("invalid selector punctuation")
+    }
     if c == '[' {
       bracket += 1
     }
