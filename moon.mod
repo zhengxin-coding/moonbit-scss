@@ -1,4 +1,4 @@
-name = "localreview/scss"
+name = "zhengxin-coding/scss"
 
 version = "0.4.0"
 
