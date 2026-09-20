@@ -88,6 +88,12 @@ fn Evaluation::load_file(
   configuration : Map[String, SassValue],
   strict? : Bool = true,
 ) -> Scope raise ParseError {
+  if self.loading.last() is Some(owner) {
+    let dependencies = self.dependencies.get_or_init(owner, () => [])
+    if !dependencies.contains(path) {
+      dependencies.push(path)
+    }
+  }
   if self.loading.contains(path) {
     raise Invalid("module load cycle " + path)
   }
@@ -114,7 +120,12 @@ fn Evaluation::load_file(
   }
   self.loading.push(path)
   let emitter = Emitter::{
-    output: StringBuilder(),
+    output: [],
+    extensions: self.extensions,
+    path,
+    context: [],
+    root_parent: [],
+    hoisted: [],
     size: 0,
     budget: 10000,
     pending: [],
@@ -129,7 +140,7 @@ fn Evaluation::load_file(
   ignore(self.loading.pop())
   self.loaded[path] = frame
   self.order.push(path)
-  self.css.push(emitter.output.to_string())
+  self.css.push(emitter.output)
   frame
 }
 
@@ -162,15 +173,8 @@ pub fn compile_files(
     evaluation.files[path] = source
   }
   ignore(evaluation.load_file(clean_path(entry), Map([])))
-  let mut length = 0
-  for css in evaluation.css {
-    length += css.length()
-    if length > 1000000 {
-      raise Invalid("CSS output limit")
-    }
-  }
   {
-    css: evaluation.css.join(""),
+    css: evaluation.render_css(),
     loaded_files: evaluation.order,
     diagnostics: evaluation.diagnostics,
   }

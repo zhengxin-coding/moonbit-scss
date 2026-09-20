@@ -261,41 +261,6 @@ fn invocation(text : String) -> (String, Array[String]) raise ParseError {
 }
 
 ///|
-priv struct Emitter {
-  output : StringBuilder
-  mut size : Int
-  mut budget : Int
-  mut pending_size : Int
-  mut pending : Array[String]
-  mut parents : Array[String]
-}
-
-///|
-fn Emitter::write(self : Emitter, text : String) -> Unit raise ParseError {
-  self.size += text.length()
-  if self.size > 1000000 {
-    raise Invalid("CSS output limit")
-  }
-  self.output.write_string(text)
-}
-
-///|
-fn Emitter::flush(self : Emitter) -> Unit raise ParseError {
-  if self.pending.is_empty() {
-    return
-  }
-  if !self.parents.is_empty() {
-    self.write(self.parents.join(", ") + " {\n")
-  }
-  self.write(self.pending.join(""))
-  if !self.parents.is_empty() {
-    self.write("}\n")
-  }
-  self.pending = []
-  self.pending_size = 0
-}
-
-///|
 fn Emitter::property(
   self : Emitter,
   parents : Array[String],
@@ -537,12 +502,17 @@ fn render(
             raw,
             prefix,
           )
+        } else if header == "@at-root" ||
+          header.has_prefix("@at-root ") ||
+          header.has_prefix("@at-root(") {
+          render_at_root(header, body, parents, scope, emitter, depth, content)
         } else if header.has_prefix("@media ") ||
           header.has_prefix("@supports (") ||
+          header.has_prefix("@supports(") ||
           header.has_prefix("@layer ") ||
           header == "@font-face" {
           emitter.flush()
-          emitter.write(scope.expand(header) + " {\n")
+          emitter.context.push(scope.expand(header))
           render(
             body,
             if header == "@font-face" {
@@ -558,7 +528,8 @@ fn render(
             prefix,
           )
           emitter.flush()
-          emitter.write("}\n")
+          ignore(emitter.context.pop())
+          emitter.release_hoisted()
         } else if header.has_suffix(":") {
           render(
             body,
@@ -572,9 +543,22 @@ fn render(
           )
         } else {
           emitter.flush()
+          let expanded = scope.expand(header)
+          let inherited = if parents.is_empty() && has_parent(expanded) {
+            emitter.root_parent
+          } else {
+            parents
+          }
+          let selected = selectors(inherited, expanded)
+          emitter.output.push({
+            selectors: selected.copy(),
+            declarations: "",
+            context: emitter.context.copy(),
+            path: emitter.path,
+          })
           render(
             body,
-            selectors(parents, scope.expand(header)),
+            selected,
             Scope::new(Some(scope)),
             emitter,
             depth + 1,
@@ -595,6 +579,8 @@ fn render(
           raise Invalid(
             scope.evaluate(part[7:].to_owned()).css(unquote=true, inspect=true),
           )
+        } else if part.has_prefix("@extend ") {
+          emitter.add_extension(scope.expand(part[8:].to_owned()), parents)
         } else if part.has_prefix("@use ") {
           scope.load_directive(part[5:].to_owned(), false)
         } else if part.has_prefix("@forward ") {

@@ -47,5 +47,7 @@ try {
     if ($LASTEXITCODE -ne 0) {throw 'module comparison failed'}
     node tools/test-colors.mjs
     if ($LASTEXITCODE -ne 0) {throw 'color comparison failed'}
+    node tools/test-selectors.mjs
+    if ($LASTEXITCODE -ne 0) {throw 'selector comparison failed'}
   }
 } finally {Pop-Location}

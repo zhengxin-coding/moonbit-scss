@@ -1,0 +1,561 @@
+{
+  "utc": "2026-09-20T16:42:17.247Z",
+  "reference": "dart-sass\t1.104.0\t(Sass Compiler)\t[Dart]\ndart2js\t3.13.3\t(Dart Compiler)\t[Dart]",
+  "cases": 70,
+  "matched": 70,
+  "sources": {
+    "web/engine.mjs": "cd9a79a22f807025273274cd63f9cbd7840a4e68e2e57893a7e23ea6418c4e52",
+    "css_output.mbt": "bb57177f47ae051e4549637a8a244abacfbd77bd6eb1d6cfa2eef84ee88101ad",
+    "extensions.mbt": "89345070df92ce984f1d18c57fdf6b0a2b1378d74a1e71b04529eb0c6d6bbde8",
+    "evaluator.mbt": "a6f03785769dd09e4ab029be6b9fdb544e25420a6a0b0f4d58d6f0169b9c8090",
+    "value_eval.mbt": "45e574de16d1e0917ce82584fbc1a6cff24cbdb02b73d26b8f875a1a7d3e812e",
+    "modules.mbt": "732c921ea8a3f628d1419034a1d491da31f3f4bd162e2a881fd7d6197d8fd7e1",
+    "selectors.mbt": "f144f66f7a25a4eaf45be474f999caffe965cffc669f7e672d34423f2283d88f",
+    "tools/test-selectors.mjs": "d35211fc6ccee4b1b44f346ce400cc4f99a65f61de50314ff1bf6305ffdbc461",
+    "tools/selector-cases.mjs": "1a6fd5eb8e9daac00c0f871d19e706b51cc7a3e26ccfcb7661dc4f915b0a8415"
+  },
+  "normalization": "Successful output compares official plain-CSS compressed output exactly; errors compare rejection only.",
+  "rows": [
+    {
+      "name": "selector-1",
+      "source": ".base{color:red}.button{@extend .base}",
+      "reference": ".base, .button {\n  color: red;\n}",
+      "actual": ".base, .button {\n  color: red;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "selector-2",
+      "source": ".button{@extend .base}.base{color:red}",
+      "reference": ".base, .button {\n  color: red;\n}",
+      "actual": ".base, .button {\n  color: red;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "selector-3",
+      "source": "%base{color:red}.button{@extend %base}",
+      "reference": ".button {\n  color: red;\n}",
+      "actual": ".button {\n  color: red;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "selector-4",
+      "source": "%unused{color:red}.button{color:blue}",
+      "reference": ".button {\n  color: blue;\n}",
+      "actual": ".button {\n  color: blue;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "selector-5",
+      "source": ".base,.other{color:red}.button{@extend .base}",
+      "reference": ".base, .button, .other {\n  color: red;\n}",
+      "actual": ".base, .button, .other {\n  color: red;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "selector-6",
+      "source": ".base{color:red}.a,.b{@extend .base}",
+      "reference": ".base, .a, .b {\n  color: red;\n}",
+      "actual": ".base, .a, .b {\n  color: red;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "selector-7",
+      "source": ".base{color:red}.a{@extend .base}.b{@extend .a}",
+      "reference": ".base, .a, .b {\n  color: red;\n}",
+      "actual": ".base, .a, .b {\n  color: red;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "selector-8",
+      "source": ".a{@extend .b}.b{@extend .c}.c{color:red}",
+      "reference": ".c, .b, .a {\n  color: red;\n}",
+      "actual": ".c, .b, .a {\n  color: red;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "selector-9",
+      "source": ".base:hover{color:red}.button{@extend .base}",
+      "reference": ".base:hover, .button:hover {\n  color: red;\n}",
+      "actual": ".base:hover, .button:hover {\n  color: red;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "selector-10",
+      "source": ".base::before{color:red}.button{@extend .base}",
+      "reference": ".base::before, .button::before {\n  color: red;\n}",
+      "actual": ".base::before, .button::before {\n  color: red;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "selector-11",
+      "source": ".base.active{color:red}.button{@extend .base}",
+      "reference": ".base.active, .active.button {\n  color: red;\n}",
+      "actual": ".base.active, .active.button {\n  color: red;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "selector-12",
+      "source": ".base.active{color:red}.button.large{@extend .base}",
+      "reference": ".base.active, .active.button.large {\n  color: red;\n}",
+      "actual": ".base.active, .active.button.large {\n  color: red;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "selector-13",
+      "source": "a.base{color:red}.button{@extend .base}",
+      "reference": "a.base, a.button {\n  color: red;\n}",
+      "actual": "a.base, a.button {\n  color: red;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "selector-14",
+      "source": ".base{color:red}a.button{@extend .base}",
+      "reference": ".base, a.button {\n  color: red;\n}",
+      "actual": ".base, a.button {\n  color: red;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "selector-15",
+      "source": "a.base{color:red}button.other{@extend .base}",
+      "reference": "a.base {\n  color: red;\n}",
+      "actual": "a.base {\n  color: red;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "selector-16",
+      "source": ".base[data-label=\".base\"]{color:red}.button{@extend .base}",
+      "reference": ".base[data-label=\".base\"], [data-label=\".base\"].button {\n  color: red;\n}",
+      "actual": ".base[data-label=\".base\"], [data-label=\".base\"].button {\n  color: red;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "selector-17",
+      "source": ".base-2{color:red}.button{@extend .base !optional}",
+      "reference": ".base-2 {\n  color: red;\n}",
+      "actual": ".base-2 {\n  color: red;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "selector-18",
+      "source": ".a{color:red}.a{@extend .a}",
+      "reference": ".a {\n  color: red;\n}",
+      "actual": ".a {\n  color: red;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "selector-19",
+      "source": ".a{color:red}.b{@extend .a}.a{@extend .b}",
+      "reference": ".a, .b {\n  color: red;\n}",
+      "actual": ".a, .b {\n  color: red;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "selector-20",
+      "source": ".parent .base{color:red}.button{@extend .base}",
+      "reference": ".parent .base, .parent .button {\n  color: red;\n}",
+      "actual": ".parent .base, .parent .button {\n  color: red;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "selector-21",
+      "source": ".parent .base{color:red}.scope .button{@extend .base}",
+      "reference": ".parent .base, .parent .scope .button, .scope .parent .button {\n  color: red;\n}",
+      "actual": ".parent .base, .parent .scope .button, .scope .parent .button {\n  color: red;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "selector-22",
+      "source": ".parent .base{color:red}.parent .button{@extend .base}",
+      "reference": ".parent .base, .parent .button {\n  color: red;\n}",
+      "actual": ".parent .base, .parent .button {\n  color: red;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "selector-23",
+      "source": ".parent > .base{color:red}.button{@extend .base}",
+      "reference": ".parent > .base, .parent > .button {\n  color: red;\n}",
+      "actual": ".parent > .base, .parent > .button {\n  color: red;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "selector-24",
+      "source": ".base .base{color:red}.button{@extend .base}",
+      "reference": ".base .base, .button .base, .base .button, .button .button {\n  color: red;\n}",
+      "actual": ".base .base, .button .base, .base .button, .button .button {\n  color: red;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "selector-25",
+      "source": ".a{}.b{@extend .a}",
+      "reference": "",
+      "actual": "",
+      "matched": true
+    },
+    {
+      "name": "selector-26",
+      "source": ".a{color:red}.b{@extend .missing !optional;color:blue}",
+      "reference": ".a {\n  color: red;\n}\n\n.b {\n  color: blue;\n}",
+      "actual": ".a {\n  color: red;\n}\n.b {\n  color: blue;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "selector-27",
+      "source": ".a{color:red}.b{@extend .missing}",
+      "referenceError": "The target selector was not found.\nUse \"@extend .missing !optional\" to avoid this error.\n  ╷\n1 │ .a{color:red}.b{@extend .missing}\n  │                 ^^^^^^^^^^^^^^^^\n  ╵\n  - 1:17  root stylesheet",
+      "actual": "ERROR: Invalid(\"extend target not found .missing\")",
+      "actualError": "ERROR: Invalid(\"extend target not found .missing\")",
+      "matched": true
+    },
+    {
+      "name": "selector-28",
+      "source": "@extend .a;",
+      "referenceError": "@extend may only be used within style rules.\n  ╷\n1 │ @extend .a;\n  │ ^^^^^^^^\n  ╵\n  - 1:1  root stylesheet",
+      "actual": "ERROR: Invalid(\"extend outside rule\")",
+      "actualError": "ERROR: Invalid(\"extend outside rule\")",
+      "matched": true
+    },
+    {
+      "name": "selector-29",
+      "source": ".a{color:red}.b{@extend .a.c}",
+      "referenceError": "compound selectors may no longer be extended.\nConsider `@extend .a, .c` instead.\nSee https://sass-lang.com/d/extend-compound for details.\n\n  ╷\n1 │ .a{color:red}.b{@extend .a.c}\n  │                         ^^^^\n  ╵\n  - 1:25  root stylesheet",
+      "actual": "ERROR: Invalid(\"extend requires a simple selector\")",
+      "actualError": "ERROR: Invalid(\"extend requires a simple selector\")",
+      "matched": true
+    },
+    {
+      "name": "selector-30",
+      "source": ".a{color:red}.b{@extend .a .c}",
+      "referenceError": "complex selectors may not be extended.\n  ╷\n1 │ .a{color:red}.b{@extend .a .c}\n  │                         ^^^^^\n  ╵\n  - 1:25  root stylesheet",
+      "actual": "ERROR: Invalid(\"extend requires a simple selector\")",
+      "actualError": "ERROR: Invalid(\"extend requires a simple selector\")",
+      "matched": true
+    },
+    {
+      "name": "selector-31",
+      "source": ".a{color:red}.b{@extend &}",
+      "referenceError": "Parent selectors aren't allowed here.\n  ╷\n1 │ .a{color:red}.b{@extend &}\n  │                         ^\n  ╵\n  - 1:25  root stylesheet",
+      "actual": "ERROR: Invalid(\"extend requires a simple selector\")",
+      "actualError": "ERROR: Invalid(\"extend requires a simple selector\")",
+      "matched": true
+    },
+    {
+      "name": "selector-32",
+      "source": ".a,.c{color:red}.b{@extend .a,.c}",
+      "reference": ".a, .b, .c {\n  color: red;\n}",
+      "actual": ".a, .b, .c {\n  color: red;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "selector-33",
+      "source": "@media screen{.base{color:red}.button{@extend .base}}",
+      "reference": "@media screen {\n  .base, .button {\n    color: red;\n  }\n}",
+      "actual": "@media screen {\n.base, .button {\n  color: red;\n}\n}\n",
+      "matched": true
+    },
+    {
+      "name": "selector-34",
+      "source": "@media screen{.base{color:red}}.button{@extend .base}",
+      "reference": "@media screen {\n  .base, .button {\n    color: red;\n  }\n}",
+      "actual": "@media screen {\n.base, .button {\n  color: red;\n}\n}\n",
+      "matched": true
+    },
+    {
+      "name": "selector-35",
+      "source": ".base{color:red}@media screen{.button{@extend .base}}",
+      "referenceError": "From line 1, column 1: \n  ╷\n1 │ .base{color:red}@media screen{.button{@extend .base}}\n  │ ^^^^^\n  ╵\nYou may not @extend selectors across media queries.\n  ╷\n1 │ .base{color:red}@media screen{.button{@extend .base}}\n  │                                       ^^^^^^^^^^^^^\n  ╵\n  - 1:39  root stylesheet",
+      "actual": "ERROR: Invalid(\"cannot extend across media contexts\")",
+      "actualError": "ERROR: Invalid(\"cannot extend across media contexts\")",
+      "matched": true
+    },
+    {
+      "name": "selector-36",
+      "source": "@supports(display:grid){.base{color:red}}.button{@extend .base}",
+      "reference": "@supports (display: grid) {\n  .base, .button {\n    color: red;\n  }\n}",
+      "actual": "@supports(display:grid) {\n.base, .button {\n  color: red;\n}\n}\n",
+      "matched": true
+    },
+    {
+      "name": "selector-37",
+      "source": "@mixin base(){@extend %base}%base{color:red}.button{@include base()}",
+      "reference": ".button {\n  color: red;\n}",
+      "actual": ".button {\n  color: red;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "selector-38",
+      "source": "$target:base;.base{color:red}.button{@extend .#{$target}}",
+      "reference": ".base, .button {\n  color: red;\n}",
+      "actual": ".base, .button {\n  color: red;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "selector-39",
+      "source": ".a{color:red;@at-root .b{color:blue}color:green}",
+      "reference": ".a {\n  color: red;\n}\n.b {\n  color: blue;\n}\n\n.a {\n  color: green;\n}",
+      "actual": ".a {\n  color: red;\n}\n.b {\n  color: blue;\n}\n.a {\n  color: green;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "selector-40",
+      "source": ".a{@at-root{.b{color:red}}}",
+      "reference": ".b {\n  color: red;\n}",
+      "actual": ".b {\n  color: red;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "selector-41",
+      "source": ".a{@at-root{.b &{color:red}}}",
+      "reference": ".b .a {\n  color: red;\n}",
+      "actual": ".b .a {\n  color: red;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "selector-42",
+      "source": ".a{@at-root .b &{color:red}}",
+      "reference": ".b .a {\n  color: red;\n}",
+      "actual": ".b .a {\n  color: red;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "selector-43",
+      "source": ".a{@at-root #{&}{color:red}}",
+      "reference": ".a {\n  color: red;\n}",
+      "actual": ".a {\n  color: red;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "selector-44",
+      "source": ".a{@at-root{color:red}}",
+      "referenceError": "Declarations may only be used within style rules.\n  ╷\n1 │ .a{@at-root{color:red}}\n  │             ^^^^^^^^^\n  ╵\n  - 1:13  root stylesheet",
+      "actual": "ERROR: Invalid(\"property outside rule\")",
+      "actualError": "ERROR: Invalid(\"property outside rule\")",
+      "matched": true
+    },
+    {
+      "name": "selector-45",
+      "source": ".a{@at-root .b{.c{color:red}}}",
+      "reference": ".b .c {\n  color: red;\n}",
+      "actual": ".b .c {\n  color: red;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "selector-46",
+      "source": "@media screen{.a{@at-root .b{color:red}}}",
+      "reference": "@media screen {\n  .b {\n    color: red;\n  }\n}",
+      "actual": "@media screen {\n.b {\n  color: red;\n}\n}\n",
+      "matched": true
+    },
+    {
+      "name": "selector-47",
+      "source": "@media screen{.a{@at-root(without:media){color:red}}}",
+      "reference": ".a {\n  color: red;\n}",
+      "actual": ".a {\n  color: red;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "selector-48",
+      "source": "@media screen{.a{@at-root(without:rule){.b{color:red}}}}",
+      "reference": "@media screen {\n  .b {\n    color: red;\n  }\n}",
+      "actual": "@media screen {\n.b {\n  color: red;\n}\n}\n",
+      "matched": true
+    },
+    {
+      "name": "selector-49",
+      "source": "@media screen{.a{@at-root(without:all){.b{color:red}}}}",
+      "reference": ".b {\n  color: red;\n}",
+      "actual": ".b {\n  color: red;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "selector-50",
+      "source": "@media screen{.a{@at-root(with:rule){color:red}}}",
+      "reference": ".a {\n  color: red;\n}",
+      "actual": ".a {\n  color: red;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "selector-51",
+      "source": "@media screen{@supports(display:grid){.a{@at-root(with:media){.b{color:red}}}}}",
+      "reference": "@media screen {\n  .b {\n    color: red;\n  }\n}",
+      "actual": "@media screen {\n.b {\n  color: red;\n}\n}\n",
+      "matched": true
+    },
+    {
+      "name": "selector-52",
+      "source": "@media screen{.a{color:red;@at-root(without:media){color:blue}color:green}}",
+      "reference": "@media screen {\n  .a {\n    color: red;\n    color: green;\n  }\n}\n.a {\n  color: blue;\n}",
+      "actual": "@media screen {\n.a {\n  color: red;\n  color: green;\n}\n}\n.a {\n  color: blue;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "selector-53",
+      "source": ".a{@at-root(with:all){color:red}}",
+      "reference": ".a {\n  color: red;\n}",
+      "actual": ".a {\n  color: red;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "selector-54",
+      "source": ".a{@at-root(without:rule media){.b{color:red}}}",
+      "reference": ".b {\n  color: red;\n}",
+      "actual": ".b {\n  color: red;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "selector-55",
+      "source": ".a{@at-root(bad:rule){color:red}}",
+      "referenceError": "Expected \"with\" or \"without\".\n  ╷\n1 │ (bad: rule)\n  │  ^\n  ╵\n  - 1:2  root stylesheet",
+      "actual": "ERROR: Invalid(\"at-root query requires with or without\")",
+      "actualError": "ERROR: Invalid(\"at-root query requires with or without\")",
+      "matched": true
+    },
+    {
+      "name": "selector-56",
+      "source": ".a{@at-root(without:){color:red}}",
+      "referenceError": "Expected expression.\n  ╷\n1 │ .a{@at-root(without:){color:red}}\n  │                     ^\n  ╵\n  - 1:21  root stylesheet",
+      "actual": "ERROR: Invalid(\"empty at-root query\")",
+      "actualError": "ERROR: Invalid(\"empty at-root query\")",
+      "matched": true
+    },
+    {
+      "name": "selector-57",
+      "source": "@mixin lift(){@at-root .lifted{color:red}}.a{@include lift()}",
+      "reference": ".lifted {\n  color: red;\n}",
+      "actual": ".lifted {\n  color: red;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "selector-58",
+      "source": "%base{color:red}.a{@at-root .b{@extend %base}}",
+      "reference": ".b {\n  color: red;\n}",
+      "actual": ".b {\n  color: red;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "selector-59",
+      "source": ".a{color:red}.b{@at-root .c{@extend .a}}",
+      "reference": ".a, .c {\n  color: red;\n}",
+      "actual": ".a, .c {\n  color: red;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "selector-60",
+      "source": ".a{.base{color:red}.button{@extend .base}}",
+      "reference": ".a .base, .a .button {\n  color: red;\n}",
+      "actual": ".a .base, .a .button {\n  color: red;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "module-extension",
+      "entry": "main.scss",
+      "files": {
+        "main.scss": "@use \"base\";.button{@extend %base}",
+        "_base.scss": "%base{color:red}"
+      },
+      "reference": ".button {\n  color: red;\n}",
+      "actual": ".button {\n  color: red;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "module-class-extension",
+      "entry": "main.scss",
+      "files": {
+        "main.scss": "@use \"base\";.button{@extend .base}",
+        "_base.scss": ".base{color:red}"
+      },
+      "reference": ".base, .button {\n  color: red;\n}",
+      "actual": ".base, .button {\n  color: red;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "private-placeholder",
+      "entry": "main.scss",
+      "files": {
+        "main.scss": "@use \"base\";.button{@extend %-base}",
+        "_base.scss": "%-base{color:red}"
+      },
+      "referenceError": "The target selector was not found.\nUse \"@extend %-base !optional\" to avoid this error.\n  ╷\n1 │ @use \"base\";.button{@extend %-base}\n  │                     ^^^^^^^^^^^^^^\n  ╵\n  memory:/main.scss 1:21  root stylesheet",
+      "actual": "ERROR: Invalid(\"extend target not found %-base\")",
+      "actualError": "ERROR: Invalid(\"extend target not found %-base\")",
+      "matched": true
+    },
+    {
+      "name": "private-placeholder-optional",
+      "entry": "main.scss",
+      "files": {
+        "main.scss": "@use \"base\";.button{@extend %-base !optional}",
+        "_base.scss": "%-base{color:red}"
+      },
+      "reference": "",
+      "actual": "",
+      "matched": true
+    },
+    {
+      "name": "sibling-isolation",
+      "entry": "main.scss",
+      "files": {
+        "main.scss": "@use \"a\";@use \"b\";",
+        "_a.scss": ".base{color:red}",
+        "_b.scss": ".button{@extend .base}"
+      },
+      "referenceError": "The target selector was not found.\nUse \"@extend .base !optional\" to avoid this error.\n  ╷\n1 │ .button{@extend .base}\n  │         ^^^^^^^^^^^^^\n  ╵\n  memory:/_b.scss 1:9  root stylesheet",
+      "actual": "ERROR: Invalid(\"extend target not found .base\")",
+      "actualError": "ERROR: Invalid(\"extend target not found .base\")",
+      "matched": true
+    },
+    {
+      "name": "transitive-module",
+      "entry": "main.scss",
+      "files": {
+        "main.scss": "@use \"b\";",
+        "_a.scss": ".base{color:red}",
+        "_b.scss": "@use \"a\";.button{@extend .base}"
+      },
+      "reference": ".base, .button {\n  color: red;\n}",
+      "actual": ".base, .button {\n  color: red;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "forwarded-module",
+      "entry": "main.scss",
+      "files": {
+        "main.scss": "@use \"b\";.button{@extend %base}",
+        "_a.scss": "%base{color:red}",
+        "_b.scss": "@forward \"a\";"
+      },
+      "reference": ".button {\n  color: red;\n}",
+      "actual": ".button {\n  color: red;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "module-cannot-extend-downstream",
+      "entry": "main.scss",
+      "files": {
+        "main.scss": "@use \"base\";.button{color:red}",
+        "_base.scss": ".other{@extend .button !optional}"
+      },
+      "reference": ".button {\n  color: red;\n}",
+      "actual": ".button {\n  color: red;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "module-mixin-private-extension",
+      "entry": "main.scss",
+      "files": {
+        "main.scss": "@use \"base\";.button{@include base.m()}",
+        "_base.scss": "%-base{color:red}@mixin m(){@extend %-base}"
+      },
+      "referenceError": "The target selector was not found.\nUse \"@extend %-base !optional\" to avoid this error.\n  ╷\n1 │ %-base{color:red}@mixin m(){@extend %-base}\n  │                             ^^^^^^^^^^^^^^\n  ╵\n  memory:/_base.scss 1:29  root stylesheet",
+      "actual": "ERROR: Invalid(\"extend target not found %-base\")",
+      "actualError": "ERROR: Invalid(\"extend target not found %-base\")",
+      "matched": true
+    },
+    {
+      "name": "empty-lifted-target",
+      "source": ".outer{@at-root .base{}}.button{@extend .base}",
+      "reference": "",
+      "actual": "",
+      "matched": true
+    }
+  ]
+}

@@ -9495,3 +9495,749 @@ test "official 807 theme module with defaults, function and mixin" {
     ),
   )
 }
+
+///|
+test "official 808 selector-1" {
+  assert_eq(
+    css_tokens(@scss.compile(".base{color:red}.button{@extend .base}")),
+    css_tokens(".base, .button {\n  color: red;\n}"),
+  )
+}
+
+///|
+test "official 809 selector-2" {
+  assert_eq(
+    css_tokens(@scss.compile(".button{@extend .base}.base{color:red}")),
+    css_tokens(".base, .button {\n  color: red;\n}"),
+  )
+}
+
+///|
+test "official 810 selector-3" {
+  assert_eq(
+    css_tokens(@scss.compile("%base{color:red}.button{@extend %base}")),
+    css_tokens(".button {\n  color: red;\n}"),
+  )
+}
+
+///|
+test "official 811 selector-4" {
+  assert_eq(
+    css_tokens(@scss.compile("%unused{color:red}.button{color:blue}")),
+    css_tokens(".button {\n  color: blue;\n}"),
+  )
+}
+
+///|
+test "official 812 selector-5" {
+  assert_eq(
+    css_tokens(@scss.compile(".base,.other{color:red}.button{@extend .base}")),
+    css_tokens(".base, .button, .other {\n  color: red;\n}"),
+  )
+}
+
+///|
+test "official 813 selector-6" {
+  assert_eq(
+    css_tokens(@scss.compile(".base{color:red}.a,.b{@extend .base}")),
+    css_tokens(".base, .a, .b {\n  color: red;\n}"),
+  )
+}
+
+///|
+test "official 814 selector-7" {
+  assert_eq(
+    css_tokens(@scss.compile(".base{color:red}.a{@extend .base}.b{@extend .a}")),
+    css_tokens(".base, .a, .b {\n  color: red;\n}"),
+  )
+}
+
+///|
+test "official 815 selector-8" {
+  assert_eq(
+    css_tokens(@scss.compile(".a{@extend .b}.b{@extend .c}.c{color:red}")),
+    css_tokens(".c, .b, .a {\n  color: red;\n}"),
+  )
+}
+
+///|
+test "official 816 selector-9" {
+  assert_eq(
+    css_tokens(@scss.compile(".base:hover{color:red}.button{@extend .base}")),
+    css_tokens(".base:hover, .button:hover {\n  color: red;\n}"),
+  )
+}
+
+///|
+test "official 817 selector-10" {
+  assert_eq(
+    css_tokens(@scss.compile(".base::before{color:red}.button{@extend .base}")),
+    css_tokens(".base::before, .button::before {\n  color: red;\n}"),
+  )
+}
+
+///|
+test "official 818 selector-11" {
+  assert_eq(
+    css_tokens(@scss.compile(".base.active{color:red}.button{@extend .base}")),
+    css_tokens(".base.active, .active.button {\n  color: red;\n}"),
+  )
+}
+
+///|
+test "official 819 selector-12" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(".base.active{color:red}.button.large{@extend .base}"),
+    ),
+    css_tokens(".base.active, .active.button.large {\n  color: red;\n}"),
+  )
+}
+
+///|
+test "official 820 selector-13" {
+  assert_eq(
+    css_tokens(@scss.compile("a.base{color:red}.button{@extend .base}")),
+    css_tokens("a.base, a.button {\n  color: red;\n}"),
+  )
+}
+
+///|
+test "official 821 selector-14" {
+  assert_eq(
+    css_tokens(@scss.compile(".base{color:red}a.button{@extend .base}")),
+    css_tokens(".base, a.button {\n  color: red;\n}"),
+  )
+}
+
+///|
+test "official 822 selector-15" {
+  assert_eq(
+    css_tokens(@scss.compile("a.base{color:red}button.other{@extend .base}")),
+    css_tokens("a.base {\n  color: red;\n}"),
+  )
+}
+
+///|
+test "official 823 selector-16" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        ".base[data-label=\".base\"]{color:red}.button{@extend .base}",
+      ),
+    ),
+    css_tokens(
+      ".base[data-label=\".base\"], [data-label=\".base\"].button {\n  color: red;\n}",
+    ),
+  )
+}
+
+///|
+test "official 824 selector-17" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(".base-2{color:red}.button{@extend .base !optional}"),
+    ),
+    css_tokens(".base-2 {\n  color: red;\n}"),
+  )
+}
+
+///|
+test "official 825 selector-18" {
+  assert_eq(
+    css_tokens(@scss.compile(".a{color:red}.a{@extend .a}")),
+    css_tokens(".a {\n  color: red;\n}"),
+  )
+}
+
+///|
+test "official 826 selector-19" {
+  assert_eq(
+    css_tokens(@scss.compile(".a{color:red}.b{@extend .a}.a{@extend .b}")),
+    css_tokens(".a, .b {\n  color: red;\n}"),
+  )
+}
+
+///|
+test "official 827 selector-20" {
+  assert_eq(
+    css_tokens(@scss.compile(".parent .base{color:red}.button{@extend .base}")),
+    css_tokens(".parent .base, .parent .button {\n  color: red;\n}"),
+  )
+}
+
+///|
+test "official 828 selector-21" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(".parent .base{color:red}.scope .button{@extend .base}"),
+    ),
+    css_tokens(
+      ".parent .base, .parent .scope .button, .scope .parent .button {\n  color: red;\n}",
+    ),
+  )
+}
+
+///|
+test "official 829 selector-22" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(".parent .base{color:red}.parent .button{@extend .base}"),
+    ),
+    css_tokens(".parent .base, .parent .button {\n  color: red;\n}"),
+  )
+}
+
+///|
+test "official 830 selector-23" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(".parent > .base{color:red}.button{@extend .base}"),
+    ),
+    css_tokens(".parent > .base, .parent > .button {\n  color: red;\n}"),
+  )
+}
+
+///|
+test "official 831 selector-24" {
+  assert_eq(
+    css_tokens(@scss.compile(".base .base{color:red}.button{@extend .base}")),
+    css_tokens(
+      ".base .base, .button .base, .base .button, .button .button {\n  color: red;\n}",
+    ),
+  )
+}
+
+///|
+test "official 832 selector-25" {
+  assert_eq(css_tokens(@scss.compile(".a{}.b{@extend .a}")), css_tokens(""))
+}
+
+///|
+test "official 833 selector-26" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(".a{color:red}.b{@extend .missing !optional;color:blue}"),
+    ),
+    css_tokens(".a {\n  color: red;\n}\n\n.b {\n  color: blue;\n}"),
+  )
+}
+
+///|
+test "official 834 selector-27" {
+  assert_true(
+    try {
+      ignore(@scss.compile(".a{color:red}.b{@extend .missing}"))
+      false
+    } catch {
+      _ => true
+    },
+  )
+}
+
+///|
+test "official 835 selector-28" {
+  assert_true(
+    try {
+      ignore(@scss.compile("@extend .a;"))
+      false
+    } catch {
+      _ => true
+    },
+  )
+}
+
+///|
+test "official 836 selector-29" {
+  assert_true(
+    try {
+      ignore(@scss.compile(".a{color:red}.b{@extend .a.c}"))
+      false
+    } catch {
+      _ => true
+    },
+  )
+}
+
+///|
+test "official 837 selector-30" {
+  assert_true(
+    try {
+      ignore(@scss.compile(".a{color:red}.b{@extend .a .c}"))
+      false
+    } catch {
+      _ => true
+    },
+  )
+}
+
+///|
+test "official 838 selector-31" {
+  assert_true(
+    try {
+      ignore(@scss.compile(".a{color:red}.b{@extend &}"))
+      false
+    } catch {
+      _ => true
+    },
+  )
+}
+
+///|
+test "official 839 selector-32" {
+  assert_eq(
+    css_tokens(@scss.compile(".a,.c{color:red}.b{@extend .a,.c}")),
+    css_tokens(".a, .b, .c {\n  color: red;\n}"),
+  )
+}
+
+///|
+test "official 840 selector-33" {
+  assert_eq(
+    css_tokens(
+      @scss.compile("@media screen{.base{color:red}.button{@extend .base}}"),
+    ),
+    css_tokens("@media screen {\n  .base, .button {\n    color: red;\n  }\n}"),
+  )
+}
+
+///|
+test "official 841 selector-34" {
+  assert_eq(
+    css_tokens(
+      @scss.compile("@media screen{.base{color:red}}.button{@extend .base}"),
+    ),
+    css_tokens("@media screen {\n  .base, .button {\n    color: red;\n  }\n}"),
+  )
+}
+
+///|
+test "official 842 selector-35" {
+  assert_true(
+    try {
+      ignore(
+        @scss.compile(".base{color:red}@media screen{.button{@extend .base}}"),
+      )
+      false
+    } catch {
+      _ => true
+    },
+  )
+}
+
+///|
+test "official 843 selector-36" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@supports(display:grid){.base{color:red}}.button{@extend .base}",
+      ),
+    ),
+    css_tokens(
+      "@supports (display: grid) {\n  .base, .button {\n    color: red;\n  }\n}",
+    ),
+  )
+}
+
+///|
+test "official 844 selector-37" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@mixin base(){@extend %base}%base{color:red}.button{@include base()}",
+      ),
+    ),
+    css_tokens(".button {\n  color: red;\n}"),
+  )
+}
+
+///|
+test "official 845 selector-38" {
+  assert_eq(
+    css_tokens(
+      @scss.compile("$target:base;.base{color:red}.button{@extend .#{$target}}"),
+    ),
+    css_tokens(".base, .button {\n  color: red;\n}"),
+  )
+}
+
+///|
+test "official 846 selector-39" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(".a{color:red;@at-root .b{color:blue}color:green}"),
+    ),
+    css_tokens(
+      ".a {\n  color: red;\n}\n.b {\n  color: blue;\n}\n\n.a {\n  color: green;\n}",
+    ),
+  )
+}
+
+///|
+test "official 847 selector-40" {
+  assert_eq(
+    css_tokens(@scss.compile(".a{@at-root{.b{color:red}}}")),
+    css_tokens(".b {\n  color: red;\n}"),
+  )
+}
+
+///|
+test "official 848 selector-41" {
+  assert_eq(
+    css_tokens(@scss.compile(".a{@at-root{.b &{color:red}}}")),
+    css_tokens(".b .a {\n  color: red;\n}"),
+  )
+}
+
+///|
+test "official 849 selector-42" {
+  assert_eq(
+    css_tokens(@scss.compile(".a{@at-root .b &{color:red}}")),
+    css_tokens(".b .a {\n  color: red;\n}"),
+  )
+}
+
+///|
+test "official 850 selector-43" {
+  assert_eq(
+    css_tokens(@scss.compile(".a{@at-root #{&}{color:red}}")),
+    css_tokens(".a {\n  color: red;\n}"),
+  )
+}
+
+///|
+test "official 851 selector-44" {
+  assert_true(
+    try {
+      ignore(@scss.compile(".a{@at-root{color:red}}"))
+      false
+    } catch {
+      _ => true
+    },
+  )
+}
+
+///|
+test "official 852 selector-45" {
+  assert_eq(
+    css_tokens(@scss.compile(".a{@at-root .b{.c{color:red}}}")),
+    css_tokens(".b .c {\n  color: red;\n}"),
+  )
+}
+
+///|
+test "official 853 selector-46" {
+  assert_eq(
+    css_tokens(@scss.compile("@media screen{.a{@at-root .b{color:red}}}")),
+    css_tokens("@media screen {\n  .b {\n    color: red;\n  }\n}"),
+  )
+}
+
+///|
+test "official 854 selector-47" {
+  assert_eq(
+    css_tokens(
+      @scss.compile("@media screen{.a{@at-root(without:media){color:red}}}"),
+    ),
+    css_tokens(".a {\n  color: red;\n}"),
+  )
+}
+
+///|
+test "official 855 selector-48" {
+  assert_eq(
+    css_tokens(
+      @scss.compile("@media screen{.a{@at-root(without:rule){.b{color:red}}}}"),
+    ),
+    css_tokens("@media screen {\n  .b {\n    color: red;\n  }\n}"),
+  )
+}
+
+///|
+test "official 856 selector-49" {
+  assert_eq(
+    css_tokens(
+      @scss.compile("@media screen{.a{@at-root(without:all){.b{color:red}}}}"),
+    ),
+    css_tokens(".b {\n  color: red;\n}"),
+  )
+}
+
+///|
+test "official 857 selector-50" {
+  assert_eq(
+    css_tokens(
+      @scss.compile("@media screen{.a{@at-root(with:rule){color:red}}}"),
+    ),
+    css_tokens(".a {\n  color: red;\n}"),
+  )
+}
+
+///|
+test "official 858 selector-51" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@media screen{@supports(display:grid){.a{@at-root(with:media){.b{color:red}}}}}",
+      ),
+    ),
+    css_tokens("@media screen {\n  .b {\n    color: red;\n  }\n}"),
+  )
+}
+
+///|
+test "official 859 selector-52" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@media screen{.a{color:red;@at-root(without:media){color:blue}color:green}}",
+      ),
+    ),
+    css_tokens(
+      "@media screen {\n  .a {\n    color: red;\n    color: green;\n  }\n}\n.a {\n  color: blue;\n}",
+    ),
+  )
+}
+
+///|
+test "official 860 selector-53" {
+  assert_eq(
+    css_tokens(@scss.compile(".a{@at-root(with:all){color:red}}")),
+    css_tokens(".a {\n  color: red;\n}"),
+  )
+}
+
+///|
+test "official 861 selector-54" {
+  assert_eq(
+    css_tokens(@scss.compile(".a{@at-root(without:rule media){.b{color:red}}}")),
+    css_tokens(".b {\n  color: red;\n}"),
+  )
+}
+
+///|
+test "official 862 selector-55" {
+  assert_true(
+    try {
+      ignore(@scss.compile(".a{@at-root(bad:rule){color:red}}"))
+      false
+    } catch {
+      _ => true
+    },
+  )
+}
+
+///|
+test "official 863 selector-56" {
+  assert_true(
+    try {
+      ignore(@scss.compile(".a{@at-root(without:){color:red}}"))
+      false
+    } catch {
+      _ => true
+    },
+  )
+}
+
+///|
+test "official 864 selector-57" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@mixin lift(){@at-root .lifted{color:red}}.a{@include lift()}",
+      ),
+    ),
+    css_tokens(".lifted {\n  color: red;\n}"),
+  )
+}
+
+///|
+test "official 865 selector-58" {
+  assert_eq(
+    css_tokens(@scss.compile("%base{color:red}.a{@at-root .b{@extend %base}}")),
+    css_tokens(".b {\n  color: red;\n}"),
+  )
+}
+
+///|
+test "official 866 selector-59" {
+  assert_eq(
+    css_tokens(@scss.compile(".a{color:red}.b{@at-root .c{@extend .a}}")),
+    css_tokens(".a, .c {\n  color: red;\n}"),
+  )
+}
+
+///|
+test "official 867 selector-60" {
+  assert_eq(
+    css_tokens(@scss.compile(".a{.base{color:red}.button{@extend .base}}")),
+    css_tokens(".a .base, .a .button {\n  color: red;\n}"),
+  )
+}
+
+///|
+test "official 868 module-extension" {
+  assert_eq(
+    css_tokens(
+      @scss.compile_files(
+        "main.scss",
+        Map([
+          ("main.scss", "@use \"base\";.button{@extend %base}"),
+          ("_base.scss", "%base{color:red}"),
+        ]),
+      ).css,
+    ),
+    css_tokens(".button {\n  color: red;\n}"),
+  )
+}
+
+///|
+test "official 869 module-class-extension" {
+  assert_eq(
+    css_tokens(
+      @scss.compile_files(
+        "main.scss",
+        Map([
+          ("main.scss", "@use \"base\";.button{@extend .base}"),
+          ("_base.scss", ".base{color:red}"),
+        ]),
+      ).css,
+    ),
+    css_tokens(".base, .button {\n  color: red;\n}"),
+  )
+}
+
+///|
+test "official 870 private-placeholder" {
+  assert_true(
+    try {
+      ignore(
+        @scss.compile_files(
+          "main.scss",
+          Map([
+            ("main.scss", "@use \"base\";.button{@extend %-base}"),
+            ("_base.scss", "%-base{color:red}"),
+          ]),
+        ).css,
+      )
+      false
+    } catch {
+      _ => true
+    },
+  )
+}
+
+///|
+test "official 871 private-placeholder-optional" {
+  assert_eq(
+    css_tokens(
+      @scss.compile_files(
+        "main.scss",
+        Map([
+          ("main.scss", "@use \"base\";.button{@extend %-base !optional}"),
+          ("_base.scss", "%-base{color:red}"),
+        ]),
+      ).css,
+    ),
+    css_tokens(""),
+  )
+}
+
+///|
+test "official 872 sibling-isolation" {
+  assert_true(
+    try {
+      ignore(
+        @scss.compile_files(
+          "main.scss",
+          Map([
+            ("main.scss", "@use \"a\";@use \"b\";"),
+            ("_a.scss", ".base{color:red}"),
+            ("_b.scss", ".button{@extend .base}"),
+          ]),
+        ).css,
+      )
+      false
+    } catch {
+      _ => true
+    },
+  )
+}
+
+///|
+test "official 873 transitive-module" {
+  assert_eq(
+    css_tokens(
+      @scss.compile_files(
+        "main.scss",
+        Map([
+          ("main.scss", "@use \"b\";"),
+          ("_a.scss", ".base{color:red}"),
+          ("_b.scss", "@use \"a\";.button{@extend .base}"),
+        ]),
+      ).css,
+    ),
+    css_tokens(".base, .button {\n  color: red;\n}"),
+  )
+}
+
+///|
+test "official 874 forwarded-module" {
+  assert_eq(
+    css_tokens(
+      @scss.compile_files(
+        "main.scss",
+        Map([
+          ("main.scss", "@use \"b\";.button{@extend %base}"),
+          ("_a.scss", "%base{color:red}"),
+          ("_b.scss", "@forward \"a\";"),
+        ]),
+      ).css,
+    ),
+    css_tokens(".button {\n  color: red;\n}"),
+  )
+}
+
+///|
+test "official 875 module-cannot-extend-downstream" {
+  assert_eq(
+    css_tokens(
+      @scss.compile_files(
+        "main.scss",
+        Map([
+          ("main.scss", "@use \"base\";.button{color:red}"),
+          ("_base.scss", ".other{@extend .button !optional}"),
+        ]),
+      ).css,
+    ),
+    css_tokens(".button {\n  color: red;\n}"),
+  )
+}
+
+///|
+test "official 876 module-mixin-private-extension" {
+  assert_true(
+    try {
+      ignore(
+        @scss.compile_files(
+          "main.scss",
+          Map([
+            ("main.scss", "@use \"base\";.button{@include base.m()}"),
+            ("_base.scss", "%-base{color:red}@mixin m(){@extend %-base}"),
+          ]),
+        ).css,
+      )
+      false
+    } catch {
+      _ => true
+    },
+  )
+}
+
+///|
+test "official 877 empty-lifted-target" {
+  assert_eq(
+    css_tokens(@scss.compile(".outer{@at-root .base{}}.button{@extend .base}")),
+    css_tokens(""),
+  )
+}

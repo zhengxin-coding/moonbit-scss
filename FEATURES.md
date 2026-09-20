@@ -1,6 +1,6 @@
 # 功能与兼容范围
 
-0.5.0 增量通过 808 个固定 Dart Sass 1.104.0 场景，范围有限，不能据此判定完整追平。
+0.6.0 累计通过 878 个固定 Dart Sass 1.104.0 场景，范围有限，不能据此判定完整追平。
 
 | 范围 | 已实现 |
 |---|---|
@@ -11,6 +11,8 @@
 | SCSS 文件模块 | 相对路径、partial、index；use 别名或文件模块 as *；forward、前缀、show/hide；配置与 forward !default；私有成员、共享变量、一次 CSS 输出、循环/歧义错误 |
 | 原有 CSS | mixin 默认/关键字/rest、调用方 @content、插值、嵌套属性、复杂父选择器组合、media/supports/layer/font-face |
 | 宿主 | 纯虚拟文件 API、显式目录 CLI、独立 Worker、项目编辑/导入导出/下载、取消、超时、移动布局 |
+
+[0.6 常用选择器指令](SELECTORS.md)：70 项新增 Dart Sass 对照通过；提供常用继承、占位符及移出父规则/媒体规则能力。
 
 ## 标准函数的明确范围
 
@@ -25,7 +27,7 @@
 
 ## 尚未完成
 
-现代颜色空间、完整颜色函数及精度/越界组合；calc/clamp 的 Sass 化简及现代计算语法；完整标准库、标准模块 as * / forward、动态函数/混入值；更完整的字符串转义、数值精度与 CSS 保留；mixin spread 与带参数内容块；@extend、@at-root、全部 at-rule/选择器；旧式 @import、.sass 缩进语法、CSS 模块、pkg/load-path/custom importer、源码映射、watch/incremental 编译和插件 API。
+现代颜色空间、完整颜色函数及精度/越界组合；calc/clamp 的 Sass 化简及现代计算语法；完整标准库、标准模块 as * / forward、动态函数/混入值；更完整的字符串转义、数值精度与 CSS 保留；mixin spread 与带参数内容块；完整 @extend/@at-root 边界及全部 at-rule/选择器；旧式 @import、.sass 缩进语法、CSS 模块、pkg/load-path/custom importer、源码映射、watch/incremental 编译和插件 API。
 
 部分尚缺语义会作为普通 CSS 文本或函数保留，不保证一律提前拒绝。例：calc(1px + 2px) 尚不化简；现代色彩空间与转换未实现。这些缺口不在已通过场景中冒充已实现。
 

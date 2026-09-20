@@ -1,7 +1,7 @@
 {
   "reference": "dart-sass\t1.104.0\t(Sass Compiler)\t[Dart]\ndart2js\t3.13.3\t(Dart Compiler)\t[Dart]",
-  "cases": 808,
-  "expectedResultsSHA256": "c0c6374068245e43debb80bb630ba47fdc68989c7290ca02d24784e6791a892f",
+  "cases": 878,
+  "expectedResultsSHA256": "2590d68a9695b2a2fc447639c7b61c6f08f048dcd747f6cb0b8e0a8c539cf707",
   "normalization": "MoonBit tests compare CSS lexical tokens, preserving quoted text and boundaries between words. Node differential suites additionally compare CSS using the official CSS parser.",
   "generation": "Expected CSS and rejection flags produced solely by pinned Sass; MoonBit engine is not imported by this generator."
 }

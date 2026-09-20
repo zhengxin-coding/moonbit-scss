@@ -6,7 +6,9 @@ priv struct Evaluation {
   loaded : Map[String, Scope]
   loading : Array[String]
   order : Array[String]
-  css : Array[String]
+  css : Array[Array[CssRule]]
+  extensions : Array[Extension]
+  dependencies : Map[String, Array[String]]
   diagnostics : Array[String]
 }
 
@@ -20,6 +22,8 @@ fn Evaluation::new() -> Evaluation {
     loading: [],
     order: [],
     css: [],
+    extensions: [],
+    dependencies: Map([]),
     diagnostics: [],
   }
 }
@@ -346,7 +350,12 @@ fn Scope::call_function(
     let returned = Ref(None)
     let frame = { ..frame, returned: Some(returned), }
     let emitter = Emitter::{
-      output: StringBuilder(),
+      output: [],
+      extensions: [],
+      path: self.path,
+      context: [],
+      root_parent: [],
+      hoisted: [],
       size: 0,
       budget: 10000,
       pending_size: 0,
