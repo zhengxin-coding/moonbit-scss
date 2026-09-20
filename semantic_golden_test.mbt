@@ -6527,3 +6527,2971 @@ test "official 566 standard-underscore-alias" {
     css_tokens(".x {\n  x: 3;\n  y: 3.1415926536;\n}"),
   )
 }
+
+///|
+test "official 567 rgb(1 2 3 / .5)" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:rgb(1 2 3 / .5);}",
+      ),
+    ),
+    css_tokens("a {\n  v: rgba(1, 2, 3, 0.5);\n}"),
+  )
+}
+
+///|
+test "official 568 rgba(50% 20% 10% / 25%)" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:rgba(50% 20% 10% / 25%);}",
+      ),
+    ),
+    css_tokens("a {\n  v: rgba(50%, 20%, 10%, 0.25);\n}"),
+  )
+}
+
+///|
+test "official 569 rgb(1 2 3)" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:rgb(1 2 3);}",
+      ),
+    ),
+    css_tokens("a {\n  v: rgb(1, 2, 3);\n}"),
+  )
+}
+
+///|
+test "official 570 hsl(120 50% 25% / .3)" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:hsl(120 50% 25% / .3);}",
+      ),
+    ),
+    css_tokens("a {\n  v: hsla(120, 50%, 25%, 0.3);\n}"),
+  )
+}
+
+///|
+test "official 571 rgb(var(--channels))" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:rgb(var(--channels));}",
+      ),
+    ),
+    css_tokens("a {\n  v: rgb(var(--channels));\n}"),
+  )
+}
+
+///|
+test "official 572 hsl(120,0%,50%)" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:hsl(120,0%,50%);}",
+      ),
+    ),
+    css_tokens("a {\n  v: hsl(120, 0%, 50%);\n}"),
+  )
+}
+
+///|
+test "official 573 hue(hsl(120,0%,50%))" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:hue(hsl(120,0%,50%));}",
+      ),
+    ),
+    css_tokens("a {\n  v: 120deg;\n}"),
+  )
+}
+
+///|
+test "official 574 red(color.adjust(red,$red:30))" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:red(color.adjust(red,$red:30));}",
+      ),
+    ),
+    css_tokens("a {\n  v: 255;\n}"),
+  )
+}
+
+///|
+test "official 575 named aliceblue" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(aliceblue),red(aliceblue),green(aliceblue),blue(aliceblue),alpha(aliceblue);}",
+      ),
+    ),
+    css_tokens("a {\n  v: color, 240, 248, 255, 1;\n}"),
+  )
+}
+
+///|
+test "official 576 named antiquewhite" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(antiquewhite),red(antiquewhite),green(antiquewhite),blue(antiquewhite),alpha(antiquewhite);}",
+      ),
+    ),
+    css_tokens("a {\n  v: color, 250, 235, 215, 1;\n}"),
+  )
+}
+
+///|
+test "official 577 named aqua" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(aqua),red(aqua),green(aqua),blue(aqua),alpha(aqua);}",
+      ),
+    ),
+    css_tokens("a {\n  v: color, 0, 255, 255, 1;\n}"),
+  )
+}
+
+///|
+test "official 578 named aquamarine" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(aquamarine),red(aquamarine),green(aquamarine),blue(aquamarine),alpha(aquamarine);}",
+      ),
+    ),
+    css_tokens("a {\n  v: color, 127, 255, 212, 1;\n}"),
+  )
+}
+
+///|
+test "official 579 named azure" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(azure),red(azure),green(azure),blue(azure),alpha(azure);}",
+      ),
+    ),
+    css_tokens("a {\n  v: color, 240, 255, 255, 1;\n}"),
+  )
+}
+
+///|
+test "official 580 named beige" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(beige),red(beige),green(beige),blue(beige),alpha(beige);}",
+      ),
+    ),
+    css_tokens("a {\n  v: color, 245, 245, 220, 1;\n}"),
+  )
+}
+
+///|
+test "official 581 named bisque" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(bisque),red(bisque),green(bisque),blue(bisque),alpha(bisque);}",
+      ),
+    ),
+    css_tokens("a {\n  v: color, 255, 228, 196, 1;\n}"),
+  )
+}
+
+///|
+test "official 582 named black" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(black),red(black),green(black),blue(black),alpha(black);}",
+      ),
+    ),
+    css_tokens("a {\n  v: color, 0, 0, 0, 1;\n}"),
+  )
+}
+
+///|
+test "official 583 named blanchedalmond" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(blanchedalmond),red(blanchedalmond),green(blanchedalmond),blue(blanchedalmond),alpha(blanchedalmond);}",
+      ),
+    ),
+    css_tokens("a {\n  v: color, 255, 235, 205, 1;\n}"),
+  )
+}
+
+///|
+test "official 584 named blue" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(blue),red(blue),green(blue),blue(blue),alpha(blue);}",
+      ),
+    ),
+    css_tokens("a {\n  v: color, 0, 0, 255, 1;\n}"),
+  )
+}
+
+///|
+test "official 585 named blueviolet" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(blueviolet),red(blueviolet),green(blueviolet),blue(blueviolet),alpha(blueviolet);}",
+      ),
+    ),
+    css_tokens("a {\n  v: color, 138, 43, 226, 1;\n}"),
+  )
+}
+
+///|
+test "official 586 named brown" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(brown),red(brown),green(brown),blue(brown),alpha(brown);}",
+      ),
+    ),
+    css_tokens("a {\n  v: color, 165, 42, 42, 1;\n}"),
+  )
+}
+
+///|
+test "official 587 named burlywood" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(burlywood),red(burlywood),green(burlywood),blue(burlywood),alpha(burlywood);}",
+      ),
+    ),
+    css_tokens("a {\n  v: color, 222, 184, 135, 1;\n}"),
+  )
+}
+
+///|
+test "official 588 named cadetblue" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(cadetblue),red(cadetblue),green(cadetblue),blue(cadetblue),alpha(cadetblue);}",
+      ),
+    ),
+    css_tokens("a {\n  v: color, 95, 158, 160, 1;\n}"),
+  )
+}
+
+///|
+test "official 589 named chartreuse" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(chartreuse),red(chartreuse),green(chartreuse),blue(chartreuse),alpha(chartreuse);}",
+      ),
+    ),
+    css_tokens("a {\n  v: color, 127, 255, 0, 1;\n}"),
+  )
+}
+
+///|
+test "official 590 named chocolate" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(chocolate),red(chocolate),green(chocolate),blue(chocolate),alpha(chocolate);}",
+      ),
+    ),
+    css_tokens("a {\n  v: color, 210, 105, 30, 1;\n}"),
+  )
+}
+
+///|
+test "official 591 named coral" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(coral),red(coral),green(coral),blue(coral),alpha(coral);}",
+      ),
+    ),
+    css_tokens("a {\n  v: color, 255, 127, 80, 1;\n}"),
+  )
+}
+
+///|
+test "official 592 named cornflowerblue" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(cornflowerblue),red(cornflowerblue),green(cornflowerblue),blue(cornflowerblue),alpha(cornflowerblue);}",
+      ),
+    ),
+    css_tokens("a {\n  v: color, 100, 149, 237, 1;\n}"),
+  )
+}
+
+///|
+test "official 593 named cornsilk" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(cornsilk),red(cornsilk),green(cornsilk),blue(cornsilk),alpha(cornsilk);}",
+      ),
+    ),
+    css_tokens("a {\n  v: color, 255, 248, 220, 1;\n}"),
+  )
+}
+
+///|
+test "official 594 named crimson" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(crimson),red(crimson),green(crimson),blue(crimson),alpha(crimson);}",
+      ),
+    ),
+    css_tokens("a {\n  v: color, 220, 20, 60, 1;\n}"),
+  )
+}
+
+///|
+test "official 595 named cyan" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(cyan),red(cyan),green(cyan),blue(cyan),alpha(cyan);}",
+      ),
+    ),
+    css_tokens("a {\n  v: color, 0, 255, 255, 1;\n}"),
+  )
+}
+
+///|
+test "official 596 named darkblue" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(darkblue),red(darkblue),green(darkblue),blue(darkblue),alpha(darkblue);}",
+      ),
+    ),
+    css_tokens("a {\n  v: color, 0, 0, 139, 1;\n}"),
+  )
+}
+
+///|
+test "official 597 named darkcyan" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(darkcyan),red(darkcyan),green(darkcyan),blue(darkcyan),alpha(darkcyan);}",
+      ),
+    ),
+    css_tokens("a {\n  v: color, 0, 139, 139, 1;\n}"),
+  )
+}
+
+///|
+test "official 598 named darkgoldenrod" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(darkgoldenrod),red(darkgoldenrod),green(darkgoldenrod),blue(darkgoldenrod),alpha(darkgoldenrod);}",
+      ),
+    ),
+    css_tokens("a {\n  v: color, 184, 134, 11, 1;\n}"),
+  )
+}
+
+///|
+test "official 599 named darkgray" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(darkgray),red(darkgray),green(darkgray),blue(darkgray),alpha(darkgray);}",
+      ),
+    ),
+    css_tokens("a {\n  v: color, 169, 169, 169, 1;\n}"),
+  )
+}
+
+///|
+test "official 600 named darkgreen" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(darkgreen),red(darkgreen),green(darkgreen),blue(darkgreen),alpha(darkgreen);}",
+      ),
+    ),
+    css_tokens("a {\n  v: color, 0, 100, 0, 1;\n}"),
+  )
+}
+
+///|
+test "official 601 named darkgrey" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(darkgrey),red(darkgrey),green(darkgrey),blue(darkgrey),alpha(darkgrey);}",
+      ),
+    ),
+    css_tokens("a {\n  v: color, 169, 169, 169, 1;\n}"),
+  )
+}
+
+///|
+test "official 602 named darkkhaki" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(darkkhaki),red(darkkhaki),green(darkkhaki),blue(darkkhaki),alpha(darkkhaki);}",
+      ),
+    ),
+    css_tokens("a {\n  v: color, 189, 183, 107, 1;\n}"),
+  )
+}
+
+///|
+test "official 603 named darkmagenta" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(darkmagenta),red(darkmagenta),green(darkmagenta),blue(darkmagenta),alpha(darkmagenta);}",
+      ),
+    ),
+    css_tokens("a {\n  v: color, 139, 0, 139, 1;\n}"),
+  )
+}
+
+///|
+test "official 604 named darkolivegreen" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(darkolivegreen),red(darkolivegreen),green(darkolivegreen),blue(darkolivegreen),alpha(darkolivegreen);}",
+      ),
+    ),
+    css_tokens("a {\n  v: color, 85, 107, 47, 1;\n}"),
+  )
+}
+
+///|
+test "official 605 named darkorange" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(darkorange),red(darkorange),green(darkorange),blue(darkorange),alpha(darkorange);}",
+      ),
+    ),
+    css_tokens("a {\n  v: color, 255, 140, 0, 1;\n}"),
+  )
+}
+
+///|
+test "official 606 named darkorchid" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(darkorchid),red(darkorchid),green(darkorchid),blue(darkorchid),alpha(darkorchid);}",
+      ),
+    ),
+    css_tokens("a {\n  v: color, 153, 50, 204, 1;\n}"),
+  )
+}
+
+///|
+test "official 607 named darkred" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(darkred),red(darkred),green(darkred),blue(darkred),alpha(darkred);}",
+      ),
+    ),
+    css_tokens("a {\n  v: color, 139, 0, 0, 1;\n}"),
+  )
+}
+
+///|
+test "official 608 named darksalmon" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(darksalmon),red(darksalmon),green(darksalmon),blue(darksalmon),alpha(darksalmon);}",
+      ),
+    ),
+    css_tokens("a {\n  v: color, 233, 150, 122, 1;\n}"),
+  )
+}
+
+///|
+test "official 609 named darkseagreen" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(darkseagreen),red(darkseagreen),green(darkseagreen),blue(darkseagreen),alpha(darkseagreen);}",
+      ),
+    ),
+    css_tokens("a {\n  v: color, 143, 188, 143, 1;\n}"),
+  )
+}
+
+///|
+test "official 610 named darkslateblue" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(darkslateblue),red(darkslateblue),green(darkslateblue),blue(darkslateblue),alpha(darkslateblue);}",
+      ),
+    ),
+    css_tokens("a {\n  v: color, 72, 61, 139, 1;\n}"),
+  )
+}
+
+///|
+test "official 611 named darkslategray" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(darkslategray),red(darkslategray),green(darkslategray),blue(darkslategray),alpha(darkslategray);}",
+      ),
+    ),
+    css_tokens("a {\n  v: color, 47, 79, 79, 1;\n}"),
+  )
+}
+
+///|
+test "official 612 named darkslategrey" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(darkslategrey),red(darkslategrey),green(darkslategrey),blue(darkslategrey),alpha(darkslategrey);}",
+      ),
+    ),
+    css_tokens("a {\n  v: color, 47, 79, 79, 1;\n}"),
+  )
+}
+
+///|
+test "official 613 named darkturquoise" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(darkturquoise),red(darkturquoise),green(darkturquoise),blue(darkturquoise),alpha(darkturquoise);}",
+      ),
+    ),
+    css_tokens("a {\n  v: color, 0, 206, 209, 1;\n}"),
+  )
+}
+
+///|
+test "official 614 named darkviolet" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(darkviolet),red(darkviolet),green(darkviolet),blue(darkviolet),alpha(darkviolet);}",
+      ),
+    ),
+    css_tokens("a {\n  v: color, 148, 0, 211, 1;\n}"),
+  )
+}
+
+///|
+test "official 615 named deeppink" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(deeppink),red(deeppink),green(deeppink),blue(deeppink),alpha(deeppink);}",
+      ),
+    ),
+    css_tokens("a {\n  v: color, 255, 20, 147, 1;\n}"),
+  )
+}
+
+///|
+test "official 616 named deepskyblue" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(deepskyblue),red(deepskyblue),green(deepskyblue),blue(deepskyblue),alpha(deepskyblue);}",
+      ),
+    ),
+    css_tokens("a {\n  v: color, 0, 191, 255, 1;\n}"),
+  )
+}
+
+///|
+test "official 617 named dimgray" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(dimgray),red(dimgray),green(dimgray),blue(dimgray),alpha(dimgray);}",
+      ),
+    ),
+    css_tokens("a {\n  v: color, 105, 105, 105, 1;\n}"),
+  )
+}
+
+///|
+test "official 618 named dimgrey" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(dimgrey),red(dimgrey),green(dimgrey),blue(dimgrey),alpha(dimgrey);}",
+      ),
+    ),
+    css_tokens("a {\n  v: color, 105, 105, 105, 1;\n}"),
+  )
+}
+
+///|
+test "official 619 named dodgerblue" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(dodgerblue),red(dodgerblue),green(dodgerblue),blue(dodgerblue),alpha(dodgerblue);}",
+      ),
+    ),
+    css_tokens("a {\n  v: color, 30, 144, 255, 1;\n}"),
+  )
+}
+
+///|
+test "official 620 named firebrick" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(firebrick),red(firebrick),green(firebrick),blue(firebrick),alpha(firebrick);}",
+      ),
+    ),
+    css_tokens("a {\n  v: color, 178, 34, 34, 1;\n}"),
+  )
+}
+
+///|
+test "official 621 named floralwhite" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(floralwhite),red(floralwhite),green(floralwhite),blue(floralwhite),alpha(floralwhite);}",
+      ),
+    ),
+    css_tokens("a {\n  v: color, 255, 250, 240, 1;\n}"),
+  )
+}
+
+///|
+test "official 622 named forestgreen" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(forestgreen),red(forestgreen),green(forestgreen),blue(forestgreen),alpha(forestgreen);}",
+      ),
+    ),
+    css_tokens("a {\n  v: color, 34, 139, 34, 1;\n}"),
+  )
+}
+
+///|
+test "official 623 named fuchsia" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(fuchsia),red(fuchsia),green(fuchsia),blue(fuchsia),alpha(fuchsia);}",
+      ),
+    ),
+    css_tokens("a {\n  v: color, 255, 0, 255, 1;\n}"),
+  )
+}
+
+///|
+test "official 624 named gainsboro" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(gainsboro),red(gainsboro),green(gainsboro),blue(gainsboro),alpha(gainsboro);}",
+      ),
+    ),
+    css_tokens("a {\n  v: color, 220, 220, 220, 1;\n}"),
+  )
+}
+
+///|
+test "official 625 named ghostwhite" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(ghostwhite),red(ghostwhite),green(ghostwhite),blue(ghostwhite),alpha(ghostwhite);}",
+      ),
+    ),
+    css_tokens("a {\n  v: color, 248, 248, 255, 1;\n}"),
+  )
+}
+
+///|
+test "official 626 named gold" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(gold),red(gold),green(gold),blue(gold),alpha(gold);}",
+      ),
+    ),
+    css_tokens("a {\n  v: color, 255, 215, 0, 1;\n}"),
+  )
+}
+
+///|
+test "official 627 named goldenrod" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(goldenrod),red(goldenrod),green(goldenrod),blue(goldenrod),alpha(goldenrod);}",
+      ),
+    ),
+    css_tokens("a {\n  v: color, 218, 165, 32, 1;\n}"),
+  )
+}
+
+///|
+test "official 628 named gray" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(gray),red(gray),green(gray),blue(gray),alpha(gray);}",
+      ),
+    ),
+    css_tokens("a {\n  v: color, 128, 128, 128, 1;\n}"),
+  )
+}
+
+///|
+test "official 629 named green" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(green),red(green),green(green),blue(green),alpha(green);}",
+      ),
+    ),
+    css_tokens("a {\n  v: color, 0, 128, 0, 1;\n}"),
+  )
+}
+
+///|
+test "official 630 named greenyellow" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(greenyellow),red(greenyellow),green(greenyellow),blue(greenyellow),alpha(greenyellow);}",
+      ),
+    ),
+    css_tokens("a {\n  v: color, 173, 255, 47, 1;\n}"),
+  )
+}
+
+///|
+test "official 631 named grey" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(grey),red(grey),green(grey),blue(grey),alpha(grey);}",
+      ),
+    ),
+    css_tokens("a {\n  v: color, 128, 128, 128, 1;\n}"),
+  )
+}
+
+///|
+test "official 632 named honeydew" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(honeydew),red(honeydew),green(honeydew),blue(honeydew),alpha(honeydew);}",
+      ),
+    ),
+    css_tokens("a {\n  v: color, 240, 255, 240, 1;\n}"),
+  )
+}
+
+///|
+test "official 633 named hotpink" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(hotpink),red(hotpink),green(hotpink),blue(hotpink),alpha(hotpink);}",
+      ),
+    ),
+    css_tokens("a {\n  v: color, 255, 105, 180, 1;\n}"),
+  )
+}
+
+///|
+test "official 634 named indianred" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(indianred),red(indianred),green(indianred),blue(indianred),alpha(indianred);}",
+      ),
+    ),
+    css_tokens("a {\n  v: color, 205, 92, 92, 1;\n}"),
+  )
+}
+
+///|
+test "official 635 named indigo" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(indigo),red(indigo),green(indigo),blue(indigo),alpha(indigo);}",
+      ),
+    ),
+    css_tokens("a {\n  v: color, 75, 0, 130, 1;\n}"),
+  )
+}
+
+///|
+test "official 636 named ivory" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(ivory),red(ivory),green(ivory),blue(ivory),alpha(ivory);}",
+      ),
+    ),
+    css_tokens("a {\n  v: color, 255, 255, 240, 1;\n}"),
+  )
+}
+
+///|
+test "official 637 named khaki" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(khaki),red(khaki),green(khaki),blue(khaki),alpha(khaki);}",
+      ),
+    ),
+    css_tokens("a {\n  v: color, 240, 230, 140, 1;\n}"),
+  )
+}
+
+///|
+test "official 638 named lavender" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(lavender),red(lavender),green(lavender),blue(lavender),alpha(lavender);}",
+      ),
+    ),
+    css_tokens("a {\n  v: color, 230, 230, 250, 1;\n}"),
+  )
+}
+
+///|
+test "official 639 named lavenderblush" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(lavenderblush),red(lavenderblush),green(lavenderblush),blue(lavenderblush),alpha(lavenderblush);}",
+      ),
+    ),
+    css_tokens("a {\n  v: color, 255, 240, 245, 1;\n}"),
+  )
+}
+
+///|
+test "official 640 named lawngreen" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(lawngreen),red(lawngreen),green(lawngreen),blue(lawngreen),alpha(lawngreen);}",
+      ),
+    ),
+    css_tokens("a {\n  v: color, 124, 252, 0, 1;\n}"),
+  )
+}
+
+///|
+test "official 641 named lemonchiffon" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(lemonchiffon),red(lemonchiffon),green(lemonchiffon),blue(lemonchiffon),alpha(lemonchiffon);}",
+      ),
+    ),
+    css_tokens("a {\n  v: color, 255, 250, 205, 1;\n}"),
+  )
+}
+
+///|
+test "official 642 named lightblue" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(lightblue),red(lightblue),green(lightblue),blue(lightblue),alpha(lightblue);}",
+      ),
+    ),
+    css_tokens("a {\n  v: color, 173, 216, 230, 1;\n}"),
+  )
+}
+
+///|
+test "official 643 named lightcoral" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(lightcoral),red(lightcoral),green(lightcoral),blue(lightcoral),alpha(lightcoral);}",
+      ),
+    ),
+    css_tokens("a {\n  v: color, 240, 128, 128, 1;\n}"),
+  )
+}
+
+///|
+test "official 644 named lightcyan" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(lightcyan),red(lightcyan),green(lightcyan),blue(lightcyan),alpha(lightcyan);}",
+      ),
+    ),
+    css_tokens("a {\n  v: color, 224, 255, 255, 1;\n}"),
+  )
+}
+
+///|
+test "official 645 named lightgoldenrodyellow" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(lightgoldenrodyellow),red(lightgoldenrodyellow),green(lightgoldenrodyellow),blue(lightgoldenrodyellow),alpha(lightgoldenrodyellow);}",
+      ),
+    ),
+    css_tokens("a {\n  v: color, 250, 250, 210, 1;\n}"),
+  )
+}
+
+///|
+test "official 646 named lightgray" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(lightgray),red(lightgray),green(lightgray),blue(lightgray),alpha(lightgray);}",
+      ),
+    ),
+    css_tokens("a {\n  v: color, 211, 211, 211, 1;\n}"),
+  )
+}
+
+///|
+test "official 647 named lightgreen" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(lightgreen),red(lightgreen),green(lightgreen),blue(lightgreen),alpha(lightgreen);}",
+      ),
+    ),
+    css_tokens("a {\n  v: color, 144, 238, 144, 1;\n}"),
+  )
+}
+
+///|
+test "official 648 named lightgrey" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(lightgrey),red(lightgrey),green(lightgrey),blue(lightgrey),alpha(lightgrey);}",
+      ),
+    ),
+    css_tokens("a {\n  v: color, 211, 211, 211, 1;\n}"),
+  )
+}
+
+///|
+test "official 649 named lightpink" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(lightpink),red(lightpink),green(lightpink),blue(lightpink),alpha(lightpink);}",
+      ),
+    ),
+    css_tokens("a {\n  v: color, 255, 182, 193, 1;\n}"),
+  )
+}
+
+///|
+test "official 650 named lightsalmon" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(lightsalmon),red(lightsalmon),green(lightsalmon),blue(lightsalmon),alpha(lightsalmon);}",
+      ),
+    ),
+    css_tokens("a {\n  v: color, 255, 160, 122, 1;\n}"),
+  )
+}
+
+///|
+test "official 651 named lightseagreen" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(lightseagreen),red(lightseagreen),green(lightseagreen),blue(lightseagreen),alpha(lightseagreen);}",
+      ),
+    ),
+    css_tokens("a {\n  v: color, 32, 178, 170, 1;\n}"),
+  )
+}
+
+///|
+test "official 652 named lightskyblue" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(lightskyblue),red(lightskyblue),green(lightskyblue),blue(lightskyblue),alpha(lightskyblue);}",
+      ),
+    ),
+    css_tokens("a {\n  v: color, 135, 206, 250, 1;\n}"),
+  )
+}
+
+///|
+test "official 653 named lightslategray" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(lightslategray),red(lightslategray),green(lightslategray),blue(lightslategray),alpha(lightslategray);}",
+      ),
+    ),
+    css_tokens("a {\n  v: color, 119, 136, 153, 1;\n}"),
+  )
+}
+
+///|
+test "official 654 named lightslategrey" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(lightslategrey),red(lightslategrey),green(lightslategrey),blue(lightslategrey),alpha(lightslategrey);}",
+      ),
+    ),
+    css_tokens("a {\n  v: color, 119, 136, 153, 1;\n}"),
+  )
+}
+
+///|
+test "official 655 named lightsteelblue" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(lightsteelblue),red(lightsteelblue),green(lightsteelblue),blue(lightsteelblue),alpha(lightsteelblue);}",
+      ),
+    ),
+    css_tokens("a {\n  v: color, 176, 196, 222, 1;\n}"),
+  )
+}
+
+///|
+test "official 656 named lightyellow" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(lightyellow),red(lightyellow),green(lightyellow),blue(lightyellow),alpha(lightyellow);}",
+      ),
+    ),
+    css_tokens("a {\n  v: color, 255, 255, 224, 1;\n}"),
+  )
+}
+
+///|
+test "official 657 named lime" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(lime),red(lime),green(lime),blue(lime),alpha(lime);}",
+      ),
+    ),
+    css_tokens("a {\n  v: color, 0, 255, 0, 1;\n}"),
+  )
+}
+
+///|
+test "official 658 named limegreen" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(limegreen),red(limegreen),green(limegreen),blue(limegreen),alpha(limegreen);}",
+      ),
+    ),
+    css_tokens("a {\n  v: color, 50, 205, 50, 1;\n}"),
+  )
+}
+
+///|
+test "official 659 named linen" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(linen),red(linen),green(linen),blue(linen),alpha(linen);}",
+      ),
+    ),
+    css_tokens("a {\n  v: color, 250, 240, 230, 1;\n}"),
+  )
+}
+
+///|
+test "official 660 named magenta" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(magenta),red(magenta),green(magenta),blue(magenta),alpha(magenta);}",
+      ),
+    ),
+    css_tokens("a {\n  v: color, 255, 0, 255, 1;\n}"),
+  )
+}
+
+///|
+test "official 661 named maroon" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(maroon),red(maroon),green(maroon),blue(maroon),alpha(maroon);}",
+      ),
+    ),
+    css_tokens("a {\n  v: color, 128, 0, 0, 1;\n}"),
+  )
+}
+
+///|
+test "official 662 named mediumaquamarine" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(mediumaquamarine),red(mediumaquamarine),green(mediumaquamarine),blue(mediumaquamarine),alpha(mediumaquamarine);}",
+      ),
+    ),
+    css_tokens("a {\n  v: color, 102, 205, 170, 1;\n}"),
+  )
+}
+
+///|
+test "official 663 named mediumblue" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(mediumblue),red(mediumblue),green(mediumblue),blue(mediumblue),alpha(mediumblue);}",
+      ),
+    ),
+    css_tokens("a {\n  v: color, 0, 0, 205, 1;\n}"),
+  )
+}
+
+///|
+test "official 664 named mediumorchid" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(mediumorchid),red(mediumorchid),green(mediumorchid),blue(mediumorchid),alpha(mediumorchid);}",
+      ),
+    ),
+    css_tokens("a {\n  v: color, 186, 85, 211, 1;\n}"),
+  )
+}
+
+///|
+test "official 665 named mediumpurple" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(mediumpurple),red(mediumpurple),green(mediumpurple),blue(mediumpurple),alpha(mediumpurple);}",
+      ),
+    ),
+    css_tokens("a {\n  v: color, 147, 112, 219, 1;\n}"),
+  )
+}
+
+///|
+test "official 666 named mediumseagreen" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(mediumseagreen),red(mediumseagreen),green(mediumseagreen),blue(mediumseagreen),alpha(mediumseagreen);}",
+      ),
+    ),
+    css_tokens("a {\n  v: color, 60, 179, 113, 1;\n}"),
+  )
+}
+
+///|
+test "official 667 named mediumslateblue" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(mediumslateblue),red(mediumslateblue),green(mediumslateblue),blue(mediumslateblue),alpha(mediumslateblue);}",
+      ),
+    ),
+    css_tokens("a {\n  v: color, 123, 104, 238, 1;\n}"),
+  )
+}
+
+///|
+test "official 668 named mediumspringgreen" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(mediumspringgreen),red(mediumspringgreen),green(mediumspringgreen),blue(mediumspringgreen),alpha(mediumspringgreen);}",
+      ),
+    ),
+    css_tokens("a {\n  v: color, 0, 250, 154, 1;\n}"),
+  )
+}
+
+///|
+test "official 669 named mediumturquoise" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(mediumturquoise),red(mediumturquoise),green(mediumturquoise),blue(mediumturquoise),alpha(mediumturquoise);}",
+      ),
+    ),
+    css_tokens("a {\n  v: color, 72, 209, 204, 1;\n}"),
+  )
+}
+
+///|
+test "official 670 named mediumvioletred" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(mediumvioletred),red(mediumvioletred),green(mediumvioletred),blue(mediumvioletred),alpha(mediumvioletred);}",
+      ),
+    ),
+    css_tokens("a {\n  v: color, 199, 21, 133, 1;\n}"),
+  )
+}
+
+///|
+test "official 671 named midnightblue" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(midnightblue),red(midnightblue),green(midnightblue),blue(midnightblue),alpha(midnightblue);}",
+      ),
+    ),
+    css_tokens("a {\n  v: color, 25, 25, 112, 1;\n}"),
+  )
+}
+
+///|
+test "official 672 named mintcream" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(mintcream),red(mintcream),green(mintcream),blue(mintcream),alpha(mintcream);}",
+      ),
+    ),
+    css_tokens("a {\n  v: color, 245, 255, 250, 1;\n}"),
+  )
+}
+
+///|
+test "official 673 named mistyrose" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(mistyrose),red(mistyrose),green(mistyrose),blue(mistyrose),alpha(mistyrose);}",
+      ),
+    ),
+    css_tokens("a {\n  v: color, 255, 228, 225, 1;\n}"),
+  )
+}
+
+///|
+test "official 674 named moccasin" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(moccasin),red(moccasin),green(moccasin),blue(moccasin),alpha(moccasin);}",
+      ),
+    ),
+    css_tokens("a {\n  v: color, 255, 228, 181, 1;\n}"),
+  )
+}
+
+///|
+test "official 675 named navajowhite" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(navajowhite),red(navajowhite),green(navajowhite),blue(navajowhite),alpha(navajowhite);}",
+      ),
+    ),
+    css_tokens("a {\n  v: color, 255, 222, 173, 1;\n}"),
+  )
+}
+
+///|
+test "official 676 named navy" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(navy),red(navy),green(navy),blue(navy),alpha(navy);}",
+      ),
+    ),
+    css_tokens("a {\n  v: color, 0, 0, 128, 1;\n}"),
+  )
+}
+
+///|
+test "official 677 named oldlace" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(oldlace),red(oldlace),green(oldlace),blue(oldlace),alpha(oldlace);}",
+      ),
+    ),
+    css_tokens("a {\n  v: color, 253, 245, 230, 1;\n}"),
+  )
+}
+
+///|
+test "official 678 named olive" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(olive),red(olive),green(olive),blue(olive),alpha(olive);}",
+      ),
+    ),
+    css_tokens("a {\n  v: color, 128, 128, 0, 1;\n}"),
+  )
+}
+
+///|
+test "official 679 named olivedrab" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(olivedrab),red(olivedrab),green(olivedrab),blue(olivedrab),alpha(olivedrab);}",
+      ),
+    ),
+    css_tokens("a {\n  v: color, 107, 142, 35, 1;\n}"),
+  )
+}
+
+///|
+test "official 680 named orange" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(orange),red(orange),green(orange),blue(orange),alpha(orange);}",
+      ),
+    ),
+    css_tokens("a {\n  v: color, 255, 165, 0, 1;\n}"),
+  )
+}
+
+///|
+test "official 681 named orangered" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(orangered),red(orangered),green(orangered),blue(orangered),alpha(orangered);}",
+      ),
+    ),
+    css_tokens("a {\n  v: color, 255, 69, 0, 1;\n}"),
+  )
+}
+
+///|
+test "official 682 named orchid" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(orchid),red(orchid),green(orchid),blue(orchid),alpha(orchid);}",
+      ),
+    ),
+    css_tokens("a {\n  v: color, 218, 112, 214, 1;\n}"),
+  )
+}
+
+///|
+test "official 683 named palegoldenrod" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(palegoldenrod),red(palegoldenrod),green(palegoldenrod),blue(palegoldenrod),alpha(palegoldenrod);}",
+      ),
+    ),
+    css_tokens("a {\n  v: color, 238, 232, 170, 1;\n}"),
+  )
+}
+
+///|
+test "official 684 named palegreen" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(palegreen),red(palegreen),green(palegreen),blue(palegreen),alpha(palegreen);}",
+      ),
+    ),
+    css_tokens("a {\n  v: color, 152, 251, 152, 1;\n}"),
+  )
+}
+
+///|
+test "official 685 named paleturquoise" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(paleturquoise),red(paleturquoise),green(paleturquoise),blue(paleturquoise),alpha(paleturquoise);}",
+      ),
+    ),
+    css_tokens("a {\n  v: color, 175, 238, 238, 1;\n}"),
+  )
+}
+
+///|
+test "official 686 named palevioletred" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(palevioletred),red(palevioletred),green(palevioletred),blue(palevioletred),alpha(palevioletred);}",
+      ),
+    ),
+    css_tokens("a {\n  v: color, 219, 112, 147, 1;\n}"),
+  )
+}
+
+///|
+test "official 687 named papayawhip" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(papayawhip),red(papayawhip),green(papayawhip),blue(papayawhip),alpha(papayawhip);}",
+      ),
+    ),
+    css_tokens("a {\n  v: color, 255, 239, 213, 1;\n}"),
+  )
+}
+
+///|
+test "official 688 named peachpuff" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(peachpuff),red(peachpuff),green(peachpuff),blue(peachpuff),alpha(peachpuff);}",
+      ),
+    ),
+    css_tokens("a {\n  v: color, 255, 218, 185, 1;\n}"),
+  )
+}
+
+///|
+test "official 689 named peru" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(peru),red(peru),green(peru),blue(peru),alpha(peru);}",
+      ),
+    ),
+    css_tokens("a {\n  v: color, 205, 133, 63, 1;\n}"),
+  )
+}
+
+///|
+test "official 690 named pink" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(pink),red(pink),green(pink),blue(pink),alpha(pink);}",
+      ),
+    ),
+    css_tokens("a {\n  v: color, 255, 192, 203, 1;\n}"),
+  )
+}
+
+///|
+test "official 691 named plum" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(plum),red(plum),green(plum),blue(plum),alpha(plum);}",
+      ),
+    ),
+    css_tokens("a {\n  v: color, 221, 160, 221, 1;\n}"),
+  )
+}
+
+///|
+test "official 692 named powderblue" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(powderblue),red(powderblue),green(powderblue),blue(powderblue),alpha(powderblue);}",
+      ),
+    ),
+    css_tokens("a {\n  v: color, 176, 224, 230, 1;\n}"),
+  )
+}
+
+///|
+test "official 693 named purple" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(purple),red(purple),green(purple),blue(purple),alpha(purple);}",
+      ),
+    ),
+    css_tokens("a {\n  v: color, 128, 0, 128, 1;\n}"),
+  )
+}
+
+///|
+test "official 694 named rebeccapurple" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(rebeccapurple),red(rebeccapurple),green(rebeccapurple),blue(rebeccapurple),alpha(rebeccapurple);}",
+      ),
+    ),
+    css_tokens("a {\n  v: color, 102, 51, 153, 1;\n}"),
+  )
+}
+
+///|
+test "official 695 named red" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(red),red(red),green(red),blue(red),alpha(red);}",
+      ),
+    ),
+    css_tokens("a {\n  v: color, 255, 0, 0, 1;\n}"),
+  )
+}
+
+///|
+test "official 696 named rosybrown" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(rosybrown),red(rosybrown),green(rosybrown),blue(rosybrown),alpha(rosybrown);}",
+      ),
+    ),
+    css_tokens("a {\n  v: color, 188, 143, 143, 1;\n}"),
+  )
+}
+
+///|
+test "official 697 named royalblue" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(royalblue),red(royalblue),green(royalblue),blue(royalblue),alpha(royalblue);}",
+      ),
+    ),
+    css_tokens("a {\n  v: color, 65, 105, 225, 1;\n}"),
+  )
+}
+
+///|
+test "official 698 named saddlebrown" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(saddlebrown),red(saddlebrown),green(saddlebrown),blue(saddlebrown),alpha(saddlebrown);}",
+      ),
+    ),
+    css_tokens("a {\n  v: color, 139, 69, 19, 1;\n}"),
+  )
+}
+
+///|
+test "official 699 named salmon" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(salmon),red(salmon),green(salmon),blue(salmon),alpha(salmon);}",
+      ),
+    ),
+    css_tokens("a {\n  v: color, 250, 128, 114, 1;\n}"),
+  )
+}
+
+///|
+test "official 700 named sandybrown" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(sandybrown),red(sandybrown),green(sandybrown),blue(sandybrown),alpha(sandybrown);}",
+      ),
+    ),
+    css_tokens("a {\n  v: color, 244, 164, 96, 1;\n}"),
+  )
+}
+
+///|
+test "official 701 named seagreen" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(seagreen),red(seagreen),green(seagreen),blue(seagreen),alpha(seagreen);}",
+      ),
+    ),
+    css_tokens("a {\n  v: color, 46, 139, 87, 1;\n}"),
+  )
+}
+
+///|
+test "official 702 named seashell" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(seashell),red(seashell),green(seashell),blue(seashell),alpha(seashell);}",
+      ),
+    ),
+    css_tokens("a {\n  v: color, 255, 245, 238, 1;\n}"),
+  )
+}
+
+///|
+test "official 703 named sienna" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(sienna),red(sienna),green(sienna),blue(sienna),alpha(sienna);}",
+      ),
+    ),
+    css_tokens("a {\n  v: color, 160, 82, 45, 1;\n}"),
+  )
+}
+
+///|
+test "official 704 named silver" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(silver),red(silver),green(silver),blue(silver),alpha(silver);}",
+      ),
+    ),
+    css_tokens("a {\n  v: color, 192, 192, 192, 1;\n}"),
+  )
+}
+
+///|
+test "official 705 named skyblue" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(skyblue),red(skyblue),green(skyblue),blue(skyblue),alpha(skyblue);}",
+      ),
+    ),
+    css_tokens("a {\n  v: color, 135, 206, 235, 1;\n}"),
+  )
+}
+
+///|
+test "official 706 named slateblue" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(slateblue),red(slateblue),green(slateblue),blue(slateblue),alpha(slateblue);}",
+      ),
+    ),
+    css_tokens("a {\n  v: color, 106, 90, 205, 1;\n}"),
+  )
+}
+
+///|
+test "official 707 named slategray" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(slategray),red(slategray),green(slategray),blue(slategray),alpha(slategray);}",
+      ),
+    ),
+    css_tokens("a {\n  v: color, 112, 128, 144, 1;\n}"),
+  )
+}
+
+///|
+test "official 708 named slategrey" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(slategrey),red(slategrey),green(slategrey),blue(slategrey),alpha(slategrey);}",
+      ),
+    ),
+    css_tokens("a {\n  v: color, 112, 128, 144, 1;\n}"),
+  )
+}
+
+///|
+test "official 709 named snow" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(snow),red(snow),green(snow),blue(snow),alpha(snow);}",
+      ),
+    ),
+    css_tokens("a {\n  v: color, 255, 250, 250, 1;\n}"),
+  )
+}
+
+///|
+test "official 710 named springgreen" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(springgreen),red(springgreen),green(springgreen),blue(springgreen),alpha(springgreen);}",
+      ),
+    ),
+    css_tokens("a {\n  v: color, 0, 255, 127, 1;\n}"),
+  )
+}
+
+///|
+test "official 711 named steelblue" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(steelblue),red(steelblue),green(steelblue),blue(steelblue),alpha(steelblue);}",
+      ),
+    ),
+    css_tokens("a {\n  v: color, 70, 130, 180, 1;\n}"),
+  )
+}
+
+///|
+test "official 712 named tan" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(tan),red(tan),green(tan),blue(tan),alpha(tan);}",
+      ),
+    ),
+    css_tokens("a {\n  v: color, 210, 180, 140, 1;\n}"),
+  )
+}
+
+///|
+test "official 713 named teal" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(teal),red(teal),green(teal),blue(teal),alpha(teal);}",
+      ),
+    ),
+    css_tokens("a {\n  v: color, 0, 128, 128, 1;\n}"),
+  )
+}
+
+///|
+test "official 714 named thistle" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(thistle),red(thistle),green(thistle),blue(thistle),alpha(thistle);}",
+      ),
+    ),
+    css_tokens("a {\n  v: color, 216, 191, 216, 1;\n}"),
+  )
+}
+
+///|
+test "official 715 named tomato" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(tomato),red(tomato),green(tomato),blue(tomato),alpha(tomato);}",
+      ),
+    ),
+    css_tokens("a {\n  v: color, 255, 99, 71, 1;\n}"),
+  )
+}
+
+///|
+test "official 716 named transparent" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(transparent),red(transparent),green(transparent),blue(transparent),alpha(transparent);}",
+      ),
+    ),
+    css_tokens("a {\n  v: color, 0, 0, 0, 0;\n}"),
+  )
+}
+
+///|
+test "official 717 named turquoise" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(turquoise),red(turquoise),green(turquoise),blue(turquoise),alpha(turquoise);}",
+      ),
+    ),
+    css_tokens("a {\n  v: color, 64, 224, 208, 1;\n}"),
+  )
+}
+
+///|
+test "official 718 named violet" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(violet),red(violet),green(violet),blue(violet),alpha(violet);}",
+      ),
+    ),
+    css_tokens("a {\n  v: color, 238, 130, 238, 1;\n}"),
+  )
+}
+
+///|
+test "official 719 named wheat" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(wheat),red(wheat),green(wheat),blue(wheat),alpha(wheat);}",
+      ),
+    ),
+    css_tokens("a {\n  v: color, 245, 222, 179, 1;\n}"),
+  )
+}
+
+///|
+test "official 720 named white" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(white),red(white),green(white),blue(white),alpha(white);}",
+      ),
+    ),
+    css_tokens("a {\n  v: color, 255, 255, 255, 1;\n}"),
+  )
+}
+
+///|
+test "official 721 named whitesmoke" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(whitesmoke),red(whitesmoke),green(whitesmoke),blue(whitesmoke),alpha(whitesmoke);}",
+      ),
+    ),
+    css_tokens("a {\n  v: color, 245, 245, 245, 1;\n}"),
+  )
+}
+
+///|
+test "official 722 named yellow" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(yellow),red(yellow),green(yellow),blue(yellow),alpha(yellow);}",
+      ),
+    ),
+    css_tokens("a {\n  v: color, 255, 255, 0, 1;\n}"),
+  )
+}
+
+///|
+test "official 723 named yellowgreen" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(yellowgreen),red(yellowgreen),green(yellowgreen),blue(yellowgreen),alpha(yellowgreen);}",
+      ),
+    ),
+    css_tokens("a {\n  v: color, 154, 205, 50, 1;\n}"),
+  )
+}
+
+///|
+test "official 724 #123" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:#123;}",
+      ),
+    ),
+    css_tokens("a {\n  v: #123;\n}"),
+  )
+}
+
+///|
+test "official 725 #ABC" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:#ABC;}",
+      ),
+    ),
+    css_tokens("a {\n  v: #ABC;\n}"),
+  )
+}
+
+///|
+test "official 726 #1234" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:#1234;}",
+      ),
+    ),
+    css_tokens("a {\n  v: rgba(17, 34, 51, 0.2666666667);\n}"),
+  )
+}
+
+///|
+test "official 727 #aabbccdd" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:#aabbccdd;}",
+      ),
+    ),
+    css_tokens("a {\n  v: rgba(170, 187, 204, 0.8666666667);\n}"),
+  )
+}
+
+///|
+test "official 728 #0000" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:#0000;}",
+      ),
+    ),
+    css_tokens("a {\n  v: rgba(0, 0, 0, 0);\n}"),
+  )
+}
+
+///|
+test "official 729 #ffffffff" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:#ffffffff;}",
+      ),
+    ),
+    css_tokens("a {\n  v: white;\n}"),
+  )
+}
+
+///|
+test "official 730 RED" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:RED;}",
+      ),
+    ),
+    css_tokens("a {\n  v: RED;\n}"),
+  )
+}
+
+///|
+test "official 731 rgb(255,0,0)" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:rgb(255,0,0);}",
+      ),
+    ),
+    css_tokens("a {\n  v: rgb(255, 0, 0);\n}"),
+  )
+}
+
+///|
+test "official 732 rgb(50%,0%,100%)" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:rgb(50%,0%,100%);}",
+      ),
+    ),
+    css_tokens("a {\n  v: rgb(50%, 0%, 100%);\n}"),
+  )
+}
+
+///|
+test "official 733 rgb(12.3,5,6)" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:rgb(12.3,5,6);}",
+      ),
+    ),
+    css_tokens("a {\n  v: rgb(4.8235294118%, 1.9607843137%, 2.3529411765%);\n}"),
+  )
+}
+
+///|
+test "official 734 rgb(1%,2,3)" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:rgb(1%,2,3);}",
+      ),
+    ),
+    css_tokens("a {\n  v: rgb(1%, 0.7843137255%, 1.1764705882%);\n}"),
+  )
+}
+
+///|
+test "official 735 rgb(-10,300,20)" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:rgb(-10,300,20);}",
+      ),
+    ),
+    css_tokens("a {\n  v: rgb(0, 255, 20);\n}"),
+  )
+}
+
+///|
+test "official 736 rgba(0,30,200,1.2)" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:rgba(0,30,200,1.2);}",
+      ),
+    ),
+    css_tokens("a {\n  v: rgb(0, 30, 200);\n}"),
+  )
+}
+
+///|
+test "official 737 rgba(red,.4)" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:rgba(red,.4);}",
+      ),
+    ),
+    css_tokens("a {\n  v: rgba(255, 0, 0, 0.4);\n}"),
+  )
+}
+
+///|
+test "official 738 rgba(#ABC,20%)" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:rgba(#ABC,20%);}",
+      ),
+    ),
+    css_tokens("a {\n  v: rgba(170, 187, 204, 0.2);\n}"),
+  )
+}
+
+///|
+test "official 739 rgba($color:red,$alpha:.25)" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:rgba($color:red,$alpha:.25);}",
+      ),
+    ),
+    css_tokens("a {\n  v: rgba(255, 0, 0, 0.25);\n}"),
+  )
+}
+
+///|
+test "official 740 rgba($blue:3,$red:1,$alpha:.3,$green:2)" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:rgba($blue:3,$red:1,$alpha:.3,$green:2);}",
+      ),
+    ),
+    css_tokens("a {\n  v: rgba(1, 2, 3, 0.3);\n}"),
+  )
+}
+
+///|
+test "official 741 hsl(120,50%,25%)" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:hsl(120,50%,25%);}",
+      ),
+    ),
+    css_tokens("a {\n  v: hsl(120, 50%, 25%);\n}"),
+  )
+}
+
+///|
+test "official 742 hsla(.5turn,100%,50%,.3)" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:hsla(.5turn,100%,50%,.3);}",
+      ),
+    ),
+    css_tokens("a {\n  v: hsla(180, 100%, 50%, 0.3);\n}"),
+  )
+}
+
+///|
+test "official 743 hsl(-90,50,60)" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:hsl(-90,50,60);}",
+      ),
+    ),
+    css_tokens("a {\n  v: hsl(270, 50%, 60%);\n}"),
+  )
+}
+
+///|
+test "official 744 hsl(450deg,200%,-10%)" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:hsl(450deg,200%,-10%);}",
+      ),
+    ),
+    css_tokens("a {\n  v: hsl(90, 200%, -10%);\n}"),
+  )
+}
+
+///|
+test "official 745 red == #ff0000" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:red == #ff0000;}",
+      ),
+    ),
+    css_tokens("a {\n  v: true;\n}"),
+  )
+}
+
+///|
+test "official 746 red == \"red\"" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:red == \"red\";}",
+      ),
+    ),
+    css_tokens("a {\n  v: false;\n}"),
+  )
+}
+
+///|
+test "official 747 rgba(red,0) == rgba(blue,0)" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:rgba(red,0) == rgba(blue,0);}",
+      ),
+    ),
+    css_tokens("a {\n  v: false;\n}"),
+  )
+}
+
+///|
+test "official 748 map.get((red:yes),#ff0000)" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:map.get((red:yes),#ff0000);}",
+      ),
+    ),
+    css_tokens("a {\n  v: yes;\n}"),
+  )
+}
+
+///|
+test "official 749 meta.type-of(rgb(1,2,3))" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(rgb(1,2,3));}",
+      ),
+    ),
+    css_tokens("a {\n  v: color;\n}"),
+  )
+}
+
+///|
+test "official 750 meta.type-of(unquote(\"red\"))" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(unquote(\"red\"));}",
+      ),
+    ),
+    css_tokens("a {\n  v: string;\n}"),
+  )
+}
+
+///|
+test "official 751 meta.function-exists(mix)" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.function-exists(mix);}",
+      ),
+    ),
+    css_tokens("a {\n  v: true;\n}"),
+  )
+}
+
+///|
+test "official 752 rgb(var(--r),0,0)" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:rgb(var(--r),0,0);}",
+      ),
+    ),
+    css_tokens("a {\n  v: rgb(var(--r), 0, 0);\n}"),
+  )
+}
+
+///|
+test "official 753 rgb(calc(1 + 2),5,6)" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:rgb(calc(1 + 2),5,6);}",
+      ),
+    ),
+    css_tokens("a {\n  v: rgb(3, 5, 6);\n}"),
+  )
+}
+
+///|
+test "official 754 opacity(.5)" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:opacity(.5);}",
+      ),
+    ),
+    css_tokens("a {\n  v: opacity(0.5);\n}"),
+  )
+}
+
+///|
+test "official 755 invert(40%)" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:invert(40%);}",
+      ),
+    ),
+    css_tokens("a {\n  v: invert(40%);\n}"),
+  )
+}
+
+///|
+test "official 756 grayscale(10%)" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:grayscale(10%);}",
+      ),
+    ),
+    css_tokens("a {\n  v: grayscale(10%);\n}"),
+  )
+}
+
+///|
+test "official 757 saturate(2)" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:saturate(2);}",
+      ),
+    ),
+    css_tokens("a {\n  v: saturate(2);\n}"),
+  )
+}
+
+///|
+test "official 758 mix(red,blue)" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:mix(red,blue);}",
+      ),
+    ),
+    css_tokens("a {\n  v: rgb(50%, 0%, 50%);\n}"),
+  )
+}
+
+///|
+test "official 759 mix(rgba(red,.2),rgba(blue,.8),30%)" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:mix(rgba(red,.2),rgba(blue,.8),30%);}",
+      ),
+    ),
+    css_tokens("a {\n  v: rgba(9.6774193548%, 0%, 90.3225806452%, 0.62);\n}"),
+  )
+}
+
+///|
+test "official 760 color.mix(red,blue,$weight:0%)" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:color.mix(red,blue,$weight:0%);}",
+      ),
+    ),
+    css_tokens("a {\n  v: blue;\n}"),
+  )
+}
+
+///|
+test "official 761 mix(red,blue,100%)" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:mix(red,blue,100%);}",
+      ),
+    ),
+    css_tokens("a {\n  v: red;\n}"),
+  )
+}
+
+///|
+test "official 762 lighten(#333,10%)" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:lighten(#333,10%);}",
+      ),
+    ),
+    css_tokens("a {\n  v: rgb(30%, 30%, 30%);\n}"),
+  )
+}
+
+///|
+test "official 763 darken(red,10%)" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:darken(red,10%);}",
+      ),
+    ),
+    css_tokens("a {\n  v: #cc0000;\n}"),
+  )
+}
+
+///|
+test "official 764 saturate(#6699aa,20%)" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:saturate(#6699aa,20%);}",
+      ),
+    ),
+    css_tokens("a {\n  v: rgb(30.6666666667%, 64.6666666667%, 76%);\n}"),
+  )
+}
+
+///|
+test "official 765 desaturate(red,20%)" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:desaturate(red,20%);}",
+      ),
+    ),
+    css_tokens("a {\n  v: rgb(90%, 10%, 10%);\n}"),
+  )
+}
+
+///|
+test "official 766 adjust-hue(red,90deg)" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:adjust-hue(red,90deg);}",
+      ),
+    ),
+    css_tokens("a {\n  v: rgb(50%, 100%, 0%);\n}"),
+  )
+}
+
+///|
+test "official 767 complement(red)" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:complement(red);}",
+      ),
+    ),
+    css_tokens("a {\n  v: aqua;\n}"),
+  )
+}
+
+///|
+test "official 768 color.complement(blue)" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:color.complement(blue);}",
+      ),
+    ),
+    css_tokens("a {\n  v: yellow;\n}"),
+  )
+}
+
+///|
+test "official 769 grayscale(red)" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:grayscale(red);}",
+      ),
+    ),
+    css_tokens("a {\n  v: rgb(50%, 50%, 50%);\n}"),
+  )
+}
+
+///|
+test "official 770 color.grayscale(#abcdef)" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:color.grayscale(#abcdef);}",
+      ),
+    ),
+    css_tokens("a {\n  v: #cdcdcd;\n}"),
+  )
+}
+
+///|
+test "official 771 invert(#13579b)" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:invert(#13579b);}",
+      ),
+    ),
+    css_tokens("a {\n  v: #eca864;\n}"),
+  )
+}
+
+///|
+test "official 772 color.invert(red,25%)" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:color.invert(red,25%);}",
+      ),
+    ),
+    css_tokens("a {\n  v: rgb(75%, 25%, 25%);\n}"),
+  )
+}
+
+///|
+test "official 773 fade-out(rgba(red,.5),.2)" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:fade-out(rgba(red,.5),.2);}",
+      ),
+    ),
+    css_tokens("a {\n  v: rgba(255, 0, 0, 0.3);\n}"),
+  )
+}
+
+///|
+test "official 774 fade-in(rgba(blue,.2),.4)" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:fade-in(rgba(blue,.2),.4);}",
+      ),
+    ),
+    css_tokens("a {\n  v: rgba(0, 0, 255, 0.6);\n}"),
+  )
+}
+
+///|
+test "official 775 transparentize(red,1)" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:transparentize(red,1);}",
+      ),
+    ),
+    css_tokens("a {\n  v: rgba(255, 0, 0, 0);\n}"),
+  )
+}
+
+///|
+test "official 776 opacify(transparent,1)" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:opacify(transparent,1);}",
+      ),
+    ),
+    css_tokens("a {\n  v: black;\n}"),
+  )
+}
+
+///|
+test "official 777 color.change(red,$alpha:.2)" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:color.change(red,$alpha:.2);}",
+      ),
+    ),
+    css_tokens("a {\n  v: rgba(255, 0, 0, 0.2);\n}"),
+  )
+}
+
+///|
+test "official 778 color.change(red,$green:30,$blue:60)" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:color.change(red,$green:30,$blue:60);}",
+      ),
+    ),
+    css_tokens("a {\n  v: #ff1e3c;\n}"),
+  )
+}
+
+///|
+test "official 779 color.adjust(#abcdef,$red:-20,$green:5,$blue:-30)" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:color.adjust(#abcdef,$red:-20,$green:5,$blue:-30);}",
+      ),
+    ),
+    css_tokens("a {\n  v: #97d2d1;\n}"),
+  )
+}
+
+///|
+test "official 780 color.scale(red,$lightness:-20%)" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:color.scale(red,$lightness:-20%);}",
+      ),
+    ),
+    css_tokens("a {\n  v: #cc0000;\n}"),
+  )
+}
+
+///|
+test "official 781 color.scale(#123456,$red:20%,$green:-50%,$blue:10%)" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:color.scale(#123456,$red:20%,$green:-50%,$blue:10%);}",
+      ),
+    ),
+    css_tokens(
+      "a {\n  v: rgb(25.6470588235%, 10.1960784314%, 40.3529411765%);\n}",
+    ),
+  )
+}
+
+///|
+test "official 782 color.adjust(red,$hue:180deg,$saturation:-20%)" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:color.adjust(red,$hue:180deg,$saturation:-20%);}",
+      ),
+    ),
+    css_tokens("a {\n  v: rgb(10%, 90%, 90%);\n}"),
+  )
+}
+
+///|
+test "official 783 color.change($color:blue,$lightness:40%)" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:color.change($color:blue,$lightness:40%);}",
+      ),
+    ),
+    css_tokens("a {\n  v: #0000cc;\n}"),
+  )
+}
+
+///|
+test "official 784 color.adjust(red,$red:30)" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:color.adjust(red,$red:30);}",
+      ),
+    ),
+    css_tokens("a {\n  v: red;\n}"),
+  )
+}
+
+///|
+test "official 785 hue(#123456)" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:hue(#123456);}",
+      ),
+    ),
+    css_tokens("a {\n  v: 210deg;\n}"),
+  )
+}
+
+///|
+test "official 786 saturation(#123456)" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:saturation(#123456);}",
+      ),
+    ),
+    css_tokens("a {\n  v: 65.3846153846%;\n}"),
+  )
+}
+
+///|
+test "official 787 lightness(#123456)" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:lightness(#123456);}",
+      ),
+    ),
+    css_tokens("a {\n  v: 20.3921568627%;\n}"),
+  )
+}
+
+///|
+test "official 788 red(rgb(12.3,4.7,6.5))" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:red(rgb(12.3,4.7,6.5));}",
+      ),
+    ),
+    css_tokens("a {\n  v: 12;\n}"),
+  )
+}
+
+///|
+test "official 789 color.alpha(rgba(red,.42))" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:color.alpha(rgba(red,.42));}",
+      ),
+    ),
+    css_tokens("a {\n  v: 0.42;\n}"),
+  )
+}
+
+///|
+test "official 790 lighten(hsl(120,50%,25%),10%)" {
+  assert_eq(
+    css_tokens(
+      @scss.compile(
+        "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:lighten(hsl(120,50%,25%),10%);}",
+      ),
+    ),
+    css_tokens("a {\n  v: hsl(120, 50%, 35%);\n}"),
+  )
+}
+
+///|
+test "official 791 rgba(\"red\",.5)" {
+  assert_true(
+    try {
+      ignore(
+        @scss.compile(
+          "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:rgba(\"red\",.5);}",
+        ),
+      )
+      false
+    } catch {
+      _ => true
+    },
+  )
+}
+
+///|
+test "official 792 red(\"red\")" {
+  assert_true(
+    try {
+      ignore(
+        @scss.compile(
+          "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:red(\"red\");}",
+        ),
+      )
+      false
+    } catch {
+      _ => true
+    },
+  )
+}
+
+///|
+test "official 793 mix(red,blue,120%)" {
+  assert_true(
+    try {
+      ignore(
+        @scss.compile(
+          "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:mix(red,blue,120%);}",
+        ),
+      )
+      false
+    } catch {
+      _ => true
+    },
+  )
+}
+
+///|
+test "official 794 mix(red,blue,-1%)" {
+  assert_true(
+    try {
+      ignore(
+        @scss.compile(
+          "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:mix(red,blue,-1%);}",
+        ),
+      )
+      false
+    } catch {
+      _ => true
+    },
+  )
+}
+
+///|
+test "official 795 rgb(1px,2,3)" {
+  assert_true(
+    try {
+      ignore(
+        @scss.compile(
+          "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:rgb(1px,2,3);}",
+        ),
+      )
+      false
+    } catch {
+      _ => true
+    },
+  )
+}
+
+///|
+test "official 796 rgba(red)" {
+  assert_true(
+    try {
+      ignore(
+        @scss.compile(
+          "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:rgba(red);}",
+        ),
+      )
+      false
+    } catch {
+      _ => true
+    },
+  )
+}
+
+///|
+test "official 797 rgba($color:red,$alpha:.2,$bad:1)" {
+  assert_true(
+    try {
+      ignore(
+        @scss.compile(
+          "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:rgba($color:red,$alpha:.2,$bad:1);}",
+        ),
+      )
+      false
+    } catch {
+      _ => true
+    },
+  )
+}
+
+///|
+test "official 798 color.change(red,$red:1,$hue:1)" {
+  assert_true(
+    try {
+      ignore(
+        @scss.compile(
+          "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:color.change(red,$red:1,$hue:1);}",
+        ),
+      )
+      false
+    } catch {
+      _ => true
+    },
+  )
+}
+
+///|
+test "official 799 color.scale(red,$red:101%)" {
+  assert_true(
+    try {
+      ignore(
+        @scss.compile(
+          "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:color.scale(red,$red:101%);}",
+        ),
+      )
+      false
+    } catch {
+      _ => true
+    },
+  )
+}
+
+///|
+test "official 800 color.adjust(red,$oops:1)" {
+  assert_true(
+    try {
+      ignore(
+        @scss.compile(
+          "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:color.adjust(red,$oops:1);}",
+        ),
+      )
+      false
+    } catch {
+      _ => true
+    },
+  )
+}
+
+///|
+test "official 801 lighten(red,101%)" {
+  assert_true(
+    try {
+      ignore(
+        @scss.compile(
+          "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:lighten(red,101%);}",
+        ),
+      )
+      false
+    } catch {
+      _ => true
+    },
+  )
+}
+
+///|
+test "official 802 red + blue" {
+  assert_true(
+    try {
+      ignore(
+        @scss.compile(
+          "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:red + blue;}",
+        ),
+      )
+      false
+    } catch {
+      _ => true
+    },
+  )
+}
+
+///|
+test "official 803 #12" {
+  assert_true(
+    try {
+      ignore(
+        @scss.compile(
+          "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:#12;}",
+        ),
+      )
+      false
+    } catch {
+      _ => true
+    },
+  )
+}
+
+///|
+test "official 804 #12345" {
+  assert_true(
+    try {
+      ignore(
+        @scss.compile(
+          "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:#12345;}",
+        ),
+      )
+      false
+    } catch {
+      _ => true
+    },
+  )
+}
+
+///|
+test "official 805 #12zz12" {
+  assert_true(
+    try {
+      ignore(
+        @scss.compile(
+          "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:#12zz12;}",
+        ),
+      )
+      false
+    } catch {
+      _ => true
+    },
+  )
+}
+
+///|
+test "official 806 rgb(1,2,3,4,5)" {
+  assert_true(
+    try {
+      ignore(
+        @scss.compile(
+          "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:rgb(1,2,3,4,5);}",
+        ),
+      )
+      false
+    } catch {
+      _ => true
+    },
+  )
+}
+
+///|
+test "official 807 theme module with defaults, function and mixin" {
+  assert_eq(
+    css_tokens(
+      @scss.compile_files(
+        "main.scss",
+        Map([
+          (
+            "main.scss", "@use \"tokens\" with ($brand:#336699);a{@include tokens.button();}",
+          ),
+          (
+            "_tokens.scss", "@use \"sass:color\";$brand:red !default;@function shade($c){@return color.scale($c,$lightness:-20%);}@mixin button(){color:$brand;background:shade($brand);border-color:rgba($brand,.4);}",
+          ),
+        ]),
+      ).css,
+    ),
+    css_tokens(
+      "a {\n  color: #336699;\n  background: rgb(16%, 32%, 48%);\n  border-color: rgba(51, 102, 153, 0.4);\n}",
+    ),
+  )
+}

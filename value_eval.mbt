@@ -147,7 +147,13 @@ fn Scope::eval_ast(
       }
     }
     RawCall(name, body) => Text(name + "(" + self.expand(body) + ")", false)
-    Call(name, args) =>
+    Call(name, arguments) => {
+      let args = if ["rgb", "rgba", "hsl", "hsla"].contains(name) &&
+        self.lookup_function(name) is None {
+        color_call_arguments(arguments)
+      } else {
+        arguments
+      }
       if name == "if" &&
         args.length() == 3 &&
         args.iter().all(a => a.0 is None && !a.2) {
@@ -162,6 +168,22 @@ fn Scope::eval_ast(
         let keywords : Map[String, SassValue] = Map([])
         let mut named = false
         for (key, expr, spread) in args {
+          let expr = if ["rgb", "rgba", "hsl", "hsla"].contains(name) &&
+            self.lookup_function(name) is None &&
+            expr is RawCall("calc", body) {
+            let computed = Some(self.evaluate(body)) catch { _ => None }
+            match computed {
+              Some(Number(n)) =>
+                if n.unitless() {
+                  Literal(Number(n))
+                } else {
+                  expr
+                }
+              _ => expr
+            }
+          } else {
+            expr
+          }
           let value = self.eval_ast(
             expr,
             division ||
@@ -211,9 +233,31 @@ fn Scope::eval_ast(
         }
         self.call_function(name, positional, keywords, depth)
       }
+    }
   }
   result.check_size(Ref(16384), 0)
   result
+}
+
+///|
+fn color_call_arguments(
+  args : Array[(String?, Expression, Bool)],
+) -> Array[(String?, Expression, Bool)] {
+  if args.length() == 1 && args[0].0 is None && !args[0].2 {
+    if args[0].1 is Sequence(values, " ", false) {
+      let out = []
+      for i in 0..<values.length() {
+        if i == values.length() - 1 && values[i] is Binary("/", channel, alpha) {
+          out.push((None, channel, false))
+          out.push((None, alpha, false))
+        } else {
+          out.push((None, values[i], false))
+        }
+      }
+      return out
+    }
+  }
+  args
 }
 
 ///|

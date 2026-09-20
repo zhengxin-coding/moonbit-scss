@@ -1,5 +1,5 @@
 // Generated using `moon info`, DON'T EDIT IT
-package "localreview/scss"
+package "zhengxin-coding/scss"
 
 import {
   "moonbitlang/core/debug",

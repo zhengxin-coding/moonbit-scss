@@ -1,6 +1,8 @@
 # SCSS 工作台
 
-MoonBit 本地版 0.4.0：类型化值与单位运算、用户函数、流程控制、SCSS 文件模块，以及可取消的浏览器项目编辑器。固定 Dart Sass 1.104.0 的 567 个原创场景全部匹配；这是一项兼容性增量，尚未达到完整 Sass 成熟度。
+MoonBit 本地版 0.5.0：常用 RGB/HSL 颜色、透明度、混色和颜色调整；类型化值与单位运算、用户函数、流程控制、SCSS 文件模块，以及可取消的浏览器项目编辑器。固定 Dart Sass 1.104.0 的 808 个原创场景全部匹配；这是一项兼容性增量，尚未达到完整 Sass 成熟度。
+
+[本轮颜色范围与示例](COLORS.md)。本轮同时修复模块改名后的命令包引用；常见功能收尾后转下一项目。
 
 ## 使用
 
@@ -37,10 +39,10 @@ node tools/benchmark-semantics.mjs
 python tools/check-proof.py
 ```
 
-589 项公开 API 回归在 JS 和 Wasm-GC 均通过，其中 567 项期望来自固定官方编译器；13 项真实文件/CLI/协议检查、814 项求值边界输入和原有 307 项异常输入通过。浏览器人工交互记录、下载结果和同机小型性能对照见 evidence。具体口径见 [TESTING.md](TESTING.md)，缺项见 [FEATURES.md](FEATURES.md)。
+830 项公开 API 回归在 JS 和 Wasm-GC 均通过，其中 808 项期望来自固定官方编译器；13 项真实文件/CLI/协议检查、814 项求值边界输入和原有 307 项异常输入通过。浏览器人工交互记录、下载结果和同机小型性能对照见 evidence。具体口径见 [TESTING.md](TESTING.md)，缺项见 [FEATURES.md](FEATURES.md)。
 
 ## 来源与本地边界
 
 按 [Sass 官方文档](https://sass-lang.com/documentation/)独立实现，未复制编译器源码。实现与原创场景采用 MIT；Dart Sass 仅为开发对照依赖。下载发行包的完整性匹配 lockfile，36 个安装文件逐一匹配原包，见 [参考指纹](evidence/reference-provenance.json)。
 
-这是独立主仓库，旧批次目录和 ZIP 是历史快照。本轮未配置 remote、上传、发布、提交比赛或刷新旧归档；其余 19 个项目未重跑。远端 CI 仍未执行。
+这是独立主仓库，旧批次目录和 ZIP 是历史快照。本轮仅本地提交和同提交 ZIP/bundle；未上传、发布或提交比赛，现有远程配置保持原状。其他项目验证另列。远端 CI 仍未执行。

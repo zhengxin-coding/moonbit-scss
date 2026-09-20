@@ -1,0 +1,27 @@
+Finished. moon: ran 7 tasks, now up to date
+Finished. moon: ran 2 tasks, now up to date
+Finished. moon: ran 3 tasks, now up to date
+Total tests: 830, passed: 830, failed: 0.
+Total tests: 830, passed: 830, failed: 0.
+Finished. moon: ran 5 tasks, now up to date
+.card, .panel {
+  color: #4ca98f;
+  padding: 12px;
+}
+.card:hover, .panel:hover {
+  color: white;
+}
+.card .title, .panel .title {
+  font-weight: bold;
+}
+
+scss: independent browser engine passed
+scss: CLI input/file/stdin/error/exit-status checks passed
+Project host: 13 checks passed
+Evaluation limits: 814 inputs; 539 rejected without uncaught failure
+scss: 307 bounded inputs, no uncaught runtime failure
+{"project":"scss","utc":"2026-09-20T15:58:44.710Z","runtime":"v24.11.0","platform":"win32","cpu":"Intel(R) Core(TM) i7-14700HX","input_utf8_bytes":195,"samples":30,"warmup":5,"median_ms":0.24560000000000315,"p95_ms":0.7304999999999993,"max_ms":0.7424999999999997,"scope":"JS warm execution of documented example; no cross-project or upstream performance claim"}
+Dart Sass: 124 independent cases passed
+{"cases":345,"matched":345}
+{"cases":98,"matched":98}
+{"cases":241,"matched":241}

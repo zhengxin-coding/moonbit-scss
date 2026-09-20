@@ -8,6 +8,7 @@ priv struct SassNumber {
 ///|
 priv enum SassValue {
   Number(SassNumber)
+  Color(SassColor)
   Text(String, Bool)
   Boolean(Bool)
   Null
@@ -253,6 +254,7 @@ fn SassValue::css(
 ) -> String raise ParseError {
   match self {
     Null => if inspect { "null" } else { "" }
+    Color(c) => c.css()
     Boolean(value) => value.to_string()
     Number(n) => {
       let value = number_text(n.amount)
@@ -336,6 +338,11 @@ fn SassValue::same(self : SassValue, other : SassValue) -> Bool {
   match (self, other) {
     (Null, Null) => true
     (Boolean(a), Boolean(b)) => a == b
+    (Color(a), Color(b)) =>
+      (a.red - b.red).abs() < 0.0000000001 &&
+      (a.green - b.green).abs() < 0.0000000001 &&
+      (a.blue - b.blue).abs() < 0.0000000001 &&
+      (a.alpha - b.alpha).abs() < 0.0000000001
     (Text(a, _), Text(b, _)) => a == b
     (Number(a), Number(b)) =>
       match b.convert(a) {
@@ -425,6 +432,10 @@ fn binary_value(
       ">=" => return Boolean(av >= bv)
       _ => ()
     }
+  }
+  if (left is Color(_) && (right is Color(_) || right is Number(_))) ||
+    (right is Color(_) && left is Number(_)) {
+    raise Invalid("undefined color operation " + operator)
   }
   if operator == "+" {
     let quoted = match left {

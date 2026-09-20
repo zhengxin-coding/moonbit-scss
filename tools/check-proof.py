@@ -1,11 +1,11 @@
-"""Check final committed Git blobs against the local semantic-upgrade manifest."""
+"""Check final committed Git blobs against the local color-upgrade manifest."""
 import hashlib
 import json
 import subprocess
 from pathlib import Path
 
 root = Path(__file__).resolve().parents[1]
-record = json.loads((root / "evidence/semantic-upgrade.json").read_text(encoding="utf-8"))
+record = json.loads((root / "evidence/color-upgrade.json").read_text(encoding="utf-8"))
 for section in ("sourceSHA256", "evidenceSHA256"):
     for name, expected in record[section].items():
         data = subprocess.check_output(["git", "show", "HEAD:" + name], cwd=root)

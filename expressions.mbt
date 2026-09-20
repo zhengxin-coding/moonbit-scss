@@ -489,7 +489,7 @@ fn ExpressionParser::atom_inner(
     "true" => Literal(Boolean(true))
     "false" => Literal(Boolean(false))
     "null" => Literal(Null)
-    _ => Literal(Text(name, false))
+    _ => Literal(color_literal(name).unwrap_or(Text(name, false)))
   }
 }
 

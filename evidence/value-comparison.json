@@ -2,7 +2,7 @@
   "reference": "dart-sass\t1.104.0\t(Sass Compiler)\t[Dart]\ndart2js\t3.13.3\t(Dart Compiler)\t[Dart]",
   "cases": 345,
   "matched": 345,
-  "engineSHA256": "963da699202e3a5d247eed481aacc79f0c5b0a016f55f0e777404a176475114e",
+  "engineSHA256": "86635fcc0c9c99df66c11974eb2167a59732b2ee04e623978ef906ee218f8e94",
   "normalization": "Successful outputs parsed as plain CSS and compressed by official Sass. When reference inspect() output is not valid CSS, compare trimmed expanded outputs exactly. Errors compare acceptance only; messages retained.",
   "rows": [
     {

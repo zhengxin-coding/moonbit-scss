@@ -7,13 +7,14 @@ import {createHash} from 'node:crypto';
 import values from './value-cases.mjs';
 import modules from './module-cases.mjs';
 import legacy from './sass-cases.mjs';
+import colors from './color-cases.mjs';
 if(!/dart-sass\s+1\.104\.0/.test(sass.info))throw Error('Expected pinned Sass 1.104.0');
 const root=fileURLToPath(new URL('../_build/golden-reference/',import.meta.url));
 fs.mkdirSync(root,{recursive:true});
 const runRoot=fs.mkdtempSync(path.join(root,'run-'));
 const options={style:'expanded',charset:false,logger:{warn(){},debug(){}}};
 const quote=JSON.stringify,rows=[],lines=['// Generated only from Dart Sass 1.104.0. Regenerate with tools/generate-semantic-goldens.mjs.'];
-for(const [i,input]of [...legacy.map(x=>({...x,name:'legacy '+x.name})),...values,...modules].entries()){
+for(const [i,input]of [...legacy.map(x=>({...x,name:'legacy '+x.name})),...values,...modules,...colors].entries()){
   let css,error=false;
   try{
     if(input.files){

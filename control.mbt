@@ -163,7 +163,7 @@ fn Scope::use_standard(self : Scope, source : String) -> Unit raise ParseError {
     raise Invalid("file module resolver required")
   }
   let name = path[5:].to_owned()
-  if !["math", "list", "map", "string", "meta"].contains(name) {
+  if !["math", "list", "map", "string", "meta", "color"].contains(name) {
     raise Invalid("unsupported standard module")
   }
   let prefix_name = if parts.length() == 2 {

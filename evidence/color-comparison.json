@@ -1,0 +1,1728 @@
+{
+  "utc": "2026-09-20T15:58:48.219Z",
+  "reference": "dart-sass\t1.104.0\t(Sass Compiler)\t[Dart]\ndart2js\t3.13.3\t(Dart Compiler)\t[Dart]",
+  "cases": 241,
+  "matched": 241,
+  "sources": {
+    "web/engine.mjs": "86635fcc0c9c99df66c11974eb2167a59732b2ee04e623978ef906ee218f8e94",
+    "colors.mbt": "423771093ac23929b926322df4f9dea21ae1b810d3b62ce86d732e64605a6137",
+    "color_functions.mbt": "00592a539e6597902f093340d6d336be120bd997c812db44769eb70f3258a463",
+    "color_names.mbt": "6e1e52c00d5437d556d174c683000523b2777f5e8bb2308dbe5fa598c8887c11",
+    "values.mbt": "dddfa5c356cde2f254942e74e3a986fdea8a1ad3011e37f2ae73dfcd628e1bc0",
+    "expressions.mbt": "07acb5e2917ffe7e2c74bd052c94124c0c29447c78a3d3658e93afd16bb84cad",
+    "builtins.mbt": "1261105a875558464cca1bb0bcc26702c16e35f15de61db18262e04ad54affe6",
+    "control.mbt": "e0c036bd5e3c893d46cd05052292974b379240c77a42e152e78c1c59020d1291",
+    "tools/test-colors.mjs": "8b54b8834b806aa32eb3f58261f6b379a8a5b09889ad8c801d7b588c939eda17",
+    "tools/color-cases.mjs": "5c6848e2265dcb3ed31507f14433c3a8f38b39a755680e96936220d1a596a1fc"
+  },
+  "normalization": "Official plain-CSS parser/compressor on successful CSS, exact expanded fallback for non-CSS inspect output. Errors compare rejection, not diagnostic text.",
+  "rows": [
+    {
+      "name": "rgb(1 2 3 / .5)",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:rgb(1 2 3 / .5);}",
+      "reference": "a {\n  v: rgba(1, 2, 3, 0.5);\n}",
+      "actual": "a {\n  v: rgba(1, 2, 3, 0.5);\n}\n",
+      "matched": true
+    },
+    {
+      "name": "rgba(50% 20% 10% / 25%)",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:rgba(50% 20% 10% / 25%);}",
+      "reference": "a {\n  v: rgba(50%, 20%, 10%, 0.25);\n}",
+      "actual": "a {\n  v: rgba(50%, 20%, 10%, 0.25);\n}\n",
+      "matched": true
+    },
+    {
+      "name": "rgb(1 2 3)",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:rgb(1 2 3);}",
+      "reference": "a {\n  v: rgb(1, 2, 3);\n}",
+      "actual": "a {\n  v: rgb(1, 2, 3);\n}\n",
+      "matched": true
+    },
+    {
+      "name": "hsl(120 50% 25% / .3)",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:hsl(120 50% 25% / .3);}",
+      "reference": "a {\n  v: hsla(120, 50%, 25%, 0.3);\n}",
+      "actual": "a {\n  v: hsla(120, 50%, 25%, 0.3);\n}\n",
+      "matched": true
+    },
+    {
+      "name": "rgb(var(--channels))",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:rgb(var(--channels));}",
+      "reference": "a {\n  v: rgb(var(--channels));\n}",
+      "actual": "a {\n  v: rgb(var(--channels));\n}\n",
+      "matched": true
+    },
+    {
+      "name": "hsl(120,0%,50%)",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:hsl(120,0%,50%);}",
+      "reference": "a {\n  v: hsl(120, 0%, 50%);\n}",
+      "actual": "a {\n  v: hsl(120, 0%, 50%);\n}\n",
+      "matched": true
+    },
+    {
+      "name": "hue(hsl(120,0%,50%))",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:hue(hsl(120,0%,50%));}",
+      "reference": "a {\n  v: 120deg;\n}",
+      "actual": "a {\n  v: 120deg;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "red(color.adjust(red,$red:30))",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:red(color.adjust(red,$red:30));}",
+      "reference": "a {\n  v: 255;\n}",
+      "actual": "a {\n  v: 255;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "named aliceblue",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(aliceblue),red(aliceblue),green(aliceblue),blue(aliceblue),alpha(aliceblue);}",
+      "reference": "a {\n  v: color, 240, 248, 255, 1;\n}",
+      "actual": "a {\n  v: color, 240, 248, 255, 1;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "named antiquewhite",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(antiquewhite),red(antiquewhite),green(antiquewhite),blue(antiquewhite),alpha(antiquewhite);}",
+      "reference": "a {\n  v: color, 250, 235, 215, 1;\n}",
+      "actual": "a {\n  v: color, 250, 235, 215, 1;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "named aqua",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(aqua),red(aqua),green(aqua),blue(aqua),alpha(aqua);}",
+      "reference": "a {\n  v: color, 0, 255, 255, 1;\n}",
+      "actual": "a {\n  v: color, 0, 255, 255, 1;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "named aquamarine",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(aquamarine),red(aquamarine),green(aquamarine),blue(aquamarine),alpha(aquamarine);}",
+      "reference": "a {\n  v: color, 127, 255, 212, 1;\n}",
+      "actual": "a {\n  v: color, 127, 255, 212, 1;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "named azure",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(azure),red(azure),green(azure),blue(azure),alpha(azure);}",
+      "reference": "a {\n  v: color, 240, 255, 255, 1;\n}",
+      "actual": "a {\n  v: color, 240, 255, 255, 1;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "named beige",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(beige),red(beige),green(beige),blue(beige),alpha(beige);}",
+      "reference": "a {\n  v: color, 245, 245, 220, 1;\n}",
+      "actual": "a {\n  v: color, 245, 245, 220, 1;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "named bisque",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(bisque),red(bisque),green(bisque),blue(bisque),alpha(bisque);}",
+      "reference": "a {\n  v: color, 255, 228, 196, 1;\n}",
+      "actual": "a {\n  v: color, 255, 228, 196, 1;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "named black",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(black),red(black),green(black),blue(black),alpha(black);}",
+      "reference": "a {\n  v: color, 0, 0, 0, 1;\n}",
+      "actual": "a {\n  v: color, 0, 0, 0, 1;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "named blanchedalmond",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(blanchedalmond),red(blanchedalmond),green(blanchedalmond),blue(blanchedalmond),alpha(blanchedalmond);}",
+      "reference": "a {\n  v: color, 255, 235, 205, 1;\n}",
+      "actual": "a {\n  v: color, 255, 235, 205, 1;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "named blue",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(blue),red(blue),green(blue),blue(blue),alpha(blue);}",
+      "reference": "a {\n  v: color, 0, 0, 255, 1;\n}",
+      "actual": "a {\n  v: color, 0, 0, 255, 1;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "named blueviolet",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(blueviolet),red(blueviolet),green(blueviolet),blue(blueviolet),alpha(blueviolet);}",
+      "reference": "a {\n  v: color, 138, 43, 226, 1;\n}",
+      "actual": "a {\n  v: color, 138, 43, 226, 1;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "named brown",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(brown),red(brown),green(brown),blue(brown),alpha(brown);}",
+      "reference": "a {\n  v: color, 165, 42, 42, 1;\n}",
+      "actual": "a {\n  v: color, 165, 42, 42, 1;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "named burlywood",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(burlywood),red(burlywood),green(burlywood),blue(burlywood),alpha(burlywood);}",
+      "reference": "a {\n  v: color, 222, 184, 135, 1;\n}",
+      "actual": "a {\n  v: color, 222, 184, 135, 1;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "named cadetblue",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(cadetblue),red(cadetblue),green(cadetblue),blue(cadetblue),alpha(cadetblue);}",
+      "reference": "a {\n  v: color, 95, 158, 160, 1;\n}",
+      "actual": "a {\n  v: color, 95, 158, 160, 1;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "named chartreuse",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(chartreuse),red(chartreuse),green(chartreuse),blue(chartreuse),alpha(chartreuse);}",
+      "reference": "a {\n  v: color, 127, 255, 0, 1;\n}",
+      "actual": "a {\n  v: color, 127, 255, 0, 1;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "named chocolate",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(chocolate),red(chocolate),green(chocolate),blue(chocolate),alpha(chocolate);}",
+      "reference": "a {\n  v: color, 210, 105, 30, 1;\n}",
+      "actual": "a {\n  v: color, 210, 105, 30, 1;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "named coral",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(coral),red(coral),green(coral),blue(coral),alpha(coral);}",
+      "reference": "a {\n  v: color, 255, 127, 80, 1;\n}",
+      "actual": "a {\n  v: color, 255, 127, 80, 1;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "named cornflowerblue",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(cornflowerblue),red(cornflowerblue),green(cornflowerblue),blue(cornflowerblue),alpha(cornflowerblue);}",
+      "reference": "a {\n  v: color, 100, 149, 237, 1;\n}",
+      "actual": "a {\n  v: color, 100, 149, 237, 1;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "named cornsilk",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(cornsilk),red(cornsilk),green(cornsilk),blue(cornsilk),alpha(cornsilk);}",
+      "reference": "a {\n  v: color, 255, 248, 220, 1;\n}",
+      "actual": "a {\n  v: color, 255, 248, 220, 1;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "named crimson",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(crimson),red(crimson),green(crimson),blue(crimson),alpha(crimson);}",
+      "reference": "a {\n  v: color, 220, 20, 60, 1;\n}",
+      "actual": "a {\n  v: color, 220, 20, 60, 1;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "named cyan",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(cyan),red(cyan),green(cyan),blue(cyan),alpha(cyan);}",
+      "reference": "a {\n  v: color, 0, 255, 255, 1;\n}",
+      "actual": "a {\n  v: color, 0, 255, 255, 1;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "named darkblue",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(darkblue),red(darkblue),green(darkblue),blue(darkblue),alpha(darkblue);}",
+      "reference": "a {\n  v: color, 0, 0, 139, 1;\n}",
+      "actual": "a {\n  v: color, 0, 0, 139, 1;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "named darkcyan",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(darkcyan),red(darkcyan),green(darkcyan),blue(darkcyan),alpha(darkcyan);}",
+      "reference": "a {\n  v: color, 0, 139, 139, 1;\n}",
+      "actual": "a {\n  v: color, 0, 139, 139, 1;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "named darkgoldenrod",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(darkgoldenrod),red(darkgoldenrod),green(darkgoldenrod),blue(darkgoldenrod),alpha(darkgoldenrod);}",
+      "reference": "a {\n  v: color, 184, 134, 11, 1;\n}",
+      "actual": "a {\n  v: color, 184, 134, 11, 1;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "named darkgray",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(darkgray),red(darkgray),green(darkgray),blue(darkgray),alpha(darkgray);}",
+      "reference": "a {\n  v: color, 169, 169, 169, 1;\n}",
+      "actual": "a {\n  v: color, 169, 169, 169, 1;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "named darkgreen",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(darkgreen),red(darkgreen),green(darkgreen),blue(darkgreen),alpha(darkgreen);}",
+      "reference": "a {\n  v: color, 0, 100, 0, 1;\n}",
+      "actual": "a {\n  v: color, 0, 100, 0, 1;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "named darkgrey",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(darkgrey),red(darkgrey),green(darkgrey),blue(darkgrey),alpha(darkgrey);}",
+      "reference": "a {\n  v: color, 169, 169, 169, 1;\n}",
+      "actual": "a {\n  v: color, 169, 169, 169, 1;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "named darkkhaki",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(darkkhaki),red(darkkhaki),green(darkkhaki),blue(darkkhaki),alpha(darkkhaki);}",
+      "reference": "a {\n  v: color, 189, 183, 107, 1;\n}",
+      "actual": "a {\n  v: color, 189, 183, 107, 1;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "named darkmagenta",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(darkmagenta),red(darkmagenta),green(darkmagenta),blue(darkmagenta),alpha(darkmagenta);}",
+      "reference": "a {\n  v: color, 139, 0, 139, 1;\n}",
+      "actual": "a {\n  v: color, 139, 0, 139, 1;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "named darkolivegreen",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(darkolivegreen),red(darkolivegreen),green(darkolivegreen),blue(darkolivegreen),alpha(darkolivegreen);}",
+      "reference": "a {\n  v: color, 85, 107, 47, 1;\n}",
+      "actual": "a {\n  v: color, 85, 107, 47, 1;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "named darkorange",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(darkorange),red(darkorange),green(darkorange),blue(darkorange),alpha(darkorange);}",
+      "reference": "a {\n  v: color, 255, 140, 0, 1;\n}",
+      "actual": "a {\n  v: color, 255, 140, 0, 1;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "named darkorchid",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(darkorchid),red(darkorchid),green(darkorchid),blue(darkorchid),alpha(darkorchid);}",
+      "reference": "a {\n  v: color, 153, 50, 204, 1;\n}",
+      "actual": "a {\n  v: color, 153, 50, 204, 1;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "named darkred",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(darkred),red(darkred),green(darkred),blue(darkred),alpha(darkred);}",
+      "reference": "a {\n  v: color, 139, 0, 0, 1;\n}",
+      "actual": "a {\n  v: color, 139, 0, 0, 1;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "named darksalmon",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(darksalmon),red(darksalmon),green(darksalmon),blue(darksalmon),alpha(darksalmon);}",
+      "reference": "a {\n  v: color, 233, 150, 122, 1;\n}",
+      "actual": "a {\n  v: color, 233, 150, 122, 1;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "named darkseagreen",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(darkseagreen),red(darkseagreen),green(darkseagreen),blue(darkseagreen),alpha(darkseagreen);}",
+      "reference": "a {\n  v: color, 143, 188, 143, 1;\n}",
+      "actual": "a {\n  v: color, 143, 188, 143, 1;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "named darkslateblue",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(darkslateblue),red(darkslateblue),green(darkslateblue),blue(darkslateblue),alpha(darkslateblue);}",
+      "reference": "a {\n  v: color, 72, 61, 139, 1;\n}",
+      "actual": "a {\n  v: color, 72, 61, 139, 1;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "named darkslategray",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(darkslategray),red(darkslategray),green(darkslategray),blue(darkslategray),alpha(darkslategray);}",
+      "reference": "a {\n  v: color, 47, 79, 79, 1;\n}",
+      "actual": "a {\n  v: color, 47, 79, 79, 1;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "named darkslategrey",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(darkslategrey),red(darkslategrey),green(darkslategrey),blue(darkslategrey),alpha(darkslategrey);}",
+      "reference": "a {\n  v: color, 47, 79, 79, 1;\n}",
+      "actual": "a {\n  v: color, 47, 79, 79, 1;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "named darkturquoise",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(darkturquoise),red(darkturquoise),green(darkturquoise),blue(darkturquoise),alpha(darkturquoise);}",
+      "reference": "a {\n  v: color, 0, 206, 209, 1;\n}",
+      "actual": "a {\n  v: color, 0, 206, 209, 1;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "named darkviolet",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(darkviolet),red(darkviolet),green(darkviolet),blue(darkviolet),alpha(darkviolet);}",
+      "reference": "a {\n  v: color, 148, 0, 211, 1;\n}",
+      "actual": "a {\n  v: color, 148, 0, 211, 1;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "named deeppink",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(deeppink),red(deeppink),green(deeppink),blue(deeppink),alpha(deeppink);}",
+      "reference": "a {\n  v: color, 255, 20, 147, 1;\n}",
+      "actual": "a {\n  v: color, 255, 20, 147, 1;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "named deepskyblue",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(deepskyblue),red(deepskyblue),green(deepskyblue),blue(deepskyblue),alpha(deepskyblue);}",
+      "reference": "a {\n  v: color, 0, 191, 255, 1;\n}",
+      "actual": "a {\n  v: color, 0, 191, 255, 1;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "named dimgray",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(dimgray),red(dimgray),green(dimgray),blue(dimgray),alpha(dimgray);}",
+      "reference": "a {\n  v: color, 105, 105, 105, 1;\n}",
+      "actual": "a {\n  v: color, 105, 105, 105, 1;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "named dimgrey",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(dimgrey),red(dimgrey),green(dimgrey),blue(dimgrey),alpha(dimgrey);}",
+      "reference": "a {\n  v: color, 105, 105, 105, 1;\n}",
+      "actual": "a {\n  v: color, 105, 105, 105, 1;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "named dodgerblue",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(dodgerblue),red(dodgerblue),green(dodgerblue),blue(dodgerblue),alpha(dodgerblue);}",
+      "reference": "a {\n  v: color, 30, 144, 255, 1;\n}",
+      "actual": "a {\n  v: color, 30, 144, 255, 1;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "named firebrick",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(firebrick),red(firebrick),green(firebrick),blue(firebrick),alpha(firebrick);}",
+      "reference": "a {\n  v: color, 178, 34, 34, 1;\n}",
+      "actual": "a {\n  v: color, 178, 34, 34, 1;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "named floralwhite",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(floralwhite),red(floralwhite),green(floralwhite),blue(floralwhite),alpha(floralwhite);}",
+      "reference": "a {\n  v: color, 255, 250, 240, 1;\n}",
+      "actual": "a {\n  v: color, 255, 250, 240, 1;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "named forestgreen",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(forestgreen),red(forestgreen),green(forestgreen),blue(forestgreen),alpha(forestgreen);}",
+      "reference": "a {\n  v: color, 34, 139, 34, 1;\n}",
+      "actual": "a {\n  v: color, 34, 139, 34, 1;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "named fuchsia",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(fuchsia),red(fuchsia),green(fuchsia),blue(fuchsia),alpha(fuchsia);}",
+      "reference": "a {\n  v: color, 255, 0, 255, 1;\n}",
+      "actual": "a {\n  v: color, 255, 0, 255, 1;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "named gainsboro",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(gainsboro),red(gainsboro),green(gainsboro),blue(gainsboro),alpha(gainsboro);}",
+      "reference": "a {\n  v: color, 220, 220, 220, 1;\n}",
+      "actual": "a {\n  v: color, 220, 220, 220, 1;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "named ghostwhite",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(ghostwhite),red(ghostwhite),green(ghostwhite),blue(ghostwhite),alpha(ghostwhite);}",
+      "reference": "a {\n  v: color, 248, 248, 255, 1;\n}",
+      "actual": "a {\n  v: color, 248, 248, 255, 1;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "named gold",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(gold),red(gold),green(gold),blue(gold),alpha(gold);}",
+      "reference": "a {\n  v: color, 255, 215, 0, 1;\n}",
+      "actual": "a {\n  v: color, 255, 215, 0, 1;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "named goldenrod",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(goldenrod),red(goldenrod),green(goldenrod),blue(goldenrod),alpha(goldenrod);}",
+      "reference": "a {\n  v: color, 218, 165, 32, 1;\n}",
+      "actual": "a {\n  v: color, 218, 165, 32, 1;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "named gray",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(gray),red(gray),green(gray),blue(gray),alpha(gray);}",
+      "reference": "a {\n  v: color, 128, 128, 128, 1;\n}",
+      "actual": "a {\n  v: color, 128, 128, 128, 1;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "named green",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(green),red(green),green(green),blue(green),alpha(green);}",
+      "reference": "a {\n  v: color, 0, 128, 0, 1;\n}",
+      "actual": "a {\n  v: color, 0, 128, 0, 1;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "named greenyellow",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(greenyellow),red(greenyellow),green(greenyellow),blue(greenyellow),alpha(greenyellow);}",
+      "reference": "a {\n  v: color, 173, 255, 47, 1;\n}",
+      "actual": "a {\n  v: color, 173, 255, 47, 1;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "named grey",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(grey),red(grey),green(grey),blue(grey),alpha(grey);}",
+      "reference": "a {\n  v: color, 128, 128, 128, 1;\n}",
+      "actual": "a {\n  v: color, 128, 128, 128, 1;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "named honeydew",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(honeydew),red(honeydew),green(honeydew),blue(honeydew),alpha(honeydew);}",
+      "reference": "a {\n  v: color, 240, 255, 240, 1;\n}",
+      "actual": "a {\n  v: color, 240, 255, 240, 1;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "named hotpink",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(hotpink),red(hotpink),green(hotpink),blue(hotpink),alpha(hotpink);}",
+      "reference": "a {\n  v: color, 255, 105, 180, 1;\n}",
+      "actual": "a {\n  v: color, 255, 105, 180, 1;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "named indianred",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(indianred),red(indianred),green(indianred),blue(indianred),alpha(indianred);}",
+      "reference": "a {\n  v: color, 205, 92, 92, 1;\n}",
+      "actual": "a {\n  v: color, 205, 92, 92, 1;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "named indigo",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(indigo),red(indigo),green(indigo),blue(indigo),alpha(indigo);}",
+      "reference": "a {\n  v: color, 75, 0, 130, 1;\n}",
+      "actual": "a {\n  v: color, 75, 0, 130, 1;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "named ivory",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(ivory),red(ivory),green(ivory),blue(ivory),alpha(ivory);}",
+      "reference": "a {\n  v: color, 255, 255, 240, 1;\n}",
+      "actual": "a {\n  v: color, 255, 255, 240, 1;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "named khaki",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(khaki),red(khaki),green(khaki),blue(khaki),alpha(khaki);}",
+      "reference": "a {\n  v: color, 240, 230, 140, 1;\n}",
+      "actual": "a {\n  v: color, 240, 230, 140, 1;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "named lavender",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(lavender),red(lavender),green(lavender),blue(lavender),alpha(lavender);}",
+      "reference": "a {\n  v: color, 230, 230, 250, 1;\n}",
+      "actual": "a {\n  v: color, 230, 230, 250, 1;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "named lavenderblush",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(lavenderblush),red(lavenderblush),green(lavenderblush),blue(lavenderblush),alpha(lavenderblush);}",
+      "reference": "a {\n  v: color, 255, 240, 245, 1;\n}",
+      "actual": "a {\n  v: color, 255, 240, 245, 1;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "named lawngreen",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(lawngreen),red(lawngreen),green(lawngreen),blue(lawngreen),alpha(lawngreen);}",
+      "reference": "a {\n  v: color, 124, 252, 0, 1;\n}",
+      "actual": "a {\n  v: color, 124, 252, 0, 1;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "named lemonchiffon",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(lemonchiffon),red(lemonchiffon),green(lemonchiffon),blue(lemonchiffon),alpha(lemonchiffon);}",
+      "reference": "a {\n  v: color, 255, 250, 205, 1;\n}",
+      "actual": "a {\n  v: color, 255, 250, 205, 1;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "named lightblue",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(lightblue),red(lightblue),green(lightblue),blue(lightblue),alpha(lightblue);}",
+      "reference": "a {\n  v: color, 173, 216, 230, 1;\n}",
+      "actual": "a {\n  v: color, 173, 216, 230, 1;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "named lightcoral",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(lightcoral),red(lightcoral),green(lightcoral),blue(lightcoral),alpha(lightcoral);}",
+      "reference": "a {\n  v: color, 240, 128, 128, 1;\n}",
+      "actual": "a {\n  v: color, 240, 128, 128, 1;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "named lightcyan",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(lightcyan),red(lightcyan),green(lightcyan),blue(lightcyan),alpha(lightcyan);}",
+      "reference": "a {\n  v: color, 224, 255, 255, 1;\n}",
+      "actual": "a {\n  v: color, 224, 255, 255, 1;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "named lightgoldenrodyellow",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(lightgoldenrodyellow),red(lightgoldenrodyellow),green(lightgoldenrodyellow),blue(lightgoldenrodyellow),alpha(lightgoldenrodyellow);}",
+      "reference": "a {\n  v: color, 250, 250, 210, 1;\n}",
+      "actual": "a {\n  v: color, 250, 250, 210, 1;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "named lightgray",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(lightgray),red(lightgray),green(lightgray),blue(lightgray),alpha(lightgray);}",
+      "reference": "a {\n  v: color, 211, 211, 211, 1;\n}",
+      "actual": "a {\n  v: color, 211, 211, 211, 1;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "named lightgreen",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(lightgreen),red(lightgreen),green(lightgreen),blue(lightgreen),alpha(lightgreen);}",
+      "reference": "a {\n  v: color, 144, 238, 144, 1;\n}",
+      "actual": "a {\n  v: color, 144, 238, 144, 1;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "named lightgrey",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(lightgrey),red(lightgrey),green(lightgrey),blue(lightgrey),alpha(lightgrey);}",
+      "reference": "a {\n  v: color, 211, 211, 211, 1;\n}",
+      "actual": "a {\n  v: color, 211, 211, 211, 1;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "named lightpink",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(lightpink),red(lightpink),green(lightpink),blue(lightpink),alpha(lightpink);}",
+      "reference": "a {\n  v: color, 255, 182, 193, 1;\n}",
+      "actual": "a {\n  v: color, 255, 182, 193, 1;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "named lightsalmon",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(lightsalmon),red(lightsalmon),green(lightsalmon),blue(lightsalmon),alpha(lightsalmon);}",
+      "reference": "a {\n  v: color, 255, 160, 122, 1;\n}",
+      "actual": "a {\n  v: color, 255, 160, 122, 1;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "named lightseagreen",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(lightseagreen),red(lightseagreen),green(lightseagreen),blue(lightseagreen),alpha(lightseagreen);}",
+      "reference": "a {\n  v: color, 32, 178, 170, 1;\n}",
+      "actual": "a {\n  v: color, 32, 178, 170, 1;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "named lightskyblue",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(lightskyblue),red(lightskyblue),green(lightskyblue),blue(lightskyblue),alpha(lightskyblue);}",
+      "reference": "a {\n  v: color, 135, 206, 250, 1;\n}",
+      "actual": "a {\n  v: color, 135, 206, 250, 1;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "named lightslategray",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(lightslategray),red(lightslategray),green(lightslategray),blue(lightslategray),alpha(lightslategray);}",
+      "reference": "a {\n  v: color, 119, 136, 153, 1;\n}",
+      "actual": "a {\n  v: color, 119, 136, 153, 1;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "named lightslategrey",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(lightslategrey),red(lightslategrey),green(lightslategrey),blue(lightslategrey),alpha(lightslategrey);}",
+      "reference": "a {\n  v: color, 119, 136, 153, 1;\n}",
+      "actual": "a {\n  v: color, 119, 136, 153, 1;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "named lightsteelblue",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(lightsteelblue),red(lightsteelblue),green(lightsteelblue),blue(lightsteelblue),alpha(lightsteelblue);}",
+      "reference": "a {\n  v: color, 176, 196, 222, 1;\n}",
+      "actual": "a {\n  v: color, 176, 196, 222, 1;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "named lightyellow",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(lightyellow),red(lightyellow),green(lightyellow),blue(lightyellow),alpha(lightyellow);}",
+      "reference": "a {\n  v: color, 255, 255, 224, 1;\n}",
+      "actual": "a {\n  v: color, 255, 255, 224, 1;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "named lime",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(lime),red(lime),green(lime),blue(lime),alpha(lime);}",
+      "reference": "a {\n  v: color, 0, 255, 0, 1;\n}",
+      "actual": "a {\n  v: color, 0, 255, 0, 1;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "named limegreen",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(limegreen),red(limegreen),green(limegreen),blue(limegreen),alpha(limegreen);}",
+      "reference": "a {\n  v: color, 50, 205, 50, 1;\n}",
+      "actual": "a {\n  v: color, 50, 205, 50, 1;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "named linen",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(linen),red(linen),green(linen),blue(linen),alpha(linen);}",
+      "reference": "a {\n  v: color, 250, 240, 230, 1;\n}",
+      "actual": "a {\n  v: color, 250, 240, 230, 1;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "named magenta",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(magenta),red(magenta),green(magenta),blue(magenta),alpha(magenta);}",
+      "reference": "a {\n  v: color, 255, 0, 255, 1;\n}",
+      "actual": "a {\n  v: color, 255, 0, 255, 1;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "named maroon",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(maroon),red(maroon),green(maroon),blue(maroon),alpha(maroon);}",
+      "reference": "a {\n  v: color, 128, 0, 0, 1;\n}",
+      "actual": "a {\n  v: color, 128, 0, 0, 1;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "named mediumaquamarine",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(mediumaquamarine),red(mediumaquamarine),green(mediumaquamarine),blue(mediumaquamarine),alpha(mediumaquamarine);}",
+      "reference": "a {\n  v: color, 102, 205, 170, 1;\n}",
+      "actual": "a {\n  v: color, 102, 205, 170, 1;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "named mediumblue",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(mediumblue),red(mediumblue),green(mediumblue),blue(mediumblue),alpha(mediumblue);}",
+      "reference": "a {\n  v: color, 0, 0, 205, 1;\n}",
+      "actual": "a {\n  v: color, 0, 0, 205, 1;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "named mediumorchid",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(mediumorchid),red(mediumorchid),green(mediumorchid),blue(mediumorchid),alpha(mediumorchid);}",
+      "reference": "a {\n  v: color, 186, 85, 211, 1;\n}",
+      "actual": "a {\n  v: color, 186, 85, 211, 1;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "named mediumpurple",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(mediumpurple),red(mediumpurple),green(mediumpurple),blue(mediumpurple),alpha(mediumpurple);}",
+      "reference": "a {\n  v: color, 147, 112, 219, 1;\n}",
+      "actual": "a {\n  v: color, 147, 112, 219, 1;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "named mediumseagreen",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(mediumseagreen),red(mediumseagreen),green(mediumseagreen),blue(mediumseagreen),alpha(mediumseagreen);}",
+      "reference": "a {\n  v: color, 60, 179, 113, 1;\n}",
+      "actual": "a {\n  v: color, 60, 179, 113, 1;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "named mediumslateblue",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(mediumslateblue),red(mediumslateblue),green(mediumslateblue),blue(mediumslateblue),alpha(mediumslateblue);}",
+      "reference": "a {\n  v: color, 123, 104, 238, 1;\n}",
+      "actual": "a {\n  v: color, 123, 104, 238, 1;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "named mediumspringgreen",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(mediumspringgreen),red(mediumspringgreen),green(mediumspringgreen),blue(mediumspringgreen),alpha(mediumspringgreen);}",
+      "reference": "a {\n  v: color, 0, 250, 154, 1;\n}",
+      "actual": "a {\n  v: color, 0, 250, 154, 1;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "named mediumturquoise",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(mediumturquoise),red(mediumturquoise),green(mediumturquoise),blue(mediumturquoise),alpha(mediumturquoise);}",
+      "reference": "a {\n  v: color, 72, 209, 204, 1;\n}",
+      "actual": "a {\n  v: color, 72, 209, 204, 1;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "named mediumvioletred",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(mediumvioletred),red(mediumvioletred),green(mediumvioletred),blue(mediumvioletred),alpha(mediumvioletred);}",
+      "reference": "a {\n  v: color, 199, 21, 133, 1;\n}",
+      "actual": "a {\n  v: color, 199, 21, 133, 1;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "named midnightblue",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(midnightblue),red(midnightblue),green(midnightblue),blue(midnightblue),alpha(midnightblue);}",
+      "reference": "a {\n  v: color, 25, 25, 112, 1;\n}",
+      "actual": "a {\n  v: color, 25, 25, 112, 1;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "named mintcream",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(mintcream),red(mintcream),green(mintcream),blue(mintcream),alpha(mintcream);}",
+      "reference": "a {\n  v: color, 245, 255, 250, 1;\n}",
+      "actual": "a {\n  v: color, 245, 255, 250, 1;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "named mistyrose",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(mistyrose),red(mistyrose),green(mistyrose),blue(mistyrose),alpha(mistyrose);}",
+      "reference": "a {\n  v: color, 255, 228, 225, 1;\n}",
+      "actual": "a {\n  v: color, 255, 228, 225, 1;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "named moccasin",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(moccasin),red(moccasin),green(moccasin),blue(moccasin),alpha(moccasin);}",
+      "reference": "a {\n  v: color, 255, 228, 181, 1;\n}",
+      "actual": "a {\n  v: color, 255, 228, 181, 1;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "named navajowhite",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(navajowhite),red(navajowhite),green(navajowhite),blue(navajowhite),alpha(navajowhite);}",
+      "reference": "a {\n  v: color, 255, 222, 173, 1;\n}",
+      "actual": "a {\n  v: color, 255, 222, 173, 1;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "named navy",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(navy),red(navy),green(navy),blue(navy),alpha(navy);}",
+      "reference": "a {\n  v: color, 0, 0, 128, 1;\n}",
+      "actual": "a {\n  v: color, 0, 0, 128, 1;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "named oldlace",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(oldlace),red(oldlace),green(oldlace),blue(oldlace),alpha(oldlace);}",
+      "reference": "a {\n  v: color, 253, 245, 230, 1;\n}",
+      "actual": "a {\n  v: color, 253, 245, 230, 1;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "named olive",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(olive),red(olive),green(olive),blue(olive),alpha(olive);}",
+      "reference": "a {\n  v: color, 128, 128, 0, 1;\n}",
+      "actual": "a {\n  v: color, 128, 128, 0, 1;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "named olivedrab",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(olivedrab),red(olivedrab),green(olivedrab),blue(olivedrab),alpha(olivedrab);}",
+      "reference": "a {\n  v: color, 107, 142, 35, 1;\n}",
+      "actual": "a {\n  v: color, 107, 142, 35, 1;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "named orange",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(orange),red(orange),green(orange),blue(orange),alpha(orange);}",
+      "reference": "a {\n  v: color, 255, 165, 0, 1;\n}",
+      "actual": "a {\n  v: color, 255, 165, 0, 1;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "named orangered",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(orangered),red(orangered),green(orangered),blue(orangered),alpha(orangered);}",
+      "reference": "a {\n  v: color, 255, 69, 0, 1;\n}",
+      "actual": "a {\n  v: color, 255, 69, 0, 1;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "named orchid",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(orchid),red(orchid),green(orchid),blue(orchid),alpha(orchid);}",
+      "reference": "a {\n  v: color, 218, 112, 214, 1;\n}",
+      "actual": "a {\n  v: color, 218, 112, 214, 1;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "named palegoldenrod",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(palegoldenrod),red(palegoldenrod),green(palegoldenrod),blue(palegoldenrod),alpha(palegoldenrod);}",
+      "reference": "a {\n  v: color, 238, 232, 170, 1;\n}",
+      "actual": "a {\n  v: color, 238, 232, 170, 1;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "named palegreen",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(palegreen),red(palegreen),green(palegreen),blue(palegreen),alpha(palegreen);}",
+      "reference": "a {\n  v: color, 152, 251, 152, 1;\n}",
+      "actual": "a {\n  v: color, 152, 251, 152, 1;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "named paleturquoise",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(paleturquoise),red(paleturquoise),green(paleturquoise),blue(paleturquoise),alpha(paleturquoise);}",
+      "reference": "a {\n  v: color, 175, 238, 238, 1;\n}",
+      "actual": "a {\n  v: color, 175, 238, 238, 1;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "named palevioletred",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(palevioletred),red(palevioletred),green(palevioletred),blue(palevioletred),alpha(palevioletred);}",
+      "reference": "a {\n  v: color, 219, 112, 147, 1;\n}",
+      "actual": "a {\n  v: color, 219, 112, 147, 1;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "named papayawhip",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(papayawhip),red(papayawhip),green(papayawhip),blue(papayawhip),alpha(papayawhip);}",
+      "reference": "a {\n  v: color, 255, 239, 213, 1;\n}",
+      "actual": "a {\n  v: color, 255, 239, 213, 1;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "named peachpuff",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(peachpuff),red(peachpuff),green(peachpuff),blue(peachpuff),alpha(peachpuff);}",
+      "reference": "a {\n  v: color, 255, 218, 185, 1;\n}",
+      "actual": "a {\n  v: color, 255, 218, 185, 1;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "named peru",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(peru),red(peru),green(peru),blue(peru),alpha(peru);}",
+      "reference": "a {\n  v: color, 205, 133, 63, 1;\n}",
+      "actual": "a {\n  v: color, 205, 133, 63, 1;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "named pink",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(pink),red(pink),green(pink),blue(pink),alpha(pink);}",
+      "reference": "a {\n  v: color, 255, 192, 203, 1;\n}",
+      "actual": "a {\n  v: color, 255, 192, 203, 1;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "named plum",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(plum),red(plum),green(plum),blue(plum),alpha(plum);}",
+      "reference": "a {\n  v: color, 221, 160, 221, 1;\n}",
+      "actual": "a {\n  v: color, 221, 160, 221, 1;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "named powderblue",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(powderblue),red(powderblue),green(powderblue),blue(powderblue),alpha(powderblue);}",
+      "reference": "a {\n  v: color, 176, 224, 230, 1;\n}",
+      "actual": "a {\n  v: color, 176, 224, 230, 1;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "named purple",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(purple),red(purple),green(purple),blue(purple),alpha(purple);}",
+      "reference": "a {\n  v: color, 128, 0, 128, 1;\n}",
+      "actual": "a {\n  v: color, 128, 0, 128, 1;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "named rebeccapurple",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(rebeccapurple),red(rebeccapurple),green(rebeccapurple),blue(rebeccapurple),alpha(rebeccapurple);}",
+      "reference": "a {\n  v: color, 102, 51, 153, 1;\n}",
+      "actual": "a {\n  v: color, 102, 51, 153, 1;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "named red",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(red),red(red),green(red),blue(red),alpha(red);}",
+      "reference": "a {\n  v: color, 255, 0, 0, 1;\n}",
+      "actual": "a {\n  v: color, 255, 0, 0, 1;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "named rosybrown",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(rosybrown),red(rosybrown),green(rosybrown),blue(rosybrown),alpha(rosybrown);}",
+      "reference": "a {\n  v: color, 188, 143, 143, 1;\n}",
+      "actual": "a {\n  v: color, 188, 143, 143, 1;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "named royalblue",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(royalblue),red(royalblue),green(royalblue),blue(royalblue),alpha(royalblue);}",
+      "reference": "a {\n  v: color, 65, 105, 225, 1;\n}",
+      "actual": "a {\n  v: color, 65, 105, 225, 1;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "named saddlebrown",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(saddlebrown),red(saddlebrown),green(saddlebrown),blue(saddlebrown),alpha(saddlebrown);}",
+      "reference": "a {\n  v: color, 139, 69, 19, 1;\n}",
+      "actual": "a {\n  v: color, 139, 69, 19, 1;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "named salmon",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(salmon),red(salmon),green(salmon),blue(salmon),alpha(salmon);}",
+      "reference": "a {\n  v: color, 250, 128, 114, 1;\n}",
+      "actual": "a {\n  v: color, 250, 128, 114, 1;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "named sandybrown",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(sandybrown),red(sandybrown),green(sandybrown),blue(sandybrown),alpha(sandybrown);}",
+      "reference": "a {\n  v: color, 244, 164, 96, 1;\n}",
+      "actual": "a {\n  v: color, 244, 164, 96, 1;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "named seagreen",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(seagreen),red(seagreen),green(seagreen),blue(seagreen),alpha(seagreen);}",
+      "reference": "a {\n  v: color, 46, 139, 87, 1;\n}",
+      "actual": "a {\n  v: color, 46, 139, 87, 1;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "named seashell",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(seashell),red(seashell),green(seashell),blue(seashell),alpha(seashell);}",
+      "reference": "a {\n  v: color, 255, 245, 238, 1;\n}",
+      "actual": "a {\n  v: color, 255, 245, 238, 1;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "named sienna",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(sienna),red(sienna),green(sienna),blue(sienna),alpha(sienna);}",
+      "reference": "a {\n  v: color, 160, 82, 45, 1;\n}",
+      "actual": "a {\n  v: color, 160, 82, 45, 1;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "named silver",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(silver),red(silver),green(silver),blue(silver),alpha(silver);}",
+      "reference": "a {\n  v: color, 192, 192, 192, 1;\n}",
+      "actual": "a {\n  v: color, 192, 192, 192, 1;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "named skyblue",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(skyblue),red(skyblue),green(skyblue),blue(skyblue),alpha(skyblue);}",
+      "reference": "a {\n  v: color, 135, 206, 235, 1;\n}",
+      "actual": "a {\n  v: color, 135, 206, 235, 1;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "named slateblue",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(slateblue),red(slateblue),green(slateblue),blue(slateblue),alpha(slateblue);}",
+      "reference": "a {\n  v: color, 106, 90, 205, 1;\n}",
+      "actual": "a {\n  v: color, 106, 90, 205, 1;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "named slategray",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(slategray),red(slategray),green(slategray),blue(slategray),alpha(slategray);}",
+      "reference": "a {\n  v: color, 112, 128, 144, 1;\n}",
+      "actual": "a {\n  v: color, 112, 128, 144, 1;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "named slategrey",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(slategrey),red(slategrey),green(slategrey),blue(slategrey),alpha(slategrey);}",
+      "reference": "a {\n  v: color, 112, 128, 144, 1;\n}",
+      "actual": "a {\n  v: color, 112, 128, 144, 1;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "named snow",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(snow),red(snow),green(snow),blue(snow),alpha(snow);}",
+      "reference": "a {\n  v: color, 255, 250, 250, 1;\n}",
+      "actual": "a {\n  v: color, 255, 250, 250, 1;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "named springgreen",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(springgreen),red(springgreen),green(springgreen),blue(springgreen),alpha(springgreen);}",
+      "reference": "a {\n  v: color, 0, 255, 127, 1;\n}",
+      "actual": "a {\n  v: color, 0, 255, 127, 1;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "named steelblue",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(steelblue),red(steelblue),green(steelblue),blue(steelblue),alpha(steelblue);}",
+      "reference": "a {\n  v: color, 70, 130, 180, 1;\n}",
+      "actual": "a {\n  v: color, 70, 130, 180, 1;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "named tan",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(tan),red(tan),green(tan),blue(tan),alpha(tan);}",
+      "reference": "a {\n  v: color, 210, 180, 140, 1;\n}",
+      "actual": "a {\n  v: color, 210, 180, 140, 1;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "named teal",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(teal),red(teal),green(teal),blue(teal),alpha(teal);}",
+      "reference": "a {\n  v: color, 0, 128, 128, 1;\n}",
+      "actual": "a {\n  v: color, 0, 128, 128, 1;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "named thistle",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(thistle),red(thistle),green(thistle),blue(thistle),alpha(thistle);}",
+      "reference": "a {\n  v: color, 216, 191, 216, 1;\n}",
+      "actual": "a {\n  v: color, 216, 191, 216, 1;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "named tomato",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(tomato),red(tomato),green(tomato),blue(tomato),alpha(tomato);}",
+      "reference": "a {\n  v: color, 255, 99, 71, 1;\n}",
+      "actual": "a {\n  v: color, 255, 99, 71, 1;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "named transparent",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(transparent),red(transparent),green(transparent),blue(transparent),alpha(transparent);}",
+      "reference": "a {\n  v: color, 0, 0, 0, 0;\n}",
+      "actual": "a {\n  v: color, 0, 0, 0, 0;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "named turquoise",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(turquoise),red(turquoise),green(turquoise),blue(turquoise),alpha(turquoise);}",
+      "reference": "a {\n  v: color, 64, 224, 208, 1;\n}",
+      "actual": "a {\n  v: color, 64, 224, 208, 1;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "named violet",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(violet),red(violet),green(violet),blue(violet),alpha(violet);}",
+      "reference": "a {\n  v: color, 238, 130, 238, 1;\n}",
+      "actual": "a {\n  v: color, 238, 130, 238, 1;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "named wheat",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(wheat),red(wheat),green(wheat),blue(wheat),alpha(wheat);}",
+      "reference": "a {\n  v: color, 245, 222, 179, 1;\n}",
+      "actual": "a {\n  v: color, 245, 222, 179, 1;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "named white",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(white),red(white),green(white),blue(white),alpha(white);}",
+      "reference": "a {\n  v: color, 255, 255, 255, 1;\n}",
+      "actual": "a {\n  v: color, 255, 255, 255, 1;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "named whitesmoke",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(whitesmoke),red(whitesmoke),green(whitesmoke),blue(whitesmoke),alpha(whitesmoke);}",
+      "reference": "a {\n  v: color, 245, 245, 245, 1;\n}",
+      "actual": "a {\n  v: color, 245, 245, 245, 1;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "named yellow",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(yellow),red(yellow),green(yellow),blue(yellow),alpha(yellow);}",
+      "reference": "a {\n  v: color, 255, 255, 0, 1;\n}",
+      "actual": "a {\n  v: color, 255, 255, 0, 1;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "named yellowgreen",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(yellowgreen),red(yellowgreen),green(yellowgreen),blue(yellowgreen),alpha(yellowgreen);}",
+      "reference": "a {\n  v: color, 154, 205, 50, 1;\n}",
+      "actual": "a {\n  v: color, 154, 205, 50, 1;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "#123",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:#123;}",
+      "reference": "a {\n  v: #123;\n}",
+      "actual": "a {\n  v: #123;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "#ABC",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:#ABC;}",
+      "reference": "a {\n  v: #ABC;\n}",
+      "actual": "a {\n  v: #ABC;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "#1234",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:#1234;}",
+      "reference": "a {\n  v: rgba(17, 34, 51, 0.2666666667);\n}",
+      "actual": "a {\n  v: rgba(17, 34, 51, 0.2666666667);\n}\n",
+      "matched": true
+    },
+    {
+      "name": "#aabbccdd",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:#aabbccdd;}",
+      "reference": "a {\n  v: rgba(170, 187, 204, 0.8666666667);\n}",
+      "actual": "a {\n  v: rgba(170, 187, 204, 0.8666666667);\n}\n",
+      "matched": true
+    },
+    {
+      "name": "#0000",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:#0000;}",
+      "reference": "a {\n  v: rgba(0, 0, 0, 0);\n}",
+      "actual": "a {\n  v: rgba(0, 0, 0, 0);\n}\n",
+      "matched": true
+    },
+    {
+      "name": "#ffffffff",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:#ffffffff;}",
+      "reference": "a {\n  v: white;\n}",
+      "actual": "a {\n  v: white;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "RED",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:RED;}",
+      "reference": "a {\n  v: RED;\n}",
+      "actual": "a {\n  v: RED;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "rgb(255,0,0)",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:rgb(255,0,0);}",
+      "reference": "a {\n  v: rgb(255, 0, 0);\n}",
+      "actual": "a {\n  v: rgb(255, 0, 0);\n}\n",
+      "matched": true
+    },
+    {
+      "name": "rgb(50%,0%,100%)",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:rgb(50%,0%,100%);}",
+      "reference": "a {\n  v: rgb(50%, 0%, 100%);\n}",
+      "actual": "a {\n  v: rgb(50%, 0%, 100%);\n}\n",
+      "matched": true
+    },
+    {
+      "name": "rgb(12.3,5,6)",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:rgb(12.3,5,6);}",
+      "reference": "a {\n  v: rgb(4.8235294118%, 1.9607843137%, 2.3529411765%);\n}",
+      "actual": "a {\n  v: rgb(4.8235294118%, 1.9607843137%, 2.3529411765%);\n}\n",
+      "matched": true
+    },
+    {
+      "name": "rgb(1%,2,3)",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:rgb(1%,2,3);}",
+      "reference": "a {\n  v: rgb(1%, 0.7843137255%, 1.1764705882%);\n}",
+      "actual": "a {\n  v: rgb(1%, 0.7843137255%, 1.1764705882%);\n}\n",
+      "matched": true
+    },
+    {
+      "name": "rgb(-10,300,20)",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:rgb(-10,300,20);}",
+      "reference": "a {\n  v: rgb(0, 255, 20);\n}",
+      "actual": "a {\n  v: rgb(0, 255, 20);\n}\n",
+      "matched": true
+    },
+    {
+      "name": "rgba(0,30,200,1.2)",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:rgba(0,30,200,1.2);}",
+      "reference": "a {\n  v: rgb(0, 30, 200);\n}",
+      "actual": "a {\n  v: rgb(0, 30, 200);\n}\n",
+      "matched": true
+    },
+    {
+      "name": "rgba(red,.4)",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:rgba(red,.4);}",
+      "reference": "a {\n  v: rgba(255, 0, 0, 0.4);\n}",
+      "actual": "a {\n  v: rgba(255, 0, 0, 0.4);\n}\n",
+      "matched": true
+    },
+    {
+      "name": "rgba(#ABC,20%)",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:rgba(#ABC,20%);}",
+      "reference": "a {\n  v: rgba(170, 187, 204, 0.2);\n}",
+      "actual": "a {\n  v: rgba(170, 187, 204, 0.2);\n}\n",
+      "matched": true
+    },
+    {
+      "name": "rgba($color:red,$alpha:.25)",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:rgba($color:red,$alpha:.25);}",
+      "reference": "a {\n  v: rgba(255, 0, 0, 0.25);\n}",
+      "actual": "a {\n  v: rgba(255, 0, 0, 0.25);\n}\n",
+      "matched": true
+    },
+    {
+      "name": "rgba($blue:3,$red:1,$alpha:.3,$green:2)",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:rgba($blue:3,$red:1,$alpha:.3,$green:2);}",
+      "reference": "a {\n  v: rgba(1, 2, 3, 0.3);\n}",
+      "actual": "a {\n  v: rgba(1, 2, 3, 0.3);\n}\n",
+      "matched": true
+    },
+    {
+      "name": "hsl(120,50%,25%)",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:hsl(120,50%,25%);}",
+      "reference": "a {\n  v: hsl(120, 50%, 25%);\n}",
+      "actual": "a {\n  v: hsl(120, 50%, 25%);\n}\n",
+      "matched": true
+    },
+    {
+      "name": "hsla(.5turn,100%,50%,.3)",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:hsla(.5turn,100%,50%,.3);}",
+      "reference": "a {\n  v: hsla(180, 100%, 50%, 0.3);\n}",
+      "actual": "a {\n  v: hsla(180, 100%, 50%, 0.3);\n}\n",
+      "matched": true
+    },
+    {
+      "name": "hsl(-90,50,60)",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:hsl(-90,50,60);}",
+      "reference": "a {\n  v: hsl(270, 50%, 60%);\n}",
+      "actual": "a {\n  v: hsl(270, 50%, 60%);\n}\n",
+      "matched": true
+    },
+    {
+      "name": "hsl(450deg,200%,-10%)",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:hsl(450deg,200%,-10%);}",
+      "reference": "a {\n  v: hsl(90, 200%, -10%);\n}",
+      "actual": "a {\n  v: hsl(90, 200%, -10%);\n}\n",
+      "matched": true
+    },
+    {
+      "name": "red == #ff0000",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:red == #ff0000;}",
+      "reference": "a {\n  v: true;\n}",
+      "actual": "a {\n  v: true;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "red == \"red\"",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:red == \"red\";}",
+      "reference": "a {\n  v: false;\n}",
+      "actual": "a {\n  v: false;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "rgba(red,0) == rgba(blue,0)",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:rgba(red,0) == rgba(blue,0);}",
+      "reference": "a {\n  v: false;\n}",
+      "actual": "a {\n  v: false;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "map.get((red:yes),#ff0000)",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:map.get((red:yes),#ff0000);}",
+      "reference": "a {\n  v: yes;\n}",
+      "actual": "a {\n  v: yes;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "meta.type-of(rgb(1,2,3))",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(rgb(1,2,3));}",
+      "reference": "a {\n  v: color;\n}",
+      "actual": "a {\n  v: color;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "meta.type-of(unquote(\"red\"))",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.type-of(unquote(\"red\"));}",
+      "reference": "a {\n  v: string;\n}",
+      "actual": "a {\n  v: string;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "meta.function-exists(mix)",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:meta.function-exists(mix);}",
+      "reference": "a {\n  v: true;\n}",
+      "actual": "a {\n  v: true;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "rgb(var(--r),0,0)",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:rgb(var(--r),0,0);}",
+      "reference": "a {\n  v: rgb(var(--r), 0, 0);\n}",
+      "actual": "a {\n  v: rgb(var(--r), 0, 0);\n}\n",
+      "matched": true
+    },
+    {
+      "name": "rgb(calc(1 + 2),5,6)",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:rgb(calc(1 + 2),5,6);}",
+      "reference": "a {\n  v: rgb(3, 5, 6);\n}",
+      "actual": "a {\n  v: rgb(3, 5, 6);\n}\n",
+      "matched": true
+    },
+    {
+      "name": "opacity(.5)",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:opacity(.5);}",
+      "reference": "a {\n  v: opacity(0.5);\n}",
+      "actual": "a {\n  v: opacity(0.5);\n}\n",
+      "matched": true
+    },
+    {
+      "name": "invert(40%)",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:invert(40%);}",
+      "reference": "a {\n  v: invert(40%);\n}",
+      "actual": "a {\n  v: invert(40%);\n}\n",
+      "matched": true
+    },
+    {
+      "name": "grayscale(10%)",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:grayscale(10%);}",
+      "reference": "a {\n  v: grayscale(10%);\n}",
+      "actual": "a {\n  v: grayscale(10%);\n}\n",
+      "matched": true
+    },
+    {
+      "name": "saturate(2)",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:saturate(2);}",
+      "reference": "a {\n  v: saturate(2);\n}",
+      "actual": "a {\n  v: saturate(2);\n}\n",
+      "matched": true
+    },
+    {
+      "name": "mix(red,blue)",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:mix(red,blue);}",
+      "reference": "a {\n  v: rgb(50%, 0%, 50%);\n}",
+      "actual": "a {\n  v: rgb(50%, 0%, 50%);\n}\n",
+      "matched": true
+    },
+    {
+      "name": "mix(rgba(red,.2),rgba(blue,.8),30%)",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:mix(rgba(red,.2),rgba(blue,.8),30%);}",
+      "reference": "a {\n  v: rgba(9.6774193548%, 0%, 90.3225806452%, 0.62);\n}",
+      "actual": "a {\n  v: rgba(9.6774193548%, 0%, 90.3225806452%, 0.62);\n}\n",
+      "matched": true
+    },
+    {
+      "name": "color.mix(red,blue,$weight:0%)",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:color.mix(red,blue,$weight:0%);}",
+      "reference": "a {\n  v: blue;\n}",
+      "actual": "a {\n  v: blue;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "mix(red,blue,100%)",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:mix(red,blue,100%);}",
+      "reference": "a {\n  v: red;\n}",
+      "actual": "a {\n  v: red;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "lighten(#333,10%)",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:lighten(#333,10%);}",
+      "reference": "a {\n  v: rgb(30%, 30%, 30%);\n}",
+      "actual": "a {\n  v: rgb(30%, 30%, 30%);\n}\n",
+      "matched": true
+    },
+    {
+      "name": "darken(red,10%)",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:darken(red,10%);}",
+      "reference": "a {\n  v: #cc0000;\n}",
+      "actual": "a {\n  v: #cc0000;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "saturate(#6699aa,20%)",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:saturate(#6699aa,20%);}",
+      "reference": "a {\n  v: rgb(30.6666666667%, 64.6666666667%, 76%);\n}",
+      "actual": "a {\n  v: rgb(30.6666666667%, 64.6666666667%, 76%);\n}\n",
+      "matched": true
+    },
+    {
+      "name": "desaturate(red,20%)",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:desaturate(red,20%);}",
+      "reference": "a {\n  v: rgb(90%, 10%, 10%);\n}",
+      "actual": "a {\n  v: rgb(90%, 10%, 10%);\n}\n",
+      "matched": true
+    },
+    {
+      "name": "adjust-hue(red,90deg)",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:adjust-hue(red,90deg);}",
+      "reference": "a {\n  v: rgb(50%, 100%, 0%);\n}",
+      "actual": "a {\n  v: rgb(50%, 100%, 0%);\n}\n",
+      "matched": true
+    },
+    {
+      "name": "complement(red)",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:complement(red);}",
+      "reference": "a {\n  v: aqua;\n}",
+      "actual": "a {\n  v: aqua;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "color.complement(blue)",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:color.complement(blue);}",
+      "reference": "a {\n  v: yellow;\n}",
+      "actual": "a {\n  v: yellow;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "grayscale(red)",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:grayscale(red);}",
+      "reference": "a {\n  v: rgb(50%, 50%, 50%);\n}",
+      "actual": "a {\n  v: rgb(50%, 50%, 50%);\n}\n",
+      "matched": true
+    },
+    {
+      "name": "color.grayscale(#abcdef)",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:color.grayscale(#abcdef);}",
+      "reference": "a {\n  v: #cdcdcd;\n}",
+      "actual": "a {\n  v: #cdcdcd;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "invert(#13579b)",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:invert(#13579b);}",
+      "reference": "a {\n  v: #eca864;\n}",
+      "actual": "a {\n  v: #eca864;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "color.invert(red,25%)",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:color.invert(red,25%);}",
+      "reference": "a {\n  v: rgb(75%, 25%, 25%);\n}",
+      "actual": "a {\n  v: rgb(75%, 25%, 25%);\n}\n",
+      "matched": true
+    },
+    {
+      "name": "fade-out(rgba(red,.5),.2)",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:fade-out(rgba(red,.5),.2);}",
+      "reference": "a {\n  v: rgba(255, 0, 0, 0.3);\n}",
+      "actual": "a {\n  v: rgba(255, 0, 0, 0.3);\n}\n",
+      "matched": true
+    },
+    {
+      "name": "fade-in(rgba(blue,.2),.4)",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:fade-in(rgba(blue,.2),.4);}",
+      "reference": "a {\n  v: rgba(0, 0, 255, 0.6);\n}",
+      "actual": "a {\n  v: rgba(0, 0, 255, 0.6);\n}\n",
+      "matched": true
+    },
+    {
+      "name": "transparentize(red,1)",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:transparentize(red,1);}",
+      "reference": "a {\n  v: rgba(255, 0, 0, 0);\n}",
+      "actual": "a {\n  v: rgba(255, 0, 0, 0);\n}\n",
+      "matched": true
+    },
+    {
+      "name": "opacify(transparent,1)",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:opacify(transparent,1);}",
+      "reference": "a {\n  v: black;\n}",
+      "actual": "a {\n  v: black;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "color.change(red,$alpha:.2)",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:color.change(red,$alpha:.2);}",
+      "reference": "a {\n  v: rgba(255, 0, 0, 0.2);\n}",
+      "actual": "a {\n  v: rgba(255, 0, 0, 0.2);\n}\n",
+      "matched": true
+    },
+    {
+      "name": "color.change(red,$green:30,$blue:60)",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:color.change(red,$green:30,$blue:60);}",
+      "reference": "a {\n  v: #ff1e3c;\n}",
+      "actual": "a {\n  v: #ff1e3c;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "color.adjust(#abcdef,$red:-20,$green:5,$blue:-30)",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:color.adjust(#abcdef,$red:-20,$green:5,$blue:-30);}",
+      "reference": "a {\n  v: #97d2d1;\n}",
+      "actual": "a {\n  v: #97d2d1;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "color.scale(red,$lightness:-20%)",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:color.scale(red,$lightness:-20%);}",
+      "reference": "a {\n  v: #cc0000;\n}",
+      "actual": "a {\n  v: #cc0000;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "color.scale(#123456,$red:20%,$green:-50%,$blue:10%)",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:color.scale(#123456,$red:20%,$green:-50%,$blue:10%);}",
+      "reference": "a {\n  v: rgb(25.6470588235%, 10.1960784314%, 40.3529411765%);\n}",
+      "actual": "a {\n  v: rgb(25.6470588235%, 10.1960784314%, 40.3529411765%);\n}\n",
+      "matched": true
+    },
+    {
+      "name": "color.adjust(red,$hue:180deg,$saturation:-20%)",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:color.adjust(red,$hue:180deg,$saturation:-20%);}",
+      "reference": "a {\n  v: rgb(10%, 90%, 90%);\n}",
+      "actual": "a {\n  v: rgb(10%, 90%, 90%);\n}\n",
+      "matched": true
+    },
+    {
+      "name": "color.change($color:blue,$lightness:40%)",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:color.change($color:blue,$lightness:40%);}",
+      "reference": "a {\n  v: #0000cc;\n}",
+      "actual": "a {\n  v: #0000cc;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "color.adjust(red,$red:30)",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:color.adjust(red,$red:30);}",
+      "reference": "a {\n  v: red;\n}",
+      "actual": "a {\n  v: red;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "hue(#123456)",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:hue(#123456);}",
+      "reference": "a {\n  v: 210deg;\n}",
+      "actual": "a {\n  v: 210deg;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "saturation(#123456)",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:saturation(#123456);}",
+      "reference": "a {\n  v: 65.3846153846%;\n}",
+      "actual": "a {\n  v: 65.3846153846%;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "lightness(#123456)",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:lightness(#123456);}",
+      "reference": "a {\n  v: 20.3921568627%;\n}",
+      "actual": "a {\n  v: 20.3921568627%;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "red(rgb(12.3,4.7,6.5))",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:red(rgb(12.3,4.7,6.5));}",
+      "reference": "a {\n  v: 12;\n}",
+      "actual": "a {\n  v: 12;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "color.alpha(rgba(red,.42))",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:color.alpha(rgba(red,.42));}",
+      "reference": "a {\n  v: 0.42;\n}",
+      "actual": "a {\n  v: 0.42;\n}\n",
+      "matched": true
+    },
+    {
+      "name": "lighten(hsl(120,50%,25%),10%)",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:lighten(hsl(120,50%,25%),10%);}",
+      "reference": "a {\n  v: hsl(120, 50%, 35%);\n}",
+      "actual": "a {\n  v: hsl(120, 50%, 35%);\n}\n",
+      "matched": true
+    },
+    {
+      "name": "rgba(\"red\",.5)",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:rgba(\"red\",.5);}",
+      "referenceError": "$color: \"red\" is not a color.\n  ╷\n1 │ @use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:rgba(\"red\",.5);}\n  │                                                           ^^^^^^^^^^^^^^\n  ╵\n  - 1:59  root stylesheet",
+      "actual": "ERROR: Invalid(\"expected color\")",
+      "actualError": "ERROR: Invalid(\"expected color\")",
+      "matched": true
+    },
+    {
+      "name": "red(\"red\")",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:red(\"red\");}",
+      "referenceError": "$color: \"red\" is not a color.\n  ╷\n1 │ @use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:red(\"red\");}\n  │                                                           ^^^^^^^^^^\n  ╵\n  - 1:59  root stylesheet",
+      "actual": "ERROR: Invalid(\"expected color\")",
+      "actualError": "ERROR: Invalid(\"expected color\")",
+      "matched": true
+    },
+    {
+      "name": "mix(red,blue,120%)",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:mix(red,blue,120%);}",
+      "referenceError": "$weight: Expected 120% to be within 0% and 100%.\n  ╷\n1 │ @use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:mix(red,blue,120%);}\n  │                                                           ^^^^^^^^^^^^^^^^^^\n  ╵\n  - 1:59  root stylesheet",
+      "actual": "ERROR: Invalid(\"color weight out of range\")",
+      "actualError": "ERROR: Invalid(\"color weight out of range\")",
+      "matched": true
+    },
+    {
+      "name": "mix(red,blue,-1%)",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:mix(red,blue,-1%);}",
+      "referenceError": "$weight: Expected -1% to be within 0% and 100%.\n  ╷\n1 │ @use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:mix(red,blue,-1%);}\n  │                                                           ^^^^^^^^^^^^^^^^^\n  ╵\n  - 1:59  root stylesheet",
+      "actual": "ERROR: Invalid(\"color weight out of range\")",
+      "actualError": "ERROR: Invalid(\"color weight out of range\")",
+      "matched": true
+    },
+    {
+      "name": "rgb(1px,2,3)",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:rgb(1px,2,3);}",
+      "referenceError": "$red: Expected 1px to have unit \"%\" or no units.\n  ╷\n1 │ @use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:rgb(1px,2,3);}\n  │                                                           ^^^^^^^^^^^^\n  ╵\n  - 1:59  root stylesheet",
+      "actual": "ERROR: Invalid(\"invalid color component unit\")",
+      "actualError": "ERROR: Invalid(\"invalid color component unit\")",
+      "matched": true
+    },
+    {
+      "name": "rgba(red)",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:rgba(red);}",
+      "referenceError": "$channels: Expected red channel to be a number, was red.\n  ╷\n1 │ @use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:rgba(red);}\n  │                                                           ^^^^^^^^^\n  ╵\n  - 1:59  root stylesheet",
+      "actual": "ERROR: Invalid(\"missing color argument\")",
+      "actualError": "ERROR: Invalid(\"missing color argument\")",
+      "matched": true
+    },
+    {
+      "name": "rgba($color:red,$alpha:.2,$bad:1)",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:rgba($color:red,$alpha:.2,$bad:1);}",
+      "referenceError": "Missing argument $channels.\n  ╷\n1 │ @use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:rgba($color:red,$alpha:.2,$bad:1);}\n  │                                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ invocation\n  ╵\n  ╷\n1 │ @function rgba($channels) {\n  │           ━━━━━━━━━━━━━━━ declaration\n  ╵\n  - 1:59  root stylesheet",
+      "actual": "ERROR: Invalid(\"unknown color keyword\")",
+      "actualError": "ERROR: Invalid(\"unknown color keyword\")",
+      "matched": true
+    },
+    {
+      "name": "color.change(red,$red:1,$hue:1)",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:color.change(red,$red:1,$hue:1);}",
+      "referenceError": "$hue: Color space rgb doesn't have a channel with this name.\n  ╷\n1 │ @use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:color.change(red,$red:1,$hue:1);}\n  │                                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  ╵\n  - 1:59  root stylesheet",
+      "actual": "ERROR: Invalid(\"cannot mix RGB and HSL adjustments\")",
+      "actualError": "ERROR: Invalid(\"cannot mix RGB and HSL adjustments\")",
+      "matched": true
+    },
+    {
+      "name": "color.scale(red,$red:101%)",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:color.scale(red,$red:101%);}",
+      "referenceError": "$red: Expected 101% to be within -100% and 100%.\n  ╷\n1 │ @use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:color.scale(red,$red:101%);}\n  │                                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^\n  ╵\n  - 1:59  root stylesheet",
+      "actual": "ERROR: Invalid(\"scale amount out of range\")",
+      "actualError": "ERROR: Invalid(\"scale amount out of range\")",
+      "matched": true
+    },
+    {
+      "name": "color.adjust(red,$oops:1)",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:color.adjust(red,$oops:1);}",
+      "referenceError": "$oops: Color space rgb doesn't have a channel with this name.\n  ╷\n1 │ @use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:color.adjust(red,$oops:1);}\n  │                                                           ^^^^^^^^^^^^^^^^^^^^^^^^^\n  ╵\n  - 1:59  root stylesheet",
+      "actual": "ERROR: Invalid(\"unsupported color adjustment keyword or color space\")",
+      "actualError": "ERROR: Invalid(\"unsupported color adjustment keyword or color space\")",
+      "matched": true
+    },
+    {
+      "name": "lighten(red,101%)",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:lighten(red,101%);}",
+      "referenceError": "$amount: Expected 101% to be within 0% and 100%.\n  ╷\n1 │ @use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:lighten(red,101%);}\n  │                                                           ^^^^^^^^^^^^^^^^^\n  ╵\n  - 1:59  root stylesheet",
+      "actual": "ERROR: Invalid(\"color amount out of range\")",
+      "actualError": "ERROR: Invalid(\"color amount out of range\")",
+      "matched": true
+    },
+    {
+      "name": "red + blue",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:red + blue;}",
+      "referenceError": "Undefined operation \"red + blue\".\n  ╷\n1 │ @use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:red + blue;}\n  │                                                           ^^^^^^^^^^\n  ╵\n  - 1:59  root stylesheet",
+      "actual": "ERROR: Invalid(\"undefined color operation +\")",
+      "actualError": "ERROR: Invalid(\"undefined color operation +\")",
+      "matched": true
+    },
+    {
+      "name": "#12",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:#12;}",
+      "referenceError": "Expected hex digit.\n  ╷\n1 │ @use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:#12;}\n  │                                                              ^\n  ╵\n  - 1:62  root stylesheet",
+      "actual": "ERROR: Invalid(\"invalid hex color length\")",
+      "actualError": "ERROR: Invalid(\"invalid hex color length\")",
+      "matched": true
+    },
+    {
+      "name": "#12345",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:#12345;}",
+      "referenceError": "Expected hex digit.\n  ╷\n1 │ @use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:#12345;}\n  │                                                                 ^\n  ╵\n  - 1:65  root stylesheet",
+      "actual": "ERROR: Invalid(\"invalid hex color length\")",
+      "actualError": "ERROR: Invalid(\"invalid hex color length\")",
+      "matched": true
+    },
+    {
+      "name": "#12zz12",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:#12zz12;}",
+      "referenceError": "Expected hex digit.\n  ╷\n1 │ @use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:#12zz12;}\n  │                                                              ^\n  ╵\n  - 1:62  root stylesheet",
+      "actual": "ERROR: Invalid(\"invalid hex color\")",
+      "actualError": "ERROR: Invalid(\"invalid hex color\")",
+      "matched": true
+    },
+    {
+      "name": "rgb(1,2,3,4,5)",
+      "source": "@use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:rgb(1,2,3,4,5);}",
+      "referenceError": "Only 4 arguments allowed, but 5 were passed.\n  ╷\n1 │ @use \"sass:color\"; @use \"sass:meta\"; @use \"sass:map\"; a{v:rgb(1,2,3,4,5);}\n  │                                                           ^^^^^^^^^^^^^^ invocation\n  ╵\n  ╷\n1 │ @function rgb($red, $green, $blue, $alpha) {\n  │           ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ declaration\n  ╵\n  - 1:59  root stylesheet",
+      "actual": "ERROR: Invalid(\"too many color arguments\")",
+      "actualError": "ERROR: Invalid(\"too many color arguments\")",
+      "matched": true
+    },
+    {
+      "name": "theme module with defaults, function and mixin",
+      "files": {
+        "main.scss": "@use \"tokens\" with ($brand:#336699);a{@include tokens.button();}",
+        "_tokens.scss": "@use \"sass:color\";$brand:red !default;@function shade($c){@return color.scale($c,$lightness:-20%);}@mixin button(){color:$brand;background:shade($brand);border-color:rgba($brand,.4);}"
+      },
+      "entry": "main.scss",
+      "reference": "a {\n  color: #336699;\n  background: rgb(16%, 32%, 48%);\n  border-color: rgba(51, 102, 153, 0.4);\n}",
+      "actual": "a {\n  color: #336699;\n  background: rgb(16%, 32%, 48%);\n  border-color: rgba(51, 102, 153, 0.4);\n}\n",
+      "matched": true
+    }
+  ]
+}

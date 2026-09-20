@@ -1,3 +1,9 @@
+# 0.5 当前验证
+
+颜色增量新增 241 个 Dart Sass 场景，全部通过；加原有 567 共 808 个对照。JS/Wasm-GC 各 830 项、13 宿主检查、814 求值边界与 307 异常输入通过。见 [颜色范围](COLORS.md)、evidence/color-verify.txt、evidence/color-upgrade.json。源码、引擎和当前报告绑定同一提交；历史浏览器/性能报告未重跑，不作本次新增能力的证据。
+
+## 0.4 历史验证说明
+
 # Validation and reproduction
 
 The full local command is `./verify.ps1 -MoonPath C:/path/to/moon/bin/moon.exe -WithOracle` after `npm ci --ignore-scripts`. Sass is exactly 1.104.0, MoonBit 0.1.20260904 / moonc 0.10.12, Node 24.11.0 on Windows. Remote CI has not run.

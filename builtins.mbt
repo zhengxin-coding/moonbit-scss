@@ -67,6 +67,9 @@ fn builtin(
     original
   }
   // Parameter names also define the keyword-binding contract for each function.
+  if color_builtin(name, positional, keywords) is Some(value) {
+    return Some(value)
+  }
   let spec = match name {
     "math.div" => ["number1", "number2"]
     "abs"
@@ -453,6 +456,7 @@ fn builtin(
       Text(
         match at(0) {
           Number(_) => "number"
+          Color(_) => "color"
           Text(_, _) => "string"
           Boolean(_) => "bool"
           Null => "null"
@@ -490,6 +494,9 @@ fn map_entries(
 
 ///|
 fn global_builtin(name : String) -> Bool {
+  if global_color_builtin(name) {
+    return true
+  }
   [
     "abs", "ceil", "floor", "round", "percentage", "unit", "unitless", "comparable",
     "min", "max", "length", "nth", "set-nth", "index", "append", "join", "map-get",
