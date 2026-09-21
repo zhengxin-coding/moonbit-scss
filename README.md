@@ -1,6 +1,14 @@
 # SCSS 工作台
 
-MoonBit 本地版 0.4.0：类型化值与单位运算、用户函数、流程控制、SCSS 文件模块，以及可取消的浏览器项目编辑器。固定 Dart Sass 1.104.0 的 567 个原创场景全部匹配；这是一项兼容性增量，尚未达到完整 Sass 成熟度。
+## 获取与验证入口
+
+公开源码：[github.com/zhengxin-coding/moonbit-scss](https://github.com/zhengxin-coding/moonbit-scss)；MoonBit 模块名为 `zhengxin-coding/scss`。
+
+从源码运行：`git clone https://github.com/zhengxin-coding/moonbit-scss.git` 后进入该目录，按下文和 [TESTING.md](TESTING.md) 安装所需工具。仓库公开不等于已在 Mooncakes 发布，不承诺 `moon add` 当前可用。
+
+查看 [GitHub Actions](https://github.com/zhengxin-coding/moonbit-scss/actions) 时请核对 run 的 commit SHA；历史 evidence、旧 ZIP 与本地测试不能替代当前提交的 CI 结果。下文保留各版本的验证范围和兼容性限制。
+
+MoonBit 0.4.0：类型化值与单位运算、用户函数、流程控制、SCSS 文件模块，以及可取消的浏览器项目编辑器。固定 Dart Sass 1.104.0 的 567 个原创场景全部匹配；这是一项兼容性增量，尚未达到完整 Sass 成熟度。
 
 ## 使用
 
@@ -43,4 +51,4 @@ python tools/check-proof.py
 
 按 [Sass 官方文档](https://sass-lang.com/documentation/)独立实现，未复制编译器源码。实现与原创场景采用 MIT；Dart Sass 仅为开发对照依赖。下载发行包的完整性匹配 lockfile，36 个安装文件逐一匹配原包，见 [参考指纹](evidence/reference-provenance.json)。
 
-这是独立主仓库，旧批次目录和 ZIP 是历史快照。本轮未配置 remote、上传、发布、提交比赛或刷新旧归档；其余 19 个项目未重跑。远端 CI 仍未执行。
+> 历史开发记录（以下发布/归档状态不代表当前仓库；当前入口见文首）：这是独立主仓库，旧批次目录和 ZIP 是历史快照。本轮未配置 remote、上传、发布、提交比赛或刷新旧归档；其余 19 个项目未重跑。远端 CI 仍未执行。
