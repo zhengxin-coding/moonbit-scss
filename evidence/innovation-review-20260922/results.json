@@ -1,0 +1,65 @@
+{
+  "date": "2026-09-22",
+  "project": "scss",
+  "package": "zhengxin-coding/scss",
+  "version": "0.6.0",
+  "code_base_commit_before_materials": "b34daf8bcb1ed051f63294198ced0f7ca649ef3c",
+  "core_checks": [
+    {
+      "command": [
+        "moon",
+        "test",
+        "--target",
+        "js"
+      ],
+      "exit": 0,
+      "seconds": 3.27,
+      "log": "scss-test---target-js.log"
+    },
+    {
+      "command": [
+        "moon",
+        "test",
+        "--target",
+        "wasm-gc"
+      ],
+      "exit": 0,
+      "seconds": 2.67,
+      "log": "scss-test---target-wasm-gc.log"
+    },
+    {
+      "command": [
+        "moon",
+        "build",
+        "--target",
+        "js"
+      ],
+      "exit": 0,
+      "seconds": 1.16,
+      "log": "scss-build---target-js.log"
+    }
+  ],
+  "workflow_checks": [
+    {
+      "command": [
+        "node",
+        "tools/test-modules.mjs"
+      ],
+      "exit": 0,
+      "seconds": 3.82,
+      "log": "scss-workflow-0.log"
+    },
+    {
+      "command": [
+        "node",
+        "tools/test-selectors.mjs"
+      ],
+      "exit": 0,
+      "seconds": 0.87,
+      "log": "scss-workflow-1.log"
+    }
+  ],
+  "interpretation": "本轮直接执行 Dart Sass1.104.0：98 个模块场景和 70 个选择器场景一致；对应输入与脚本均保留。",
+  "limit": "只是常用 Sass 子集；选择器扩展、色彩空间、导入器、模块配置和语言完整性都有限制，不能称完整 Dart Sass 替代。",
+  "remote_push_performed": false
+}
