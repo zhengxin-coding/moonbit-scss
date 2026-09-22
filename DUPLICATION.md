@@ -1,3 +1,5 @@
+> 2026-09-22 三份初审反馈后的当前判断：**条件复审**。不应把子集编译器说成完整 Sass 替代；真实项目兼容需求仍需更多样本。 本次差异说明：precss 已有自己的 SCSS/SASS/LESS 引擎及 SSR 应用，不是只包装外部 Sass。其已查文档不支持 @use/@forward、@extend 和完整颜色/数学；本项目实际增量在有限模块语义、常用 @extend/@at-root 和颜色/单位，而非首个 SCSS 编译器。 以下保留之前检索的固定提交与来源；此前“补足场景”不能理解为本次已解除价值异议。
+
 # scss 查重与定位 · 2026-09-22
 
 [conglinyizhi/precss；lkdrt/palette_forge 为相邻工具](https://github.com/conglinyizhi/precss)。precss 已有自己的 SCSS/SASS/LESS 引擎及 SSR 应用，不是只包装外部 Sass。其已查文档不支持 @use/@forward、@extend 和完整颜色/数学；本项目实际增量在有限模块语义、常用 @extend/@at-root 和颜色/单位，而非首个 SCSS 编译器。

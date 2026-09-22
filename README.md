@@ -1,52 +1,64 @@
-> 2026-09-22 当前本地版 0.6.0：申报定位为“SCSS 模块、颜色与选择器编译工作流”。已更新[现有项目对照](DUPLICATION.md)、[申报草稿](PROPOSAL.md)及[本轮验证](evidence/innovation-review-20260922/results.json)。下面带日期的旧轮次描述保留历史范围；团队已有公开仓库，本次本地修订尚未由本任务推送。
+# SCSS 模块、颜色与选择器编译工作流
 
-> 0.6：新增常用 `@extend` / `@at-root`，详见 [范围与验证](SELECTORS.md)。下文旧轮次证据保留原日期。
+**本项目仓库：[https://github.com/zhengxin-coding/moonbit-scss](https://github.com/zhengxin-coding/moonbit-scss)**
 
-# SCSS 工作台
+模块 `zhengxin-coding/scss`，本地版本 **0.6.0**，MIT。当前评审状态：**条件复审**。本文件是当前入口，旧轮次说明与详细用法保存在 [历史/完整使用说明](README-BEFORE-VALUE-REWORK.md)。
 
-MoonBit 本地版 0.6.0（以下颜色增量最初于 0.5 加入）：常用 RGB/HSL 颜色、透明度、混色和颜色调整；类型化值与单位运算、用户函数、流程控制、SCSS 文件模块，以及可取消的浏览器项目编辑器。固定 Dart Sass 1.104.0 的 808 个原创场景全部匹配；这是一项兼容性增量，尚未达到完整 Sass 成熟度。
+## 解决什么任务
 
-[本轮颜色范围与示例](COLORS.md)。本轮同时修复模块改名后的命令包引用；常见功能收尾后转下一项目。
+把包含共享变量/函数、@use/@forward 和常用选择器扩展的多文件样式项目编译为 CSS，供 MoonBit 构建工具或浏览器项目编辑器使用。
 
-## 使用
+已有多文件 @use/@forward 及选择器扩展输入的 MoonBit 工具可评估；precss 已提供自己的预处理引擎和 SSR 用途。
 
-```powershell
-./start-review.ps1
-# 打开 http://127.0.0.1:8799/web/
-node tools/cli.mjs --project examples/modules --entry main.scss --json
-node tools/cli.mjs --input '.a { width: (2px * 3); }'
-node tools/cli.mjs --project-json --file project.json --json
+## 直接复现
+
+安装 MoonBit 和 Node.js 24，在本仓库根目录运行：
+
+```sh
+moon build --target js
+node -e "require('node:fs').copyFileSync('_build/js/debug/build/cmd/web/web.js','web/engine.mjs')"
+node examples/run-use-case.mjs
 ```
 
-浏览器可编辑多个文件、切换入口、添加/移除文件、导入/导出项目 JSON、下载 CSS。编译在独立 Worker 中执行，可取消，5 秒超时后终止。页面不向远端发送源码。重新载入会恢复示例，需保留的修改请导出。
+流程：**多文件模块样式编译**。运行器创建新的系统临时目录，保留每一步的 stdout/stderr、产物及 `report.json`，打印实际目录；重复运行不会覆盖之前产物。它只执行仓库内的本地样例，不连接公网或发送消息。`report.json` 的 `expected` 是应观察的结果，实际结果在各步输出中；成功退出不替代内容核对。
 
-`--project DIRECTORY` 明确指定扫描根目录。CLI 只读取其中的 SCSS，跳过 .git、node_modules、_build、target，拒绝符号链接/目录联接。单文件模式保留原有参数、文件与标准输入行为；文件模块需使用项目模式。退出码：0 成功、2 编译拒绝、1 宿主/参数错误。
+输入性质：原创两文件 SCSS 项目；模块能力是与既有 precss 的候选差异，不是首个 SCSS 引擎。
 
-## MoonBit API
+应观察：输出 .panel 的 8px padding 和 .panel .title 的 4px margin。
 
-```moonbit
-let result = @scss.compile_files("main.scss", Map([
-  ("main.scss", "@use 'tokens';.card{padding:tokens.$gap}"),
-  ("_tokens.scss", "$gap:4px !default;"),
-]))
-println(result.css)
+具体命令和输入路径见 [使用任务](USE-CASE.md) 与 [机器可读流程](examples/use-case.json)。只把这个脚本当复现入口，不把通用运行器计作核心技术贡献。
+
+## 实现与已有项目的关系
+
+MoonBit 实现解析、类型化值/单位、模块及颜色/选择器语义；Node 提供受限项目文件读取，浏览器负责编辑与取消。
+
+precss 已有自己的 SCSS/SASS/LESS 引擎及 SSR 应用，不是只包装外部 Sass。其已查文档不支持 @use/@forward、@extend 和完整颜色/数学；本项目实际增量在有限模块语义、常用 @extend/@at-root 和颜色/单位，而非首个 SCSS 编译器。
+
+同类项目和检索边界见 [DUPLICATION](DUPLICATION.md)。查重用于避免错误的首创表述；关键词零结果不能证明生态空白，Node 宿主能力也不计为 MoonBit 原生 I/O。
+
+库使用从 [公共 API](pkg.generated.mbti) 和根包源码开始；可在本 checkout 的消费包中导入 `"zhengxin-coding/scss"`。源码中的网络/文件宿主入口及完整参数仍见 [完整使用说明](README-BEFORE-VALUE-REWORK.md)。是否已发布到 Mooncakes 需另核实，本文不把 `moon add` 的下载成功作为已完成事项。
+
+## 验证与边界
+
+前一轮工程验证直接执行 Dart Sass1.104.0：98 个模块场景和 70 个选择器场景一致；对应输入与脚本均保留。
+
+[上一轮工程验证](evidence/innovation-review-20260922/results.json) 与 [本轮最小任务回执](evidence/value-rework-20260922/use-case.json) 分开。历史参考版本、golden 重放、本机 peer、真实第三方服务端和本次样例是不同证据，不能合并成“全部生产验证”。
+
+常规核心检查可运行 `moon check --target js`、`moon test --target js`、`moon test --target wasm-gc`。专项命令：
+
+```sh
+node tools/test-modules.mjs
+node tools/test-selectors.mjs
 ```
 
-`compile(source)` 返回 CSS；`compile_files(entry, files)` 返回 CSS、依赖先于入口的 `loaded_files` 和独立 `diagnostics`。核心只读取传入的虚拟文件映射，不访问磁盘或网络。路径区分大小写，私有成员不能跨模块访问。
+专项所需的参考环境和历史版本见原使用说明及 TESTING 文档；本轮回执只记录实际执行项，不声称上面所有参考服务在任意环境即装即跑。
 
-## 构建与核验
+只是常用 Sass 子集；选择器扩展、色彩空间、导入器、模块配置和语言完整性都有限制，不能称完整 Dart Sass 替代。
 
-```powershell
-npm ci --ignore-scripts
-./verify.ps1 -MoonPath C:/path/to/moon/bin/moon.exe -WithOracle
-node tools/benchmark-semantics.mjs
-python tools/check-proof.py
-```
+## 复审材料状态
 
-830 项公开 API 回归在 JS 和 Wasm-GC 均通过，其中 808 项期望来自固定官方编译器；13 项真实文件/CLI/协议检查、814 项求值边界输入和原有 307 项异常输入通过。浏览器人工交互记录、下载结果和同机小型性能对照见 evidence。具体口径见 [TESTING.md](TESTING.md)，缺项见 [FEATURES.md](FEATURES.md)。
+不应把子集编译器说成完整 Sass 替代；真实项目兼容需求仍需更多样本。
 
-## 来源与本地边界
+2026-09-22 匿名新克隆成功；默认分支 `main`，核验公开提交 `3da091ff01383478def7318d54fb8345fd57eaa0`。本轮源码修订仅在本地，尚未推送；此记录不证明当时报名表中的地址正确，也不证明新修订已上线。
 
-按 [Sass 官方文档](https://sass-lang.com/documentation/)独立实现，未复制编译器源码。实现与原创场景采用 MIT；Dart Sass 仅为开发对照依赖。下载发行包的完整性匹配 lockfile，36 个安装文件逐一匹配原包，见 [参考指纹](evidence/reference-provenance.json)。
-
-这是独立主仓库，旧批次目录和 ZIP 是历史快照。本轮仅本地提交和同提交 ZIP/bundle；未上传、发布或提交比赛，现有远程配置保持原状。其他项目验证另列。远端 CI 仍未执行。
+[申报草稿](PROPOSAL.md) 已压缩为 30 行以内，并单独标明本项目仓库；[复核说明](REVIEW-RESPONSE.md) 区分材料错误、功能变化及尚未解决的问题。没有编造用户、设备接入、生产部署或评审认可。

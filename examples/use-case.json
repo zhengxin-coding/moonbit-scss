@@ -1,0 +1,16 @@
+{
+  "title": "多文件模块样式编译",
+  "scope": "原创两文件 SCSS 项目；模块能力是与既有 precss 的候选差异，不是首个 SCSS 引擎。",
+  "steps": [
+    {
+      "args": [
+        "tools/cli.mjs",
+        "--project",
+        "examples/use-case",
+        "--entry",
+        "main.scss"
+      ]
+    }
+  ],
+  "expected": "输出 .panel 的 8px padding 和 .panel .title 的 4px margin。"
+}

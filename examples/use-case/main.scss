@@ -1,0 +1,2 @@
+@use "tokens";
+.panel { padding: tokens.$gap * 2; .title { margin: tokens.$gap; } }

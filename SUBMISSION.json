@@ -1,0 +1,17 @@
+{
+  "project": "scss",
+  "title": "SCSS 模块、颜色与选择器编译工作流",
+  "module": "zhengxin-coding/scss",
+  "version": "0.6.0",
+  "repository": "https://github.com/zhengxin-coding/moonbit-scss",
+  "status": "条件复审",
+  "remainingRisk": "不应把子集编译器说成完整 Sass 替代；真实项目兼容需求仍需更多样本。",
+  "actualUsersClaimed": false,
+  "anonymousCloneVerified": true,
+  "publicHead": "3da091ff01383478def7318d54fb8345fd57eaa0",
+  "defaultBranch": "origin/main",
+  "localChangesPublished": false,
+  "proposalLines": 25,
+  "useCase": "多文件模块样式编译",
+  "diff": "precss 已有自己的 SCSS/SASS/LESS 引擎及 SSR 应用，不是只包装外部 Sass。其已查文档不支持 @use/@forward、@extend 和完整颜色/数学；本项目实际增量在有限模块语义、常用 @extend/@at-root 和颜色/单位，而非首个 SCSS 编译器。"
+}

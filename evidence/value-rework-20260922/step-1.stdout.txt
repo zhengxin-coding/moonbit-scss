@@ -1,0 +1,6 @@
+.panel {
+  padding: 8px;
+}
+.panel .title {
+  margin: 4px;
+}
