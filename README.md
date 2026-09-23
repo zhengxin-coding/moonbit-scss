@@ -41,3 +41,5 @@ node tools/compare-precss.mjs
 本库仍是 Sass 子集，模块配置、选择器扩展、颜色、导入器等边界沿用 [完整用法与模块范围](README-BEFORE-VALUE-REWORK.md)、[选择器说明](SELECTORS.md)、[颜色说明](COLORS.md)。暂无独立使用方、生产接入或上游接受证明。
 
 [修订申报书](PROPOSAL.md)、[同类反馈回应](REVIEW-RESPONSE.md)、[使用任务](USE-CASE.md)、[验证命令](TESTING.md)。历史完整用法在 README-BEFORE-VALUE-REWORK.md；不以旧记录冒充本轮重跑。复申认定由组委会作出。
+
+CI固定的编译器与标准库版本见 [TOOLCHAIN.md](TOOLCHAIN.md)；升级时需同时核对生成产物。
