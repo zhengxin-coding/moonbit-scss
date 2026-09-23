@@ -23,7 +23,10 @@ jobs:
           engine=$(find _build/js/debug/build/cmd/web -type f -name '*.js' | head -n 1)
           test -n "$engine"
           cp "$engine" web/engine.mjs
+          cp _build/js/debug/build/cmd/precss/precss.js web/precss-engine.mjs
       - run: npm ci --ignore-scripts
+      - run: node examples/run-precss-project.mjs
+      - run: node tools/compare-precss.mjs
       - run: node tools/test-sass-oracle.mjs
       - run: node tools/test-values.mjs
       - run: node tools/test-modules.mjs

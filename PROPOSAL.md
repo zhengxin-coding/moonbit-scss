@@ -1,25 +1,28 @@
-# SCSS 模块、颜色与选择器编译工作流 · 修订申报草稿
+# SCSS：precss 的模块项目引擎扩展 · 修订申报草稿
 
 本项目仓库：https://github.com/zhengxin-coding/moonbit-scss
-模块 / 本地版本：`zhengxin-coding/scss` / `0.6.0`；许可证：MIT。
-修订状态：条件复审；本轮仅本地修订，未推送或提交表单。
+模块 / 本地版本：zhengxin-coding/scss / 0.7.0；自身 MIT，上游 Apache-2.0 保留。
+状态：针对同类重叠风险的本地修订；未推送、未发布、未提交表单。
 
-## 任务与选择依据
-把包含共享变量/函数、@use/@forward 和常用选择器扩展的多文件样式项目编译为 CSS，供 MoonBit 构建工具或浏览器项目编辑器使用。
-已有多文件 @use/@forward 及选择器扩展输入的 MoonBit 工具可评估；precss 已提供自己的预处理引擎和 SSR 用途。
+## 现有项目与任务
+precss 已有 MoonBit SCSS/SASS/LESS 编译器及编译门面，本库基础编译与其重叠，不宣称首个实现或生态空白。
+任务：让既有 precss 消费方在其 Compiler 路由中接入有 @use/@forward、配置和相对模块的虚拟 SCSS 项目。
 
-## 已实现内容
-MoonBit 实现解析、类型化值/单位、模块及颜色/选择器语义；Node 提供受限项目文件读取，浏览器负责编辑与取消。
-可复现任务：多文件模块样式编译；按 README 构建后运行 `node examples/run-use-case.mjs`，输入与输出见 USE-CASE.md。
-前一轮工程验证直接执行 Dart Sass1.104.0：98 个模块场景和 70 个选择器场景一致；对应输入与脚本均保留。
+## 已实现的扩展关系
+moon.mod 直接依赖 conglinyizhi/precss@0.1.4，新增公开 zhengxin-coding/scss/precss 包。
+project_engine 返回真实 core.Engine，经过上游 Compiler 路由，SCSS 项目由本库编译；CSS/LESS/SASS 留给上游引擎。
+已有有限模块、选择器扩展、颜色/单位能力为本库贡献；上游路由和其他格式、Sass 规范与算法不计为本项目独创。
+引擎复制项目快照，限定入口/源码，将错误映射为上游 CompileError，通过回调传递诊断。
+示例实际配置 gap=8px，跨目录 @use/@forward 后生成 panel/title CSS，同时处理上游三种格式。
+按 README 构建后运行 node examples/run-precss-project.mjs；Node 只提供输入/输出，数值及编译在 MoonBit。
 
-## 原创、复用与差异
-原创实现/参考来源/第三方材料许可按 README、DUPLICATION 与仓库来源说明披露；不将既有协议、算法、词库或规范发明归于本项目。
-precss 已有自己的 SCSS/SASS/LESS 引擎及 SSR 应用，不是只包装外部 Sass。其已查文档不支持 @use/@forward、@extend 和完整颜色/数学；本项目实际增量在有限模块语义、常用 @extend/@at-root 和颜色/单位，而非首个 SCSS 编译器。
-比较项目链接单列于 DUPLICATION.md，不作为本项目提交地址。检索范围不含完整未公开报名表，不能保证无重叠。
+## 可核验依据
+以未修改 precss 0.1.4 和独立 Dart Sass 1.104.0 实跑六个共享、增量与拒绝案例，保留原始结果和源码指纹。
+接口测试验证快照、相对路径歧义、格式范围、错误类型、诊断；详细命令及范围见 TESTING.md。
+具体分工、接口和同输入差异见 PRECSS-INTEGRATION.md；不把六个选定案例称为完整兼容率或成熟度证明。
 
-## 边界与剩余计划
-只是常用 Sass 子集；选择器扩展、色彩空间、导入器、模块配置和语言完整性都有限制，不能称完整 Dart Sass 替代。
-不应把子集编译器说成完整 Sass 替代；真实项目兼容需求仍需更多样本。
-剩余计划：由对接团队核对真实表单链接、公开本轮对应提交及确认选题/换题流程；按实际接入输入补验证，避免以更多规则、测试数量或改名替代用途证据。
-交付：MoonBit 库、限定宿主入口、可运行任务、源码/来源说明及分层验证证据；不承诺自动通过初审。
+## 边界与后续
+引擎绑定一个入口，需显式 Scss 格式；precss 回调缺入口路径，因此明确拒绝其 compile_file/compile_many 路径。
+本库仍是 Sass 子集，不宣称完全替代 Dart Sass；完整导入器/选择器/色彩语义均有边界。
+暂无真实使用方、生产迁移或上游接受证明；本次提供可复用扩展和材料纠正，不保证初审通过。
+团队需合并代码后同步公开版本、报名标题和附件；本任务只交付本地材料。

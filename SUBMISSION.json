@@ -1,17 +1,19 @@
 {
   "project": "scss",
-  "title": "SCSS 模块、颜色与选择器编译工作流",
+  "title": "SCSS：precss 的模块项目引擎扩展",
   "module": "zhengxin-coding/scss",
-  "version": "0.6.0",
+  "version": "0.7.0",
   "repository": "https://github.com/zhengxin-coding/moonbit-scss",
-  "status": "条件复审",
-  "remainingRisk": "不应把子集编译器说成完整 Sass 替代；真实项目兼容需求仍需更多样本。",
+  "status": "已完成本地 precss 代码接入，待团队同步",
+  "remainingRisk": "仍为Sass子集；引擎绑定入口且拒绝file/many路径；暂无真实使用方或上游接受证明。",
   "actualUsersClaimed": false,
   "anonymousCloneVerified": true,
   "publicHead": "3da091ff01383478def7318d54fb8345fd57eaa0",
   "defaultBranch": "origin/main",
   "localChangesPublished": false,
-  "proposalLines": 25,
-  "useCase": "多文件模块样式编译",
-  "diff": "precss 已有自己的 SCSS/SASS/LESS 引擎及 SSR 应用，不是只包装外部 Sass。其已查文档不支持 @use/@forward、@extend 和完整颜色/数学；本项目实际增量在有限模块语义、常用 @extend/@at-root 和颜色/单位，而非首个 SCSS 编译器。"
+  "proposalLines": 28,
+  "useCase": "经precSS编译门面路由虚拟SCSS模块项目，并保留上游CSS/LESS/SASS引擎",
+  "diff": "直接依赖precss 0.1.4，公开project_engine将已有模块语义接到上游Engine；实际双边及Dart Sass对照公开共享能力和限制。",
+  "referenceDependency": "conglinyizhi/precss@0.1.4",
+  "anonymousCloneVerifiedAt": "2026-09-22 (historical; not rechecked in this revision)"
 }

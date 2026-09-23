@@ -1,32 +1,20 @@
-# 0.5 当前验证
+# 0.7.0 当前验证与复现
 
-颜色增量新增 241 个 Dart Sass 场景，全部通过；加原有 567 共 808 个对照。JS/Wasm-GC 各 830 项、13 宿主检查、814 求值边界与 307 异常输入通过。见 [颜色范围](COLORS.md)、evidence/color-verify.txt、evidence/color-upgrade.json。源码、引擎和当前报告绑定同一提交；历史浏览器/性能报告未重跑，不作本次新增能力的证据。
+按 README 构建刷新 web/engine.mjs 和 web/precss-engine.mjs，并安装固定开发依赖 npm ci --ignore-scripts，然后运行：
 
-## 0.4 历史验证说明
-
-# Validation and reproduction
-
-The full local command is `./verify.ps1 -MoonPath C:/path/to/moon/bin/moon.exe -WithOracle` after `npm ci --ignore-scripts`. Sass is exactly 1.104.0, MoonBit 0.1.20260904 / moonc 0.10.12, Node 24.11.0 on Windows. Remote CI has not run.
-
-## Current evidence
-
-- 589 public API tests per JS / Wasm-GC target; 567 generated cases use official expected CSS or rejection flags. They cover 124 previous selector/mixin cases, 345 values/functions/control cases, and 98 virtual-file module cases.
-- `test-values.mjs` and `test-modules.mjs` compare emitted CSS using the official CSS parser/compressor; invalid CSS produced by inspect is compared as trimmed expanded text in the value suite. Rejected inputs compare rejection only. Module references use real separate files and the official resolver.
-- `generate-semantic-goldens.mjs` imports only official Sass and original inputs, never the MoonBit engine. Cross-backend tests compare CSS lexical tokens, retaining word boundaries and quoted content, except optional quotes around simple attribute identifiers. This is less complete than a CSS parser; Node differential tests provide the separate parser-based check.
-- `test-project-host.mjs`: 13 file/CLI/JSON/diagnostic/limit/junction checks. `test-evaluation-limits.mjs`: 814 cases, including extreme loops, recursion and exponential string growth, with a 20-second worker watchdog. `robustness.mjs` retains 307 seeded malformed inputs. These are bounded robustness exercises, not exhaustive fuzzing.
-- `semantic-verification.txt` retains final full verification output. `browser-validation.json` records actual editor actions, mobile layout and downloaded file checks.
-- `reference-provenance.json`: npm tarball SHA-512 matches package-lock, and all 36 installed Sass distribution files equal the tarball. Runtime dependency packages are pinned but were not separately byte-audited.
-- `semantic-benchmark.json`: three warmups, seven interleaved samples for three small same-machine JS workloads; canonical outputs match. Module comparison includes JSON bridge for MoonBit and filesystem reads for Sass. It does not establish complete performance parity or peak memory.
-- `semantic-upgrade.json` binds final staged Git blobs to SHA-256. `python tools/check-proof.py` verifies committed blobs offline. Historical evidence is retained for identity only and is not represented as rerun.
-
-## Refresh generated expectations
-
-```powershell
-node tools/generate-semantic-goldens.mjs
-moon fmt
-moon info
-moon test --target js --deny-warn
-moon test --target wasm-gc --deny-warn
+```sh
+moon check --target js
+moon test --target js
+moon test --target wasm-gc
+node examples/run-precss-project.mjs
+node tools/compare-precss.mjs
+node tools/test-project-host.mjs
 ```
 
-Never derive expected values from the implementation under test. Rebuild web/engine.mjs after changing MoonBit. Generator/fmt/info/build idempotence is recorded separately. The browser page must be reloaded to test the final built engine.
+新适配器五组 MoonBit 测试覆盖上游 Compiler 路由、相对模块、快照不受外部更改影响、错误来源绑定、相同文本不同目录的文件接口拒绝、错误类型与诊断。新增6个差异案例同时调用真实 precss 0.1.4、扩展和 Dart Sass 1.104.0；CSS 经独立 CSS 压缩器比较，拒绝只比较是否拒绝。
+
+新示例的 CSS/LESS/SASS 部分仍调用上游实际引擎；不将这些能力计成本库原创。本轮实际运行命令、退出码与日志见 evidence/precss-integration-20260923/LOCAL-CHECKS.json，差异实测见 COMPARISON.json。解包检查在交付包另记录，不冒充远端 CI 已通过。
+
+原核心未改算法；保留 JS/Wasm-GC 核心回归和受影响的项目宿主路径，不以这些检查推导生产兼容。历史大规模 Dart Sass 场景、性能、模糊测试和浏览器操作见 [TESTING-BEFORE-PRECSS.md](TESTING-BEFORE-PRECSS.md)，未在本轮全部重跑。
+
+verify.ps1 会运行新增示例；带 -WithOracle 时加入新双边对照。CI 已增加引擎刷新、示例与比较步骤，首次构建需下载 Mooncakes 依赖。

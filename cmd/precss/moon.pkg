@@ -1,0 +1,16 @@
+import {
+  "zhengxin-coding/scss/precss" @adapter,
+  "conglinyizhi/precss/core",
+  "conglinyizhi/precss/backend/scss" @builtin_scss,
+  "conglinyizhi/precss/backend/less" @builtin_less,
+  "conglinyizhi/precss/backend/css" @builtin_css,
+  "moonbitlang/core/json",
+}
+
+supported_targets = "js"
+
+pkgtype(kind: "executable")
+
+options(
+  link: { "js": { "exports": [ "compile_project_json" ], "format": "esm" } },
+)

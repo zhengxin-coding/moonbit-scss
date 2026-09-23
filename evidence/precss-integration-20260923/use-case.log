@@ -1,12 +1,17 @@
 {
   "title": "precss 模块项目扩展与上游多格式路由",
   "scope": "原创合成项目；实际复用上游 Compiler 与其他格式引擎，无用户迁移声称。",
-  "steps": [
+  "expected": "主项目 padding 8px、margin 4px；附加 CSS、LESS、SASS 均由上游处理。",
+  "output": "C:\\Users\\uiwcv\\AppData\\Local\\Temp\\moonbit-use-case-eRc3xe",
+  "ok": true,
+  "results": [
     {
       "args": [
         "examples/run-precss-project.mjs"
-      ]
+      ],
+      "exit": 0
     }
-  ],
-  "expected": "主项目 padding 8px、margin 4px；附加 CSS、LESS、SASS 均由上游处理。"
+  ]
 }
+
+STDERR

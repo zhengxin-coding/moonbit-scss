@@ -1,0 +1,19 @@
+// Generated using `moon info`, DON'T EDIT IT
+package "zhengxin-coding/scss/precss"
+
+import {
+  "conglinyizhi/precss/core",
+}
+
+// Values
+pub fn compile_project(String, Map[String, String], on_diagnostic? : (String) -> Unit) -> String raise @core.CompileError
+
+pub fn project_engine(String, Map[String, String], on_diagnostic? : (String) -> Unit) -> @core.Engine raise @core.CompileError
+
+// Errors
+
+// Types and methods
+
+// Type aliases
+
+// Traits

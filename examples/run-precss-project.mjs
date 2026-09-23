@@ -1,0 +1,14 @@
+import fs from 'node:fs';
+import assert from 'node:assert/strict';
+import {compile_project_json} from '../web/precss-engine.mjs';
+const request=fs.readFileSync(new URL('./precss-project.json',import.meta.url),'utf8');
+const result=JSON.parse(compile_project_json(request,true));
+assert.equal(result.ok,true,result.error);
+assert.match(result.css,/padding: 8px/);
+assert.match(result.css,/margin: 4px/);
+assert.equal(result.extra.length,3);
+assert.equal(result.extra[0].css,'html { box-sizing: border-box; }');
+assert.match(result.extra[1].css,/padding: 3px/);
+assert.match(result.extra[2].css,/color: blue/);
+console.log(JSON.stringify(result,null,2));
+console.log('PASS: precss routes SCSS modules to the extension and CSS/LESS/SASS to upstream engines');

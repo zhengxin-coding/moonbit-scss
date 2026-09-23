@@ -1,0 +1,22 @@
+{
+  "ok": true,
+  "css": ".panel {\n  padding: 8px;\n}\n.panel .title {\n  margin: 4px;\n}\n",
+  "diagnostics": [],
+  "extra": [
+    {
+      "format": "css",
+      "css": "html { box-sizing: border-box; }"
+    },
+    {
+      "format": "less",
+      "css": ".legacy {\n  padding: 3px;\n}\n"
+    },
+    {
+      "format": "sass",
+      "css": ".legacy-sass {\n  color: blue;\n}\n"
+    }
+  ]
+}
+PASS: precss routes SCSS modules to the extension and CSS/LESS/SASS to upstream engines
+
+STDERR

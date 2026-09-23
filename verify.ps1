@@ -26,6 +26,9 @@ try {
   $engine=Get-ChildItem '_build/js' -Recurse -File | Where-Object { $_.Name -in @('main.js','web.js') -and $_.FullName -match '[\\/]cmd[\\/]web[\\/]' } | Sort-Object LastWriteTime -Descending | Select-Object -First 1
   if (-not $engine) {throw 'Missing browser engine'}
   Copy-Item -LiteralPath $engine.FullName -Destination 'web/engine.mjs' -Force
+  Copy-Item -LiteralPath '_build/js/debug/build/cmd/precss/precss.js' -Destination 'web/precss-engine.mjs' -Force
+  node examples/run-precss-project.mjs
+  if ($LASTEXITCODE -ne 0) {throw 'precss integration example failed'}
   node tools/test-demo.mjs
   if ($LASTEXITCODE -ne 0) {throw 'browser engine test failed'}
   node tools/test-cli.mjs
@@ -39,6 +42,8 @@ try {
   node tools/benchmark.mjs
   if ($LASTEXITCODE -ne 0) {throw 'benchmark failed'}
   if ($WithOracle) {
+    node tools/compare-precss.mjs
+    if ($LASTEXITCODE -ne 0) {throw 'precss extension comparison failed'}
     node tools/test-sass-oracle.mjs
     if ($LASTEXITCODE -ne 0) {throw 'Sass oracle failed'}
     node tools/test-values.mjs

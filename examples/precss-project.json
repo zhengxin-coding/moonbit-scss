@@ -1,0 +1,13 @@
+{
+  "entry": "styles/main.scss",
+  "files": {
+    "styles/main.scss": "@use '../theme' as t with ($gap: 8px); .panel { padding: t.$gap; @include t.title; }",
+    "theme/_index.scss": "@forward 'tokens';",
+    "theme/_tokens.scss": "$gap: 4px !default; @mixin title { .title { margin: $gap / 2; } }"
+  },
+  "extra": [
+    {"format": "css", "source": "html { box-sizing: border-box; }"},
+    {"format": "less", "source": "@gap: 3px; .legacy { padding: @gap; }"},
+    {"format": "sass", "source": ".legacy-sass\n  color: blue"}
+  ]
+}

@@ -1,11 +1,15 @@
 name = "zhengxin-coding/scss"
 
-version = "0.6.0"
+version = "0.7.0"
 
-license = "MIT"
+license = "MIT AND Apache-2.0"
 
 readme = "README.md"
 
 repository = "https://github.com/zhengxin-coding/moonbit-scss"
 
-description = "SCSS 子集编译器本地候选"
+description = "SCSS 模块编译与 precss 项目引擎扩展"
+
+import {
+  "conglinyizhi/precss@0.1.4",
+}
