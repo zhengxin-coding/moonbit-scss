@@ -5,13 +5,13 @@
   "version": "0.8.0",
   "repository": "https://github.com/zhengxin-coding/moonbit-scss",
   "status": "审核结果未知；本地工程复核完成，待团队同步",
-  "remainingRisk": "仍为Sass子集；引擎绑定入口且拒绝file/many路径；暂无真实使用方或上游接受证明。",
+  "remainingRisk": "仍是Sass子集；旧单入口适配有限制，新明确入口API不代表上游file/many接口已通用化",
   "actualUsersClaimed": false,
   "defaultBranch": "origin/main",
   "localChangesPublished": false,
   "proposalLines": 32,
-  "useCase": "经precSS编译门面路由虚拟SCSS模块项目，并保留上游CSS/LESS/SASS引擎",
-  "diff": "直接依赖precss 0.1.4，公开project_engine将已有模块语义接到上游Engine；实际双边及Dart Sass对照公开共享能力和限制。",
+  "useCase": "重复编译多个虚拟入口，追踪依赖与缺失候选路径，按修改失效并原子提交新快照",
+  "diff": "实际依赖precss；不申报另一套通用CSS/SCSS编译器，增量在可复用ProjectCompiler状态",
   "referenceDependency": "conglinyizhi/precss@0.1.4",
   "anonymousCloneVerifiedAt": "2026-09-22 (historical; not rechecked in this revision)",
   "historicalAnonymousClone": {
@@ -26,5 +26,6 @@
   "currentValidation": "evidence/project-20260927/LOCAL-CHECKS.json",
   "currentEvidence": "evidence/project-20260927/LOCAL-CHECKS.json",
   "metadataReviewedOn": "2026-09-27",
-  "currentEvidenceScope": "Reusable MoonBit multi-entry project graph/cache; missing resolution candidates invalidate; atomic updates; actual precss compiler and Dart Sass 28-step replay"
+  "currentEvidenceScope": "Reusable MoonBit multi-entry project graph/cache; missing resolution candidates invalidate; atomic updates; actual precss compiler and Dart Sass 28-step replay",
+  "reviewDecision": "保留precss项目引擎扩展"
 }
