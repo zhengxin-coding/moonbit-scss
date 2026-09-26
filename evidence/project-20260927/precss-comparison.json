@@ -1,0 +1,237 @@
+{
+  "date": "2026-09-26T20:26:02.243Z",
+  "reference": "dart-sass\t1.104.0\t(Sass Compiler)\t[Dart]\ndart2js\t3.13.3\t(Dart Compiler)\t[Dart]",
+  "upstream": {
+    "module": "conglinyizhi/precss",
+    "version": "0.1.4",
+    "unmodified": true,
+    "sourceHashes": {
+      "LICENSE": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+      "backend/css/css.mbt": "1488f62570081554fb9e1c82091f11c4c54e5ec01cee19545726eefac5fbac1e",
+      "backend/css/moon.pkg": "61ce6ba2bed36073838a08031ac8a00d402400e942b1ef29834116e6b7ad4026",
+      "backend/css/pkg.generated.mbti": "f929dc5a0eca854683ee52b5e264a88e7764b8e781550e9077e8c1d86730b7c1",
+      "backend/less/backend_less_test.mbt": "42b9cc0d033386db51463373d9fe7ab05222c010d87319fdb8531e7756b1dbc3",
+      "backend/less/classes.mbt": "caeb1856a3fca170e8e7b44f76176e1c18298a6c5f369038bf6d2c5c8971751f",
+      "backend/less/diagnose.mbt": "634dbedcd46c9c454f6be4af0012e0deb9519b9fc356e1abb5cf76e311566437",
+      "backend/less/less.mbt": "7451cd000b09e76daf8c78b033be22bdc8db892ecb7ffbdfc9f8e5d71d7a5305",
+      "backend/less/less_eval.mbt": "e5bc11047c4cf576a1d333d165d38400c802c050d21fdbd5734627f1757d8e6f",
+      "backend/less/less_syntax.mbt": "3e95bb926662a18ee6d357a855fef9a3a6fe6759de7b84d298b17ae628bf27b4",
+      "backend/less/moon.pkg": "d81fec1571f75f4b6db8205668ffac884b66fac3e1b1c7dc3ea52db36d95fa56",
+      "backend/less/pkg.generated.mbti": "5000ed1ac58ced41f874c6c212f134a5017518d3b90d8b43f222956660d926e2",
+      "backend/scss/backend_scss_test.mbt": "63b471b21c3ea9f35d3c39b86c4509e9bb57320084c3ecc1fbf5afdd68afabd4",
+      "backend/scss/classes.mbt": "9c8feeb51e94b12e1c2adde4e435976b52c1a0966e34ccc263d32782fddf0542",
+      "backend/scss/diagnose.mbt": "d478b75f5f50766f59ff01c3d64d370498f82e348465085121bd322576907398",
+      "backend/scss/engine.mbt": "128b15ff698dc1003a94eb48dd007caaf0507ea546b2db7a3b4d1bde42b6eb7b",
+      "backend/scss/eval.mbt": "3f7e4c946adbee26aa2dcfda4eb4e697d625d169b3a828f5faaf9edc6d78f6d2",
+      "backend/scss/format.mbt": "ff517c70fc61c8650b36457769e6d35c73fdcffa51a0354cff5a794161f8fc60",
+      "backend/scss/moon.pkg": "9f4768d3a35063a59bb36e4450b7e853159b22236616b0ac89a5be1f234d7b13",
+      "backend/scss/pkg.generated.mbti": "7b2849df909ec20155c68902dc746c60387cf5bb013c43f9278f80df34b769a6",
+      "backend/scss/syntax.mbt": "e5f723ec330f7d9fe924b88f51bfc0348461d88d1280436e28b5f75e8a347efd",
+      "core/compiler.mbt": "b831cb57840150b576df589cd63d6c0c0b9445b7d597ecf7c76206bf33db562f",
+      "core/moon.pkg": "5ce0a909ebd62526cef324f52700b790a8c9939d4f07a817f1b22fc93eec0559",
+      "core/pkg.generated.mbti": "594d2fa8570bef3427db4e23e67a5d5c243f4ea4572e4a3f574dea8c0d04329d",
+      "core/types.mbt": "411464127033d594ef1c592bc00119312c0e6d94760070798b4c0b9deecbf3c8",
+      "moon.mod": "98b9854088a020472ff2325f08ed80efeb1c6921f71659a817f740407d9bcc45"
+    }
+  },
+  "engineSha256": "67e89cdbe1965ef5128e5fd3aeb592b6f33f50dc66495b1bafb1f5b963400a3f",
+  "node": "v24.11.0",
+  "platform": "win32",
+  "total": 6,
+  "scope": "Selected shared capability, extension and rejection cases. CSS equality uses Dart Sass CSS compression; errors compare rejection only. Not a whole-language compatibility claim.",
+  "rows": [
+    {
+      "input": {
+        "name": "basic-nesting-overlap",
+        "entry": "main.scss",
+        "files": {
+          "main.scss": "$gap: 4px; .box { padding: $gap; .child {margin: 2px} }"
+        },
+        "referenceAccepts": true,
+        "upstreamMatches": true
+      },
+      "reference": {
+        "ok": true,
+        "css": ".box {\n  padding: 4px;\n}\n.box .child {\n  margin: 2px;\n}"
+      },
+      "upstream": {
+        "ok": true,
+        "css": ".box {\n  padding: 4px;\n}\n.box .child {\n  margin: 2px;\n}\n",
+        "diagnostics": [],
+        "extra": []
+      },
+      "extended": {
+        "ok": true,
+        "css": ".box {\n  padding: 4px;\n}\n.box .child {\n  margin: 2px;\n}\n",
+        "diagnostics": [],
+        "extra": []
+      },
+      "upstreamMatches": true,
+      "extendedMatches": true
+    },
+    {
+      "input": {
+        "name": "configured-forward-project",
+        "entry": "styles/main.scss",
+        "files": {
+          "styles/main.scss": "@use '../theme' as t with ($gap: 8px); .panel { padding: t.$gap; @include t.title; }",
+          "theme/_index.scss": "@forward 'tokens';",
+          "theme/_tokens.scss": "$gap: 4px !default; @mixin title { .title { margin: $gap / 2; } }"
+        },
+        "extra": [
+          {
+            "format": "css",
+            "source": "html { box-sizing: border-box; }"
+          },
+          {
+            "format": "less",
+            "source": "@gap: 3px; .legacy { padding: @gap; }"
+          },
+          {
+            "format": "sass",
+            "source": ".legacy-sass\n  color: blue"
+          }
+        ],
+        "referenceAccepts": true,
+        "upstreamMatches": false
+      },
+      "reference": {
+        "ok": true,
+        "css": ".panel {\n  padding: 8px;\n}\n.panel .title {\n  margin: 4px;\n}"
+      },
+      "upstream": {
+        "ok": false,
+        "error": "EngineFailed(engine=\"scss\", message=\"Undefined variable: $gap\")"
+      },
+      "extended": {
+        "ok": true,
+        "css": ".panel {\n  padding: 8px;\n}\n.panel .title {\n  margin: 4px;\n}\n",
+        "diagnostics": [],
+        "extra": [
+          {
+            "format": "css",
+            "css": "html { box-sizing: border-box; }"
+          },
+          {
+            "format": "less",
+            "css": ".legacy {\n  padding: 3px;\n}\n"
+          },
+          {
+            "format": "sass",
+            "css": ".legacy-sass {\n  color: blue;\n}\n"
+          }
+        ]
+      },
+      "upstreamMatches": false,
+      "extendedMatches": true
+    },
+    {
+      "input": {
+        "name": "placeholder-extend",
+        "entry": "main.scss",
+        "files": {
+          "main.scss": "%base {color: red} .button {@extend %base}"
+        },
+        "referenceAccepts": true,
+        "upstreamMatches": false
+      },
+      "reference": {
+        "ok": true,
+        "css": ".button {\n  color: red;\n}"
+      },
+      "upstream": {
+        "ok": false,
+        "error": "EngineFailed(engine=\"scss\", message=\"expected \\\"}\\\"\")"
+      },
+      "extended": {
+        "ok": true,
+        "css": ".button {\n  color: red;\n}\n",
+        "diagnostics": [],
+        "extra": []
+      },
+      "upstreamMatches": false,
+      "extendedMatches": true
+    },
+    {
+      "input": {
+        "name": "relative-diamond-load-once",
+        "entry": "styles/main.scss",
+        "files": {
+          "styles/main.scss": "@use \"../a\"; @use \"../b\"; .entry {width: a.$n + b.$n}",
+          "_a.scss": "@use \"shared\"; $n:shared.$n;",
+          "_b.scss": "@use \"shared\"; $n:shared.$n;",
+          "_shared.scss": "$n: 2px; .shared {color: blue}"
+        },
+        "referenceAccepts": true,
+        "upstreamMatches": false
+      },
+      "reference": {
+        "ok": true,
+        "css": ".shared {\n  color: blue;\n}\n\n.entry {\n  width: 4px;\n}"
+      },
+      "upstream": {
+        "ok": false,
+        "error": "EngineFailed(engine=\"scss\", message=\"Undefined variable: $n\")"
+      },
+      "extended": {
+        "ok": true,
+        "css": ".shared {\n  color: blue;\n}\n.entry {\n  width: 4px;\n}\n",
+        "diagnostics": [],
+        "extra": []
+      },
+      "upstreamMatches": false,
+      "extendedMatches": true
+    },
+    {
+      "input": {
+        "name": "ambiguous-partial-rejected",
+        "entry": "main.scss",
+        "files": {
+          "main.scss": "@use \"tokens\"; .x {width: tokens.$n}",
+          "tokens.scss": "$n:1px",
+          "_tokens.scss": "$n:2px"
+        },
+        "referenceAccepts": false
+      },
+      "reference": {
+        "ok": false,
+        "error": "It's not clear which file to import. Found:\n  <fixture>\\4\\_tokens.scss\n  <fixture>\\4\\tokens.scss\n  ╷\n1 │ @use \"tokens\"; .x {width: tokens.$n}\n  │ ^^^^^^^^^^^^^\n  ╵\n  <fixture>\\4\\main.scss 1:1  root stylesheet"
+      },
+      "upstream": {
+        "ok": false,
+        "error": "EngineFailed(engine=\"scss\", message=\"Undefined variable: $n\")"
+      },
+      "extended": {
+        "ok": false,
+        "error": "EngineFailed(\n  engine=\"moonbit-scss-project\",\n  message=\"Invalid(\\\"ambiguous module tokens\\\")\",\n)"
+      },
+      "upstreamMatches": true,
+      "extendedMatches": true
+    },
+    {
+      "input": {
+        "name": "private-member-rejected",
+        "entry": "main.scss",
+        "files": {
+          "main.scss": "@use \"tokens\"; .x {width: tokens.$-secret}",
+          "_tokens.scss": "$-secret:2px"
+        },
+        "referenceAccepts": false
+      },
+      "reference": {
+        "ok": false,
+        "error": "Private members can't be accessed from outside their modules.\n  ╷\n1 │ @use \"tokens\"; .x {width: tokens.$-secret}\n  │                           ^^^^^^^^^^^^^^^\n  ╵\n  <fixture>\\5\\main.scss 1:27  root stylesheet"
+      },
+      "upstream": {
+        "ok": false,
+        "error": "EngineFailed(engine=\"scss\", message=\"Undefined variable: $-secret\")"
+      },
+      "extended": {
+        "ok": false,
+        "error": "EngineFailed(\n  engine=\"moonbit-scss-project\",\n  message=\"Invalid(\\\"undefined or private module variable\\\")\",\n)"
+      },
+      "upstreamMatches": true,
+      "extendedMatches": true
+    }
+  ]
+}

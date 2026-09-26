@@ -1,6 +1,6 @@
 # 与 precss 0.1.4 的真实接入
 
-本模块依赖 [conglinyizhi/precss](https://github.com/conglinyizhi/precss) 0.1.4，实际调用其 core.Compiler 和 core.Engine。上游已有自身的 SCSS/SASS/LESS 编译器。本库只提供绑定虚拟项目的 SCSS Engine；代码在 [precss/adapter.mbt](precss/adapter.mbt)，公共接口由 [moon info 生成](precss/pkg.generated.mbti)。
+本模块依赖 [conglinyizhi/precss](https://github.com/conglinyizhi/precss) 0.1.4，实际调用其 core.Compiler 和 core.Engine。上游已有自身的 SCSS/SASS/LESS 编译器。旧入口提供绑定虚拟项目的 SCSS Engine；0.8.0新增显式多入口ProjectCompiler及依赖图（见PROJECT-GRAPH.md）；代码在 [precss/adapter.mbt](precss/adapter.mbt)，公共接口由 [moon info 生成](precss/pkg.generated.mbti)。
 
 ## MoonBit 调用
 

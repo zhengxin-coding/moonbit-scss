@@ -18,3 +18,9 @@ node tools/test-project-host.mjs
 原核心未改算法；保留 JS/Wasm-GC 核心回归和受影响的项目宿主路径，不以这些检查推导生产兼容。历史大规模 Dart Sass 场景、性能、模糊测试和浏览器操作见 [TESTING-BEFORE-PRECSS.md](TESTING-BEFORE-PRECSS.md)，未在本轮全部重跑。
 
 verify.ps1 会运行新增示例；带 -WithOracle 时加入新双边对照。CI 已增加引擎刷新、示例与比较步骤，首次构建需下载 Mooncakes 依赖。
+
+## 0.8.0 多入口项目回归（2026-09-27）
+
+当前固定工具链，JS/WasmGC各909项通过，包含新依赖/缺失候选/原子更新/结果副本/16入口缓存界限与配置隔离。实际Dart Sass1.104.0逐次对照28步编辑、19次编译成功；既有模块98/98一致，六个既有precss三方案例仍符合原结论。纯MoonBit消费示例在JS/WasmGC均运行，a改3px只失效a、b命中缓存。
+
+evidence/project-20260927保存本轮源码/引擎哈希、原始日志和报告，旧证据保留。首次集成编译补齐Engine必需回调和跨包结构导入，示例字符串转义错误也在正式运行前修正；这些失败不计为通过。新结果来自真实precss Compiler与Dart Sass，不以自己实现的重新编译作为唯一参考。未运行远端CI或进行生产接入。

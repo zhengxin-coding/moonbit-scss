@@ -1,4 +1,5 @@
 import {
+  "zhengxin-coding/scss",
   "zhengxin-coding/scss/precss" @adapter,
   "conglinyizhi/precss/core",
   "conglinyizhi/precss/backend/scss" @builtin_scss,
@@ -12,5 +13,10 @@ supported_targets = "js"
 pkgtype(kind: "executable")
 
 options(
-  link: { "js": { "exports": [ "compile_project_json" ], "format": "esm" } },
+  link: {
+    "js": {
+      "exports": [ "compile_project_json", "project_session_json" ],
+      "format": "esm",
+    },
+  },
 )

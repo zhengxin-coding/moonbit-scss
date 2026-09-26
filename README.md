@@ -2,7 +2,7 @@
 
 **本项目仓库：[https://github.com/zhengxin-coding/moonbit-scss](https://github.com/zhengxin-coding/moonbit-scss)**
 
-模块 `zhengxin-coding/scss`，本地 **0.7.0**。自身代码 MIT；包含上游代码的发布内容同时保留 Apache-2.0，详见 [第三方说明](THIRD-PARTY-NOTICES.md)。本轮仅本地修订，未推送或发布。
+模块 `zhengxin-coding/scss`，本地 **0.8.0**。自身代码 MIT；包含上游代码的发布内容同时保留 Apache-2.0，详见 [第三方说明](THIRD-PARTY-NOTICES.md)。本轮仅本地修订，未推送或发布。
 
 ## 使用已有编译门面，扩展模块项目
 
@@ -11,6 +11,8 @@
 0.7.0 直接依赖 `conglinyizhi/precss@0.1.4`。新公开包 `zhengxin-coding/scss/precss` 提供 `project_engine`，把已有的虚拟项目 @use/@forward、配置、相对模块和有限 @extend 能力接到上游 `core.Engine` 契约。上游 Compiler 负责路由，SCSS 项目走扩展；CSS、LESS、缩进 SASS 可继续使用上游引擎。
 
 这是面向已有 precss 调用方的可选扩展，不是完整 Sass 替代，也不是已经被上游合并或认可。原有独立 `compile`/`compile_files` API 保留；底层 Sass 规则和算法不计为新发明。
+
+0.8.0 增加可复用多入口 `ProjectCompiler`，有直接依赖图、候选路径观察、原子文件编辑和有界入口缓存。旧单入口引擎继续保留。细节与纯MoonBit示例见[PROJECT-GRAPH.md](PROJECT-GRAPH.md)。
 
 ## 直接复现
 
@@ -30,9 +32,9 @@ node tools/compare-precss.mjs
 
 导入本库 `/precss` 和 `conglinyizhi/precss/core`，创建 `project_engine(entry, files)`，把它放在 `Compiler::new` 引擎列表的 SCSS 位置。以入口源码调用 `compile_with_format(source, Scss)`，或 `compile_input(SourceWithFormat(source, Scss))`。只要 CSS 字符串可用，可直接调用便捷函数 `compile_project(entry, files)`；它内部也经过上游 Compiler。
 
-**一份引擎绑定一个入口和虚拟文件快照。** 修改源码后创建新引擎，不依靠内容自动探测。precss 0.1.4 的文件回调不携带入口路径，扩展因此明确拒绝 compile_file/compile_many/compile_imports，避免相同源码在不同目录下解析到错误模块；不能把它写成这些 API 的通用替代。详见 [接入示例和限制](PRECSS-INTEGRATION.md)。
+旧 `project_engine` **一份引擎绑定一个入口和虚拟文件快照。** 修改源码后创建新引擎，不依靠内容自动探测。precss 0.1.4 的文件回调不携带入口路径，扩展因此明确拒绝 compile_file/compile_many/compile_imports，避免相同源码在不同目录下解析到错误模块；不能把它写成这些 API 的通用替代。详见 [接入示例和限制](PRECSS-INTEGRATION.md)。
 
-编译错误映射为上游 CompileError；on_diagnostic 回调传递 warn/debug。上游字符串接口无法返回 loaded_files，需要该元数据时仍用根包 compile_files。
+编译错误映射为上游 CompileError；on_diagnostic 回调传递 warn/debug。上游字符串接口无法返回 loaded_files；新ProjectCompiler的明确入口API保留CSS之外的加载文件、依赖图和失效信息，原compile_files仍可用。
 
 ## 证据与剩余边界
 

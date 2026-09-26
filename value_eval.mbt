@@ -9,6 +9,7 @@ priv struct Evaluation {
   css : Array[Array[CssRule]]
   extensions : Array[Extension]
   dependencies : Map[String, Array[String]]
+  watched : Map[String, Bool]
   diagnostics : Array[String]
 }
 
@@ -24,6 +25,7 @@ fn Evaluation::new() -> Evaluation {
     css: [],
     extensions: [],
     dependencies: Map([]),
+    watched: Map([]),
     diagnostics: [],
   }
 }

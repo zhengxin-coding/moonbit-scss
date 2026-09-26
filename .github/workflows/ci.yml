@@ -28,6 +28,9 @@ jobs:
       - run: npm ci --ignore-scripts
       - run: node examples/run-precss-project.mjs
       - run: node tools/compare-precss.mjs
+      - run: node tools/test-project-incremental.mjs
+      - run: moon run examples/project_session --target js
+      - run: moon run examples/project_session --target wasm-gc
       - run: node tools/test-sass-oracle.mjs
       - run: node tools/test-values.mjs
       - run: node tools/test-modules.mjs

@@ -1,0 +1,17 @@
+a/main.scss:
+.x {
+  width: 1px;
+}
+
+b/main.scss:
+.x {
+  width: 2px;
+}
+
+invalidated: ["a/main.scss"]
+b cached: true
+.x {
+  width: 3px;
+}
+
+[{"from":"a/main.scss","path":"a/_tokens.scss"}]

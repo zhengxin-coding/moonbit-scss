@@ -3,6 +3,7 @@ package "zhengxin-coding/scss/precss"
 
 import {
   "conglinyizhi/precss/core",
+  "zhengxin-coding/scss",
 }
 
 // Values
@@ -13,6 +14,12 @@ pub fn project_engine(String, Map[String, String], on_diagnostic? : (String) -> 
 // Errors
 
 // Types and methods
+pub struct ProjectCompiler {
+  // private fields
+}
+pub fn ProjectCompiler::apply(Self, Map[String, String?]) -> Array[String] raise @core.CompileError
+pub fn ProjectCompiler::compile(Self, String, on_diagnostic? : (String) -> Unit) -> @scss.ProjectOutput raise @core.CompileError
+pub fn ProjectCompiler::new(Map[String, String]) -> Self raise @core.CompileError
 
 // Type aliases
 

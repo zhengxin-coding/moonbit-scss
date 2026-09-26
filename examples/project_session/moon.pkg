@@ -1,0 +1,6 @@
+import {
+  "zhengxin-coding/scss",
+  "zhengxin-coding/scss/precss",
+}
+
+pkgtype(kind: "executable")

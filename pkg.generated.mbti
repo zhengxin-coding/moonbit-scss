@@ -22,6 +22,28 @@ pub(all) struct Compilation {
   diagnostics : Array[String]
 }
 
+pub(all) struct ModuleDependency {
+  from : String
+  path : String
+} derive(ToJson)
+pub fn ModuleDependency::to_json(Self) -> Json
+
+pub struct Project {
+  // private fields
+}
+pub fn Project::apply(Self, Map[String, String?]) -> Array[String] raise ParseError
+pub fn Project::compile(Self, String) -> ProjectOutput raise ParseError
+pub fn Project::new(Map[String, String]) -> Self raise ParseError
+pub fn Project::source(Self, String) -> String raise ParseError
+
+pub(all) struct ProjectOutput {
+  entry : String
+  compilation : Compilation
+  dependencies : Array[ModuleDependency]
+  watched_files : Array[String]
+  cache_hit : Bool
+}
+
 // Type aliases
 
 // Traits

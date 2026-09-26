@@ -9,6 +9,7 @@ pub(all) struct Compilation {
 ///|
 fn clean_path(path : String) -> String raise ParseError {
   if path.is_empty() ||
+    path.length() > 4096 ||
     path.has_prefix("/") ||
     path.contains("\\") ||
     path.contains(":") ||
@@ -60,6 +61,15 @@ fn Evaluation::resolve(
   let base = path[dir.length():].to_owned()
   let suffix = if base.has_suffix(".scss") { "" } else { ".scss" }
   let candidates = [path + suffix, dir + "_" + base + suffix]
+  // Absent candidates matter: adding a partial can make a previously valid
+  // resolution ambiguous; adding a direct file can replace an index module.
+  for candidate in candidates {
+    self.watched[candidate] = true
+  }
+  if !base.has_suffix(".scss") {
+    self.watched[path + "/index.scss"] = true
+    self.watched[path + "/_index.scss"] = true
+  }
   let found = candidates.filter(p => self.files.contains(p))
   if found.length() > 1 {
     raise Invalid("ambiguous module " + url)
@@ -88,6 +98,7 @@ fn Evaluation::load_file(
   configuration : Map[String, SassValue],
   strict? : Bool = true,
 ) -> Scope raise ParseError {
+  self.watched[path] = true
   if self.loading.last() is Some(owner) {
     let dependencies = self.dependencies.get_or_init(owner, () => [])
     if !dependencies.contains(path) {
@@ -150,10 +161,17 @@ pub fn compile_files(
   entry : String,
   files : Map[String, String],
 ) -> Compilation raise ParseError {
+  compile_tracked(entry, files).compilation
+}
+
+///|
+fn checked_files(
+  files : Map[String, String],
+) -> Map[String, String] raise ParseError {
   if files.is_empty() || files.length() > 256 {
     raise Invalid("virtual file count limit")
   }
-  let evaluation = Evaluation::new()
+  let checked : Map[String, String] = Map([])
   let mut size = 0
   for path, source in files {
     let path = clean_path(path)
@@ -167,16 +185,50 @@ pub fn compile_files(
     if size > 2000000 {
       raise Invalid("project source limit")
     }
-    if evaluation.files.contains(path) {
+    if checked.contains(path) {
       raise Invalid("duplicate canonical file path")
     }
+    checked[path] = source
+  }
+  checked
+}
+
+///|
+fn compile_tracked(
+  entry : String,
+  files : Map[String, String],
+) -> ProjectOutput raise ParseError {
+  let evaluation = Evaluation::new()
+  for path, source in checked_files(files) {
     evaluation.files[path] = source
   }
-  ignore(evaluation.load_file(clean_path(entry), Map([])))
+  let entry = clean_path(entry)
+  ignore(evaluation.load_file(entry, Map([])))
+  let dependencies : Array[ModuleDependency] = []
+  for from, children in evaluation.dependencies {
+    for dependency in children {
+      dependencies.push({ from, path: dependency, })
+    }
+  }
+  dependencies.sort_by((a, b) => {
+    if a.from == b.from {
+      a.path.compare(b.path)
+    } else {
+      a.from.compare(b.from)
+    }
+  })
+  let watched = evaluation.watched.keys().to_array()
+  watched.sort()
   {
-    css: evaluation.render_css(),
-    loaded_files: evaluation.order,
-    diagnostics: evaluation.diagnostics,
+    entry,
+    cache_hit: false,
+    watched_files: watched,
+    dependencies,
+    compilation: {
+      css: evaluation.render_css(),
+      loaded_files: evaluation.order,
+      diagnostics: evaluation.diagnostics,
+    },
   }
 }
 
