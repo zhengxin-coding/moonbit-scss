@@ -1,0 +1,11 @@
+{
+  "entry": "a/main.scss",
+  "files": {
+    "a/main.scss": "@use \"tokens\"; .a{width:tokens.$n}",
+    "a/_tokens.scss": "$n:1px;",
+    "b/main.scss": "@use \"tokens\"; .b{width:tokens.$n}",
+    "b/_tokens.scss": "$n:2px;",
+    "common/main.scss": "@use \"shared\"; .c{color:shared.$c}",
+    "common/_shared.scss": "$c:red;"
+  }
+}

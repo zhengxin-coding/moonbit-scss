@@ -18,3 +18,11 @@ apply先校验全部路径、规范化冲突和项目容量，成功后一次应
 旧 `project_engine` 仍绑定一个不可变入口快照；precss0.1.4的 `compile_imports(source,read)` 不带入口名，因此旧compile_file/compile_many仍拒绝。这不是假称修复了上游接口：新ProjectCompiler明确收入口名，并在内部逐次构造路由调用。
 
 `node tools/test-project-incremental.mjs` 用真实Dart Sass1.104.0文件解析器逐次对照28步编辑、19次编译，核对CSS、加载文件集合、缓存命中和失效，包括共享模块、同源码不同目录、缺失/歧义、原子拒绝、独立with配置。另保留旧六例三方关系对照和完整模块回归。输入为原创示例，不是客户迁移或全Sass兼容证明；结果见evidence/project-20260927。
+
+## 0.9.0 浏览器 Worker 会话
+
+本地工作台每个页面项目只创建一个 Worker；Worker 模块持有一个 MoonBit `ProjectCompiler`。首次载入以完整快照 `reset`，之后每次“编译”将变更/新增路径和 `null` 删除作为 `apply` delta，再编译当前显式入口。切换入口不重建对象，因此可以看到另一个入口 cache hit；UI 显示本次失效入口、依赖边和命中状态。
+
+导入或恢复示例会终止旧 Worker 并以新快照创建会话。编译错误立即清除旧 CSS；会话仍可接收修复。用户取消、五秒超时、Worker 加载/运行错误都会销毁 Worker 和缓存；下一次编译从当时完整编辑快照重新建立，不重放累计历史。这里的单实例状态由浏览器 Worker 生命周期限定，没有文件系统 watcher、磁盘读写、跨页面共享或并发多项目主张。
+
+复现实际 UI 事件和结果见 [evidence/browser-session-20260927](evidence/browser-session-20260927)。该场景与 API 层既有 28 步 Dart Sass 对照分开：新增证据只核验浏览器按钮/编辑事件确实驱动持久会话。

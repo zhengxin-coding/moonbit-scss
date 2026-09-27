@@ -1,8 +1,8 @@
-# SCSS：precss 的模块项目引擎扩展
+# SCSS：PreCSS 虚拟项目与浏览器会话扩展
 
 **本项目仓库：[https://github.com/zhengxin-coding/moonbit-scss](https://github.com/zhengxin-coding/moonbit-scss)**
 
-模块 `zhengxin-coding/scss`，本地 **0.8.0**。自身代码 MIT；包含上游代码的发布内容同时保留 Apache-2.0，详见 [第三方说明](THIRD-PARTY-NOTICES.md)。本轮仅本地修订，未推送或发布。
+模块 `zhengxin-coding/scss`，本地 **0.9.0**。自身代码 MIT；包含上游代码的发布内容同时保留 Apache-2.0，详见 [第三方说明](THIRD-PARTY-NOTICES.md)。本轮仅本地修订，未推送或发布。
 
 ## 使用已有编译门面，扩展模块项目
 
@@ -12,7 +12,7 @@
 
 这是面向已有 precss 调用方的可选扩展，不是完整 Sass 替代，也不是已经被上游合并或认可。原有独立 `compile`/`compile_files` API 保留；底层 Sass 规则和算法不计为新发明。
 
-0.8.0 增加可复用多入口 `ProjectCompiler`，有直接依赖图、候选路径观察、原子文件编辑和有界入口缓存。旧单入口引擎继续保留。细节与纯MoonBit示例见[PROJECT-GRAPH.md](PROJECT-GRAPH.md)。
+0.8.0 增加可复用多入口 `ProjectCompiler`，有直接依赖图、候选路径观察、原子文件编辑和有界入口缓存。0.9.0 将它接入浏览器工作台的长活 Worker：入口切换复用同一会话，编辑/添加/删除作为文件增量；重置或导入替换会话，失败清除旧 CSS，取消/超时销毁会话后下次全量重建。详见 [PROJECT-GRAPH.md](PROJECT-GRAPH.md)。这只服务于单个内存项目编辑会话，不提供磁盘 watcher 或一般构建器集成。
 
 ## 直接复现
 
@@ -40,7 +40,7 @@ node tools/compare-precss.mjs
 
 [同输入对照](PRECSS-INTEGRATION.md)使用真实 precss 0.1.4 和 Dart Sass 1.104.0，包含共享基础语法、三个增量场景及两个拒绝场景。六个选定案例不构成整个 Sass 的兼容率。新适配器另外检查快照、目录歧义、错误类型、诊断和显式格式路由。
 
-本库仍是 Sass 子集，模块配置、选择器扩展、颜色、导入器等边界沿用 [完整用法与模块范围](README-BEFORE-VALUE-REWORK.md)、[选择器说明](SELECTORS.md)、[颜色说明](COLORS.md)。暂无独立使用方、生产接入或上游接受证明。
+本库仍是 Sass 子集，模块配置、选择器扩展、颜色、导入器等边界沿用 [完整用法与模块范围](README-BEFORE-VALUE-REWORK.md)、[选择器说明](SELECTORS.md)、[颜色说明](COLORS.md)。浏览器闭环输入是原创合成项目；暂无独立使用方、生产接入或上游接受证明。
 
 [修订申报书](PROPOSAL.md)、[同类反馈回应](REVIEW-RESPONSE.md)、[使用任务](USE-CASE.md)、[验证命令](TESTING.md)。历史完整用法在 README-BEFORE-VALUE-REWORK.md；不以旧记录冒充本轮重跑。复申认定由组委会作出。
 

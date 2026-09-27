@@ -15,7 +15,11 @@ pkgtype(kind: "executable")
 options(
   link: {
     "js": {
-      "exports": [ "compile_project_json", "project_session_json" ],
+      "exports": [
+        "compile_project_json",
+        "project_session_json",
+        "project_session_message_json",
+      ],
       "format": "esm",
     },
   },

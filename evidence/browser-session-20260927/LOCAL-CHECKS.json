@@ -1,0 +1,125 @@
+{
+  "recordedAt": "2026-09-27T12:19:25Z",
+  "version": "0.9.0",
+  "localOnly": true,
+  "commands": [
+    {
+      "command": "moon check --target js",
+      "exitCode": 0,
+      "result": "Finished. moon: no work to do."
+    },
+    {
+      "command": "moon build --target js",
+      "exitCode": 0,
+      "result": "Finished. moon: no work to do."
+    },
+    {
+      "command": "node --check web/app.mjs",
+      "exitCode": 0
+    },
+    {
+      "command": "node --check web/worker.mjs",
+      "exitCode": 0
+    },
+    {
+      "command": "git diff --check",
+      "exitCode": 0,
+      "result": "clean after LF normalization"
+    }
+  ],
+  "generatedBundle": {
+    "source": "_build/js/debug/build/cmd/precss/precss.js",
+    "sourceSha256": "d40c160d3ba556affa0593b353f42da08aa359e42f1e69a346b7493460977180",
+    "target": "web/precss-engine.mjs",
+    "targetSha256": "d40c160d3ba556affa0593b353f42da08aa359e42f1e69a346b7493460977180",
+    "byteIdentical": true
+  },
+  "browserEvidence": "evidence/browser-session-20260927/BROWSER-SESSION.json",
+  "artifactHashes": {
+    "browserSession": "671a3f7413d9b83a5c3ad89d0fdf412e3acd8867aef025deb4966aa8da435a22",
+    "fixture": "cab5ffd25ed6fbc325c8fdd993b2216a4a725a6fd12efda2dbc494f7a107f161",
+    "actions": "895f9907994a4da80f0bd51c362a014ffdc5d36f4ebab65725c7f30e89c91768",
+    "evidenceFiles": {
+      "browser-project.json": "cab5ffd25ed6fbc325c8fdd993b2216a4a725a6fd12efda2dbc494f7a107f161",
+      "ACTIONS.md": "895f9907994a4da80f0bd51c362a014ffdc5d36f4ebab65725c7f30e89c91768",
+      ".playwright-cli/console-2026-09-27T11-48-48-576Z.log": "0b9641111d6d64e770945b1cc4c5d42a51ab6e8ff1f57e3a515448dab52b38fb",
+      ".playwright-cli/page-2026-09-27T11-49-52-382Z.yml": "eccd79b8d70910ed7f4008f5b62d3f2176ba48465232794e5e31fa5d7d2ee505",
+      ".playwright-cli/page-2026-09-27T11-51-43-547Z.yml": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      ".playwright-cli/page-2026-09-27T11-51-55-081Z.yml": "583d937ea081eac8469abada274d705dff802530c67d23bf6993a1f776aeca26",
+      ".playwright-cli/page-2026-09-27T11-54-20-910Z.yml": "c13d01b25bcabf1f14c2e88554459ef5bfc628bc1a6ecbdf6cdbfe93b0ddaf8c",
+      ".playwright-cli/page-2026-09-27T11-54-38-763Z.yml": "00cc9bccd4887fa70f5304eecaa141ded748e6b751e45646116c9cc000b2636c",
+      ".playwright-cli/page-2026-09-27T11-55-08-871Z.yml": "8f8aceb5f71c165d70ce78a5e7fa0c9c094920306c4842c311d76a07cebae89c",
+      ".playwright-cli/page-2026-09-27T11-55-55-609Z.yml": "be4a3b4f08bb07659aae06a6a06f6e10b2cc6d94a027e95067b4fb398665230a",
+      ".playwright-cli/page-2026-09-27T11-57-44-964Z.yml": "38cefc44be5a6a4f7c1485c6d2dd4391b9df1b93f4261a88bfd612c078158329",
+      ".playwright-cli/page-2026-09-27T11-58-05-185Z.yml": "523c5568ba4b286cb9f17c9fd95a81c6e074e120986e9a4f446352ad3067fb9a",
+      ".playwright-cli/page-2026-09-27T11-58-16-392Z.yml": "1cc1707525fcc49b526b5d7318a3c57ff7c3e8ea50b40d0d8e5fd0aeb81bfedd",
+      ".playwright-cli/page-2026-09-27T11-58-54-916Z.yml": "cc272a5afed52d80103a32cf747924e252d6aa8081794db96e10477194515c38",
+      ".playwright-cli/page-2026-09-27T11-59-26-237Z.yml": "acbe853b7fd9a03c2af863bc54ee5869926a61d11021289ff89a86e9e28d99d1",
+      ".playwright-cli/page-2026-09-27T11-59-49-242Z.yml": "5b550d8c3f8b8721475ae660b1ec244504c402b305bab5c96303c0b76c637f2e",
+      ".playwright-cli/page-2026-09-27T12-00-10-151Z.yml": "8b56bdaa1a8610da0560ac9f364cc44857aa5aca1ee36303ab655b233b2ae94d",
+      ".playwright-cli/page-2026-09-27T12-00-30-995Z.yml": "4afca1a1b8270177ca8803e46b9849277c898e22bd7eb4026df6ee25ee448130",
+      ".playwright-cli/page-2026-09-27T12-00-45-235Z.yml": "5bba6333b30871e5a00467dba7577a8255e0ef14a2faf4ad64ee675f5e2c9594",
+      ".playwright-cli/page-2026-09-27T12-01-23-058Z.yml": "d73f6a2db270621b462c3c99d7c2f70f5bc0cdb409d5abc9a14faa00c2f4cc1c",
+      ".playwright-cli/page-2026-09-27T12-01-34-543Z.yml": "188eb8c96189980d479c835538199e78b3d3bdd56a0281f6aa88c95f95c33300",
+      ".playwright-cli/page-2026-09-27T12-01-46-827Z.yml": "8f4250e4207bcd100a25580a15b0ad6ea80968b942615b9699b409f413aa6a0d",
+      ".playwright-cli/page-2026-09-27T12-02-25-009Z.yml": "8946b5e577cae27133cdcfbd255066745a8424f6b98d972b29b8200b7f24beb8",
+      ".playwright-cli/page-2026-09-27T12-03-01-582Z.yml": "1608c213566ffd0bde216cb91b7d1943252cf83b750281dbc2f98d2abcf955da",
+      ".playwright-cli/page-2026-09-27T12-03-55-524Z.png": "cdf43bbd2331a076c8b7fdc71097b564604cc3d2b296588aed462fee04a046ec",
+      ".playwright-cli/page-2026-09-27T12-07-11-470Z.yml": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      ".playwright-cli/page-2026-09-27T12-07-28-708Z.yml": "7a92eb8d151324e61f348e632605e27d04ec6b1157c575dc44a8eebd12011396",
+      ".playwright-cli/page-2026-09-27T12-08-02-584Z.yml": "199f0c73042490af10a0136b307cf59566f236c65130ac1e0deac63639a48879",
+      ".playwright-cli/page-2026-09-27T12-08-30-670Z.yml": "ed5e04a12618446ac2fd50590ed408ce683be538011ec093bcb6c1d638572391",
+      ".playwright-cli/page-2026-09-27T12-08-31-868Z.yml": "bfe133fdb117c2c3cebcc8e53edb88146830fecc793ecdfd80d6b069ef610687"
+    }
+  },
+  "sourceFingerprints": {
+    "PROJECT-GRAPH.md": "627cf8257d07894c04f7cefa1f5ec07daf4a22d64d7d6186290e6ccf7eef94f9",
+    "PROPOSAL.md": "6308faaca1765c301df0781e3222e962a20bccf5e5d4647db89a667d21e53015",
+    "README.md": "53922dd7f9c8526ce6168d7a2cd04fde24b4b797bbb6cb899f15573637982955",
+    "SUBMISSION.json": "9790ab3397321751ebb030f3c3781396ba16a00d14941c3fd5a5d720da7256c1",
+    "TESTING.md": "17d07500cbd42f741e2d13fcdfb5d4e6a8610ceb9566425a83ecf2b9e4f076b9",
+    "USE-CASE.md": "873cbc87fe5d944d1dfffa40db59e71b1dd80bd392e104f843c57bbce76b6c3d",
+    "cmd/precss/moon.pkg": "71c3381e78ff98fa469227b160f5ce2abc410b61eb70b2be23dc605d0bea8a18",
+    "cmd/precss/session.mbt": "42277c15137244d14390d78815f8d6ab27dc88c39e1034ceb8bbb149b4ba2d39",
+    "moon.mod": "7ad0dfffff9bbcabf7efe54b2effe59046fff76d1446c322ec7f5a39740eaac5",
+    "web/app.mjs": "0704766257515c71c9972ac74300b91bf678b26c8c97813e5542782f216c1ffc",
+    "web/config.mjs": "faf7f9dc1a48a1589208566adb49b9b0c6d5b10cfa40f789f26e73fe3212010d",
+    "web/precss-engine.mjs": "d40c160d3ba556affa0593b353f42da08aa359e42f1e69a346b7493460977180",
+    "web/worker.mjs": "b629f43953f547932def70d0f8f597ba4eec5023f9d3213fa6841b4135638c21",
+    "evidence/browser-session-20260927/BROWSER-SESSION.json": "671a3f7413d9b83a5c3ad89d0fdf412e3acd8867aef025deb4966aa8da435a22",
+    "evidence/browser-session-20260927/ACTIONS.md": "895f9907994a4da80f0bd51c362a014ffdc5d36f4ebab65725c7f30e89c91768",
+    "evidence/browser-session-20260927/browser-project.json": "cab5ffd25ed6fbc325c8fdd993b2216a4a725a6fd12efda2dbc494f7a107f161",
+    "evidence/browser-session-20260927/.playwright-cli/console-2026-09-27T11-48-48-576Z.log": "0b9641111d6d64e770945b1cc4c5d42a51ab6e8ff1f57e3a515448dab52b38fb",
+    "evidence/browser-session-20260927/.playwright-cli/page-2026-09-27T11-49-52-382Z.yml": "eccd79b8d70910ed7f4008f5b62d3f2176ba48465232794e5e31fa5d7d2ee505",
+    "evidence/browser-session-20260927/.playwright-cli/page-2026-09-27T11-51-43-547Z.yml": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "evidence/browser-session-20260927/.playwright-cli/page-2026-09-27T11-51-55-081Z.yml": "583d937ea081eac8469abada274d705dff802530c67d23bf6993a1f776aeca26",
+    "evidence/browser-session-20260927/.playwright-cli/page-2026-09-27T11-54-20-910Z.yml": "c13d01b25bcabf1f14c2e88554459ef5bfc628bc1a6ecbdf6cdbfe93b0ddaf8c",
+    "evidence/browser-session-20260927/.playwright-cli/page-2026-09-27T11-54-38-763Z.yml": "00cc9bccd4887fa70f5304eecaa141ded748e6b751e45646116c9cc000b2636c",
+    "evidence/browser-session-20260927/.playwright-cli/page-2026-09-27T11-55-08-871Z.yml": "8f8aceb5f71c165d70ce78a5e7fa0c9c094920306c4842c311d76a07cebae89c",
+    "evidence/browser-session-20260927/.playwright-cli/page-2026-09-27T11-55-55-609Z.yml": "be4a3b4f08bb07659aae06a6a06f6e10b2cc6d94a027e95067b4fb398665230a",
+    "evidence/browser-session-20260927/.playwright-cli/page-2026-09-27T11-57-44-964Z.yml": "38cefc44be5a6a4f7c1485c6d2dd4391b9df1b93f4261a88bfd612c078158329",
+    "evidence/browser-session-20260927/.playwright-cli/page-2026-09-27T11-58-05-185Z.yml": "523c5568ba4b286cb9f17c9fd95a81c6e074e120986e9a4f446352ad3067fb9a",
+    "evidence/browser-session-20260927/.playwright-cli/page-2026-09-27T11-58-16-392Z.yml": "1cc1707525fcc49b526b5d7318a3c57ff7c3e8ea50b40d0d8e5fd0aeb81bfedd",
+    "evidence/browser-session-20260927/.playwright-cli/page-2026-09-27T11-58-54-916Z.yml": "cc272a5afed52d80103a32cf747924e252d6aa8081794db96e10477194515c38",
+    "evidence/browser-session-20260927/.playwright-cli/page-2026-09-27T11-59-26-237Z.yml": "acbe853b7fd9a03c2af863bc54ee5869926a61d11021289ff89a86e9e28d99d1",
+    "evidence/browser-session-20260927/.playwright-cli/page-2026-09-27T11-59-49-242Z.yml": "5b550d8c3f8b8721475ae660b1ec244504c402b305bab5c96303c0b76c637f2e",
+    "evidence/browser-session-20260927/.playwright-cli/page-2026-09-27T12-00-10-151Z.yml": "8b56bdaa1a8610da0560ac9f364cc44857aa5aca1ee36303ab655b233b2ae94d",
+    "evidence/browser-session-20260927/.playwright-cli/page-2026-09-27T12-00-30-995Z.yml": "4afca1a1b8270177ca8803e46b9849277c898e22bd7eb4026df6ee25ee448130",
+    "evidence/browser-session-20260927/.playwright-cli/page-2026-09-27T12-00-45-235Z.yml": "5bba6333b30871e5a00467dba7577a8255e0ef14a2faf4ad64ee675f5e2c9594",
+    "evidence/browser-session-20260927/.playwright-cli/page-2026-09-27T12-01-23-058Z.yml": "d73f6a2db270621b462c3c99d7c2f70f5bc0cdb409d5abc9a14faa00c2f4cc1c",
+    "evidence/browser-session-20260927/.playwright-cli/page-2026-09-27T12-01-34-543Z.yml": "188eb8c96189980d479c835538199e78b3d3bdd56a0281f6aa88c95f95c33300",
+    "evidence/browser-session-20260927/.playwright-cli/page-2026-09-27T12-01-46-827Z.yml": "8f4250e4207bcd100a25580a15b0ad6ea80968b942615b9699b409f413aa6a0d",
+    "evidence/browser-session-20260927/.playwright-cli/page-2026-09-27T12-02-25-009Z.yml": "8946b5e577cae27133cdcfbd255066745a8424f6b98d972b29b8200b7f24beb8",
+    "evidence/browser-session-20260927/.playwright-cli/page-2026-09-27T12-03-01-582Z.yml": "1608c213566ffd0bde216cb91b7d1943252cf83b750281dbc2f98d2abcf955da",
+    "evidence/browser-session-20260927/.playwright-cli/page-2026-09-27T12-03-55-524Z.png": "cdf43bbd2331a076c8b7fdc71097b564604cc3d2b296588aed462fee04a046ec",
+    "evidence/browser-session-20260927/.playwright-cli/page-2026-09-27T12-07-11-470Z.yml": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "evidence/browser-session-20260927/.playwright-cli/page-2026-09-27T12-07-28-708Z.yml": "7a92eb8d151324e61f348e632605e27d04ec6b1157c575dc44a8eebd12011396",
+    "evidence/browser-session-20260927/.playwright-cli/page-2026-09-27T12-08-02-584Z.yml": "199f0c73042490af10a0136b307cf59566f236c65130ac1e0deac63639a48879",
+    "evidence/browser-session-20260927/.playwright-cli/page-2026-09-27T12-08-30-670Z.yml": "ed5e04a12618446ac2fd50590ed408ce683be538011ec093bcb6c1d638572391",
+    "evidence/browser-session-20260927/.playwright-cli/page-2026-09-27T12-08-31-868Z.yml": "bfe133fdb117c2c3cebcc8e53edb88146830fecc793ecdfd80d6b069ef610687"
+  },
+  "notRun": [
+    "full historical 28-step API suite; not repeated for this host-bridge change",
+    "cancellation and timeout branches in the browser"
+  ]
+}

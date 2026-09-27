@@ -458,7 +458,7 @@ function _M0TPC15debug7Content(param0, param1, param2) {
   this.lines = param1;
   this.needs_parens = param2;
 }
-function _M0TPC13ref3RefGORP217zhengxin_2dcoding4scss13ProjectOutputE(param0) {
+function _M0TPC13ref3RefGORP317zhengxin_2dcoding4scss6precss15ProjectCompilerE(param0) {
   this.val = param0;
 }
 function _M0TPC13ref3RefGiE(param0) {
@@ -472,43 +472,43 @@ function _M0DTPC16result6ResultGUiRPC16string10StringViewbERPB7FailureE2Ok(param
   this._0 = param0;
 }
 _M0DTPC16result6ResultGUiRPC16string10StringViewbERPB7FailureE2Ok.prototype.$tag = 1;
-function _M0DTPC15error5Error54conglinyizhi_2fprecss_2fcore_2eCompileError_2eNoEngine(param0) {
-  this._0 = param0;
-}
-_M0DTPC15error5Error54conglinyizhi_2fprecss_2fcore_2eCompileError_2eNoEngine.prototype.$tag = 9;
-function _M0DTPC15error5Error58conglinyizhi_2fprecss_2fcore_2eCompileError_2eEngineFailed(param0, param1) {
-  this._0 = param0;
-  this._1 = param1;
-}
-_M0DTPC15error5Error58conglinyizhi_2fprecss_2fcore_2eCompileError_2eEngineFailed.prototype.$tag = 8;
-function _M0DTPC15error5Error63conglinyizhi_2fprecss_2fcore_2eCompileError_2eUnsupportedSyntax(param0) {
-  this._0 = param0;
-}
-_M0DTPC15error5Error63conglinyizhi_2fprecss_2fcore_2eCompileError_2eUnsupportedSyntax.prototype.$tag = 7;
 function _M0DTPC15error5Error52moonbitlang_2fcore_2fjson_2eParseError_2eInvalidChar(param0, param1) {
   this._0 = param0;
   this._1 = param1;
 }
-_M0DTPC15error5Error52moonbitlang_2fcore_2fjson_2eParseError_2eInvalidChar.prototype.$tag = 6;
+_M0DTPC15error5Error52moonbitlang_2fcore_2fjson_2eParseError_2eInvalidChar.prototype.$tag = 9;
 function _M0DTPC15error5Error51moonbitlang_2fcore_2fjson_2eParseError_2eInvalidEof() {}
-_M0DTPC15error5Error51moonbitlang_2fcore_2fjson_2eParseError_2eInvalidEof.prototype.$tag = 5;
+_M0DTPC15error5Error51moonbitlang_2fcore_2fjson_2eParseError_2eInvalidEof.prototype.$tag = 8;
 const _M0DTPC15error5Error51moonbitlang_2fcore_2fjson_2eParseError_2eInvalidEof__ = new _M0DTPC15error5Error51moonbitlang_2fcore_2fjson_2eParseError_2eInvalidEof();
 function _M0DTPC15error5Error54moonbitlang_2fcore_2fjson_2eParseError_2eInvalidNumber(param0, param1) {
   this._0 = param0;
   this._1 = param1;
 }
-_M0DTPC15error5Error54moonbitlang_2fcore_2fjson_2eParseError_2eInvalidNumber.prototype.$tag = 4;
+_M0DTPC15error5Error54moonbitlang_2fcore_2fjson_2eParseError_2eInvalidNumber.prototype.$tag = 7;
 function _M0DTPC15error5Error59moonbitlang_2fcore_2fjson_2eParseError_2eInvalidIdentEscape(param0) {
   this._0 = param0;
 }
-_M0DTPC15error5Error59moonbitlang_2fcore_2fjson_2eParseError_2eInvalidIdentEscape.prototype.$tag = 3;
+_M0DTPC15error5Error59moonbitlang_2fcore_2fjson_2eParseError_2eInvalidIdentEscape.prototype.$tag = 6;
 function _M0DTPC15error5Error59moonbitlang_2fcore_2fjson_2eParseError_2eDepthLimitExceeded() {}
-_M0DTPC15error5Error59moonbitlang_2fcore_2fjson_2eParseError_2eDepthLimitExceeded.prototype.$tag = 2;
+_M0DTPC15error5Error59moonbitlang_2fcore_2fjson_2eParseError_2eDepthLimitExceeded.prototype.$tag = 5;
 const _M0DTPC15error5Error59moonbitlang_2fcore_2fjson_2eParseError_2eDepthLimitExceeded__ = new _M0DTPC15error5Error59moonbitlang_2fcore_2fjson_2eParseError_2eDepthLimitExceeded();
 function _M0DTPC15error5Error48moonbitlang_2fcore_2fbuiltin_2eFailure_2eFailure(param0) {
   this._0 = param0;
 }
-_M0DTPC15error5Error48moonbitlang_2fcore_2fbuiltin_2eFailure_2eFailure.prototype.$tag = 1;
+_M0DTPC15error5Error48moonbitlang_2fcore_2fbuiltin_2eFailure_2eFailure.prototype.$tag = 4;
+function _M0DTPC15error5Error54conglinyizhi_2fprecss_2fcore_2eCompileError_2eNoEngine(param0) {
+  this._0 = param0;
+}
+_M0DTPC15error5Error54conglinyizhi_2fprecss_2fcore_2eCompileError_2eNoEngine.prototype.$tag = 3;
+function _M0DTPC15error5Error58conglinyizhi_2fprecss_2fcore_2eCompileError_2eEngineFailed(param0, param1) {
+  this._0 = param0;
+  this._1 = param1;
+}
+_M0DTPC15error5Error58conglinyizhi_2fprecss_2fcore_2eCompileError_2eEngineFailed.prototype.$tag = 2;
+function _M0DTPC15error5Error63conglinyizhi_2fprecss_2fcore_2eCompileError_2eUnsupportedSyntax(param0) {
+  this._0 = param0;
+}
+_M0DTPC15error5Error63conglinyizhi_2fprecss_2fcore_2eCompileError_2eUnsupportedSyntax.prototype.$tag = 1;
 function _M0DTPC15error5Error47zhengxin_2dcoding_2fscss_2eParseError_2eInvalid(param0) {
   this._0 = param0;
 }
@@ -1543,39 +1543,71 @@ function _M0DTPC16result6ResultGRP217zhengxin_2dcoding4scss13ProjectOutputRP312c
   this._0 = param0;
 }
 _M0DTPC16result6ResultGRP217zhengxin_2dcoding4scss13ProjectOutputRP312conglinyizhi6precss4core12CompileErrorE2Ok.prototype.$tag = 1;
+function _M0DTPC16result6ResultGRPB3MapGssERPB7FailureE3Err(param0) {
+  this._0 = param0;
+}
+_M0DTPC16result6ResultGRPB3MapGssERPB7FailureE3Err.prototype.$tag = 0;
+function _M0DTPC16result6ResultGRPB3MapGssERPB7FailureE2Ok(param0) {
+  this._0 = param0;
+}
+_M0DTPC16result6ResultGRPB3MapGssERPB7FailureE2Ok.prototype.$tag = 1;
+function _M0DTPC16result6ResultGRPB3MapGssERPC15error5ErrorE3Err(param0) {
+  this._0 = param0;
+}
+_M0DTPC16result6ResultGRPB3MapGssERPC15error5ErrorE3Err.prototype.$tag = 0;
+function _M0DTPC16result6ResultGRPB3MapGssERPC15error5ErrorE2Ok(param0) {
+  this._0 = param0;
+}
+_M0DTPC16result6ResultGRPB3MapGssERPC15error5ErrorE2Ok.prototype.$tag = 1;
 function _M0TPB9ArrayViewGUsOsEE(param0, param1, param2) {
   this.buf = param0;
   this.start = param1;
   this.end = param2;
 }
+function _M0DTPC16result6ResultGRPB3MapGsOsERPB7FailureE3Err(param0) {
+  this._0 = param0;
+}
+_M0DTPC16result6ResultGRPB3MapGsOsERPB7FailureE3Err.prototype.$tag = 0;
+function _M0DTPC16result6ResultGRPB3MapGsOsERPB7FailureE2Ok(param0) {
+  this._0 = param0;
+}
+_M0DTPC16result6ResultGRPB3MapGsOsERPB7FailureE2Ok.prototype.$tag = 1;
+function _M0DTPC16result6ResultGRPB3MapGsOsERPC15error5ErrorE3Err(param0) {
+  this._0 = param0;
+}
+_M0DTPC16result6ResultGRPB3MapGsOsERPC15error5ErrorE3Err.prototype.$tag = 0;
+function _M0DTPC16result6ResultGRPB3MapGsOsERPC15error5ErrorE2Ok(param0) {
+  this._0 = param0;
+}
+_M0DTPC16result6ResultGRPB3MapGsOsERPC15error5ErrorE2Ok.prototype.$tag = 1;
 const _M0FP092moonbitlang_2fcore_2fbuiltin_2fStringBuilder_24as_24_40moonbitlang_2fcore_2fbuiltin_2eLogger = { method_0: _M0IPB13StringBuilderPB6Logger13write__string, method_1: _M0IP016_24default__implPB6Logger16write__substringGRPB13StringBuilderE, method_2: _M0IPB13StringBuilderPB6Logger11write__view, method_3: _M0IPB13StringBuilderPB6Logger11write__char, method_4: _M0IP016_24default__implPB6Logger28write__string__interpolationGRPB13StringBuilderE, method_5: _M0IP016_24default__implPB6Logger5writeGRPB13StringBuilderE };
 function _M0FP15Error8to__repr(_e) {
   switch (_e.$tag) {
     case 0: {
       return _M0IP217zhengxin_2dcoding4scss10ParseErrorPC15debug5Debug8to__reprGRP217zhengxin_2dcoding4scss10ParseErrorE(_e);
     }
-    case 8: {
+    case 2: {
       return _M0IP312conglinyizhi6precss4core12CompileErrorPC15debug5Debug8to__reprGRP312conglinyizhi6precss4core12CompileErrorE(_e);
     }
+    case 7: {
+      return _M0IPC14json10ParseErrorPC15debug5Debug8to__reprGRPC14json10ParseErrorE(_e);
+    }
     case 4: {
+      return _M0IPB7FailurePC15debug5Debug8to__reprGRPB7FailureE(_e);
+    }
+    case 8: {
+      return _M0IPC14json10ParseErrorPC15debug5Debug8to__reprGRPC14json10ParseErrorE(_e);
+    }
+    case 9: {
       return _M0IPC14json10ParseErrorPC15debug5Debug8to__reprGRPC14json10ParseErrorE(_e);
     }
     case 1: {
-      return _M0IPB7FailurePC15debug5Debug8to__reprGRPB7FailureE(_e);
-    }
-    case 5: {
-      return _M0IPC14json10ParseErrorPC15debug5Debug8to__reprGRPC14json10ParseErrorE(_e);
+      return _M0IP312conglinyizhi6precss4core12CompileErrorPC15debug5Debug8to__reprGRP312conglinyizhi6precss4core12CompileErrorE(_e);
     }
     case 6: {
       return _M0IPC14json10ParseErrorPC15debug5Debug8to__reprGRPC14json10ParseErrorE(_e);
     }
-    case 7: {
-      return _M0IP312conglinyizhi6precss4core12CompileErrorPC15debug5Debug8to__reprGRP312conglinyizhi6precss4core12CompileErrorE(_e);
-    }
-    case 3: {
-      return _M0IPC14json10ParseErrorPC15debug5Debug8to__reprGRPC14json10ParseErrorE(_e);
-    }
-    case 2: {
+    case 5: {
       return _M0IPC14json10ParseErrorPC15debug5Debug8to__reprGRPC14json10ParseErrorE(_e);
     }
     default: {
@@ -1695,13 +1727,14 @@ const _M0FPC14json17int__pow10__table = [1n, 10n, 100n, 1000n, 10000n, 100000n, 
 const _M0FPC14json12pow10__table = [1, 10, 100, 1000, 10000, 100000, 1000000, 10000000, 100000000, 1000000000, 10000000000, 100000000000, 1e+012, 1e+013, 1e+014, 1e+015, 1e+016, 1e+017, 1e+018, 1e+019, 1e+020, 1e+021, 1e+022, 0, 0, 0, 0, 0, 0, 0, 0, 0];
 const _M0FPC14json12checked__mulN6constrS1891 = 0n;
 const _M0FPB4seed = _M0FPB12random__seed();
-const _M0FPC28internal7strconv17check__underscoreN25_2atransition__table__222S230 = [5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 4, 5, 5, 5, 5, 5, 0, 1, 2, 5];
-const _M0FPC28internal7strconv15parse__inf__nanN25_2atransition__table__304S312 = [14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 3, 4, 14, 14, 14, 14, 14, 14, 14, 7, 14, 14, 14, 14, 5, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 6, 14, 14, 14, 0, 14, 14, 14, 14, 14, 14, 14, 14, 14, 8, 14, 14, 14, 14, 14, 1, 14, 14, 9, 14, 14, 14, 14, 14, 14, 14, 14, 10, 14, 14, 14, 14, 14, 14, 11, 14, 14, 14, 14, 14, 14, 14, 14, 14, 12, 14, 14, 14, 14, 14, 14, 14, 14, 13, 14, 1, 14, 14, 14, 14, 14, 14, 14];
 const _M0MPC16string10StringView4findN6constrS9865 = 0;
 const _M0FPC15debug6renderN6constrS1705 = 16;
 const _bind = [{ _0: "aliceblue", _1: { _0: 240, _1: 248, _2: 255, _3: 1 } }, { _0: "antiquewhite", _1: { _0: 250, _1: 235, _2: 215, _3: 1 } }, { _0: "aqua", _1: { _0: 0, _1: 255, _2: 255, _3: 1 } }, { _0: "aquamarine", _1: { _0: 127, _1: 255, _2: 212, _3: 1 } }, { _0: "azure", _1: { _0: 240, _1: 255, _2: 255, _3: 1 } }, { _0: "beige", _1: { _0: 245, _1: 245, _2: 220, _3: 1 } }, { _0: "bisque", _1: { _0: 255, _1: 228, _2: 196, _3: 1 } }, { _0: "black", _1: { _0: 0, _1: 0, _2: 0, _3: 1 } }, { _0: "blanchedalmond", _1: { _0: 255, _1: 235, _2: 205, _3: 1 } }, { _0: "blue", _1: { _0: 0, _1: 0, _2: 255, _3: 1 } }, { _0: "blueviolet", _1: { _0: 138, _1: 43, _2: 226, _3: 1 } }, { _0: "brown", _1: { _0: 165, _1: 42, _2: 42, _3: 1 } }, { _0: "burlywood", _1: { _0: 222, _1: 184, _2: 135, _3: 1 } }, { _0: "cadetblue", _1: { _0: 95, _1: 158, _2: 160, _3: 1 } }, { _0: "chartreuse", _1: { _0: 127, _1: 255, _2: 0, _3: 1 } }, { _0: "chocolate", _1: { _0: 210, _1: 105, _2: 30, _3: 1 } }, { _0: "coral", _1: { _0: 255, _1: 127, _2: 80, _3: 1 } }, { _0: "cornflowerblue", _1: { _0: 100, _1: 149, _2: 237, _3: 1 } }, { _0: "cornsilk", _1: { _0: 255, _1: 248, _2: 220, _3: 1 } }, { _0: "crimson", _1: { _0: 220, _1: 20, _2: 60, _3: 1 } }, { _0: "cyan", _1: { _0: 0, _1: 255, _2: 255, _3: 1 } }, { _0: "darkblue", _1: { _0: 0, _1: 0, _2: 139, _3: 1 } }, { _0: "darkcyan", _1: { _0: 0, _1: 139, _2: 139, _3: 1 } }, { _0: "darkgoldenrod", _1: { _0: 184, _1: 134, _2: 11, _3: 1 } }, { _0: "darkgray", _1: { _0: 169, _1: 169, _2: 169, _3: 1 } }, { _0: "darkgreen", _1: { _0: 0, _1: 100, _2: 0, _3: 1 } }, { _0: "darkgrey", _1: { _0: 169, _1: 169, _2: 169, _3: 1 } }, { _0: "darkkhaki", _1: { _0: 189, _1: 183, _2: 107, _3: 1 } }, { _0: "darkmagenta", _1: { _0: 139, _1: 0, _2: 139, _3: 1 } }, { _0: "darkolivegreen", _1: { _0: 85, _1: 107, _2: 47, _3: 1 } }, { _0: "darkorange", _1: { _0: 255, _1: 140, _2: 0, _3: 1 } }, { _0: "darkorchid", _1: { _0: 153, _1: 50, _2: 204, _3: 1 } }, { _0: "darkred", _1: { _0: 139, _1: 0, _2: 0, _3: 1 } }, { _0: "darksalmon", _1: { _0: 233, _1: 150, _2: 122, _3: 1 } }, { _0: "darkseagreen", _1: { _0: 143, _1: 188, _2: 143, _3: 1 } }, { _0: "darkslateblue", _1: { _0: 72, _1: 61, _2: 139, _3: 1 } }, { _0: "darkslategray", _1: { _0: 47, _1: 79, _2: 79, _3: 1 } }, { _0: "darkslategrey", _1: { _0: 47, _1: 79, _2: 79, _3: 1 } }, { _0: "darkturquoise", _1: { _0: 0, _1: 206, _2: 209, _3: 1 } }, { _0: "darkviolet", _1: { _0: 148, _1: 0, _2: 211, _3: 1 } }, { _0: "deeppink", _1: { _0: 255, _1: 20, _2: 147, _3: 1 } }, { _0: "deepskyblue", _1: { _0: 0, _1: 191, _2: 255, _3: 1 } }, { _0: "dimgray", _1: { _0: 105, _1: 105, _2: 105, _3: 1 } }, { _0: "dimgrey", _1: { _0: 105, _1: 105, _2: 105, _3: 1 } }, { _0: "dodgerblue", _1: { _0: 30, _1: 144, _2: 255, _3: 1 } }, { _0: "firebrick", _1: { _0: 178, _1: 34, _2: 34, _3: 1 } }, { _0: "floralwhite", _1: { _0: 255, _1: 250, _2: 240, _3: 1 } }, { _0: "forestgreen", _1: { _0: 34, _1: 139, _2: 34, _3: 1 } }, { _0: "fuchsia", _1: { _0: 255, _1: 0, _2: 255, _3: 1 } }, { _0: "gainsboro", _1: { _0: 220, _1: 220, _2: 220, _3: 1 } }, { _0: "ghostwhite", _1: { _0: 248, _1: 248, _2: 255, _3: 1 } }, { _0: "gold", _1: { _0: 255, _1: 215, _2: 0, _3: 1 } }, { _0: "goldenrod", _1: { _0: 218, _1: 165, _2: 32, _3: 1 } }, { _0: "gray", _1: { _0: 128, _1: 128, _2: 128, _3: 1 } }, { _0: "green", _1: { _0: 0, _1: 128, _2: 0, _3: 1 } }, { _0: "greenyellow", _1: { _0: 173, _1: 255, _2: 47, _3: 1 } }, { _0: "grey", _1: { _0: 128, _1: 128, _2: 128, _3: 1 } }, { _0: "honeydew", _1: { _0: 240, _1: 255, _2: 240, _3: 1 } }, { _0: "hotpink", _1: { _0: 255, _1: 105, _2: 180, _3: 1 } }, { _0: "indianred", _1: { _0: 205, _1: 92, _2: 92, _3: 1 } }, { _0: "indigo", _1: { _0: 75, _1: 0, _2: 130, _3: 1 } }, { _0: "ivory", _1: { _0: 255, _1: 255, _2: 240, _3: 1 } }, { _0: "khaki", _1: { _0: 240, _1: 230, _2: 140, _3: 1 } }, { _0: "lavender", _1: { _0: 230, _1: 230, _2: 250, _3: 1 } }, { _0: "lavenderblush", _1: { _0: 255, _1: 240, _2: 245, _3: 1 } }, { _0: "lawngreen", _1: { _0: 124, _1: 252, _2: 0, _3: 1 } }, { _0: "lemonchiffon", _1: { _0: 255, _1: 250, _2: 205, _3: 1 } }, { _0: "lightblue", _1: { _0: 173, _1: 216, _2: 230, _3: 1 } }, { _0: "lightcoral", _1: { _0: 240, _1: 128, _2: 128, _3: 1 } }, { _0: "lightcyan", _1: { _0: 224, _1: 255, _2: 255, _3: 1 } }, { _0: "lightgoldenrodyellow", _1: { _0: 250, _1: 250, _2: 210, _3: 1 } }, { _0: "lightgray", _1: { _0: 211, _1: 211, _2: 211, _3: 1 } }, { _0: "lightgreen", _1: { _0: 144, _1: 238, _2: 144, _3: 1 } }, { _0: "lightgrey", _1: { _0: 211, _1: 211, _2: 211, _3: 1 } }, { _0: "lightpink", _1: { _0: 255, _1: 182, _2: 193, _3: 1 } }, { _0: "lightsalmon", _1: { _0: 255, _1: 160, _2: 122, _3: 1 } }, { _0: "lightseagreen", _1: { _0: 32, _1: 178, _2: 170, _3: 1 } }, { _0: "lightskyblue", _1: { _0: 135, _1: 206, _2: 250, _3: 1 } }, { _0: "lightslategray", _1: { _0: 119, _1: 136, _2: 153, _3: 1 } }, { _0: "lightslategrey", _1: { _0: 119, _1: 136, _2: 153, _3: 1 } }, { _0: "lightsteelblue", _1: { _0: 176, _1: 196, _2: 222, _3: 1 } }, { _0: "lightyellow", _1: { _0: 255, _1: 255, _2: 224, _3: 1 } }, { _0: "lime", _1: { _0: 0, _1: 255, _2: 0, _3: 1 } }, { _0: "limegreen", _1: { _0: 50, _1: 205, _2: 50, _3: 1 } }, { _0: "linen", _1: { _0: 250, _1: 240, _2: 230, _3: 1 } }, { _0: "magenta", _1: { _0: 255, _1: 0, _2: 255, _3: 1 } }, { _0: "maroon", _1: { _0: 128, _1: 0, _2: 0, _3: 1 } }, { _0: "mediumaquamarine", _1: { _0: 102, _1: 205, _2: 170, _3: 1 } }, { _0: "mediumblue", _1: { _0: 0, _1: 0, _2: 205, _3: 1 } }, { _0: "mediumorchid", _1: { _0: 186, _1: 85, _2: 211, _3: 1 } }, { _0: "mediumpurple", _1: { _0: 147, _1: 112, _2: 219, _3: 1 } }, { _0: "mediumseagreen", _1: { _0: 60, _1: 179, _2: 113, _3: 1 } }, { _0: "mediumslateblue", _1: { _0: 123, _1: 104, _2: 238, _3: 1 } }, { _0: "mediumspringgreen", _1: { _0: 0, _1: 250, _2: 154, _3: 1 } }, { _0: "mediumturquoise", _1: { _0: 72, _1: 209, _2: 204, _3: 1 } }, { _0: "mediumvioletred", _1: { _0: 199, _1: 21, _2: 133, _3: 1 } }, { _0: "midnightblue", _1: { _0: 25, _1: 25, _2: 112, _3: 1 } }, { _0: "mintcream", _1: { _0: 245, _1: 255, _2: 250, _3: 1 } }, { _0: "mistyrose", _1: { _0: 255, _1: 228, _2: 225, _3: 1 } }, { _0: "moccasin", _1: { _0: 255, _1: 228, _2: 181, _3: 1 } }, { _0: "navajowhite", _1: { _0: 255, _1: 222, _2: 173, _3: 1 } }, { _0: "navy", _1: { _0: 0, _1: 0, _2: 128, _3: 1 } }, { _0: "oldlace", _1: { _0: 253, _1: 245, _2: 230, _3: 1 } }, { _0: "olive", _1: { _0: 128, _1: 128, _2: 0, _3: 1 } }, { _0: "olivedrab", _1: { _0: 107, _1: 142, _2: 35, _3: 1 } }, { _0: "orange", _1: { _0: 255, _1: 165, _2: 0, _3: 1 } }, { _0: "orangered", _1: { _0: 255, _1: 69, _2: 0, _3: 1 } }, { _0: "orchid", _1: { _0: 218, _1: 112, _2: 214, _3: 1 } }, { _0: "palegoldenrod", _1: { _0: 238, _1: 232, _2: 170, _3: 1 } }, { _0: "palegreen", _1: { _0: 152, _1: 251, _2: 152, _3: 1 } }, { _0: "paleturquoise", _1: { _0: 175, _1: 238, _2: 238, _3: 1 } }, { _0: "palevioletred", _1: { _0: 219, _1: 112, _2: 147, _3: 1 } }, { _0: "papayawhip", _1: { _0: 255, _1: 239, _2: 213, _3: 1 } }, { _0: "peachpuff", _1: { _0: 255, _1: 218, _2: 185, _3: 1 } }, { _0: "peru", _1: { _0: 205, _1: 133, _2: 63, _3: 1 } }, { _0: "pink", _1: { _0: 255, _1: 192, _2: 203, _3: 1 } }, { _0: "plum", _1: { _0: 221, _1: 160, _2: 221, _3: 1 } }, { _0: "powderblue", _1: { _0: 176, _1: 224, _2: 230, _3: 1 } }, { _0: "purple", _1: { _0: 128, _1: 0, _2: 128, _3: 1 } }, { _0: "rebeccapurple", _1: { _0: 102, _1: 51, _2: 153, _3: 1 } }, { _0: "red", _1: { _0: 255, _1: 0, _2: 0, _3: 1 } }, { _0: "rosybrown", _1: { _0: 188, _1: 143, _2: 143, _3: 1 } }, { _0: "royalblue", _1: { _0: 65, _1: 105, _2: 225, _3: 1 } }, { _0: "saddlebrown", _1: { _0: 139, _1: 69, _2: 19, _3: 1 } }, { _0: "salmon", _1: { _0: 250, _1: 128, _2: 114, _3: 1 } }, { _0: "sandybrown", _1: { _0: 244, _1: 164, _2: 96, _3: 1 } }, { _0: "seagreen", _1: { _0: 46, _1: 139, _2: 87, _3: 1 } }, { _0: "seashell", _1: { _0: 255, _1: 245, _2: 238, _3: 1 } }, { _0: "sienna", _1: { _0: 160, _1: 82, _2: 45, _3: 1 } }, { _0: "silver", _1: { _0: 192, _1: 192, _2: 192, _3: 1 } }, { _0: "skyblue", _1: { _0: 135, _1: 206, _2: 235, _3: 1 } }, { _0: "slateblue", _1: { _0: 106, _1: 90, _2: 205, _3: 1 } }, { _0: "slategray", _1: { _0: 112, _1: 128, _2: 144, _3: 1 } }, { _0: "slategrey", _1: { _0: 112, _1: 128, _2: 144, _3: 1 } }, { _0: "snow", _1: { _0: 255, _1: 250, _2: 250, _3: 1 } }, { _0: "springgreen", _1: { _0: 0, _1: 255, _2: 127, _3: 1 } }, { _0: "steelblue", _1: { _0: 70, _1: 130, _2: 180, _3: 1 } }, { _0: "tan", _1: { _0: 210, _1: 180, _2: 140, _3: 1 } }, { _0: "teal", _1: { _0: 0, _1: 128, _2: 128, _3: 1 } }, { _0: "thistle", _1: { _0: 216, _1: 191, _2: 216, _3: 1 } }, { _0: "tomato", _1: { _0: 255, _1: 99, _2: 71, _3: 1 } }, { _0: "transparent", _1: { _0: 0, _1: 0, _2: 0, _3: 0 } }, { _0: "turquoise", _1: { _0: 64, _1: 224, _2: 208, _3: 1 } }, { _0: "violet", _1: { _0: 238, _1: 130, _2: 238, _3: 1 } }, { _0: "wheat", _1: { _0: 245, _1: 222, _2: 179, _3: 1 } }, { _0: "white", _1: { _0: 255, _1: 255, _2: 255, _3: 1 } }, { _0: "whitesmoke", _1: { _0: 245, _1: 245, _2: 245, _3: 1 } }, { _0: "yellow", _1: { _0: 255, _1: 255, _2: 0, _3: 1 } }, { _0: "yellowgreen", _1: { _0: 154, _1: 205, _2: 50, _3: 1 } }];
 const _M0FP217zhengxin_2dcoding4scss13named__colors = _M0MPB3Map3MapGsUiiiiEE(new _M0TPB9ArrayViewGUsUiiiiEEE(_bind, 0, 149), undefined);
-function _M0FPC15abort5abortGsE(msg) {
+const _M0FPC28internal7strconv17check__underscoreN25_2atransition__table__222S230 = [5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 4, 5, 5, 5, 5, 5, 0, 1, 2, 5];
+const _M0FPC28internal7strconv15parse__inf__nanN25_2atransition__table__304S312 = [14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 3, 4, 14, 14, 14, 14, 14, 14, 14, 7, 14, 14, 14, 14, 5, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 6, 14, 14, 14, 0, 14, 14, 14, 14, 14, 14, 14, 14, 14, 8, 14, 14, 14, 14, 14, 1, 14, 14, 9, 14, 14, 14, 14, 14, 14, 14, 14, 10, 14, 14, 14, 14, 14, 14, 11, 14, 14, 14, 14, 14, 14, 14, 14, 14, 12, 14, 14, 14, 14, 14, 14, 14, 14, 13, 14, 1, 14, 14, 14, 14, 14, 14, 14];
+const _M0FP417zhengxin_2dcoding4scss3cmd6precss16project__session = _M0MPC13ref3Ref3RefGORP317zhengxin_2dcoding4scss6precss15ProjectCompilerE(undefined);
+function _M0FPC15abort5abortGRPB4JsonE(msg) {
   return $panic();
 }
 function _M0FPC15abort5abortGuE(msg) {
@@ -2030,7 +2063,7 @@ function _M0MPC16string10StringView12view_2einner(self, start_offset, end_offset
     const _Some = end_offset;
     end_offset$2 = _Some;
   }
-  return start_offset >= 0 && (start_offset <= end_offset$2 && end_offset$2 <= (self.end - self.start | 0)) ? new _M0TPC16string10StringView(self.str, self.start + start_offset | 0, self.start + end_offset$2 | 0) : _M0FPC15abort5abortGsE("Invalid index for View");
+  return start_offset >= 0 && (start_offset <= end_offset$2 && end_offset$2 <= (self.end - self.start | 0)) ? new _M0TPC16string10StringView(self.str, self.start + start_offset | 0, self.start + end_offset$2 | 0) : _M0FPC15abort5abortGRPB4JsonE("Invalid index for View");
 }
 function _M0MPC16uint646UInt648to__byte(self) {
   return (Number(BigInt.asIntN(32, self)) | 0) & 255;
@@ -2377,7 +2410,7 @@ function _M0MPC16string6String12view_2einner(self, start_offset, end_offset) {
     const _Some = end_offset;
     end_offset$2 = _Some;
   }
-  return start_offset >= 0 && (start_offset <= end_offset$2 && end_offset$2 <= self.length) ? new _M0TPC16string10StringView(self, start_offset, end_offset$2) : _M0FPC15abort5abortGsE("Invalid index for View");
+  return start_offset >= 0 && (start_offset <= end_offset$2 && end_offset$2 <= self.length) ? new _M0TPC16string10StringView(self, start_offset, end_offset$2) : _M0FPC15abort5abortGRPB4JsonE("Invalid index for View");
 }
 function _M0MPC16string6String11from__array(chars) {
   const buf = _M0MPB13StringBuilder21StringBuilder_2einner(Math.imul(chars.end - chars.start | 0, 4) | 0);
@@ -2696,7 +2729,7 @@ function _M0IPC16string6StringPB4Show10to__string(self) {
 }
 function _M0MPC16string6String6repeat(self, n) {
   if (n < 0) {
-    return _M0FPC15abort5abortGsE("negative repeat count");
+    return _M0FPC15abort5abortGRPB4JsonE("negative repeat count");
   } else {
     if (n === 0) {
       return "";
@@ -2731,7 +2764,7 @@ function _M0MPC16string6String6repeat(self, n) {
           }
           return _M0MPB13StringBuilder10to__string(buf);
         } else {
-          return _M0FPC15abort5abortGsE("repeat result too large");
+          return _M0FPC15abort5abortGRPB4JsonE("repeat result too large");
         }
       }
     }
@@ -5128,32 +5161,6 @@ function _M0MPB3Map3MapGssE(arr, capacity) {
   }
   return m;
 }
-function _M0MPB3Map3MapGsRP217zhengxin_2dcoding4scss13ProjectOutputE(arr, capacity) {
-  const length = arr.end - arr.start | 0;
-  let capacity$2;
-  if (capacity === undefined) {
-    capacity$2 = length === 0 ? 8 : _M0FPB21capacity__for__length(length);
-  } else {
-    const _Some = capacity;
-    const _capacity = _Some;
-    capacity$2 = _M0MPC13int3Int3max(_capacity, _M0FPB21capacity__for__length(length));
-  }
-  const m = _M0FPB8new__mapGsRPB4JsonE(capacity$2);
-  const _bind$2 = arr.end - arr.start | 0;
-  let _tmp = 0;
-  while (true) {
-    const _ = _tmp;
-    if (_ < _bind$2) {
-      const e = arr.buf[arr.start + _ | 0];
-      _M0MPB3Map3setGsRP217zhengxin_2dcoding4scss13ProjectOutputE(m, e._0, e._1);
-      _tmp = _ + 1 | 0;
-      continue;
-    } else {
-      break;
-    }
-  }
-  return m;
-}
 function _M0MPB3Map3MapGsbE(arr, capacity) {
   const length = arr.end - arr.start | 0;
   let capacity$2;
@@ -5172,6 +5179,32 @@ function _M0MPB3Map3MapGsbE(arr, capacity) {
     if (_ < _bind$2) {
       const e = arr.buf[arr.start + _ | 0];
       _M0MPB3Map3setGsbE(m, e._0, e._1);
+      _tmp = _ + 1 | 0;
+      continue;
+    } else {
+      break;
+    }
+  }
+  return m;
+}
+function _M0MPB3Map3MapGsRP217zhengxin_2dcoding4scss13ProjectOutputE(arr, capacity) {
+  const length = arr.end - arr.start | 0;
+  let capacity$2;
+  if (capacity === undefined) {
+    capacity$2 = length === 0 ? 8 : _M0FPB21capacity__for__length(length);
+  } else {
+    const _Some = capacity;
+    const _capacity = _Some;
+    capacity$2 = _M0MPC13int3Int3max(_capacity, _M0FPB21capacity__for__length(length));
+  }
+  const m = _M0FPB8new__mapGsRPB4JsonE(capacity$2);
+  const _bind$2 = arr.end - arr.start | 0;
+  let _tmp = 0;
+  while (true) {
+    const _ = _tmp;
+    if (_ < _bind$2) {
+      const e = arr.buf[arr.start + _ | 0];
+      _M0MPB3Map3setGsRP217zhengxin_2dcoding4scss13ProjectOutputE(m, e._0, e._1);
       _tmp = _ + 1 | 0;
       continue;
     } else {
@@ -7103,7 +7136,7 @@ function _M0MPC15array5Array12view_2einnerGsE(self, start, end) {
     const _bind$3 = end$2 - start | 0;
     return new _M0TPB9ArrayViewGsE(_bind$2, start, start + _bind$3 | 0);
   } else {
-    return _M0FPC15abort5abortGsE("View index out of bounds");
+    return _M0FPC15abort5abortGRPB4JsonE("View index out of bounds");
   }
 }
 function _M0MPC15array5Array12view_2einnerGcE(self, start, end) {
@@ -7121,7 +7154,7 @@ function _M0MPC15array5Array12view_2einnerGcE(self, start, end) {
     const _bind$3 = end$2 - start | 0;
     return new _M0TPB9ArrayViewGcE(_bind$2, start, start + _bind$3 | 0);
   } else {
-    return _M0FPC15abort5abortGsE("View index out of bounds");
+    return _M0FPC15abort5abortGRPB4JsonE("View index out of bounds");
   }
 }
 function _M0MPC15array5Array28unsafe__truncate__to__lengthGsE(self, new_len) {
@@ -7192,7 +7225,7 @@ function _M0MPC15array5Array6removeGsE(self, index) {
     _M0MPB13StringBuilder13write__objectGiE(_string_builder, self.length);
     _M0IPB13StringBuilderPB6Logger13write__string(_string_builder, " but the index is ");
     _M0MPB13StringBuilder13write__objectGiE(_string_builder, index);
-    return _M0FPC15abort5abortGsE(_M0MPB13StringBuilder10to__string(_string_builder));
+    return _M0FPC15abort5abortGRPB4JsonE(_M0MPB13StringBuilder10to__string(_string_builder));
   }
 }
 function _M0MPC15array5Array4copyGsE(self) {
@@ -8115,6 +8148,9 @@ function _M0MPC15debug4Repr4ReprGRPC15error5ErrorE(value) {
 }
 function _M0MPC15debug4Repr4ReprGRP217zhengxin_2dcoding4scss10ParseErrorE(value) {
   return _M0IP217zhengxin_2dcoding4scss10ParseErrorPC15debug5Debug8to__repr(value);
+}
+function _M0MPC15debug4Repr4ReprGRP312conglinyizhi6precss4core12CompileErrorE(value) {
+  return _M0IP312conglinyizhi6precss4core12CompileErrorPC15debug5Debug8to__repr(value);
 }
 function _M0MPC15debug4Repr8children(self) {
   let value;
@@ -9095,8 +9131,8 @@ function _M0IPB7FailurePC15debug5Debug8to__reprGRPB7FailureE(self) {
   const _msg = _Failure._0;
   return _M0MPC15debug4Repr4ctor("Failure", [{ _0: undefined, _1: _M0MPC15debug4Repr6string(_msg) }]);
 }
-function _M0MPC13ref3Ref3RefGORP217zhengxin_2dcoding4scss13ProjectOutputE(x) {
-  return new _M0TPC13ref3RefGORP217zhengxin_2dcoding4scss13ProjectOutputE(x);
+function _M0MPC13ref3Ref3RefGORP317zhengxin_2dcoding4scss6precss15ProjectCompilerE(x) {
+  return new _M0TPC13ref3RefGORP317zhengxin_2dcoding4scss6precss15ProjectCompilerE(x);
 }
 function _M0MPC13ref3Ref3RefGiE(x) {
   return new _M0TPC13ref3RefGiE(x);
@@ -11166,22 +11202,22 @@ function _M0FPC28internal7strconv13parse__double(str) {
 }
 function _M0IPC14json10ParseErrorPC15debug5Debug8to__reprGRPC14json10ParseErrorE(_x_813) {
   switch (_x_813.$tag) {
-    case 6: {
+    case 9: {
       const _InvalidChar = _x_813;
       const _$42$arg_814 = _InvalidChar._0;
       const _$42$arg_815 = _InvalidChar._1;
       return _M0MPC15debug4Repr4ctor("InvalidChar", [{ _0: undefined, _1: _M0IPC14json8PositionPC15debug5Debug8to__repr(_$42$arg_814) }, { _0: undefined, _1: _M0IPC14char4CharPC15debug5Debug8to__repr(_$42$arg_815) }]);
     }
-    case 5: {
+    case 8: {
       return _M0MPC15debug4Repr4ctor("InvalidEof", []);
     }
-    case 4: {
+    case 7: {
       const _InvalidNumber = _x_813;
       const _$42$arg_816 = _InvalidNumber._0;
       const _$42$arg_817 = _InvalidNumber._1;
       return _M0MPC15debug4Repr4ctor("InvalidNumber", [{ _0: undefined, _1: _M0IPC14json8PositionPC15debug5Debug8to__repr(_$42$arg_816) }, { _0: undefined, _1: _M0IPC16string6StringPC15debug5Debug8to__repr(_$42$arg_817) }]);
     }
-    case 3: {
+    case 6: {
       const _InvalidIdentEscape = _x_813;
       const _$42$arg_818 = _InvalidIdentEscape._0;
       return _M0MPC15debug4Repr4ctor("InvalidIdentEscape", [{ _0: undefined, _1: _M0IPC14json8PositionPC15debug5Debug8to__repr(_$42$arg_818) }]);
@@ -12343,7 +12379,7 @@ function _M0MPC14json12ParseContext13parse__value2(ctx, tok, remaining_available
       }
     }
   }
-  return new _M0DTPC16result6ResultGRPB4JsonRPC14json10ParseErrorE2Ok(_M0FPC15abort5abortGsE("unreachable"));
+  return new _M0DTPC16result6ResultGRPB4JsonRPC14json10ParseErrorE2Ok(_M0FPC15abort5abortGRPB4JsonE("unreachable"));
 }
 function _M0MPC14json12ParseContext12parse__array(ctx, remaining_available_depth) {
   if (remaining_available_depth <= 0) {
@@ -12772,6 +12808,43 @@ function _M0IPC14json4JsonPB6ToJson8to__json(self) {
 function _M0FPC14math3pow(_tmp, _tmp$2) {
   return Math.pow(_tmp, _tmp$2);
 }
+function _M0IP312conglinyizhi6precss4core12CompileErrorPC15debug5Debug8to__repr(_x_110) {
+  let _arg_114;
+  _L: {
+    let _arg_112;
+    let _arg_113;
+    _L$2: {
+      let _arg_111;
+      _L$3: {
+        switch (_x_110.$tag) {
+          case 3: {
+            const _NoEngine = _x_110;
+            const _$42$arg_111 = _NoEngine._0;
+            _arg_111 = _$42$arg_111;
+            break _L$3;
+          }
+          case 2: {
+            const _EngineFailed = _x_110;
+            const _$42$arg_112 = _EngineFailed._0;
+            const _$42$arg_113 = _EngineFailed._1;
+            _arg_112 = _$42$arg_112;
+            _arg_113 = _$42$arg_113;
+            break _L$2;
+          }
+          default: {
+            const _UnsupportedSyntax = _x_110;
+            const _$42$arg_114 = _UnsupportedSyntax._0;
+            _arg_114 = _$42$arg_114;
+            break _L;
+          }
+        }
+      }
+      return _M0MPC15debug4Repr4ctor("NoEngine", [{ _0: undefined, _1: _M0IP312conglinyizhi6precss4core6FormatPC15debug5Debug8to__repr(_arg_111) }]);
+    }
+    return _M0MPC15debug4Repr4ctor("EngineFailed", [{ _0: "engine", _1: _M0IPC16string6StringPC15debug5Debug8to__repr(_arg_112) }, { _0: "message", _1: _M0IPC16string6StringPC15debug5Debug8to__repr(_arg_113) }]);
+  }
+  return _M0MPC15debug4Repr4ctor("UnsupportedSyntax", [{ _0: undefined, _1: _M0IPC16string6StringPC15debug5Debug8to__repr(_arg_114) }]);
+}
 function _M0IP312conglinyizhi6precss4core12CompileErrorPC15debug5Debug8to__reprGRP312conglinyizhi6precss4core12CompileErrorE(_x_110) {
   let _arg_114;
   _L: {
@@ -12781,13 +12854,13 @@ function _M0IP312conglinyizhi6precss4core12CompileErrorPC15debug5Debug8to__reprG
       let _arg_111;
       _L$3: {
         switch (_x_110.$tag) {
-          case 9: {
+          case 3: {
             const _NoEngine = _x_110;
             const _$42$arg_111 = _NoEngine._0;
             _arg_111 = _$42$arg_111;
             break _L$3;
           }
-          case 8: {
+          case 2: {
             const _EngineFailed = _x_110;
             const _$42$arg_112 = _EngineFailed._0;
             const _$42$arg_113 = _EngineFailed._1;
@@ -28060,7 +28133,7 @@ function _M0MP217zhengxin_2dcoding4scss5Scope14call__function(self, name, args, 
   } else {
     return _bind$3;
   }
-  const returned = _M0MPC13ref3Ref3RefGORP217zhengxin_2dcoding4scss13ProjectOutputE(undefined);
+  const returned = _M0MPC13ref3Ref3RefGORP317zhengxin_2dcoding4scss6precss15ProjectCompilerE(undefined);
   const frame$2 = new _M0TP217zhengxin_2dcoding4scss5Scope(frame.vars, frame.mixins, frame.functions, frame.standard_modules, frame.module_scopes, frame.star_scopes, frame.forwarded_vars, frame.forwarded_mixins, frame.forwarded_functions, frame.configured, frame.configuration, frame.path, frame.evaluation, returned, frame.flow, frame.parent);
   const emitter = new _M0TP217zhengxin_2dcoding4scss7Emitter([], [], self.path, [], [], [], 0, 10000, 0, [], []);
   const _bind$4 = _M0FP217zhengxin_2dcoding4scss6render(definition.body, [], frame$2, emitter, depth + 1 | 0, undefined, false, "");
@@ -31448,7 +31521,7 @@ function _M0MP317zhengxin_2dcoding4scss6precss15ProjectCompiler15compile_2einner
     const error = _try_err;
     return new _M0DTPC16result6ResultGRP217zhengxin_2dcoding4scss13ProjectOutputRP312conglinyizhi6precss4core12CompileErrorE3Err(new _M0DTPC15error5Error58conglinyizhi_2fprecss_2fcore_2eCompileError_2eEngineFailed("moonbit-scss-project", _M0IP016_24default__implPB4Show10to__stringGRPC15debug4ReprE(_M0MPC15debug4Repr4ReprGRP217zhengxin_2dcoding4scss10ParseErrorE(error))));
   }
-  const retained = _M0MPC13ref3Ref3RefGORP217zhengxin_2dcoding4scss13ProjectOutputE(undefined);
+  const retained = _M0MPC13ref3Ref3RefGORP317zhengxin_2dcoding4scss6precss15ProjectCompilerE(undefined);
   const engine = _M0MP312conglinyizhi6precss4core6Engine3new(() => "moonbit-scss-project", (format) => _M0IP312conglinyizhi6precss4core6FormatPB2Eq5equal(format, 1), (_source) => {
     let result;
     let _try_err$2;
@@ -31566,6 +31639,305 @@ function _M0FP317zhengxin_2dcoding4scss6precss23project__engine_2einner(entry, f
     }
     return new _M0DTPC16result6ResultGsRP312conglinyizhi6precss4core12CompileErrorE2Ok(result.css);
   }, (_source, _read) => new _M0DTPC16result6ResultGsRP312conglinyizhi6precss4core12CompileErrorE3Err(new _M0DTPC15error5Error63conglinyizhi_2fprecss_2fcore_2eCompileError_2eUnsupportedSyntax("project engine needs an explicit bound entry; use compile_project or compile_with_format, not compile_file/compile_many"))));
+}
+function _M0FP417zhengxin_2dcoding4scss3cmd6precss23project__session__error(error, session_ready, applied, invalidated) {
+  const _bind$2 = [{ _0: "ok", _1: _M0MPC14json4Json7boolean(false) }, { _0: "session_ready", _1: _M0IPC14bool4BoolPB6ToJson8to__json(session_ready) }, { _0: "applied", _1: _M0IPC14bool4BoolPB6ToJson8to__json(applied) }, { _0: "invalidated", _1: _M0IPC15array5ArrayPB6ToJson8to__jsonGsE(invalidated) }, { _0: "error", _1: _M0IPC16string6StringPB6ToJson8to__json(error) }];
+  return _M0MPC14json4Json17stringify_2einner(_M0MPC14json4Json6object(_M0MPB3Map3MapGsRPB4JsonE(new _M0TPB9ArrayViewGUsRPB4JsonEE(_bind$2, 0, 5), undefined)), false, 0, undefined);
+}
+function _M0FP417zhengxin_2dcoding4scss3cmd6precss23project__session__files(raw) {
+  const _bind$2 = [];
+  const files = _M0MPB3Map3MapGssE(new _M0TPB9ArrayViewGUssEE(_bind$2, 0, 0), undefined);
+  const _it = _M0MPB3Map5iter2GsRPB4JsonE(raw);
+  while (true) {
+    let path;
+    let value;
+    _L: {
+      const _bind$3 = _M0MPB5Iter24nextGsRPB4JsonE(_it);
+      if (_bind$3 === undefined) {
+        break;
+      } else {
+        const _Some = _bind$3;
+        const _x = _Some;
+        const _path = _x._0;
+        const _value = _x._1;
+        path = _path;
+        value = _value;
+        break _L;
+      }
+    }
+    let source;
+    _L$2: {
+      if (value.$tag === 4) {
+        const _String = value;
+        const _source = _String._0;
+        source = _source;
+        break _L$2;
+      } else {
+        return new _M0DTPC16result6ResultGRPB3MapGssERPB7FailureE3Err(new _M0DTPC15error5Error48moonbitlang_2fcore_2fbuiltin_2eFailure_2eFailure("source must be string"));
+      }
+    }
+    _M0MPB3Map3setGssE(files, path, source);
+    continue;
+  }
+  return new _M0DTPC16result6ResultGRPB3MapGssERPC15error5ErrorE2Ok(files);
+}
+function _M0FP417zhengxin_2dcoding4scss3cmd6precss25project__session__changes(raw) {
+  const _bind$2 = [];
+  const changes = _M0MPB3Map3MapGsOsE(new _M0TPB9ArrayViewGUsOsEE(_bind$2, 0, 0), undefined);
+  const _it = _M0MPB3Map5iter2GsRPB4JsonE(raw);
+  while (true) {
+    let path;
+    let value;
+    _L: {
+      const _bind$3 = _M0MPB5Iter24nextGsRPB4JsonE(_it);
+      if (_bind$3 === undefined) {
+        break;
+      } else {
+        const _Some = _bind$3;
+        const _x = _Some;
+        const _path = _x._0;
+        const _value = _x._1;
+        path = _path;
+        value = _value;
+        break _L;
+      }
+    }
+    let source;
+    _L$2: {
+      _L$3: {
+        switch (value.$tag) {
+          case 4: {
+            const _String = value;
+            const _source = _String._0;
+            source = _source;
+            break _L$3;
+          }
+          case 0: {
+            _M0MPB3Map3setGsOsE(changes, path, undefined);
+            break;
+          }
+          default: {
+            return new _M0DTPC16result6ResultGRPB3MapGsOsERPB7FailureE3Err(new _M0DTPC15error5Error48moonbitlang_2fcore_2fbuiltin_2eFailure_2eFailure("update must be string or null"));
+          }
+        }
+        break _L$2;
+      }
+      _M0MPB3Map3setGsOsE(changes, path, source);
+    }
+    continue;
+  }
+  return new _M0DTPC16result6ResultGRPB3MapGsOsERPC15error5ErrorE2Ok(changes);
+}
+function _M0FP417zhengxin_2dcoding4scss3cmd6precss25project__session__compile(project, entry, applied, invalidated) {
+  let _try_err;
+  _L: {
+    const _bind$2 = _M0MP317zhengxin_2dcoding4scss6precss15ProjectCompiler7compile(project, entry, undefined);
+    let result;
+    if (_bind$2.$tag === 1) {
+      const _ok = _bind$2;
+      result = _ok._0;
+    } else {
+      const _err = _bind$2;
+      _try_err = _err._0;
+      break _L;
+    }
+    const _bind$3 = [{ _0: "ok", _1: _M0MPC14json4Json7boolean(true) }, { _0: "session_ready", _1: _M0MPC14json4Json7boolean(true) }, { _0: "applied", _1: _M0IPC14bool4BoolPB6ToJson8to__json(applied) }, { _0: "invalidated", _1: _M0IPC15array5ArrayPB6ToJson8to__jsonGsE(invalidated) }, { _0: "entry", _1: _M0IPC16string6StringPB6ToJson8to__json(result.entry) }, { _0: "css", _1: _M0IPC16string6StringPB6ToJson8to__json(result.compilation.css) }, { _0: "loaded_files", _1: _M0IPC15array5ArrayPB6ToJson8to__jsonGsE(result.compilation.loaded_files) }, { _0: "diagnostics", _1: _M0IPC15array5ArrayPB6ToJson8to__jsonGsE(result.compilation.diagnostics) }, { _0: "dependencies", _1: _M0IPC15array5ArrayPB6ToJson8to__jsonGRP217zhengxin_2dcoding4scss16ModuleDependencyE(result.dependencies) }, { _0: "watched_files", _1: _M0IPC15array5ArrayPB6ToJson8to__jsonGsE(result.watched_files) }, { _0: "cache_hit", _1: _M0IPC14bool4BoolPB6ToJson8to__json(result.cache_hit) }];
+    return _M0MPC14json4Json17stringify_2einner(_M0MPC14json4Json6object(_M0MPB3Map3MapGsRPB4JsonE(new _M0TPB9ArrayViewGUsRPB4JsonEE(_bind$3, 0, 11), undefined)), false, 0, undefined);
+  }
+  const error = _try_err;
+  return _M0FP417zhengxin_2dcoding4scss3cmd6precss23project__session__error(_M0IP016_24default__implPB4Show10to__stringGRPC15debug4ReprE(_M0MPC15debug4Repr4ReprGRP312conglinyizhi6precss4core12CompileErrorE(error)), true, applied, invalidated);
+}
+function _M0FP417zhengxin_2dcoding4scss3cmd6precss31project__session__message__json(input) {
+  let _try_err;
+  _L: {
+    if (input.length > 2097152) {
+      _try_err = new _M0DTPC15error5Error48moonbitlang_2fcore_2fbuiltin_2eFailure_2eFailure("request limit");
+      break _L;
+    }
+    _L$2: {
+      let raw;
+      let entry;
+      _L$3: {
+        let raw$2;
+        let entry$2;
+        _L$4: {
+          const _bind$2 = _M0FPC14json13parse_2einner(new _M0TPC16string10StringView(input, 0, input.length), 1024);
+          let _bind$3;
+          if (_bind$2.$tag === 1) {
+            const _ok = _bind$2;
+            _bind$3 = _ok._0;
+          } else {
+            const _err = _bind$2;
+            _try_err = _err._0;
+            break _L;
+          }
+          if (_bind$3.$tag === 6) {
+            const _Object = _bind$3;
+            const _x = _Object._0;
+            const _x$2 = _M0MPB3Map3getGsRPB4JsonE(_x, "op");
+            if (_x$2 === undefined) {
+              break _L$2;
+            } else {
+              const _Some = _x$2;
+              const _x$3 = _Some;
+              if (_x$3.$tag === 4) {
+                const _String = _x$3;
+                const _x$4 = _String._0;
+                switch (_x$4) {
+                  case "reset": {
+                    const _x$5 = _M0MPB3Map3getGsRPB4JsonE(_x, "files");
+                    if (_x$5 === undefined) {
+                      break _L$2;
+                    } else {
+                      const _Some$2 = _x$5;
+                      const _x$6 = _Some$2;
+                      if (_x$6.$tag === 6) {
+                        const _Object$2 = _x$6;
+                        const _raw = _Object$2._0;
+                        const _x$7 = _M0MPB3Map3getGsRPB4JsonE(_x, "entry");
+                        if (_x$7 === undefined) {
+                          break _L$2;
+                        } else {
+                          const _Some$3 = _x$7;
+                          const _x$8 = _Some$3;
+                          if (_x$8.$tag === 4) {
+                            const _String$2 = _x$8;
+                            const _entry = _String$2._0;
+                            raw$2 = _raw;
+                            entry$2 = _entry;
+                            break _L$4;
+                          } else {
+                            break _L$2;
+                          }
+                        }
+                      } else {
+                        break _L$2;
+                      }
+                    }
+                  }
+                  case "run": {
+                    const _x$6 = _M0MPB3Map3getGsRPB4JsonE(_x, "changes");
+                    if (_x$6 === undefined) {
+                      break _L$2;
+                    } else {
+                      const _Some$2 = _x$6;
+                      const _x$7 = _Some$2;
+                      if (_x$7.$tag === 6) {
+                        const _Object$2 = _x$7;
+                        const _raw = _Object$2._0;
+                        const _x$8 = _M0MPB3Map3getGsRPB4JsonE(_x, "entry");
+                        if (_x$8 === undefined) {
+                          break _L$2;
+                        } else {
+                          const _Some$3 = _x$8;
+                          const _x$9 = _Some$3;
+                          if (_x$9.$tag === 4) {
+                            const _String$2 = _x$9;
+                            const _entry = _String$2._0;
+                            raw = _raw;
+                            entry = _entry;
+                            break _L$3;
+                          } else {
+                            break _L$2;
+                          }
+                        }
+                      } else {
+                        break _L$2;
+                      }
+                    }
+                  }
+                  case "close": {
+                    _M0FP417zhengxin_2dcoding4scss3cmd6precss16project__session.val = undefined;
+                    const _bind$4 = [{ _0: "ok", _1: _M0MPC14json4Json7boolean(true) }, { _0: "session_ready", _1: _M0MPC14json4Json7boolean(false) }, { _0: "closed", _1: _M0MPC14json4Json7boolean(true) }];
+                    return _M0MPC14json4Json17stringify_2einner(_M0MPC14json4Json6object(_M0MPB3Map3MapGsRPB4JsonE(new _M0TPB9ArrayViewGUsRPB4JsonEE(_bind$4, 0, 3), undefined)), false, 0, undefined);
+                  }
+                  default: {
+                    break _L$2;
+                  }
+                }
+              } else {
+                break _L$2;
+              }
+            }
+          } else {
+            break _L$2;
+          }
+        }
+        _M0FP417zhengxin_2dcoding4scss3cmd6precss16project__session.val = undefined;
+        let _try_err$2;
+        _L$5: {
+          const _bind$2 = _M0FP417zhengxin_2dcoding4scss3cmd6precss23project__session__files(raw$2);
+          let files;
+          if (_bind$2.$tag === 1) {
+            const _ok = _bind$2;
+            files = _ok._0;
+          } else {
+            const _err = _bind$2;
+            _try_err$2 = _err._0;
+            break _L$5;
+          }
+          const _bind$3 = _M0MP317zhengxin_2dcoding4scss6precss15ProjectCompiler3new(files);
+          let project;
+          if (_bind$3.$tag === 1) {
+            const _ok = _bind$3;
+            project = _ok._0;
+          } else {
+            const _err = _bind$3;
+            _try_err$2 = _err._0;
+            break _L$5;
+          }
+          _M0FP417zhengxin_2dcoding4scss3cmd6precss16project__session.val = project;
+          return _M0FP417zhengxin_2dcoding4scss3cmd6precss25project__session__compile(project, entry$2, true, []);
+        }
+        const error = _try_err$2;
+        return _M0FP417zhengxin_2dcoding4scss3cmd6precss23project__session__error(_M0IP016_24default__implPB4Show10to__stringGRPC15debug4ReprE(_M0MPC15debug4Repr4ReprGRPC15error5ErrorE(error)), false, false, []);
+      }
+      let project;
+      _L$4: {
+        const _bind$2 = _M0FP417zhengxin_2dcoding4scss3cmd6precss16project__session.val;
+        if (_bind$2 === undefined) {
+          return _M0FP417zhengxin_2dcoding4scss3cmd6precss23project__session__error("session is not open", false, false, []);
+        } else {
+          const _Some = _bind$2;
+          const _project = _Some;
+          project = _project;
+          break _L$4;
+        }
+      }
+      let _try_err$2;
+      _L$5: {
+        const _bind$2 = _M0FP417zhengxin_2dcoding4scss3cmd6precss25project__session__changes(raw);
+        let changes;
+        if (_bind$2.$tag === 1) {
+          const _ok = _bind$2;
+          changes = _ok._0;
+        } else {
+          const _err = _bind$2;
+          _try_err$2 = _err._0;
+          break _L$5;
+        }
+        const _bind$3 = _M0MP317zhengxin_2dcoding4scss6precss15ProjectCompiler5apply(project, changes);
+        let invalidated;
+        if (_bind$3.$tag === 1) {
+          const _ok = _bind$3;
+          invalidated = _ok._0;
+        } else {
+          const _err = _bind$3;
+          _try_err$2 = _err._0;
+          break _L$5;
+        }
+        return _M0FP417zhengxin_2dcoding4scss3cmd6precss25project__session__compile(project, entry, true, invalidated);
+      }
+      const error = _try_err$2;
+      return _M0FP417zhengxin_2dcoding4scss3cmd6precss23project__session__error(_M0IP016_24default__implPB4Show10to__stringGRPC15debug4ReprE(_M0MPC15debug4Repr4ReprGRPC15error5ErrorE(error)), true, false, []);
+    }
+    const _bind$2 = _M0FP417zhengxin_2dcoding4scss3cmd6precss16project__session.val;
+    return _M0FP417zhengxin_2dcoding4scss3cmd6precss23project__session__error("expected reset, run, or close command", !(_bind$2 === undefined), false, []);
+  }
+  const error = _try_err;
+  const _tmp = _M0IP016_24default__implPB4Show10to__stringGRPC15debug4ReprE(_M0MPC15debug4Repr4ReprGRPC15error5ErrorE(error));
+  const _bind$2 = _M0FP417zhengxin_2dcoding4scss3cmd6precss16project__session.val;
+  return _M0FP417zhengxin_2dcoding4scss3cmd6precss23project__session__error(_tmp, !(_bind$2 === undefined), false, []);
 }
 function _M0FP417zhengxin_2dcoding4scss3cmd6precss22project__session__json(input) {
   let _try_err;
@@ -32157,5 +32529,5 @@ function _M0FP417zhengxin_2dcoding4scss3cmd6precss22compile__project__json(input
 }
 (() => {
 })();
-export { _M0FP417zhengxin_2dcoding4scss3cmd6precss22project__session__json as project_session_json, _M0FP417zhengxin_2dcoding4scss3cmd6precss22compile__project__json as compile_project_json }
+export { _M0FP417zhengxin_2dcoding4scss3cmd6precss31project__session__message__json as project_session_message_json, _M0FP417zhengxin_2dcoding4scss3cmd6precss22project__session__json as project_session_json, _M0FP417zhengxin_2dcoding4scss3cmd6precss22compile__project__json as compile_project_json }
 //# sourceMappingURL=precss.js.map

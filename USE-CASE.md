@@ -1,9 +1,9 @@
-# 在 precss 编译门面中处理 SCSS 模块项目
+# 在本地浏览器工作台编辑虚拟 SCSS 项目
 
-按 README 构建后运行 node examples/run-precss-project.mjs。输入为 examples/precss-project.json 的原创合成项目：styles/main.scss 使用 theme/_index.scss 转发的 tokens，配置 gap=8px，再调用模块 mixin。
+打开 `start-review.ps1` 输出的本地 `/web/` 页面。此页面是当前实际接入 ProjectCompiler 的宿主：导入文件 Map 后建立一个 Worker 会话；编辑、添加和移除文件在下次编译时转为 `apply` 增量，切换入口复用同一 ProjectCompiler。界面显示入口缓存命中、本次失效入口、加载文件与依赖边。
 
-同一个真实上游 Compiler 输出主项目 .panel 的 8px padding 和 .panel .title 的 4px margin；附加 CSS 原样保留，LESS 变量变成 3px padding，缩进 SASS 变成 blue 声明。这三种格式仍来自上游，脚本对内容作断言。
+可复现输入及操作记录见 `evidence/browser-session-20260927`。它覆盖两个目录的同源码入口、修改 a 入口依赖后只失效 a 而 b 命中缓存、增加候选模块触发歧义拒绝并删除恢复、删除共享模块失败再恢复。测试使用原创合成文件，不是外部项目或客户迁移。
 
-这说明已有 precss 的调度/格式体系可与本项目的有限模块编译组合，不证明真实用户迁移、全语言兼容或上游背书。单项目引擎绑定入口，不能通过 compile_file/compile_many 猜测来源路径；实际调用采用显式 Scss 源码入口。
+导入/恢复示例会替换整个会话；失败编译清除旧 CSS 预览。取消、超时或 Worker 错误会释放当前会话，下次点击从当前快照重建。此工作台只读写浏览器内存和用户显式导入/导出文件，不提供磁盘监听、自动写盘、一般 Sass watcher、Vite 插件或完整 Sass 兼容。
 
-node tools/compare-precss.mjs 使用固定 precss 和 Dart Sass 版本实跑六个选择案例；双方结果全部保存，不把原引擎的共同能力隐去。原独立多文件 CLI 仍可运行 node tools/cli.mjs --project examples/use-case --entry main.scss。
+现有 `node tools/test-project-incremental.mjs` 另用 Dart Sass 1.104.0 对照 28 步 API 编辑序列；浏览器证据不替代该参考，也不把综合对照步骤重新算作新的浏览器实测。

@@ -1,0 +1,68 @@
+- generic [active] [ref=f2e1]:
+  - banner [ref=f2e2]:
+    - generic [ref=f2e3]: M
+    - generic [ref=f2e4]: MOONBIT / LOCAL TOOLS
+    - generic [ref=f2e5]: v0.9.0
+  - main [ref=f2e6]:
+    - generic [ref=f2e7]:
+      - generic [ref=f2e8]:
+        - paragraph [ref=f2e9]: 样式，从一个项目开始
+        - heading "SCSS 工作台" [level=1] [ref=f2e10]
+        - paragraph [ref=f2e11]: 编辑模块、配置变量，把样式编译成 CSS。文件在本地浏览器中处理。
+      - generic [ref=f2e12]: 本地运行
+    - generic [ref=f2e13]:
+      - generic [ref=f2e14]:
+        - text: 编译入口
+        - combobox "编译入口" [ref=f2e15]:
+          - option "a/main.scss"
+          - option "a/_tokens.scss"
+          - option "b/main.scss" [selected]
+          - option "b/_tokens.scss"
+          - option "common/main.scss"
+          - option "common/_shared.scss"
+      - generic [ref=f2e16]:
+        - button "导入项目" [ref=f2e17] [cursor=pointer]
+        - button "导出项目" [ref=f2e18] [cursor=pointer]
+        - button "恢复示例" [ref=f2e19] [cursor=pointer]
+    - generic [ref=f2e20]:
+      - generic [ref=f2e21]:
+        - generic [ref=f2e22]:
+          - generic [ref=f2e23]: 项目文件
+          - combobox "当前文件" [ref=f2e24]:
+            - option "a/main.scss" [selected]
+            - option "a/_tokens.scss"
+            - option "b/main.scss"
+            - option "b/_tokens.scss"
+            - option "common/main.scss"
+            - option "common/_shared.scss"
+          - button "移除" [ref=f2e25] [cursor=pointer]
+        - generic [ref=f2e26]:
+          - textbox "新文件名" [ref=f2e27]:
+            - /placeholder: theme/_colors.scss
+          - button "添加" [ref=f2e28] [cursor=pointer]
+        - generic [ref=f2e29]: a/main.scss
+        - textbox "SCSS 源码" [ref=f2e30]: "@use \"tokens\"; .a{width:tokens.$n}"
+        - generic [ref=f2e31]:
+          - generic [ref=f2e32]: Ctrl + Enter 编译
+          - generic [ref=f2e33]:
+            - button "取消" [disabled] [ref=f2e34]
+            - button "编译项目 →" [ref=f2e35] [cursor=pointer]
+      - generic [ref=f2e36]:
+        - generic [ref=f2e37]:
+          - heading "生成的 CSS" [level=2] [ref=f2e38]
+          - button "下载 CSS" [ref=f2e39] [cursor=pointer]
+        - generic "CSS 输出" [ref=f2e40]: ".b { width: 2px; }"
+        - generic [ref=f2e41]:
+          - status [ref=f2e42]: 编译完成 · 2 个文件 · 2 ms
+          - generic [ref=f2e43]: 入口：b/main.scss · 缓存命中 本次失效入口：无 加载文件：b/_tokens.scss → b/main.scss 依赖边： b/main.scss → b/_tokens.scss
+    - group [ref=f2e44]:
+      - generic "兼容范围与运行限制" [ref=f2e45] [cursor=pointer]
+    - generic [ref=f2e46]:
+      - generic [ref=f2e47]: MoonBit 编译核心 · 文件不离开此页面
+      - navigation [ref=f2e48]:
+        - link "使用说明" [ref=f2e49] [cursor=pointer]:
+          - /url: ../README.md
+        - link "兼容范围" [ref=f2e50] [cursor=pointer]:
+          - /url: ../FEATURES.md
+        - link "公共 API" [ref=f2e51] [cursor=pointer]:
+          - /url: ../pkg.generated.mbti
