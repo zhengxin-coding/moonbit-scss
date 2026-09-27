@@ -1,32 +1,28 @@
-# SCSS：precss 的模块项目引擎扩展 · 修订申报草稿
-
+# SCSS：precss 的虚拟模块项目扩展
 本项目仓库：https://github.com/zhengxin-coding/moonbit-scss
-模块 / 本地版本：zhengxin-coding/scss / 0.8.0；自身 MIT，上游 Apache-2.0 保留。
-状态：针对同类重叠风险的本地修订；未推送、未发布、未提交表单。
+模块：zhengxin-coding/scss；本地0.8.0；自身MIT，上游Apache-2.0保留。
+状态：本地修订，未推送、发布或提交表单，审核结果未知。
 
-## 现有项目与任务
-precss 已有 MoonBit SCSS/SASS/LESS 编译器及编译门面，本库基础编译与其重叠，不宣称首个实现或生态空白。
-任务：让既有 precss 消费方在其 Compiler 路由中接入有 @use/@forward、配置和相对模块的虚拟 SCSS 项目。
+## 任务与已有工作
+precss已有MoonBit SCSS/SASS/LESS编译器和编译门面，基础编译与本库重叠；不宣称首个或生态空白。
+任务是让其调用方接入支持相对模块、@use/@forward和配置的虚拟SCSS项目，并重复编译多个入口。
+直接依赖conglinyizhi/precss@0.1.4，公开zhengxin-coding/scss/precss包的project_engine返回真实core.Engine，经过上游Compiler路由。
+SCSS项目由本库编译，CSS/LESS/SASS留给上游；路由及其他格式能力不计为本项目新增贡献。
 
-## 已实现的扩展关系
-moon.mod 直接依赖 conglinyizhi/precss@0.1.4，新增公开 zhengxin-coding/scss/precss 包。
-project_engine 返回真实 core.Engine，经过上游 Compiler 路由，SCSS 项目由本库编译；CSS/LESS/SASS 留给上游引擎。
-已有有限模块、选择器扩展、颜色/单位能力为本库贡献；上游路由和其他格式、Sass 规范与算法不计为本项目独创。
-引擎复制项目快照，限定入口/源码，将错误映射为上游 CompileError，通过回调传递诊断。
-示例实际配置 gap=8px，跨目录 @use/@forward 后生成 panel/title CSS，同时处理上游三种格式。
-按 README 构建后运行 node examples/run-precss-project.mjs；Node 只提供输入/输出，数值及编译在 MoonBit。
+## 核心增量
+0.8.0纯MoonBit ProjectCompiler按显式入口管理项目快照、依赖和加载元数据，原子应用编辑并使相关缓存失效。
+观察不存在的候选文件，因此新增shadow或歧义模块也会失效；相同源码在不同目录、with配置按入口隔离。
+缓存为有界完整入口结果，不声称增量AST或跨入口求值缓存。编译、路径和状态逻辑在MoonBit，Node只提供输入输出。
+旧project_engine仍绑定一个入口；precss回调缺入口路径，因此明确拒绝该适配器的compile_file/compile_many路径。
 
-0.8.0新增可重复消费的多入口ProjectCompiler：明确路径解决同源码不同目录问题，保留依赖图和加载元数据，原子应用修改并使受影响入口缓存失效。观察不存在的候选文件，新增shadow/歧义模块也会失效；with配置按入口隔离。纯MoonBit示例见PROJECT-GRAPH.md，不将上游格式路由计为新增贡献。
+## 复现与验证
+按README构建后运行node examples/run-precss-project.mjs，实际组合gap=8px、相对@use/@forward与上游三种格式。
+公开ProjectCompiler消费和编辑流程见PROJECT-GRAPH.md；接口核验快照、路径歧义、格式范围、错误类型及诊断。
+未经修改的precss0.1.4和Dart Sass1.104.0已实跑6个共享/增量/拒绝案例；原始结果和依赖指纹见PRECSS-INTEGRATION。
+另有28步编辑、19次编译逐次对照Dart Sass的CSS与loaded files，并核对缓存失效；不能把选定案例当完整兼容率。
+更多核心、选择器及双后端回执见TESTING.md，各轮测试范围分开列明。
 
-## 可核验依据
-以未修改 precss 0.1.4 和独立 Dart Sass 1.104.0 实跑六个共享、增量与拒绝案例，保留原始结果和源码指纹。
-接口测试验证快照、相对路径歧义、格式范围、错误类型、诊断；详细命令及范围见 TESTING.md。
-具体分工、接口和同输入差异见 PRECSS-INTEGRATION.md；不把六个选定案例称为完整兼容率或成熟度证明。
-
-28步编辑/19次编译逐次对照实际Dart Sass，核验CSS、loaded files与缓存失效；缓存为有界完整入口结果，不声称增量AST或跨入口求值缓存。
-
-## 边界与后续
-旧project_engine绑定一个入口，需显式 Scss 格式；新ProjectCompiler按显式入口复用项目；precss 回调缺入口路径，因此明确拒绝其 compile_file/compile_many 路径。
-本库仍是 Sass 子集，不宣称完全替代 Dart Sass；完整导入器/选择器/色彩语义均有边界。
-暂无真实使用方、生产迁移或上游接受证明；本次提供可复用扩展和材料纠正，不保证初审通过。
-团队需合并代码后同步公开版本、报名标题和附件；本任务只交付本地材料。
+## 边界和交付
+仍为Sass子集，完整导入器、复杂选择器、转义和色彩语义有限；没有完全替代Dart Sass、真实迁移或上游接受证明。
+交付可复用MoonBit核心、实际上游接入、示例和独立证据；暂无确认使用方，不用包装或测试数量替代扩展价值。
+团队同步公开版本、报名标题和附件后再申请评估；本地验证不代表远端CI或赛事通过。

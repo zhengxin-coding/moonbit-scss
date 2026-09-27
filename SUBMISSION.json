@@ -9,7 +9,7 @@
   "actualUsersClaimed": false,
   "defaultBranch": "origin/main",
   "localChangesPublished": false,
-  "proposalLines": 32,
+  "proposalLines": 28,
   "useCase": "重复编译多个虚拟入口，追踪依赖与缺失候选路径，按修改失效并原子提交新快照",
   "diff": "实际依赖precss；不申报另一套通用CSS/SCSS编译器，增量在可复用ProjectCompiler状态",
   "referenceDependency": "conglinyizhi/precss@0.1.4",
