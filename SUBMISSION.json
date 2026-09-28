@@ -9,7 +9,7 @@
   "actualUsersClaimed": false,
   "defaultBranch": "origin/main",
   "localChangesPublished": false,
-  "proposalLines": 23,
+  "proposalLines": 25,
   "useCase": "浏览器工作台通过一个长活 Worker 会话编辑多入口虚拟项目，增量更新、依赖失效、缺失候选拒绝与删除恢复",
   "diff": "依赖PreCSS，差异为MoonBit ProjectCompiler虚拟项目状态及其浏览器单项目宿主会话；不申报新SCSS引擎或一般watch能力",
   "referenceDependency": "conglinyizhi/precss@0.1.4",
@@ -25,7 +25,7 @@
   "remoteCIRunByThisTask": false,
   "currentValidation": "evidence/browser-session-20260927/LOCAL-CHECKS.json",
   "currentEvidence": "evidence/browser-session-20260927/LOCAL-CHECKS.json",
-  "metadataReviewedOn": "2026-09-27",
+  "metadataReviewedOn": "2026-09-28",
   "currentEvidenceScope": "LOCAL-CHECKS binds the exact source and browser-artifact fingerprints; associated BROWSER-SESSION.json records the Firefox UI sequence, Worker counts, cache-hit and failure/recovery states.",
   "reviewDecision": "保留为受限虚拟项目宿主扩展；采用方与赛事结果未知"
 }
