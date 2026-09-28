@@ -2,7 +2,7 @@
 
 **本项目仓库：[https://github.com/zhengxin-coding/moonbit-scss](https://github.com/zhengxin-coding/moonbit-scss)**
 
-模块 `zhengxin-coding/scss`，本地 **0.9.0**。自身代码 MIT；包含上游代码的发布内容同时保留 Apache-2.0，详见 [第三方说明](THIRD-PARTY-NOTICES.md)。本轮仅本地修订，未推送或发布。
+模块 `zhengxin-coding/scss`，本地 **0.9.0**。自身代码 MIT；包含上游代码的发布内容同时保留 Apache-2.0，详见 [第三方说明](THIRD-PARTY-NOTICES.md)。Mooncakes 已出现 0.9.0 版号；本次文档仍在本地，包内容须核对。
 
 ## 使用已有编译门面，扩展模块项目
 
@@ -62,4 +62,4 @@ moon package
 
 本地核验：JS/Wasm-GC 测试、虚拟项目/浏览器会话示例，以及 814 个输入和 539 个预期拒绝用例通过。 `moon package` 已完成离线打包预检，它不等于已发布到 Mooncakes。
 
-公开交付（2026-09-28 核对）：当日 [https://github.com/zhengxin-coding/moonbit-scss](https://github.com/zhengxin-coding/moonbit-scss) 可匿名读取 Git HEAD，Mooncakes 在线版本为 `0.4.0`；此处源码版本 `0.9.0` 仍需由申报人同步到公开仓库，检查新提交的 GitHub Actions，再由对应账号发布 Mooncakes 新版。相关远端 CI 与赛事结果仍需以实际记录核对。项目许可见 [LICENSE](LICENSE)；如使用第三方材料，其来源和许可见仓内相应说明。
+公开交付（2026-09-29 只读核对）：[https://github.com/zhengxin-coding/moonbit-scss](https://github.com/zhengxin-coding/moonbit-scss) 的公开 Git HEAD 是本地提交的祖先；Mooncakes 最新版号 `0.9.0` 与本地版号相同。版号不证明包内容与本次本地提交一致；当前 README、申报书、远端 CI 与报名表仍须对照公开提交核实。项目许可见 [LICENSE](LICENSE)；第三方来源和许可见仓内说明。
