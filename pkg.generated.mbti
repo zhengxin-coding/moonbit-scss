@@ -14,6 +14,7 @@ pub fn compile_files(String, Map[String, String]) -> Compilation raise ParseErro
 pub suberror ParseError {
   Invalid(String)
 } derive(@debug.Debug)
+pub fn ParseError::to_repr(Self) -> @debug.Repr
 
 // Types and methods
 pub(all) struct Compilation {

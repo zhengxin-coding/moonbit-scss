@@ -1,5 +1,4 @@
 import {
-  "zhengxin-coding/scss",
   "zhengxin-coding/scss/precss" @adapter,
   "conglinyizhi/precss/core",
   "conglinyizhi/precss/backend/scss" @builtin_scss,
