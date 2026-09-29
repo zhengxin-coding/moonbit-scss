@@ -1,25 +1,23 @@
-# SCSS：PreCSS 虚拟项目与浏览器会话扩展
-仓库：https://github.com/zhengxin-coding/moonbit-scss
-模块：zhengxin-coding/scss；本地 0.9.0；MIT，自身代码；第三方 Apache-2.0 见通知。
-状态：本地复核；Mooncakes 已出现 0.9.0 版号，本次文档未提交赛事表单；审核结果未知。
+# PreCSS 扩展：MoonBit 虚拟 SCSS 模块项目与编辑会话
 
-## 任务与增量
-PreCSS 已有 MoonBit SCSS/SASS/LESS 编译器；本项目不申报另一套通用 SCSS 编译器。
-0.8.0 的纯 MoonBit ProjectCompiler 管理多入口虚拟文件、依赖及缺失候选观察，并按编辑失效有界完整入口缓存。
-0.9.0 将该对象接入本地浏览器工作台的长活 Worker：编辑/新增/删除发送增量，入口切换复用会话。
-重置/导入会替换会话；失败清除旧 CSS；取消、超时或 Worker 错误销毁会话，下次从当前快照重建。
-该工作流只证明一个浏览器内存项目会话，不增加 Sass 语法，也不提供磁盘 watcher、写盘、并发服务或通用 Vite 集成。
+项目仓库：https://github.com/zhengxin-coding/moonbit-scss。模块 `zhengxin-coding/scss@0.9.0`；自有代码 MIT，上游 Apache-2.0 随附。申报范围为基于现有 PreCSS 的项目扩展。
 
-## 上游与复现
-固定依赖 conglinyizhi/precss@0.1.4；每次 SCSS 编译仍经其 core.Compiler 格式路由。
-旧单入口适配器限制只适用于 pinned 0.1.4；当前 PreCSS main 有带 importer 上下文的 resolved API，不据旧限制宣称上游缺失。
-运行 `moon build --target js`，刷新 `web/precss-engine.mjs` 后打开 `start-review.ps1` 打印的本地 `/web/` 页面。
-`evidence/browser-session-20260927` 记录实际浏览器 UI 的多入口缓存、局部失效、歧义失败、删除与恢复；旧 28 步独立 Dart Sass 对照仍在 `evidence/project-20260927`。
-输入为可复现的原创虚拟文件，不代表客户迁移；没有已确认采用方或上游背书。
+## 使用任务
 
-## 边界
-核心缓存整入口结果，不做 AST/模块增量求值；输入需由调用者提供，浏览器页面不读写用户工程目录。
-Dart Sass CLI 与 Vite 已覆盖常见文件系统多入口构建和 Sass/HMR；本扩展的有限差异是 MoonBit 虚拟项目状态可供定制 JS/Wasm 宿主复用。
-是否值得独立参赛仍取决于评审；不宣称创新语法、行业空白、完整兼容、生产用户或通过赛事。
+浏览器内的代码编辑器或 MoonBit 工具可能只有一组虚拟文件，而没有磁盘工程目录。多个样式入口共享 tokens、partial 和模块，编辑、删除或新增一个文件时，需要明确哪些入口失效、是否仍可显示旧 CSS，以及何时销毁失败会话。本项目把这些状态放在可复用的 MoonBit `ProjectCompiler` 中，提供可运行浏览器消费者。
 
-**验收复现与交付状态（2026-09-28 本地）**：以 moonc 0.10.14+7d59c7ec9 通过 `--deny-warn` 检查、JS/Wasm-GC 测试和构建、最小样例和离线 `moon package`；同一代码在 Ubuntu-D 26.04 WSL2 全新解包后通过格式、接口生成、严格双后端检查及 Node 24.21.0 最小宿主入口；截至 2026-09-29，公开 Git HEAD 为本地提交祖先；Mooncakes 最新版号 `0.9.0` 与本地版号相同；本次文档、包内容与远端 CI 尚需核对。命令与能力边界见 [README](README.md)，自动检查见 [CI](.github/workflows/ci.yml)；本地通过不代表赛事审核通过。
+## 与已有编译器的扩展关系
+
+[conglinyizhi/precss](https://github.com/conglinyizhi/precss) 已实现 SCSS/SASS/LESS 编译门面。本库实际依赖 0.1.4，通过其 `core.Compiler` 和 `core.Engine` 路由；扩展 SCSS 的限定 `@use/@forward`、模块配置、菱形依赖和部分 `@extend`，CSS/LESS/SASS 继续使用上游引擎。不是上游分支或已获认可的插件，也不把基础 SCSS 编译再次申报为独有成果。
+
+当前上游 main 已提供带 importer 上下文的 resolved API，因此“能传相对路径”不构成差异。这里保留的独立范围是虚拟文件项目、模块子域、候选路径观察、多入口有界缓存及会话生命周期。Dart Sass 和 Vite 已解决成熟文件系统构建/HMR，本项目不与这些能力作虚假优劣比较。
+
+## 已完成的任务闭环
+
+按照 README 构建并刷新浏览器引擎，运行 `start-review.ps1` 后打开本地 `/web/`。长活 Worker 复用同一编译会话；编辑/新增/删除发送文件增量，切换入口复用缓存。歧义或编译失败清除旧 CSS；取消、超时或 Worker 错误销毁会话，下一次按当前快照重建。核心公共 API 同时供 JS/Wasm-GC 使用。
+
+六个选定输入与未修改 PreCSS 0.1.4、Dart Sass 1.104.0 的真实对照见 [PRECSS-INTEGRATION](PRECSS-INTEGRATION.md)；28 步项目变更对照、浏览器实际操作回执分别保存于证据目录。它们证明已列模块及编辑路径，不能外推完整 Sass 兼容率。
+
+核心缓存完整入口结果，不做 AST 增量求值；页面处理内存项目，不读写用户磁盘，也不提供通用 watcher 或 Vite 插件。尚无确认的编辑器接入方。AI 生成的样式同样需要可重复编译及明确失败状态，但是否值得独立交付仍取决于实际宿主对该接口的需要。
+
+**公开状态（2026-09-29 核对）**：GitHub [公开仓库](https://github.com/zhengxin-coding/moonbit-scss)、[Mooncakes 0.9.0](https://mooncakes.io/docs/zhengxin-coding/scss@0.9.0) 已可访问；[CI 成功记录](https://github.com/zhengxin-coding/moonbit-scss/actions/runs/36436167541) 对应 `b6e4a8877bf3`。本次材料更新尚未推送；该远端 CI 对应所列公开提交。报名表一致性及赛事审核结果尚未核实。
