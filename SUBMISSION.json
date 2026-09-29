@@ -9,7 +9,7 @@
   "actualUsersClaimed": false,
   "defaultBranch": "origin/main",
   "localChangesPublished": false,
-  "proposalLines": 12,
+  "proposalLines": 23,
   "useCase": "浏览器工作台通过一个长活 Worker 会话编辑多入口虚拟项目，增量更新、依赖失效、缺失候选拒绝与删除恢复",
   "diff": "依赖PreCSS，差异为MoonBit ProjectCompiler虚拟项目状态及其浏览器单项目宿主会话；不申报新SCSS引擎或一般watch能力",
   "referenceDependency": "conglinyizhi/precss@0.1.4",
