@@ -1,0 +1,106 @@
+{
+  "recordedAtUtc": "2026-09-29T12:47:04Z",
+  "repo": "D:\\CodexLocal\\ban\\outputs\\repos\\moonbit-scss",
+  "startedFromHead": "3e3876fd7bc0354b86f33354b52d0b9a87880d4d",
+  "moduleVersion": "0.9.1",
+  "localRevision": "unpublished 0.9.1 consumer-evidence/package patch only; no language or public API capability added",
+  "moonHome": "D:\\CodexLocal\\ban\\work\\acceptance-20260928\\moon",
+  "compiler": "moonc 0.10.14+7d59c7ec9",
+  "proposalLines": 12,
+  "coreChecksVersionNote": "Core code checks below, except moon-package, were verified before the local metadata-only 0.9.1 bump; moon package was rerun after the bump.",
+  "checks": [
+    {
+      "name": "moon-version",
+      "command": "moon --version",
+      "exitCode": 0,
+      "output": "moon 0.1.20260920; moonc v0.10.14+7d59c7ec9; moonrun 0.1.20260920"
+    },
+    {
+      "name": "moon-check",
+      "command": "moon check --deny-warn",
+      "exitCode": 0,
+      "output": "Finished. moon: ran 9 tasks, now up to date"
+    },
+    {
+      "name": "moon-test-wasm-gc",
+      "command": "moon test --target wasm-gc --deny-warn",
+      "exitCode": 0,
+      "output": "Total tests: 909, passed: 909, failed: 0."
+    },
+    {
+      "name": "moon-test-js",
+      "command": "moon test --target js --deny-warn",
+      "exitCode": 0,
+      "output": "Total tests: 909, passed: 909, failed: 0."
+    },
+    {
+      "name": "moon-build-js",
+      "command": "moon build --target js --deny-warn",
+      "exitCode": 0,
+      "output": "Finished. moon: no work to do"
+    },
+    {
+      "name": "moon-fmt-check",
+      "command": "moon fmt --check",
+      "exitCode": 0,
+      "output": "Finished. moon: ran 39 tasks, now up to date"
+    },
+    {
+      "name": "moon-info",
+      "command": "moon info",
+      "exitCode": 0,
+      "output": "Finished. moon: ran 5 tasks, now up to date; no generated API diff"
+    },
+    {
+      "name": "primer-consumer",
+      "command": "node tools/test-primer-consumer.mjs",
+      "exitCode": 0,
+      "output": "13 steps; 10 compile requests; Dart Sass 1.104.0; exact-source hash, normalized CSS and loaded files matched; cache invalidation, failure without CSS, and repair passed"
+    },
+    {
+      "name": "project-incremental",
+      "command": "node tools/test-project-incremental.mjs",
+      "exitCode": 0,
+      "output": "28 steps; 19 compile requests; live Dart Sass comparison passed"
+    },
+    {
+      "name": "moon-package",
+      "command": "moon package",
+      "exitCode": 0,
+      "output": "Check passed; Package to D:\\CodexLocal\\ban\\outputs\\repos\\moonbit-scss\\_build\\publish\\zhengxin-coding-scss-0.9.1.zip"
+    }
+  ],
+  "ciConsumerReplay": {
+    "workflow": ".github/workflows/ci.yml",
+    "command": "node tools/test-primer-consumer.mjs",
+    "position": "after npm ci and project incremental test",
+    "sameCommandPassedLocally": true,
+    "remoteRunAfterWiring": false
+  },
+  "sourceHashes": {
+    ".github/workflows/ci.yml": "d92e8baeb8fec05d2f0bf64007e3547551b6cd989b32183e95777a2aeb92f2e2",
+    "precss/adapter.mbt": "f4af5d742725ce5ac463d6973983437a6f4b965074de6d05c3c0a5cb674a1459",
+    "project.mbt": "9c4bd24128b8ad9bee31e92c473c7786ffa8533a36aa323f2ef5f2adeecf6b48",
+    "precss/pkg.generated.mbti": "9bcd57db9646357474994d72a44d90e710cbe95a5494f0a137cdb31c4123dfd8",
+    "web/precss-engine.mjs": "339e3d955ca5b27560dc7921d55dcbdb97fd0bfbc89f101e8350b3b6b11dc2b3",
+    "examples/primer-consumer/vendor/primer-css/src/avatars/circle-badge.scss": "020e9aa2d6f25525f3fc828ba227bfcf9c765048f1db6887366fe47a69a364dd",
+    "examples/primer-consumer/vendor/primer-css/LICENSE": "e2719fc6fd67f6d25fea6cc263509bc517460a554248a8b87426e06e51ea4984",
+    "examples/primer-consumer/consumers/catalog.scss": "e59e1a190f55f7b8aa304f897c3b25077a3624a8f07ef0a8b2327dd400ac01e0",
+    "examples/primer-consumer/consumers/showcase.scss": "ccd8c843230453161d2eb05cd90ab73fbbf7ab36dd476732be4a3b157063b25d",
+    "moon.mod": "83026daad7da97c54340c30bfbe27a257a64593d806169bce1f0722ca97a913d"
+  },
+  "localPackagePreflight": {
+    "archive": "_build/publish/zhengxin-coding-scss-0.9.1.zip",
+    "exitCode": 0,
+    "includedThirdPartyFiles": [
+      "examples/primer-consumer/consumers/catalog.scss",
+      "examples/primer-consumer/consumers/showcase.scss",
+      "examples/primer-consumer/README.md",
+      "examples/primer-consumer/UPSTREAM.md",
+      "examples/primer-consumer/vendor/primer-css/LICENSE",
+      "examples/primer-consumer/vendor/primer-css/src/avatars/circle-badge.scss",
+      "THIRD-PARTY-NOTICES.md"
+    ],
+    "published": false
+  }
+}

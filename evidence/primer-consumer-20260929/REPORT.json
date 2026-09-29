@@ -1,0 +1,241 @@
+{
+  "generatedAt": "2026-09-29T12:32:12.452Z",
+  "source": {
+    "repository": "https://github.com/primer/css",
+    "commit": "2d00353f6ea82d118ebb59ae817014ad934f4672",
+    "file": "src/avatars/circle-badge.scss",
+    "license": "MIT",
+    "fixturePath": "vendor/primer-css/src/avatars/circle-badge.scss",
+    "sha256": "020e9aa2d6f25525f3fc828ba227bfcf9c765048f1db6887366fe47a69a364dd",
+    "licenseSha256": "e2719fc6fd67f6d25fea6cc263509bc517460a554248a8b87426e06e51ea4984"
+  },
+  "consumerFiles": {
+    "consumers/catalog.scss": "e59e1a190f55f7b8aa304f897c3b25077a3624a8f07ef0a8b2327dd400ac01e0",
+    "consumers/showcase.scss": "ccd8c843230453161d2eb05cd90ab73fbbf7ab36dd476732be4a3b157063b25d"
+  },
+  "interface": "repository cmd/precss project_session_json -> ProjectCompiler",
+  "dartSass": "dart-sass\t1.104.0\t(Sass Compiler)\t[Dart]\ndart2js\t3.13.3\t(Dart Compiler)\t[Dart]",
+  "node": "v24.11.0",
+  "steps": 13,
+  "compilations": 10,
+  "records": [
+    {
+      "index": 0,
+      "op": "compile",
+      "entry": "consumers/catalog.scss",
+      "accepted": true,
+      "cacheHit": false,
+      "loadedFiles": [
+        "vendor/primer-css/src/avatars/circle-badge.scss",
+        "consumers/catalog.scss"
+      ],
+      "dependencies": [
+        {
+          "from": "consumers/catalog.scss",
+          "path": "vendor/primer-css/src/avatars/circle-badge.scss"
+        }
+      ],
+      "cssSha256": "9c92ddd1cfb70ab464116afa7e2f1ad11216447b0c41f3baa3f30a95d65a1e1a",
+      "dartSassCssSha256": "913dc9db302c5143f054fb8dda3cf6792cdd187dafb0717ddf24956cc7a9c9b1",
+      "normalizedCssMatched": true
+    },
+    {
+      "index": 1,
+      "op": "compile",
+      "entry": "consumers/showcase.scss",
+      "accepted": true,
+      "cacheHit": false,
+      "loadedFiles": [
+        "vendor/primer-css/src/avatars/circle-badge.scss",
+        "consumers/showcase.scss"
+      ],
+      "dependencies": [
+        {
+          "from": "consumers/showcase.scss",
+          "path": "vendor/primer-css/src/avatars/circle-badge.scss"
+        }
+      ],
+      "cssSha256": "c91bbfe96ecbeebe76e6ad9c254a13da5c07f91f5ba0b32ca2051004e1648422",
+      "dartSassCssSha256": "5b11f73c317b2aed1b90fa08638f96095a5dd8820b9bf93780a8c6cc6e96c689",
+      "normalizedCssMatched": true
+    },
+    {
+      "index": 2,
+      "op": "compile",
+      "entry": "consumers/catalog.scss",
+      "accepted": true,
+      "cacheHit": true,
+      "loadedFiles": [
+        "vendor/primer-css/src/avatars/circle-badge.scss",
+        "consumers/catalog.scss"
+      ],
+      "dependencies": [
+        {
+          "from": "consumers/catalog.scss",
+          "path": "vendor/primer-css/src/avatars/circle-badge.scss"
+        }
+      ],
+      "cssSha256": "9c92ddd1cfb70ab464116afa7e2f1ad11216447b0c41f3baa3f30a95d65a1e1a",
+      "dartSassCssSha256": "913dc9db302c5143f054fb8dda3cf6792cdd187dafb0717ddf24956cc7a9c9b1",
+      "normalizedCssMatched": true
+    },
+    {
+      "index": 3,
+      "op": "apply",
+      "changedFiles": [
+        "vendor/primer-css/src/avatars/circle-badge.scss"
+      ],
+      "accepted": true,
+      "invalidated": [
+        "consumers/catalog.scss",
+        "consumers/showcase.scss"
+      ]
+    },
+    {
+      "index": 4,
+      "op": "compile",
+      "entry": "consumers/catalog.scss",
+      "accepted": true,
+      "cacheHit": false,
+      "loadedFiles": [
+        "vendor/primer-css/src/avatars/circle-badge.scss",
+        "consumers/catalog.scss"
+      ],
+      "dependencies": [
+        {
+          "from": "consumers/catalog.scss",
+          "path": "vendor/primer-css/src/avatars/circle-badge.scss"
+        }
+      ],
+      "cssSha256": "479f7012ee665fd7ca9e5f474e17d3d49ccc79632dd7ac087736c11bfce99ab0",
+      "dartSassCssSha256": "d00738a4a72828d993d2786678cb4143c1db6a3c60d28c4901ee1d0726dc52a5",
+      "normalizedCssMatched": true
+    },
+    {
+      "index": 5,
+      "op": "compile",
+      "entry": "consumers/showcase.scss",
+      "accepted": true,
+      "cacheHit": false,
+      "loadedFiles": [
+        "vendor/primer-css/src/avatars/circle-badge.scss",
+        "consumers/showcase.scss"
+      ],
+      "dependencies": [
+        {
+          "from": "consumers/showcase.scss",
+          "path": "vendor/primer-css/src/avatars/circle-badge.scss"
+        }
+      ],
+      "cssSha256": "df9b7505a1253f49ba118e21e694cf7cab69376126f3ce827d5bbcc26aabb175",
+      "dartSassCssSha256": "fc04361b7b78be8168e96d76e0ca7be3fee1670856b732ccbf1c890cdc094dce",
+      "normalizedCssMatched": true
+    },
+    {
+      "index": 6,
+      "op": "compile",
+      "entry": "consumers/catalog.scss",
+      "accepted": true,
+      "cacheHit": true,
+      "loadedFiles": [
+        "vendor/primer-css/src/avatars/circle-badge.scss",
+        "consumers/catalog.scss"
+      ],
+      "dependencies": [
+        {
+          "from": "consumers/catalog.scss",
+          "path": "vendor/primer-css/src/avatars/circle-badge.scss"
+        }
+      ],
+      "cssSha256": "479f7012ee665fd7ca9e5f474e17d3d49ccc79632dd7ac087736c11bfce99ab0",
+      "dartSassCssSha256": "d00738a4a72828d993d2786678cb4143c1db6a3c60d28c4901ee1d0726dc52a5",
+      "normalizedCssMatched": true
+    },
+    {
+      "index": 7,
+      "op": "apply",
+      "changedFiles": [
+        "vendor/primer-css/src/avatars/circle-badge.scss"
+      ],
+      "accepted": true,
+      "invalidated": [
+        "consumers/catalog.scss",
+        "consumers/showcase.scss"
+      ]
+    },
+    {
+      "index": 8,
+      "op": "compile",
+      "entry": "consumers/catalog.scss",
+      "accepted": false,
+      "moonbitError": "EngineFailed(\n  engine=\"moonbit-scss-project\",\n  message=\"Invalid(\\\"module not found missing-theme\\\")\",\n)",
+      "dartSassError": "Can't find stylesheet to import.\n  ╷\n1 │ @use \"missing-theme\";\n  │ ^^^^^^^^^^^^^^^^^^^^\n  ╵\n  <temp-project>\\vendor\\primer-css\\src\\avatars\\circle-badge.scss 1:1  @use\n  <temp-project>\\consumers\\catalog.scss 1:1                           root stylesheet"
+    },
+    {
+      "index": 9,
+      "op": "compile",
+      "entry": "consumers/showcase.scss",
+      "accepted": false,
+      "moonbitError": "EngineFailed(\n  engine=\"moonbit-scss-project\",\n  message=\"Invalid(\\\"module not found missing-theme\\\")\",\n)",
+      "dartSassError": "Can't find stylesheet to import.\n  ╷\n1 │ @use \"missing-theme\";\n  │ ^^^^^^^^^^^^^^^^^^^^\n  ╵\n  <temp-project>\\vendor\\primer-css\\src\\avatars\\circle-badge.scss 1:1  @use\n  <temp-project>\\consumers\\showcase.scss 1:1                          root stylesheet"
+    },
+    {
+      "index": 10,
+      "op": "apply",
+      "changedFiles": [
+        "vendor/primer-css/src/avatars/circle-badge.scss"
+      ],
+      "accepted": true,
+      "invalidated": []
+    },
+    {
+      "index": 11,
+      "op": "compile",
+      "entry": "consumers/catalog.scss",
+      "accepted": true,
+      "cacheHit": false,
+      "loadedFiles": [
+        "vendor/primer-css/src/avatars/circle-badge.scss",
+        "consumers/catalog.scss"
+      ],
+      "dependencies": [
+        {
+          "from": "consumers/catalog.scss",
+          "path": "vendor/primer-css/src/avatars/circle-badge.scss"
+        }
+      ],
+      "cssSha256": "479f7012ee665fd7ca9e5f474e17d3d49ccc79632dd7ac087736c11bfce99ab0",
+      "dartSassCssSha256": "d00738a4a72828d993d2786678cb4143c1db6a3c60d28c4901ee1d0726dc52a5",
+      "normalizedCssMatched": true
+    },
+    {
+      "index": 12,
+      "op": "compile",
+      "entry": "consumers/showcase.scss",
+      "accepted": true,
+      "cacheHit": false,
+      "loadedFiles": [
+        "vendor/primer-css/src/avatars/circle-badge.scss",
+        "consumers/showcase.scss"
+      ],
+      "dependencies": [
+        {
+          "from": "consumers/showcase.scss",
+          "path": "vendor/primer-css/src/avatars/circle-badge.scss"
+        }
+      ],
+      "cssSha256": "df9b7505a1253f49ba118e21e694cf7cab69376126f3ce827d5bbcc26aabb175",
+      "dartSassCssSha256": "fc04361b7b78be8168e96d76e0ca7be3fee1670856b732ccbf1c890cdc094dce",
+      "normalizedCssMatched": true
+    }
+  ],
+  "engineSha256": "339e3d955ca5b27560dc7921d55dcbdb97fd0bfbc89f101e8350b3b6b11dc2b3",
+  "limits": [
+    "one standalone Primer CSS CircleBadge source file only",
+    "two local entrypoints are a harness, not a reported Primer CSS consumer",
+    "the fixture excludes Primer tokens, mixins, index, and other components",
+    "CSS equality is checked after Dart Sass CSS normalization",
+    "this does not establish full Primer CSS or full Sass compatibility",
+    "cache stores completed entry output; this does not test AST-level incremental evaluation"
+  ]
+}

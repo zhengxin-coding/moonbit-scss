@@ -1,0 +1,6 @@
+@use "../vendor/primer-css/src/avatars/circle-badge";
+
+.catalog-preview {
+  display: flex;
+  gap: var(--base-size-16);
+}

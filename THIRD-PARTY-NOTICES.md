@@ -4,6 +4,8 @@
 
 precss 采用 Apache-2.0，完整文本见 [licenses/precss-Apache-2.0.txt](licenses/precss-Apache-2.0.txt)。本项目的 web/precss-engine.mjs 包含上游 core、backend/scss、backend/less、backend/css 的编译代码，需与该许可证及本说明一并交付。未发现下载包中的独立 NOTICE 文件。
 
+仓库内另含一份真实输入样例：Primer CSS commit 2d00353f6ea82d118ebb59ae817014ad934f4672 的 src/avatars/circle-badge.scss，许可为 MIT。仅复制该组件及其 LICENSE；它是本地消费验证样例，不是运行时依赖。逐文件范围、SHA-256 和固定来源链接见 [examples/primer-consumer/UPSTREAM.md](examples/primer-consumer/UPSTREAM.md)。
+
 Compiler 路由、内置 SASS/LESS/CSS 来自上游；虚拟项目 SCSS 引擎和适配器为本库代码。Dart Sass 1.104.0 是固定开发验证依赖，不是编译运行时；其参考输出由实际官方调用产生，本库没有复制官方实现或测试集。
 
 precss 模块声明的其他传递依赖由 Mooncakes 解析下载，本扩展实际导入的 core/backend 包仅依赖 MoonBit core 及彼此；不因此声称复用了上游整个 CLI、SSR 或网络系统。接口和源码哈希见 evidence/precss-integration-20260923/COMPARISON.json。

@@ -2,7 +2,7 @@
 
 **本项目仓库：[https://github.com/zhengxin-coding/moonbit-scss](https://github.com/zhengxin-coding/moonbit-scss)**
 
-模块 `zhengxin-coding/scss`，本地 **0.9.0**。自身代码 MIT；包含上游代码的发布内容同时保留 Apache-2.0，详见 [第三方说明](THIRD-PARTY-NOTICES.md)。Mooncakes 已出现 0.9.0 版号；本次文档仍在本地，已下载的发布包核心源码已核对，本次材料修订尚未同步。
+模块 `zhengxin-coding/scss`，本地材料版本 **0.9.1（未发布）**。这是固定许可的真实 SCSS 消费样例与离线包证据补丁，不新增语言能力或公共 API；公开版仍为 0.9.0。自身代码 MIT；包含上游代码的发布内容同时保留 Apache-2.0，详见 [第三方说明](THIRD-PARTY-NOTICES.md)。公开版核心源码已与本地核对；本轮改动仍仅在本地，尚未发布。
 
 ## 使用已有编译门面，扩展模块项目
 
@@ -24,9 +24,11 @@ node -e "const f=require('node:fs');f.copyFileSync('_build/js/debug/build/cmd/we
 node examples/run-precss-project.mjs
 npm ci --ignore-scripts
 node tools/compare-precss.mjs
+node tools/test-primer-consumer.mjs
 ```
 
 示例由真正的 precss Compiler 处理：绑定 styles/main.scss，跨目录 @use、@forward 后配置 gap=8px，输出 panel 的 8px padding 和 title 的 4px margin；另外三段 CSS/LESS/SASS 仍由上游处理。输入是原创合成项目，不冒充真实用户迁移。
+另有冻结的 Primer CSS CircleBadge SCSS 组件消费样例：两条本地入口共享该源文件，并通过 ProjectCompiler 完成重复编译、编辑失效、错误清除旧 CSS 和修复恢复；它是真实开源输入，不是客户接入证明。
 
 ## 接入契约
 
@@ -39,8 +41,9 @@ node tools/compare-precss.mjs
 ## 证据与剩余边界
 
 [同输入对照](PRECSS-INTEGRATION.md)使用真实 precss 0.1.4 和 Dart Sass 1.104.0，包含共享基础语法、三个增量场景及两个拒绝场景。六个选定案例不构成整个 Sass 的兼容率。新适配器另外检查快照、目录歧义、错误类型、诊断和显式格式路由。
+真实组件验证固定 Primer CSS 提交 2d00353f6ea82d118ebb59ae817014ad934f4672 中的 CircleBadge 文件及 MIT 许可；原文件 SHA-256、选入边界、13 步编辑记录和 Dart Sass 1.104.0 对照见 [组件来源](examples/primer-consumer/UPSTREAM.md)、[消费说明](examples/primer-consumer/README.md) 与 [报告](evidence/primer-consumer-20260929/REPORT.json)。同一回放命令已加入 [CI](.github/workflows/ci.yml)，位于 `npm ci` 和项目增量回归之后；本地命令已通过，不据此声称新增步骤已有远端 CI 结果。
 
-本库仍是 Sass 子集，模块配置、选择器扩展、颜色、导入器等边界沿用 [完整用法与模块范围](README-BEFORE-VALUE-REWORK.md)、[选择器说明](SELECTORS.md)、[颜色说明](COLORS.md)。浏览器闭环输入是原创合成项目；暂无独立使用方、生产接入或上游接受证明。
+本库仍是 Sass 子集，模块配置、选择器扩展、颜色、导入器等边界沿用 [完整用法与模块范围](README-BEFORE-VALUE-REWORK.md)、[选择器说明](SELECTORS.md)、[颜色说明](COLORS.md)。浏览器闭环输入仍是原创合成项目；Primer 验证只覆盖一个独立组件和两个本地入口，不覆盖整个框架。暂无独立采用方、生产接入或上游接受证明。
 
 [修订申报书](PROPOSAL.md)、[同类反馈回应](REVIEW-RESPONSE.md)、[使用任务](USE-CASE.md)、[验证命令](TESTING.md)。历史完整用法在 README-BEFORE-VALUE-REWORK.md；不以旧记录冒充本轮重跑。复申认定由组委会作出。
 

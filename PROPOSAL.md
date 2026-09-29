@@ -1,6 +1,6 @@
 # PreCSS 扩展：MoonBit 虚拟 SCSS 模块项目与编辑会话
 
-项目仓库：https://github.com/zhengxin-coding/moonbit-scss。模块 `zhengxin-coding/scss@0.9.0`；自有代码 MIT，上游 Apache-2.0 随附。申报范围为基于现有 PreCSS 的项目扩展。
+项目仓库：https://github.com/zhengxin-coding/moonbit-scss。本地材料针对 `zhengxin-coding/scss@0.9.1`（未发布）；公开版仍为 0.9.0。本地补丁只补充许可明确的组件消费样例/离线包证据，不新增语言能力或公共 API；自有代码 MIT，上游 Apache-2.0 随附。申报范围为基于现有 PreCSS 的项目扩展。
 
 ## 使用任务
 
@@ -16,7 +16,7 @@
 
 按照 README 构建并刷新浏览器引擎，运行 `start-review.ps1` 后打开本地 `/web/`。长活 Worker 复用同一编译会话；编辑/新增/删除发送文件增量，切换入口复用缓存。歧义或编译失败清除旧 CSS；取消、超时或 Worker 错误销毁会话，下一次按当前快照重建。核心公共 API 同时供 JS/Wasm-GC 使用。
 
-六个选定输入与未修改 PreCSS 0.1.4、Dart Sass 1.104.0 的真实对照见 [PRECSS-INTEGRATION](PRECSS-INTEGRATION.md)；28 步项目变更对照、浏览器实际操作回执分别保存于证据目录。它们证明已列模块及编辑路径，不能外推完整 Sass 兼容率。
+六个选定输入与未修改 PreCSS 0.1.4、Dart Sass 1.104.0 的对照见 [PRECSS-INTEGRATION](PRECSS-INTEGRATION.md)；28 步项目变更对照和浏览器回执保存在证据目录。另固定 MIT 许可的 Primer CSS CircleBadge 源文件（commit 2d00353f6ea82d118ebb59ae817014ad934f4672，SHA-256 见 [UPSTREAM](examples/primer-consumer/UPSTREAM.md)），经两个入口验证编辑失效、错误恢复及 Dart Sass 对照，见 [报告](evidence/primer-consumer-20260929/REPORT.json)。这是单组件检验，不是客户接入或完整框架兼容证明。
 
 核心缓存完整入口结果，不做 AST 增量求值；页面处理内存项目，不读写用户磁盘，也不提供通用 watcher 或 Vite 插件。尚无确认的编辑器接入方。AI 生成的样式同样需要可重复编译及明确失败状态，但是否值得独立交付仍取决于实际宿主对该接口的需要。
 

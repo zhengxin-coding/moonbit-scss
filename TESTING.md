@@ -1,4 +1,4 @@
-# 0.7.0 当前验证与复现
+# 当前验证与复现
 
 按 README 构建刷新 web/engine.mjs 和 web/precss-engine.mjs，并安装固定开发依赖 npm ci --ignore-scripts，然后运行：
 
@@ -9,6 +9,7 @@ moon test --target wasm-gc
 node examples/run-precss-project.mjs
 node tools/compare-precss.mjs
 node tools/test-project-host.mjs
+node tools/test-primer-consumer.mjs
 ```
 
 新适配器五组 MoonBit 测试覆盖上游 Compiler 路由、相对模块、快照不受外部更改影响、错误来源绑定、相同文本不同目录的文件接口拒绝、错误类型与诊断。新增6个差异案例同时调用真实 precss 0.1.4、扩展和 Dart Sass 1.104.0；CSS 经独立 CSS 压缩器比较，拒绝只比较是否拒绝。
@@ -30,3 +31,7 @@ evidence/project-20260927保存本轮源码/引擎哈希、原始日志和报告
 构建后运行 `start-review.ps1 -Port 8799`，在真实浏览器打开其 `/web/` 页面，按 `evidence/browser-session-20260927/ACTIONS.md` 导入夹具并操作当前 UI。该证据记录页面显示 0.9.0、同一 Worker 内跨消息命中、UI 文件编辑造成局部失效、候选路径歧义失败/删除恢复、依赖删除失败/恢复，以及失败时 CSS 预览被清除。逐步屏幕记录、结果和精确源码 `sourceFingerprints` 在该目录。
 
 这里不重复旧 28 步 API/Dart Sass 对照，也不声称浏览器对完整 Sass 兼容或证明实际用户采用；它只验证 UI 事件连接到持久 Worker 会话。取消和超时后的全量重建按代码路径实现；本轮未以真实故意超时验证该分支。
+
+## 2026-09-29 本地真实组件对照
+
+`node tools/test-primer-consumer.mjs` 从 `examples/primer-consumer/` 读取固定的 MIT Primer CSS CircleBadge 源文件，先核对上游哈希，再通过仓库 ProjectCompiler 宿主接口使用两个本地入口。13 步中包含重复编译、编辑引发的依赖失效、缺失模块报错且不返回旧 CSS、修复后恢复；每次成功 CSS 和加载文件集合均与 Dart Sass 1.104.0 对照。来源范围见 [UPSTREAM.md](examples/primer-consumer/UPSTREAM.md)，运行数据见 [REPORT.json](evidence/primer-consumer-20260929/REPORT.json)；本地入口不是客户或整个框架证据。CI 在安装固定 npm 依赖并完成项目增量回归后，运行同一个 `node tools/test-primer-consumer.mjs` 命令；本地有通过记录，但本轮未运行接线后的远端 CI。
